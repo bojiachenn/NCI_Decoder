@@ -15,7 +15,7 @@ def CORE_RESET_CMD(raw):
 	reset_type = raw[p_payload:(p_payload + 2*1)]
 	print("- Reset Type: "+NFC_table.tbl_rst_msg.get(reset_type,"RFU")+" ("+reset_type+")")
 	p_payload = p_payload + 2*1
-	print("")
+	print("#end")
 
 # 40 00
 def CORE_RESET_RSP(raw):
@@ -29,7 +29,7 @@ def CORE_RESET_RSP(raw):
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status, "RFU (0xE0-0xFF: For proprietary use.)")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("")
+	print("#end")
 
 # 60 00
 def CORE_RESET_NTF(raw):
@@ -76,7 +76,7 @@ def CORE_RESET_NTF(raw):
 		for i in range (n):
 			print("  -- octet"+str(i)+": "+bin(int(raw[p_payload:(p_payload+2*1)],16))[2::].zfill(8)+" ("+raw[p_payload:(p_payload+2*1)]+")") # 之後再看看要不要做其他處理
 			p_payload = p_payload + 2*1
-	print("")
+	print("#end")
 
 # 20 01
 def CORE_INIT_CMD(raw):
@@ -89,7 +89,7 @@ def CORE_INIT_CMD(raw):
 	print("- Feature Enable: "+feature+" --refer to Table 9")
 	print("  -- octet0: "+bin(int(feature[0:2],16))[2::].zfill(8)+" ("+feature[0:2]+")")
 	print("  -- octet1: "+bin(int(feature[2:4],16))[2::].zfill(8)+" ("+feature[2:4]+")")
-	print("")
+	print("#end")
 
 # 40 01
 def CORE_INIT_RSP(raw): # 暫時先這樣
@@ -163,7 +163,7 @@ def CORE_INIT_RSP(raw): # 暫時先這樣
 	print("- Supported RF Interface: "+rf_if+"\n")
 	list_payload = 0
 	for i in range(n):
-		print("  -- [RF_IF "+str(i)+"] --  ")
+		print("  -- [RF_IF_"+str(i)+"] --  ")
 		if_val = rf_if[list_payload:(list_payload+2*1)]
 		if((int(if_val,16) >= 128) & (int(if_val,16) <= 254)):
 			if_val = '80-FE'
@@ -177,7 +177,7 @@ def CORE_INIT_RSP(raw): # 暫時先這樣
 			list_payload = list_payload + 2*1
 		print("")
 	p_payload = p_payload + list_payload
-	print("")
+	print("#end")
 
 # 20 02
 def CORE_SET_CONFIG_CMD(raw):
@@ -199,7 +199,7 @@ def CORE_SET_CONFIG_CMD(raw):
 	
 	# print("- Parameter:")
 	for i in range(n):
-		print("  -- [Parameter "+str(i)+"] --  ")
+		print("  -- [Parameter_"+str(i)+"] --  ")
 		id = raw[p_payload:(p_payload+2*1)]
 		if((int(id ,16) >= 160) & (int(id, 16) <= 254)):
 			id = 'A0-FE'
@@ -216,7 +216,7 @@ def CORE_SET_CONFIG_CMD(raw):
 			print("  -- Val: "+id_val)
 			p_payload = p_payload + 2*m
 		print("")
-	print("")
+	print("#end")
 
 # 40 02
 def CORE_SET_CONFIG_RSP(raw):
@@ -247,7 +247,7 @@ def CORE_SET_CONFIG_RSP(raw):
 			print("  -- ID "+str(i)+":", end=" ")
 			print(NFC_table.tbl_cfg_para.get(para_id,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
 			p_payload = p_payload + 2*1
-	print("")
+	print("#end")
 
 # 20 03
 def CORE_GET_CONFIG_CMD(raw):
@@ -272,7 +272,7 @@ def CORE_GET_CONFIG_CMD(raw):
 		print("  -- ID "+str(i)+":", end=" ")
 		print(NFC_table.tbl_cfg_para.get(para_id,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
 		p_payload = p_payload + 2*1
-	print("")
+	print("#end")
 
 # 40 03
 def CORE_GET_CONFIG_RSP(raw):
@@ -299,7 +299,7 @@ def CORE_GET_CONFIG_RSP(raw):
 	
 	# print("- Parameter:")
 	for i in range(n):
-		print("  -- [Parameter "+str(i)+"] --  ")
+		print("  -- [Parameter_"+str(i)+"] --  ")
 		id = raw[p_payload:(p_payload+2*1)]
 		if((int(id ,16) >= 160) & (int(id, 16) <= 254)):
 			id = 'A0-FE'
@@ -316,7 +316,7 @@ def CORE_GET_CONFIG_RSP(raw):
 			print("  -- Val: "+id_val)
 			p_payload = p_payload + 2*m
 		print("")
-	print("")
+	print("#end")
 
 # 20 04
 def CORE_CONN_CREATE_CMD(raw):
@@ -343,7 +343,7 @@ def CORE_CONN_CREATE_CMD(raw):
 	
 	# print("- Destination-specific Parameter:")
 	for i in range(n):
-		print("  -- [Dest-spec Parameter "+str(i)+"] --  ")
+		print("  -- [Dest-spec Parameter_"+str(i)+"] --  ")
 		ds_type = raw[p_payload:(p_payload+2*1)]	
 		print("  -- Type: "+NFC_table.tbl_d_spec_type.get(ds_type,"RFU")+" ("+ds_type+")")
 		p_payload = p_payload + 2*1
@@ -390,7 +390,7 @@ def CORE_CONN_CREATE_CMD(raw):
 			print("0xA0-0xFF: For proprietary use")
 		p_payload = p_payload + 2*m
 		print("")
-	print("")
+	print("#end")
 
 # 40 04
 def CORE_CONN_CREATE_RSP(raw):
@@ -422,7 +422,7 @@ def CORE_CONN_CREATE_RSP(raw):
 	conn_id = raw[p_payload:(p_payload+2*1)]
 	print("- Conn ID: "+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC")+" ("+conn_id+")")
 	p_payload = p_payload + 2*1
-	print("")
+	print("#end")
 
 # 20 05
 def CORE_CONN_CLOSE_CMD(raw):
@@ -436,7 +436,7 @@ def CORE_CONN_CLOSE_CMD(raw):
 	conn_id = raw[p_payload:(p_payload+2*1)]
 	print("- Conn ID: "+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC")+" ("+conn_id+")")
 	p_payload = p_payload + 2*1
-	print("")
+	print("#end")
 
 # 40 05
 def CORE_CONN_CLOSE_RSP(raw):
@@ -450,7 +450,7 @@ def CORE_CONN_CLOSE_RSP(raw):
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("")
+	print("#end")
 
 # 60 06
 def CORE_CONN_CREDITS_NTF(raw):
@@ -471,7 +471,7 @@ def CORE_CONN_CREDITS_NTF(raw):
 	
 	# print("- Entry:")
 	for i in range(n):
-		print("  -- [Entry "+str(i)+"] --  ")
+		print("  -- [Entry_"+str(i)+"] --  ")
 		conn_id = raw[p_payload:(p_payload+2*1)]	
 		print("  -- Conn ID: "+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC")+" ("+conn_id+")")
 		p_payload = p_payload + 2*1
@@ -480,7 +480,7 @@ def CORE_CONN_CREDITS_NTF(raw):
 		print("  -- Credits: "+credits)
 		p_payload = p_payload + 2*1
 		print("")
-	print("")
+	print("#end")
 
 # 60 07
 def CORE_GENERIC_ERROR_NTF(raw):
@@ -494,7 +494,7 @@ def CORE_GENERIC_ERROR_NTF(raw):
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("")
+	print("#end")
 
 # 60 08
 def CORE_INTERFACE_ERROR_NTF(raw):
@@ -513,7 +513,7 @@ def CORE_INTERFACE_ERROR_NTF(raw):
 	conn_id=raw[p_payload:(p_payload+2*1)]	
 	print("- Conn ID: "+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC")+" ("+conn_id+")")
 	p_payload = p_payload + 2*1
-	print("")
+	print("#end")
 
 # 20 09
 def CORE_SET_POWER_SUB_STATE_CMD(raw):
@@ -535,7 +535,7 @@ def CORE_SET_POWER_SUB_STATE_CMD(raw):
 		print("- Power State: "+"Switched On Sub-State 3"+" ("+pwr_state+")")
 	else:
 		print("- Power State: "+"RFU"+" ("+pwr_state+")")
-	print("")
+	print("#end")
 
 # 40 09
 def CORE_SET_POWER_SUB_STATE_RSP(raw):
@@ -549,4 +549,4 @@ def CORE_SET_POWER_SUB_STATE_RSP(raw):
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status, "RFU (0xE0-0xFF: For proprietary use.)")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("")
+	print("#end")

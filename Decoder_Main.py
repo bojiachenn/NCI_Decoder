@@ -83,15 +83,15 @@ tbl_nci_cmd = {
 # def Proprietary(raw):
 # 	print("Proprietary")
 
-direct = {"CMD": "DH ---> NFCC", "RSP": "DH <--- NFCC", "NTF": "DH <--- NFCC"}
+# direct = {"CMD": "DH ---> NFCC", "RSP": "DH <--- NFCC", "NTF": "DH <--- NFCC"}
 
-def DATA_PACKET_PROCESS(raw):
-	print("data:", raw)
+# def DATA_PACKET_PROCESS(raw):
+# 	print("- data:", raw)
 
 def NFC_NCI_DECODER(string):
 	raw = string.replace(" ","")
 	raw = string.upper()
-	print("")
+	# print("")
 	first_oct_hex = raw[0:2]
 	first_oct_b = bin(int(first_oct_hex,16))[2::].zfill(8)
 	mt_val = tbl_mt_val.get(first_oct_b[0:3],"RFU")
@@ -108,38 +108,40 @@ def NFC_NCI_DECODER(string):
 	# 	print("")
 
 	if(mt_val == "DATA"):
-		print("- NCI: DATA Packet")
+		# print('{0:^25}'.format(direct.get(mt_val,"DH -><- NFCC")))
+		print('{0:^25}'.format("NCI: DATA Packet"))
 		conn_id = first_oct_b[4::]
 		cr = bin(int(raw[2:4],16))[2::].zfill(8)[6::]
-		print("Connection ID: " + conn_id, end=' ')
+		print("- Connection ID: " + conn_id, end=' ')
 		if(conn_id == "0000"): 
 			print("(Static RF Connection between the DH and a Remote NFC Endpoint)")
 		elif(conn_id == "0001"): 
 			print("(Static HCI Connection between the DH and the HCI Network)")
 		else: 
 			print("(Dynamically assigned by the NFCC)")
-		print("Credits:", cr)
-		print("Payload Length:", int(payload_len,16), "("+payload_len+")")
-		DATA_PACKET_PROCESS(payload_raw)
-		print("")
+		print("- Credits:", cr)
+		print("- Payload Length:", int(payload_len,16), "("+payload_len+")")
+		print("- data:", payload_raw)
+		print("#end")
 
 	else:   # Control Packet
-		print('{0:^25}'.format(direct.get(mt_val,"DH -><- NFCC")))
+		# print('{0:^25}'.format(direct.get(mt_val,"DH -><- NFCC")))
 		gid_val = tbl_gid_val.get(first_oct_b[4::]) # GID
 		oid = bin(int(raw[2:4],16))[2::].zfill(8)[2::]
 		print(mt_val, "->", gid_val, "->", oid, "("+raw[0:4]+")")
-		if (gid_val == "NFCC Management"):
-			print("- NCI CMD: Proprietary")
-			print("")
-		elif (gid_val == "NFCC Management"):
-			print("- NCI CMD: Proprietary")
-			print("")
-		else:
-			try:
-				tbl_nci_cmd[gid_val][oid][mt_val](payload_raw) # 呼叫對應func，輸入rawdata
-			except KeyError as e:
-				print("\033[31mError:\033[0m May be \033[33mRFU\033[0m or \033[33mProprietary\033[0m, please check the documentation.\n")
-				# print(e)
+		# if (gid_val == "NFCC Management"):
+		# 	print('{0:^25}'.format("NCI CMD: Proprietary"))
+		# 	print("")
+		# elif (gid_val == "NFCC Management"):
+		# 	print('{0:^25}'.format("NCI CMD: Proprietary"))
+		# 	print("")
+		# else:
+		try:
+			tbl_nci_cmd[gid_val][oid][mt_val](payload_raw) # 呼叫對應func，輸入rawdata
+		except KeyError as e:
+			print("\033[31mError:\033[0m May be \033[33mRFU\033[0m or \033[33mProprietary\033[0m, please check the documentation.\n")
+			print("#end")
+			# print(e)
 
 # def main():
 # 	raw = input("Input the NCI raw data: ")
