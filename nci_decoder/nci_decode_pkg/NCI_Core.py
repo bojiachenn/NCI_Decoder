@@ -92,7 +92,7 @@ def CORE_INIT_CMD(raw):
 	print("#end")
 
 # 40 01
-def CORE_INIT_RSP(raw): # 暫時先這樣
+def CORE_INIT_RSP(raw):
 	"""""""""""""""
 		[CORE_INIT_RSP]
 	Status:														1 Octet
@@ -118,10 +118,49 @@ def CORE_INIT_RSP(raw): # 暫時先這樣
 
 	nfcc_feature = raw[p_payload:(p_payload+2*4)]
 	print("- NFCC Features: "+nfcc_feature+" --refer to table 10")
-	print("  -- octet0: "+bin(int(nfcc_feature[0:2],16))[2::].zfill(8)+" ("+nfcc_feature[0:2]+")")
-	print("  -- octet1: "+bin(int(nfcc_feature[2:4],16))[2::].zfill(8)+" ("+nfcc_feature[2:4]+")")
-	print("  -- octet2: "+bin(int(nfcc_feature[4:6],16))[2::].zfill(8)+" ("+nfcc_feature[4:6]+")")
-	print("  -- octet3: "+bin(int(nfcc_feature[6:8],16))[2::].zfill(8)+" ("+nfcc_feature[6:8]+")")
+	oct_0 = bin(int(nfcc_feature[0:2],16))[2::].zfill(8)
+	print("  -- octet0: "+oct_0+" ("+nfcc_feature[0:2]+")")
+	print('{0:<40}'.format("    * "+"Active Communication Mode: "), end="")
+	if(oct_0[3:4] == "1"):
+		print("Support")
+	else:
+		print("Not support")
+	print('{0:<40}'.format("    * "+"HCI Network Support: "), end="")
+	if(oct_0[4:5] == "1"):
+		print("As defined in [ETSI_102622]")
+	else:
+		print("Not implement")
+	print('{0:<40}'.format("    * "+"Discovery Cfg Mode: "), end="")
+	if(oct_0[5:7] == "00"):
+		print("The DH is the only entity that configures the NFCC.")
+	elif(oct_0[5:7] == "01"):
+		print("The NFCC can receive configurations from the DH and other NFCEEs.")
+	else:
+		print("RFU")
+	print('{0:<40}'.format("    * "+"Discovery Frequency Cfg: "), end="")
+	if(oct_0[7:] == "1"):
+		print("Supported.")
+	else:
+		print("Ignored, the value of 0x01 SHALL be used by the NFCC.")
+	oct_1 = bin(int(nfcc_feature[2:4],16))[2::].zfill(8)
+	print("  -- octet1: "+oct_1+" ("+nfcc_feature[2:4]+")")
+	for i in range(6,0,-1):
+		print('{0:<40}'.format("    * "+NFC_table.tbl_nfcc_feat_oct1.get(i,"RFU")+": "), end="")
+		if(oct_1[7-i:8-i] == "1"):
+			print("Support")
+		else:
+			print("Not support")
+	oct_2 = bin(int(nfcc_feature[4:6],16))[2::].zfill(8)
+	print("  -- octet2: "+oct_2+" ("+nfcc_feature[4:6]+")")
+	for i in range(3,-1,-1):
+		print('{0:<40}'.format("    * "+NFC_table.tbl_nfcc_feat_oct2.get(i,"RFU")+": "), end="")
+		if(oct_2[7-i:8-i] == "1"):
+			print("Support")
+		else:
+			print("Not support")
+	oct_3 = bin(int(nfcc_feature[6:8],16))[2::].zfill(8)
+	print("  -- octet3: "+oct_3+" ("+nfcc_feature[6:8]+")")
+	print('{0:<40}'.format("    * "+"Octet 3 is reserved for proprietary capabilities"))
 	p_payload = p_payload + 2*4
 	
 	max_logical_conn = raw[p_payload:(p_payload+2*1)]

@@ -151,19 +151,39 @@ tbl_cfg_status={
     '01':   'NCI RF Configuration has been reset',
 }
 
+# Table 10: NFCC Features (Octet 1)
+tbl_nfcc_feat_oct1={
+    'name': 'Table 10: NFCC Features:',
+    6:  'Forced NFCEE Routing',
+    5:  'APDU Pattern based routing',
+    4:  'System Code based routing',
+    3:  'AID based routing',
+    2:  'Protocol based routing',
+    1:  'Technology based routing',
+}
+
+# Table 10: NFCC Features (Octet 2)
+tbl_nfcc_feat_oct2={
+    'name': 'Table 10: NFCC Features:',
+    3:  'RF Cfg in Switched Off State',
+    2:  'Switched On Sub-Mode States',
+    1:  'Switched Off State',
+    0:  'Battery Off State',
+}
+
 # Table 13: Destination Types
 tbl_dest_type={
-    'name': 'Table 13: Destination Types',
+    'name': 'Table 13: Destination Types:',
     '01':   'NFCC Loopback',
     '02':   'Remote NFC Endpoint',
     '03':   'NFCEE',
 }
 
 # Table 16: Destination-specific Parameters
-tbl_d_spec_type={ # 沒用到
-'name':'Table 16: Destination-specific Parameters:',
-'00':'RF Discovery ID + RF Protocol',
-'01':'NFCEE ID + NFCEE Interface Protocol',
+tbl_d_spec_type={
+    'name': 'Table 16: Destination-specific Parameters:',
+    '00':   'RF Discovery ID + RF Protocol',
+    '01':   'NFCEE ID + NFCEE Interface Protocol',
 }
 
 # Table 138: Configuration Parameter Tags
@@ -294,13 +314,13 @@ tbl_more={
 }
 
 # Table 52: Qualifier-Type Field values (直接實作在code中)
-"""
+"""""""""""""""
 0   -   -   -   -   -   -   - : RFU
 -   x   -   -   -   -   -   - : Routing is blocked for the power modes where it is not supported.
 -   -   x   -   -   -   -   - : Match is allowed when the SELECT AID is shorter than the AID in this routing table entry.
 -   -   -   x   -   -   -   - : Match is allowed when the SELECT AID is longer than the AID in this routing table entry.
 -   -   -   -   x   x   x   x : Ref to Table 53.
-"""
+"""""""""""""""
 # in # RF_SET_LISTEN_MODE_ROUTING_CMD
 
 # Table 53: Listen Mode Routing Entry Types

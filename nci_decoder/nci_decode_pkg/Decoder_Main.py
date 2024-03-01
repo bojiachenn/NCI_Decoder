@@ -4,20 +4,20 @@ from nci_decode_pkg import NFCEE_Management
 
 # Message Type
 tbl_mt_val = {
-"000":"DATA",
-"001":"CMD",
-"010":"RSP",
-"011":"NTF",
+	"000":	"DATA",
+	"001":	"CMD",
+	"010":	"RSP",
+	"011":	"NTF",
 }
 
 #table 139
 tbl_gid_val = {
-"0000":"NCI Core",
-"0001":"RF Management",
-"0010":"NFCEE Management",
-"0011":"NFCC Management",
-"0100":"Test Management",
-"1111":"Proprietary",
+	"0000":	"NCI Core",
+	"0001":	"RF Management",
+	"0010":	"NFCEE Management",
+	"0011":	"NFCC Management",
+	"0100":	"Test Management",
+	"1111":	"Proprietary",
 }
 
 tbl_nci_cmd = {
@@ -48,11 +48,8 @@ tbl_nci_cmd = {
 		"001010":  {																				                                "NTF": RF_Management.RF_NFCEE_DISCOVERY_REQ_NTF},
 		"001011":  {"CMD": RF_Management.RF_PARAMETER_UPDATE_CMD, 		    "RSP": RF_Management.RF_PARAMETER_UPDATE_RSP},
 		"001100":  {"CMD": RF_Management.RF_INTF_EXT_START_CMD, 			"RSP": RF_Management.RF_INTF_EXT_START_RSP},
-		# 舊 12: {"CMD": RF_Management.RF_LLCP_SYMMETRY_START_CMD, 	"RSP": RF_Management.RF_LLCP_SYMMETRY_START_RSP},
 		"001101":  {"CMD": RF_Management.RF_INTF_EXT_STOP_CMD, 				"RSP": RF_Management.RF_INTF_EXT_STOP_RSP},
-		# 舊 13: {"CMD": RF_Management.RF_LLCP_SYMMETRY_STOP_CMD, 	"RSP": RF_Management.RF_LLCP_SYMMETRY_STOP_RSP},
 		"001110":  {"CMD": RF_Management.RF_EXT_AGG_ABORT_CMD, 				"RSP": RF_Management.RF_EXT_AGG_ABORT_RSP},
-		# 舊 14: {"CMD": RF_Management.RF_AGGREGATE_ABORT_CMD, 		"RSP": RF_Management.RF_AGGREGATE_ABORT_RSP},
 		"001111":  {"CMD": RF_Management.RF_NDEF_ABORT_CMD, 				"RSP": RF_Management.RF_NDEF_ABORT_RSP},
 		"010000":  {"CMD": RF_Management.RF_ISO_DEP_NAK_PRESENCE_CMD, 		"RSP": RF_Management.RF_ISO_DEP_NAK_PRESENCE_RSP, 		"NTF": RF_Management.RF_ISO_DEP_NAK_PRESENCE_NTF},
 		"010001":  {"CMD": RF_Management.RF_SET_FORCED_NFCEE_ROUTING_CMD,	"RSP": RF_Management.RF_SET_FORCED_NFCEE_ROUTING_RSP},
