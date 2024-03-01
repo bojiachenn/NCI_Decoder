@@ -85,8 +85,8 @@ tbl_nci_cmd = {
 # 	print("- data:", raw)
 
 def NFC_NCI_DECODER(string):
-	raw = string.replace(" ","")
-	raw = string.upper()
+	raw = string.replace(" ", "")
+	raw = raw.upper()
 	# print("")
 	first_oct_hex = raw[0:2]
 	first_oct_b = bin(int(first_oct_hex,16))[2::].zfill(8)
