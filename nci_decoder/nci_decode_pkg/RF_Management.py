@@ -13,7 +13,7 @@ def RF_DISCOVER_MAP_CMD(raw):
 	﹂	Mode: 							﹂	1 Octet
 	﹂	RF Interface: 					﹂	1 Octet
 	"""""""""""""""
-	print("RF_DISCOVER_MAP_CMD")
+	# print("RF_DISCOVER_MAP_CMD")
 	p_payload = 0
 	
 	num_of_cfg = raw[p_payload:(p_payload+2*1)]
@@ -46,13 +46,13 @@ def RF_DISCOVER_MAP_RSP(raw):
 		[RF_DISCOVER_MAP_RSP]
     Status: 1 Octet
 	"""""""""""""""
-	print("RF_DISCOVER_MAP_RSP")
+	# print("RF_DISCOVER_MAP_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 def LISTEN_MODE_ROUTING_INFO(raw):
 	"""共用"""
@@ -175,7 +175,7 @@ def LISTEN_MODE_ROUTING_INFO(raw):
 
 # 21 01
 def RF_SET_LISTEN_MODE_ROUTING_CMD(raw):
-	print("RF_SET_LISTEN_MODE_ROUTING_CMD")
+	# print("RF_SET_LISTEN_MODE_ROUTING_CMD")
 	LISTEN_MODE_ROUTING_INFO(raw)
 	print("#end")
 
@@ -185,13 +185,13 @@ def RF_SET_LISTEN_MODE_ROUTING_RSP(raw):
 		[RF_SET_LISTEN_MODE_ROUTING_RSP]
     Status: 1 Octet
 	"""""""""""""""
-	print("RF_SET_LISTEN_MODE_ROUTING_RSP")
+	# print("RF_SET_LISTEN_MODE_ROUTING_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 21 02
 def RF_GET_LISTEN_MODE_ROUTING_CMD(raw):
@@ -199,9 +199,9 @@ def RF_GET_LISTEN_MODE_ROUTING_CMD(raw):
 		[RF_GET_LISTEN_MODE_ROUTING_CMD]
     (Empty)
 	"""""""""""""""
-	print("RF_GET_LISTEN_MODE_ROUTING_CMD")
-	print("(Empty)")
-	print("#end")
+	# print("RF_GET_LISTEN_MODE_ROUTING_CMD")
+	print('{0:^25}'.format("(Empty)"))
+	print("\n#end")
 
 # 41 02
 def RF_GET_LISTEN_MODE_ROUTING_RSP(raw):
@@ -209,17 +209,17 @@ def RF_GET_LISTEN_MODE_ROUTING_RSP(raw):
 		[RF_SET_LISTEN_MODE_ROUTING_RSP]
     Status: 1 Octet
 	"""""""""""""""
-	print("RF_GET_LISTEN_MODE_ROUTING_RSP")
+	# print("RF_GET_LISTEN_MODE_ROUTING_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 61 02
 def RF_GET_LISTEN_MODE_ROUTING_NTF(raw):
-	print("RF_GET_LISTEN_MODE_ROUTING_NTF")
+	# print("RF_GET_LISTEN_MODE_ROUTING_NTF")
 	LISTEN_MODE_ROUTING_INFO(raw)
 	print("#end")
 
@@ -232,7 +232,7 @@ def RF_DISCOVER_CMD(raw):
 	﹂	RF Technology and Mode:		﹂	1 Octet
 	﹂	Discovery Frequency: 		﹂	1 Octet
 	"""""""""""""""
-	print("RF_DISCOVER_CMD")
+	# print("RF_DISCOVER_CMD")
 	p_payload = 0
 
 	num_cfg = raw[p_payload:(p_payload+2*1)]
@@ -273,13 +273,13 @@ def RF_DISCOVER_RSP(raw):
 		[RF_DISCOVER_RSP]
     Status: 1 Octet
 	"""""""""""""""
-	print("RF_DISCOVER_RSP")
+	# print("RF_DISCOVER_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 def RF_TECH_SPEC_PARA(rf_tech_mode, para_raw):
 	"""部分共用"""
@@ -467,7 +467,7 @@ def RF_DISCOVER_NTF(raw):
     RF Technology Specific Parameters: 				0-n Octet(s)
     Notification Type: 								1 Octet
 	"""""""""""""""
-	print("RF_DISCOVER_NTF")
+	# print("RF_DISCOVER_NTF")
 	p_payload = 0
 	
 	rf_dis_id = raw[p_payload:(p_payload+2*1)]	
@@ -507,7 +507,7 @@ def RF_DISCOVER_NTF(raw):
 	else:
 		print("- Notification Type: RFU ("+notificaiton_type+")")	
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 21 04
 def RF_DISCOVER_SELECT_CMD(raw):
@@ -517,7 +517,7 @@ def RF_DISCOVER_SELECT_CMD(raw):
     RF Protocol: 		1 Octet
     RF Interface:		1 Octet
 	"""""""""""""""
-	print("RF_DISCOVER_SELECT_CMD")
+	# print("RF_DISCOVER_SELECT_CMD")
 	p_payload = 0
 	
 	rf_dis_id = raw[p_payload:(p_payload+2*1)]	
@@ -535,7 +535,7 @@ def RF_DISCOVER_SELECT_CMD(raw):
 		rf_if = '80-FE'
 	print("- RF Interface: "+NFC_table.tbl_rf_if.get(rf_if,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
 	p_payload = p_payload + 2*1
-	print("#end")	
+	print("\n#end")	
 
 # 41 04
 def RF_DISCOVER_SELECT_RSP(raw):
@@ -543,13 +543,13 @@ def RF_DISCOVER_SELECT_RSP(raw):
 		[RF_DISCOVER_SELECT_RSP]
     Status:		1 Octet
 	"""""""""""""""
-	print("RF_DISCOVER_SELECT_RSP")
+	# print("RF_DISCOVER_SELECT_RSP")
 	p_payload = 0
 	
 	status=raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 		
 # 61 05
 def RF_INTF_ACTIVATED_NTF(raw):
@@ -569,7 +569,7 @@ def RF_INTF_ACTIVATED_NTF(raw):
 	Length of Activation Parameters:				1 Octet
 	Activation Parameters:							0-n Octet(s)
 	"""""""""""""""
-	print("RF_INTF_ACTIVATED_NTF")
+	# print("RF_INTF_ACTIVATED_NTF")
 	p_payload = 0
 	
 	rf_dis_id = raw[p_payload:(p_payload+2*1)]	
@@ -720,7 +720,7 @@ def RF_INTF_ACTIVATED_NTF(raw):
 			activate_para=raw[p_payload:(p_payload+2*n)]	
 			print("- Activation Parameters: "+activate_para)
 			p_payload = p_payload + 2*n
-	print("#end")	
+	print("\n#end")	
 
 # 21 06
 def RF_DEACTIVATE_CMD(raw):
@@ -728,13 +728,13 @@ def RF_DEACTIVATE_CMD(raw):
 		[RF_DEACTIVATE_CMD]
     Deactivation Type:		1 Octet
 	"""""""""""""""
-	print("RF_DEACTIVATE_CMD")
+	# print("RF_DEACTIVATE_CMD")
 	p_payload = 0
 	
 	deactivate_type = raw[p_payload:(p_payload+2*1)]	
 	print("- Deactivation Type: "+NFC_table.tbl_deactivate_type.get(deactivate_type,"RFU")+" ("+deactivate_type+")")
 	p_payload = p_payload + 2*1
-	print("#end")	
+	print("\n#end")	
 	
 # 41 06
 def RF_DEACTIVATE_RSP(raw):
@@ -742,13 +742,13 @@ def RF_DEACTIVATE_RSP(raw):
 		[RF_DEACTIVATE_RSP]
     Status:		1 Octet
 	"""""""""""""""
-	print("RF_DEACTIVATE_RSP")
+	# print("RF_DEACTIVATE_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 61 06
 def RF_DEACTIVATE_NTF(raw):
@@ -757,7 +757,7 @@ def RF_DEACTIVATE_NTF(raw):
     Deactivation Type:		1 Octet
     Deactivation Reason:	1 Octet
 	"""""""""""""""
-	print("RF_DEACTIVATE_NTF")
+	# print("RF_DEACTIVATE_NTF")
 	p_payload = 0
 	
 	deactivate_type = raw[p_payload:(p_payload+2*1)]	
@@ -767,7 +767,7 @@ def RF_DEACTIVATE_NTF(raw):
 	deactivate_reason = raw[p_payload:(p_payload+2*1)]	
 	print("- Deactivation Reason: "+NFC_table.tbl_deactivate_reason.get(deactivate_reason,"RFU")+" ("+deactivate_reason+")")
 	p_payload = p_payload + 2*1
-	print("#end")	
+	print("\n#end")	
 	
 # 61 07
 def RF_FIELD_INFO_NTF(raw):
@@ -775,7 +775,7 @@ def RF_FIELD_INFO_NTF(raw):
 		[RF_FIELD_INFO_NTF]
     RF Field Status:		1 Octet
 	"""""""""""""""
-	print("RF_FIELD_INFO_NTF")
+	# print("RF_FIELD_INFO_NTF")
 	p_payload = 0
 	
 	rf_field_status = raw[p_payload:(p_payload+2*1)]
@@ -784,7 +784,7 @@ def RF_FIELD_INFO_NTF(raw):
 	else:
 		print("- RF Field Status: "+"No Operating field generated by Remote NFC Endpoint. ("+rf_field_status+")")
 	p_payload = p_payload + 2*1
-	print("#end")	
+	print("\n#end")	
 	
 # 21 08
 def RF_T3T_POLLING_CMD(raw):
@@ -792,13 +792,13 @@ def RF_T3T_POLLING_CMD(raw):
 		[RF_T3T_POLLING_CMD]
     SENSF_REQ_PARAMS:		4 Octets
 	"""""""""""""""
-	print("RF_T3T_POLLING_CMD")
+	# print("RF_T3T_POLLING_CMD")
 	p_payload = 0
 	
 	sensf_req = raw[p_payload:(p_payload+2*4)]	
 	print("- SENSF_REQ_PARAMS: "+sensf_req)
 	p_payload = p_payload + 2*4
-	print("#end")	
+	print("\n#end")	
 
 # 41 08
 def RF_T3T_POLLING_RSP(raw):
@@ -806,13 +806,13 @@ def RF_T3T_POLLING_RSP(raw):
 		[RF_T3T_POLLING_RSP]
     Status:		1 Octet
 	"""""""""""""""
-	print("RF_T3T_POLLING_RSP")
+	# print("RF_T3T_POLLING_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 61 08
 def RF_T3T_POLLING_NTF(raw):
@@ -824,7 +824,7 @@ def RF_T3T_POLLING_NTF(raw):
 	﹂	Length:				﹂	1 Octet (m)
 	﹂	SENSF_RES: 			﹂	m Octet(s)
 	"""""""""""""""
-	print("RF_T3T_POLLING_NTF")
+	# print("RF_T3T_POLLING_NTF")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
@@ -859,7 +859,7 @@ def RF_NFCEE_ACTION_NTF(raw):
 	Supporting Data Length:		1 Octet
 	Supporting Data:			n Octet(s)
 	"""""""""""""""
-	print("RF_NFCEE_ACTION_NTF")
+	# print("RF_NFCEE_ACTION_NTF")
 	p_payload = 0
 	
 	nfcee_id = raw[p_payload:(p_payload+2*1)]
@@ -901,7 +901,7 @@ def RF_NFCEE_ACTION_NTF(raw):
 		print("  -- Reference data: "+data_val[:(n/2)])
 		print("  -- Mask: "+data_val[(n/2):])
 	p_payload = p_payload + 2*n
-	print("#end")
+	print("\n#end")
 
 # 61 0A
 def RF_NFCEE_DISCOVERY_REQ_NTF(raw):
@@ -913,7 +913,7 @@ def RF_NFCEE_DISCOVERY_REQ_NTF(raw):
 	﹂	Length:							﹂	1 Octet (x)
 	﹂	Value: 							﹂	x Octet(s)
 	"""""""""""""""
-	print("RF_NFCEE_DISCOVERY_REQ_NTF")
+	# print("RF_NFCEE_DISCOVERY_REQ_NTF")
 	p_payload = 0
 	
 	num_info = raw[p_payload:(p_payload+2*1)]
@@ -970,7 +970,7 @@ def RF_PARAMETER_UPDATE_CMD(raw):
 	﹂	Length:								﹂	1 Octet (x)
 	﹂	Value: 								﹂	x Octet(s)
 	"""""""""""""""
-	print("RF_PARAMETER_UPDATE_CMD")
+	# print("RF_PARAMETER_UPDATE_CMD")
 	p_payload = 0
 	
 	num_para = raw[p_payload:(p_payload+2*1)]	
@@ -1034,7 +1034,7 @@ def RF_PARAMETER_UPDATE_RSP(raw):
 	Number of Parameters:					1 Octet (n)
 	RF Communication Parameters [1..n]:		1 Octets
 	"""""""""""""""
-	print("RF_PARAMETER_UPDATE_RSP")
+	# print("RF_PARAMETER_UPDATE_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
@@ -1053,7 +1053,7 @@ def RF_PARAMETER_UPDATE_RSP(raw):
 			id_val = '80-FF'
 		print("- Type ID "+str(i)+": "+NFC_table.tbl_rf_commu_para_id.get(id_val,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
 		p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 21 0C
 def RF_INTF_EXT_START_CMD(raw):
@@ -1063,7 +1063,7 @@ def RF_INTF_EXT_START_CMD(raw):
 	Start Parameter Length:		1 Octet (x)
 	Start Parameter: 			x Octet(s)
 	"""""""""""""""
-	print("RF_INTF_EXT_START_CMD")
+	# print("RF_INTF_EXT_START_CMD")
 	p_payload = 0
 
 	exten = raw[p_payload:(p_payload+2*1)]
@@ -1078,7 +1078,7 @@ def RF_INTF_EXT_START_CMD(raw):
 	start_para = raw[p_payload:(p_payload+2*x)]
 	print("- Start Parameter Length: "+start_para)
 	p_payload = p_payload + 2*x
-	print("#end")
+	print("\n#end")
 
 # 41 0C
 def RF_INTF_EXT_START_RSP(raw):
@@ -1086,13 +1086,13 @@ def RF_INTF_EXT_START_RSP(raw):
 		[RF_INTF_EXT_START_RSP]
     Status:		1 Octet
 	"""""""""""""""
-	print("RF_INTF_EXT_START_RSP")
+	# print("RF_INTF_EXT_START_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 21 0D
 def RF_INTF_EXT_STOP_CMD(raw):
@@ -1102,7 +1102,7 @@ def RF_INTF_EXT_STOP_CMD(raw):
     Stop Parameter Length::		1 Octet (x)
     Stop Parameter:				x Octet(s)
 	"""""""""""""""
-	print("RF_INTF_EXT_STOP_CMD")
+	# print("RF_INTF_EXT_STOP_CMD")
 	p_payload = 0
 
 	exten = raw[p_payload:(p_payload+2*1)]
@@ -1117,7 +1117,7 @@ def RF_INTF_EXT_STOP_CMD(raw):
 	start_para = raw[p_payload:(p_payload+2*x)]
 	print("- Stop Parameter: "+start_para)
 	p_payload = p_payload + 2*x
-	print("#end")
+	print("\n#end")
 
 # 41 0D
 def RF_INTF_EXT_STOP_RSP(raw):
@@ -1125,13 +1125,13 @@ def RF_INTF_EXT_STOP_RSP(raw):
 		[RF_INTF_EXT_STOP_RSP]
     Status:		1 Octet
 	"""""""""""""""
-	print("RF_INTF_EXT_STOP_RSP")
+	# print("RF_INTF_EXT_STOP_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 21 0E
 def RF_EXT_AGG_ABORT_CMD(raw):
@@ -1139,9 +1139,9 @@ def RF_EXT_AGG_ABORT_CMD(raw):
 		[RF_EXT_AGG_ABORT_CMD]
     (Empty)
 	"""""""""""""""
-	print("RF_EXT_AGG_ABORT_CMD")
-	print("(Empty)")
-	print("#end")
+	# print("RF_EXT_AGG_ABORT_CMD")
+	print('{0:^25}'.format("(Empty)"))
+	print("\n#end")
 
 # 41 0E
 def RF_EXT_AGG_ABORT_RSP(raw):
@@ -1149,13 +1149,13 @@ def RF_EXT_AGG_ABORT_RSP(raw):
 		[RF_EXT_AGG_ABORT_RSP]
     Status:		1 Octet
 	"""""""""""""""
-	print("RF_EXT_AGG_ABORT_RSP")
+	# print("RF_EXT_AGG_ABORT_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 21 0F
 def RF_NDEF_ABORT_CMD(raw):
@@ -1163,9 +1163,9 @@ def RF_NDEF_ABORT_CMD(raw):
 		[RF_NDEF_ABORT_CMD]
     (Empty)
 	"""""""""""""""
-	print("RF_NDEF_ABORT_CMD")
-	print("(Empty)")
-	print("#end")
+	# print("RF_NDEF_ABORT_CMD")
+	print('{0:^25}'.format("(Empty)"))
+	print("\n#end")
 	
 # 41 0F
 def RF_NDEF_ABORT_RSP(raw):
@@ -1173,13 +1173,13 @@ def RF_NDEF_ABORT_RSP(raw):
 		[RF_NDEF_ABORT_RSP]
     Status:		1 Octet
 	"""""""""""""""
-	print("RF_NDEF_ABORT_RSP")
+	# print("RF_NDEF_ABORT_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 21 10
 def RF_ISO_DEP_NAK_PRESENCE_CMD(raw):
@@ -1187,9 +1187,9 @@ def RF_ISO_DEP_NAK_PRESENCE_CMD(raw):
 		[RF_ISO_DEP_NAK_PRESENCE_CMD]
     (Empty)
 	"""""""""""""""
-	print("RF_ISO_DEP_NAK_PRESENCE_CMD")
-	print("(Empty)")
-	print("#end")
+	# print("RF_ISO_DEP_NAK_PRESENCE_CMD")
+	print('{0:^25}'.format("(Empty)"))
+	print("\n#end")
 
 # 41 10
 def RF_ISO_DEP_NAK_PRESENCE_RSP(raw):
@@ -1197,13 +1197,13 @@ def RF_ISO_DEP_NAK_PRESENCE_RSP(raw):
 		[RF_ISO_DEP_NAK_PRESENCE_RSP]
     Status:		1 Octet
 	"""""""""""""""
-	print("RF_ISO_DEP_NAK_PRESENCE_RSP")
+	# print("RF_ISO_DEP_NAK_PRESENCE_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 	
 # 61 10
 def RF_ISO_DEP_NAK_PRESENCE_NTF(raw):
@@ -1211,13 +1211,13 @@ def RF_ISO_DEP_NAK_PRESENCE_NTF(raw):
 		[RF_ISO_DEP_NAK_PRESENCE_NTF]
     Status:		1 Octet
 	"""""""""""""""
-	print("RF_ISO_DEP_NAK_PRESENCE_NTF")
+	# print("RF_ISO_DEP_NAK_PRESENCE_NTF")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 	
 # 21 11
 def RF_SET_FORCED_NFCEE_ROUTING_CMD(raw):
@@ -1228,7 +1228,7 @@ def RF_SET_FORCED_NFCEE_ROUTING_CMD(raw):
 	﹂	Forced NFCEE				﹂	1 Octet
 	﹂	Forced Power State			﹂	1 Octet
 	"""""""""""""""
-	print("RF_SET_FORCED_NFCEE_ROUTING_CMD")
+	# print("RF_SET_FORCED_NFCEE_ROUTING_CMD")
 	p_payload = 0
 
 	forced_nfcee_rout_state = raw[p_payload:(p_payload+2*1)]
@@ -1262,7 +1262,7 @@ def RF_SET_FORCED_NFCEE_ROUTING_CMD(raw):
 
 	else:
 		print("- Forced NFCEE Routing State: "+"Error"+" ("+forced_nfcee_rout_state+")")
-	print("#end")
+	print("\n#end")
 	
 # 41 11
 def RF_SET_FORCED_NFCEE_ROUTING_RSP(raw):
@@ -1270,10 +1270,10 @@ def RF_SET_FORCED_NFCEE_ROUTING_RSP(raw):
 		[RF_SET_FORCED_NFCEE_ROUTING_RSP]
     Status:		1 Octet
 	"""""""""""""""
-	print("RF_SET_FORCED_NFCEE_ROUTING_RSP")
+	# print("RF_SET_FORCED_NFCEE_ROUTING_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")

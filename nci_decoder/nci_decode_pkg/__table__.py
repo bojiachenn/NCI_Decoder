@@ -83,11 +83,11 @@ tbl_nfcee_proto={
 # Table 116: NFCEE IDs
 tbl_nfcee_id={
     'name': 'Table 116: NFCEE IDs:',
-    '00':   'DH NFCEE ID, a static ID representing the DH-NFCEE',
-    '01':   'HCI Network NFCEE ID, a static ID representing the HCI-NTWK-NFCEE (RFU)',
+    '00':   'DH-NFCEE',
+    '01':   'HCI-NTWK-NFCEE (RFU)',
     '02-0F':'Reserved for further static IDs',
-    '10-7F':'NFCEE IDs, for NFCEEs that are outside of the HCI Network. Dynamically assigned by the NFCC',
-    '80-FE':'HCI-NFCEE IDs, for HCI-NFCEEs that are inside of the HCI Network. Dynamically assigned by the NFCC',
+    '10-7F':'NFCEEs that are outside of the HCI Network. Dynamically assigned by the NFCC',
+    '80-FE':'HCI-NFCEEs that are inside of the HCI Network. Dynamically assigned by the NFCC',
     'FF':   'RFU',
 }
 
@@ -120,14 +120,14 @@ tbl_conn_id={
     'name': 'Table 4: Conn ID',
     '0000': 'Static RF Connection between the DH and a Remote NFC Endpoint',
     '0001': 'Static HCI Connection between the DH and the HCI Network',
-    'else': 'Dynamically assigned by the NFCC',
+    '0010-1111': 'Dynamically assigned by the NFCC',
 }
 
 # Table 5: Control Messages to Reset the NFCC
 tbl_rst_msg={
     'name': 'Table 5: Control Messages to Reset the NFCC:',
-    '00':   'Keep Configuration Reset the NFCC and keep the NCI RF Configuration (if supported).',
-    '01':   'Reset Configuration Reset the NFCC including the NCI RF Configuration.',
+    '00':   'Keep Configuration', # Reset the NFCC and keep the NCI RF Configuration (if supported).
+    '01':   'Reset Configuration', # Reset the NFCC including the NCI RF Configuration.
 }
 tbl_rst_trig={
     'name': 'Table 5: Control Messages to Reset the NFCC:',

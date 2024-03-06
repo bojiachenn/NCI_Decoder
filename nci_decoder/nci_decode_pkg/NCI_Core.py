@@ -9,13 +9,13 @@ def CORE_RESET_CMD(raw):
 		[CORE_RESET_CMD]
 	Reset Type: 1 Octet
 	"""""""""""""""
-	print("CORE_RESET_CMD")
+	# print("CORE_RESET_CMD")
 	p_payload = 0
 
 	reset_type = raw[p_payload:(p_payload + 2*1)]
 	print("- Reset Type: "+NFC_table.tbl_rst_msg.get(reset_type,"RFU")+" ("+reset_type+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 40 00
 def CORE_RESET_RSP(raw):
@@ -23,13 +23,13 @@ def CORE_RESET_RSP(raw):
 		[CORE_RESET_RSP]
     Status: 1 Octet
 	"""""""""""""""
-	print("CORE_RESET_RSP")
+	# print("CORE_RESET_RSP")
 	p_payload = 0
 
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status, "RFU (0xE0-0xFF: For proprietary use.)")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 60 00
 def CORE_RESET_NTF(raw):
@@ -42,7 +42,7 @@ def CORE_RESET_NTF(raw):
     Manufacturer Specific Information Length: 	1 Octet
     Manufacturer Specific Information: 			n Octets
 	"""""""""""""""
-	print("CORE_RESET_NTF")
+	# print("CORE_RESET_NTF")
 	p_payload = 0
 
 	rst_trig = raw[p_payload:(p_payload+2*1)]
@@ -76,7 +76,7 @@ def CORE_RESET_NTF(raw):
 		for i in range (n):
 			print("  -- octet"+str(i)+": "+bin(int(raw[p_payload:(p_payload+2*1)],16))[2::].zfill(8)+" ("+raw[p_payload:(p_payload+2*1)]+")") # 之後再看看要不要做其他處理
 			p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 20 01
 def CORE_INIT_CMD(raw):
@@ -84,12 +84,12 @@ def CORE_INIT_CMD(raw):
 		[CORE_INIT_CMD]
 	Feature Enable: 2 Octets
 	"""""""""""""""
-	print("CORE_INIT_CMD")
+	# print("CORE_INIT_CMD")
 	feature = raw[0:(2*2)]
 	print("- Feature Enable: "+feature+" --refer to Table 9")
 	print("  -- octet0: "+bin(int(feature[0:2],16))[2::].zfill(8)+" ("+feature[0:2]+")")
 	print("  -- octet1: "+bin(int(feature[2:4],16))[2::].zfill(8)+" ("+feature[2:4]+")")
-	print("#end")
+	print("\n#end")
 
 # 40 01
 def CORE_INIT_RSP(raw):
@@ -109,7 +109,7 @@ def CORE_INIT_RSP(raw):
 	﹂	Number of Extensions: 									﹂	1 Octet (x)
 	﹂	Extension List [0..x]:									﹂	x Octet(s)
 	"""""""""""""""
-	print("CORE_INIT_RSP")
+	# print("CORE_INIT_RSP")
 	p_payload = 0
 
 	status = raw[p_payload:(p_payload+2*1)]	
@@ -228,7 +228,7 @@ def CORE_SET_CONFIG_CMD(raw):
 	﹂	Len: 				﹂	1 Octet (m)
 	﹂	Val:				﹂	m Octet(s)
 	"""""""""""""""
-	print("CORE_SET_CONFIG_CMD")
+	# print("CORE_SET_CONFIG_CMD")
 	p_payload = 0
 
 	num_of_parameter = raw[p_payload:(p_payload+2*1)]
@@ -265,7 +265,7 @@ def CORE_SET_CONFIG_RSP(raw):
 	Number of Parameters: 	1 Octet (n)
 	Parameter ID [0..n]: 	1 Octet
 	"""""""""""""""
-	print("CORE_SET_CONFIG_RSP")
+	# print("CORE_SET_CONFIG_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
@@ -286,7 +286,7 @@ def CORE_SET_CONFIG_RSP(raw):
 			print("  -- ID "+str(i)+":", end=" ")
 			print(NFC_table.tbl_cfg_para.get(para_id,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
 			p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 20 03
 def CORE_GET_CONFIG_CMD(raw):
@@ -295,7 +295,7 @@ def CORE_GET_CONFIG_CMD(raw):
 	Number of Parameters: 	1 Octet (n)
 	Parameter ID [0..n]: 	1 Octet
 	"""""""""""""""
-	print("CORE_GET_CONFIG_CMD")
+	# print("CORE_GET_CONFIG_CMD")
 	p_payload = 0
 
 	num_of_parameter = raw[p_payload:(p_payload+2*1)]
@@ -311,7 +311,7 @@ def CORE_GET_CONFIG_CMD(raw):
 		print("  -- ID "+str(i)+":", end=" ")
 		print(NFC_table.tbl_cfg_para.get(para_id,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
 		p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 40 03
 def CORE_GET_CONFIG_RSP(raw):
@@ -324,7 +324,7 @@ def CORE_GET_CONFIG_RSP(raw):
 	﹂	Len: 				﹂	1 Octet (m)
 	﹂	Val:				﹂	m Octet(s)
 	"""""""""""""""
-	print("CORE_GET_CONFIG_RSP")
+	# print("CORE_GET_CONFIG_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
@@ -368,7 +368,7 @@ def CORE_CONN_CREATE_CMD(raw):
 	﹂	Len: 									﹂	1 Octet (m)
 	﹂	Val:									﹂	m Octet(s)
 	"""""""""""""""
-	print("CORE_CONN_CREATE_CMD")
+	# print("CORE_CONN_CREATE_CMD")
 	p_payload = 0
 
 	d_type = raw[p_payload:(p_payload+2*1)]	
@@ -440,7 +440,7 @@ def CORE_CONN_CREATE_RSP(raw):
 	Initial Number of Credits:		1 Octet
 	Conn ID:						1 Octet
 	"""""""""""""""
-	print("CORE_CONN_CREATE_RSP")
+	# print("CORE_CONN_CREATE_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
@@ -461,7 +461,7 @@ def CORE_CONN_CREATE_RSP(raw):
 	conn_id = raw[p_payload:(p_payload+2*1)]
 	print("- Conn ID: "+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC")+" ("+conn_id+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 20 05
 def CORE_CONN_CLOSE_CMD(raw):
@@ -469,13 +469,13 @@ def CORE_CONN_CLOSE_CMD(raw):
 		[CORE_CONN_CLOSE_CMD]
 	Conn ID:	1 Octet
 	"""""""""""""""
-	print("CORE_CONN_CLOSE_CMD")
+	# print("CORE_CONN_CLOSE_CMD")
 	p_payload = 0
 	
 	conn_id = raw[p_payload:(p_payload+2*1)]
 	print("- Conn ID: "+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC")+" ("+conn_id+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 40 05
 def CORE_CONN_CLOSE_RSP(raw):
@@ -483,13 +483,13 @@ def CORE_CONN_CLOSE_RSP(raw):
 		[CORE_CONN_CLOSE_RSP]
 	Status:		1 Octet
 	"""""""""""""""
-	print("CORE_CONN_CLOSE_RSP")
+	# print("CORE_CONN_CLOSE_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 60 06
 def CORE_CONN_CREDITS_NTF(raw):
@@ -500,7 +500,7 @@ def CORE_CONN_CREDITS_NTF(raw):
 	﹂	Conn ID:		﹂	1 Octet
 	﹂	Credits: 		﹂	1 Octet
 	"""""""""""""""
-	print("CORE_CONN_CREDITS_NTF")
+	# print("CORE_CONN_CREDITS_NTF")
 	p_payload = 0
 	
 	num_of_entries = raw[p_payload:(p_payload+2*1)]
@@ -527,13 +527,13 @@ def CORE_GENERIC_ERROR_NTF(raw):
 		[CORE_GENERIC_ERROR_NTF]
 	Status:		1 Octet
 	"""""""""""""""
-	print("CORE_GENERIC_ERROR_NTF")
+	# print("CORE_GENERIC_ERROR_NTF")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 60 08
 def CORE_INTERFACE_ERROR_NTF(raw):
@@ -542,7 +542,7 @@ def CORE_INTERFACE_ERROR_NTF(raw):
 	Status:		1 Octet
 	Conn ID:	1 Octet
 	"""""""""""""""
-	print("CORE_INTERFACE_ERROR_NTF")
+	# print("CORE_INTERFACE_ERROR_NTF")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
@@ -552,7 +552,7 @@ def CORE_INTERFACE_ERROR_NTF(raw):
 	conn_id=raw[p_payload:(p_payload+2*1)]	
 	print("- Conn ID: "+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC")+" ("+conn_id+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 20 09
 def CORE_SET_POWER_SUB_STATE_CMD(raw):
@@ -560,7 +560,7 @@ def CORE_SET_POWER_SUB_STATE_CMD(raw):
 		[CORE_SET_POWER_SUB_STATE_CMD]
 	Power State:	1 Octet
 	"""""""""""""""
-	print("CORE_SET_POWER_SUB_STATE_CMD")
+	# print("CORE_SET_POWER_SUB_STATE_CMD")
 	p_payload = 0
 
 	pwr_state = raw[p_payload:(p_payload+2*1)]
@@ -574,7 +574,7 @@ def CORE_SET_POWER_SUB_STATE_CMD(raw):
 		print("- Power State: "+"Switched On Sub-State 3"+" ("+pwr_state+")")
 	else:
 		print("- Power State: "+"RFU"+" ("+pwr_state+")")
-	print("#end")
+	print("\n#end")
 
 # 40 09
 def CORE_SET_POWER_SUB_STATE_RSP(raw):
@@ -582,10 +582,10 @@ def CORE_SET_POWER_SUB_STATE_RSP(raw):
 		[CORE_SET_POWER_SUB_STATE_RSP]
     Status: 1 Octet
 	"""""""""""""""
-	print("CORE_SET_POWER_SUB_STATE_RSP")
+	# print("CORE_SET_POWER_SUB_STATE_RSP")
 	p_payload = 0
 
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status, "RFU (0xE0-0xFF: For proprietary use.)")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")

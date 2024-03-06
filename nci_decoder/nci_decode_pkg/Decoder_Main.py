@@ -124,7 +124,7 @@ def NFC_NCI_DECODER(string):
 		# print('{0:^25}'.format(direct.get(mt_val,"DH -><- NFCC")))
 		gid_val = tbl_gid_val.get(first_oct_b[4::]) # GID
 		oid = bin(int(raw[2:4],16))[2::].zfill(8)[2::]
-		print(mt_val, "->", gid_val, "->", oid, "("+raw[0:4]+")")
+		# print(mt_val, "->", gid_val, "->", oid, "("+raw[0:4]+")")
 		# if (gid_val == "NFCC Management"):
 		# 	print('{0:^25}'.format("NCI CMD: Proprietary"))
 		# 	print("")
@@ -133,6 +133,9 @@ def NFC_NCI_DECODER(string):
 		# 	print("")
 		# else:
 		try:
+			function = f"{tbl_nci_cmd[gid_val][oid][mt_val]}"
+			function_name = function.split(" ")[1]
+			print('{0:^25}'.format(function_name))
 			tbl_nci_cmd[gid_val][oid][mt_val](payload_raw) # 呼叫對應func，輸入rawdata
 		except KeyError as e:
 			print("\033[31mError:\033[0m May be \033[33mRFU\033[0m or \033[33mProprietary\033[0m, please check the documentation.\n")

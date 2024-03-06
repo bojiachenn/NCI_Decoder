@@ -9,9 +9,9 @@ def NFCEE_DISCOVER_CMD(raw):
 		[NFCEE_DISCOVER_CMD]
     (Empty)
 	"""""""""""""""
-	print("NFCEE_DISCOVER_CMD")
-	print("(Empty)")
-	print("#end")
+	# print("NFCEE_DISCOVER_CMD")
+	print('{0:^25}'.format("(Empty)"))
+	print("\n#end")
 
 # 42 00
 def NFCEE_DISCOVER_RSP(raw):
@@ -20,7 +20,7 @@ def NFCEE_DISCOVER_RSP(raw):
     Status:				1 Octet
 	Number of NFCEEs:	1 Octet
 	"""""""""""""""
-	print("NFCEE_DISCOVER_RSP")
+	# print("NFCEE_DISCOVER_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
@@ -31,7 +31,7 @@ def NFCEE_DISCOVER_RSP(raw):
 	n = int(num_nfcee,16)
 	print("- Number of NFCEEs:", n, "("+num_nfcee+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 62 00
 def NFCEE_DISCOVER_NTF(raw):
@@ -48,7 +48,7 @@ def NFCEE_DISCOVER_NTF(raw):
 	﹂	Value: 									﹂	x Octet(s)
 	NFCEE Power Supply: 						1 Octet
 	"""""""""""""""
-	print("NFCEE_DISCOVER_NTF")
+	# print("NFCEE_DISCOVER_NTF")
 	p_payload = 0
 
 	nfcee_id =raw[p_payload:(p_payload+2*1)]	
@@ -57,11 +57,11 @@ def NFCEE_DISCOVER_NTF(raw):
 	
 	nfcee_status = raw[p_payload:(p_payload+2*1)]
 	if(nfcee_status == "00"):
-		print("- NFCEE Status: "+"NFCEE enabled"+" ("+nfcee_status+")")
+		print("- NFCEE Status: "+"Enabled"+" ("+nfcee_status+")")
 	elif(nfcee_status == "01"):
-		print("- NFCEE Status: "+"NFCEE disabled"+" ("+nfcee_status+")")
+		print("- NFCEE Status: "+"Disabled"+" ("+nfcee_status+")")
 	elif(nfcee_status == "02"):
-		print("- NFCEE Status: "+"NFCEE unresponsive"+" ("+nfcee_status+")")
+		print("- NFCEE Status: "+"Unresponsive"+" ("+nfcee_status+")")
 	else:
 		print("- NFCEE Status: "+"RFU"+" ("+nfcee_status+")")
 	p_payload = p_payload + 2*1
@@ -143,7 +143,7 @@ def NFCEE_DISCOVER_NTF(raw):
 		print("- NFCEE Power Supply: "+"The NFCC has control of the NFCEE Power Supply"+" ("+nfcee_pwr_sup+")")
 	else:
 		print("- NFCEE Power Supply: "+"RFU"+" ("+nfcee_pwr_sup+")")
-	print("#end")
+	print("\n#end")
 
 # 22 01
 def NFCEE_MODE_SET_CMD(raw):
@@ -152,7 +152,7 @@ def NFCEE_MODE_SET_CMD(raw):
     NFCEE ID:			1 Octet
 	NFCEE Mode:			1 Octet
 	"""""""""""""""
-	print("NFCEE_MODE_SET_CMD")
+	# print("NFCEE_MODE_SET_CMD")
 	p_payload = 0
 	
 	nfcee_id = raw[p_payload:(p_payload+2*1)]	
@@ -167,13 +167,13 @@ def NFCEE_MODE_SET_CMD(raw):
 	
 	nfcee_mode = raw[p_payload:(p_payload+2*1)]
 	if(nfcee_mode == "00"):
-		print("- NFCEE Mode: "+"Disable the NFCEE"+" ("+nfcee_mode+")")
+		print("- NFCEE Mode: "+"Disable"+" ("+nfcee_mode+")")
 	elif(nfcee_mode == "01"):
-		print("- NFCEE Mode: "+"Enable the NFCEE"+" ("+nfcee_mode+")")
+		print("- NFCEE Mode: "+"Enable"+" ("+nfcee_mode+")")
 	else:
 		print("- NFCEE Mode: "+"RFU"+" ("+nfcee_mode+")")
 	p_payload = p_payload + 2*1	
-	print("#end")
+	print("\n#end")
 
 # 42 01
 def NFCEE_MODE_SET_RSP(raw):
@@ -181,13 +181,13 @@ def NFCEE_MODE_SET_RSP(raw):
 		[NFCEE_MODE_SET_RSP]
     Status:		1 Octet
 	"""""""""""""""
-	print("NFCEE_MODE_SET_RSP")
+	# print("NFCEE_MODE_SET_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 		
 # 62 01
 def NFCEE_MODE_SET_NTF(raw):
@@ -195,13 +195,13 @@ def NFCEE_MODE_SET_NTF(raw):
 		[NFCEE_MODE_SET_NTF]
     Status:		1 Octet
 	"""""""""""""""
-	print("NFCEE_MODE_SET_NTF")
+	# print("NFCEE_MODE_SET_NTF")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")
 
 # 62 02
 def NFCEE_STATUS_NTF(raw):
@@ -210,7 +210,7 @@ def NFCEE_STATUS_NTF(raw):
     NFCEE ID:			1 Octet
 	NFCEE Status:		1 Octet
 	"""""""""""""""
-	print("NFCEE_STATUS_NTF")
+	# print("NFCEE_STATUS_NTF")
 	p_payload = 0
 	
 	nfcee_id = raw[p_payload:(p_payload+2*1)]	
@@ -235,7 +235,7 @@ def NFCEE_STATUS_NTF(raw):
 	else:
 		print("- NFCEE Status: "+"Proprietary"+" ("+nfcee_status+")")
 	p_payload = p_payload + 2*1	
-	print("#end")
+	print("\n#end")
 
 # 22 03
 def NFCEE_POWER_AND_LINK_CNTRL_CMD(raw):
@@ -244,7 +244,7 @@ def NFCEE_POWER_AND_LINK_CNTRL_CMD(raw):
     NFCEE ID:								1 Octet
 	NFCEE Power and Link Configuration:		1 Octet
 	"""""""""""""""
-	print("NFCEE_POWER_AND_LINK_CNTRL_CMD")
+	# print("NFCEE_POWER_AND_LINK_CNTRL_CMD")
 	p_payload = 0
 	
 	nfcee_id = raw[p_payload:(p_payload+2*1)]	
@@ -259,17 +259,17 @@ def NFCEE_POWER_AND_LINK_CNTRL_CMD(raw):
 	
 	nfcee_cfg = raw[p_payload:(p_payload+2*1)]
 	if(nfcee_cfg == "00"):
-		print("- NFCEE Power and Link Configuration: "+"NFCC decides (default state)."+" ("+nfcee_cfg+")")
+		print("- NFCEE Power and Link Cfg: "+"NFCC decides (default state)."+" ("+nfcee_cfg+")")
 	elif(nfcee_cfg == "01"):
-		print("- NFCEE Power and Link Configuration: "+"NFCEE Power Supply always On."+" ("+nfcee_cfg+")")
+		print("- NFCEE Power and Link Cfg: "+"NFCEE Power Supply always On."+" ("+nfcee_cfg+")")
 	elif(nfcee_cfg == "02"):
-		print("- NFCEE Power and Link Configuration: "+"NFCC to NFCEE Communication link always active when the NFCEE is powered on."+" ("+nfcee_cfg+")")
+		print("- NFCEE Power and Link Cfg: "+"NFCC to NFCEE Communication link always active when the NFCEE is powered on."+" ("+nfcee_cfg+")")
 	elif(nfcee_cfg == "03"):	
-		print("- NFCEE Power and Link Configuration: "+"NFCEE Power supply and NFCC to NFCEE communication link are always on."+" ("+nfcee_cfg+")")
+		print("- NFCEE Power and Link Cfg: "+"NFCEE Power supply and NFCC to NFCEE communication link are always on."+" ("+nfcee_cfg+")")
 	else:
-		print("- NFCEE Power and Link Configuration: "+"RFU"+" ("+nfcee_cfg+")")
+		print("- NFCEE Power and Link Cfg: "+"RFU"+" ("+nfcee_cfg+")")
 	p_payload = p_payload + 2*1	
-	print("#end")
+	print("\n#end")
 			
 # 22 03
 def NFCEE_POWER_AND_LINK_CNTRL_RSP(raw):
@@ -277,10 +277,10 @@ def NFCEE_POWER_AND_LINK_CNTRL_RSP(raw):
 		[NFCEE_POWER_AND_LINK_CNTRL_RSP]
     Status:		1 Octet
 	"""""""""""""""
-	print("NFCEE_POWER_AND_LINK_CNTRL_RSP")
+	# print("NFCEE_POWER_AND_LINK_CNTRL_RSP")
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("#end")
+	print("\n#end")

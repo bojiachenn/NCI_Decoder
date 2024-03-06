@@ -44,7 +44,7 @@ def print_menu():
 
 def mode_1():
     while True:
-        print_at(14, " " * 120)
+        print_at(14, " " * 110)
         print_at(14, "Enter \033[33mfile path\033[0m or \"\033[31m-1\033[0m\" back to Menu: ")
         file_name = input().strip()
         if(file_name == "-1"):
@@ -79,28 +79,29 @@ def mode_1():
             print("")
             count = 0
             for line in lines:
-                if ((search_string+"NciX" in line) | ((search_string+"NciR" in line) & (">" in line))): # for case NxpNciR : len =   4 > 40090100
+                if ((search_string+"NciX" in line)):
                     count = count + 1
                     print(line, end="")
                     print(" ↓")
                     print('{0:^25}'.format("DH ---> NFCC"))
-                    num_string = line.split(">")[1].strip()
+                    raw_string = line.split(">")[1].strip()
 
                 elif(search_string+"NciR" in line):
                     count = count + 1
                     print(line, end="")
                     print(" ↓")
                     print('{0:^25}'.format("DH <--- NFCC"))
-                    num_string = line.split("<")[1].strip()
-                    if("= " in num_string):
-                        num_string = num_string.split("=")[1].strip()
+                    if(">" in line): # for case NxpNciR : len =   4 > 40090100
+                        raw_string = line.split(">")[1].strip()
+                    else:
+                        raw_string = line.split("<=")[1].strip()
                 
                 else:
                     print(line.encode("utf8").decode("cp950", "ignore"), end="") # 
                     continue
 
                 try:
-                    Decoder_Main.NFC_NCI_DECODER(num_string)
+                    Decoder_Main.NFC_NCI_DECODER(raw_string)
                 except ValueError as e:
                     # sys.stdout.flush()
                     # sys.stdout = original_stdout
@@ -142,7 +143,7 @@ def main():
     while True:
         print_menu()
         print("")
-        print_at(12, " " * 120) # 清除第8行
+        print_at(12, " " * 110) # 清除第8行
         print_at(12, "Select Decoder Mode: ")
         select = input().strip()
         
