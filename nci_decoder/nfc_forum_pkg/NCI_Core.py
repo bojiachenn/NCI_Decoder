@@ -224,7 +224,7 @@ def CORE_SET_CONFIG_CMD(raw):
 		[CORE_SET_CONFIG_CMD]
 	Number of Parameters: 	1 Octet (n)
 	Parameter [1..n]: 		m+2 Octets
-	﹂	ID:					﹂	1 Octet
+	﹂	ID:					﹂	1 Octet		(﹂	Register:	        ﹂	2 Octets) # For Nxp
 	﹂	Len: 				﹂	1 Octet (m)
 	﹂	Val:				﹂	m Octet(s)
 	"""""""""""""""
@@ -240,19 +240,25 @@ def CORE_SET_CONFIG_CMD(raw):
 	for i in range(n):
 		print("  -- [Parameter_"+str(i)+"] --  ")
 		id = raw[p_payload:(p_payload+2*1)]
-		if((int(id ,16) >= 160) & (int(id, 16) <= 254)):
-			id = 'A0-FE'
-		print("  -- ID: "+NFC_table.tbl_cfg_para.get(id,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
-		p_payload = p_payload + 2*1
+		# Nxp Proprietary
+		if(id == 'A0'):
+			reg = raw[p_payload:(p_payload+2*2)]
+			print("  -- Register: "+reg)
+			p_payload = p_payload + 2*2
+		else:
+			if((int(id ,16) >= 161) & (int(id, 16) <= 254)):
+				id = 'A1-FE'
+			print("  -- ID: "+NFC_table.tbl_cfg_para.get(id,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
+			p_payload = p_payload + 2*1
 		
-		id_len = raw[p_payload:(p_payload+2*1)]
-		m = int(id_len, 16)
-		print("  -- Len:", m, "("+id_len+")")
+		para_len = raw[p_payload:(p_payload+2*1)]
+		m = int(para_len, 16)
+		print("  -- Len:", m, "("+para_len+")")
 		p_payload = p_payload + 2*1
 		
 		if (m != 0):
-			id_val = raw[p_payload:(p_payload+2*m)]
-			print("  -- Val: "+id_val)
+			para_val = raw[p_payload:(p_payload+2*m)]
+			print("  -- Val: "+para_val)
 			p_payload = p_payload + 2*m
 		print("")
 	print("#end")

@@ -112,7 +112,7 @@ def mode_1():
                     continue
 
                 try:
-                    Decoder_Main.NFC_NCI_DECODER(raw_string, decode_key)
+                    Decoder_Main.NFC_NCI_DECODER(raw_string)
                 except ValueError as e:
                     # sys.stdout.flush()
                     # sys.stdout = original_stdout

@@ -74,11 +74,12 @@ tbl_nci_cmd = {
 	# "Proprietary": {}
 }
 
-tbl_nci_cmd_Nxp = {
-	"NCI Core": {
-		"000010":  {"CMD": nxp_NCI_Core.CORE_SET_CONFIG_CMD,},
-	}
-}
+# 原本要寫對應Nxp的專用cmd，不過目前用不到
+# tbl_nci_cmd_Nxp = {
+# 	"NCI Core": {
+# 		"000010":  {"CMD": nxp_NCI_Core.CORE_SET_CONFIG_CMD,},
+# 	}
+# }
 
 # direct = {"CMD": "DH ---> NFCC", "RSP": "DH <--- NFCC", "NTF": "DH <--- NFCC"}
 
@@ -137,6 +138,7 @@ def NFC_NCI_DECODER(string, decode_key="defult"):
 			function = f"{tbl_nci_cmd[gid_val][oid][mt_val]}"
 			function_name = function.split(" ")[1]
 			print('{0:^25}'.format(function_name))
+			# eval("tbl_nci_cmd_{}[gid_val][oid][mt_val](payload_raw)".format(decode_key)) # 如果需要對應不同晶片的decode cmd，可以參考這裡
 			tbl_nci_cmd[gid_val][oid][mt_val](payload_raw) # 呼叫對應func，輸入rawdata
 		except KeyError as e:
 			print("\033[31mError:\033[0m May be \033[33mRFU\033[0m or \033[33mProprietary\033[0m, please check the documentation.\n")
