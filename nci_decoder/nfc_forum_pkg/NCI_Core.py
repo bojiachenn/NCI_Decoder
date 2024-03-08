@@ -1,4 +1,4 @@
-from nci_decode_pkg import __table__ as NFC_table
+from nci_decoder.nfc_forum_pkg import __table__ as NFC_table
 
 #	    Jimmt Chen  	#
 #	Done on: 2024/2/17	#
@@ -224,7 +224,7 @@ def CORE_SET_CONFIG_CMD(raw):
 		[CORE_SET_CONFIG_CMD]
 	Number of Parameters: 	1 Octet (n)
 	Parameter [1..n]: 		m+2 Octets
-	﹂	ID:					﹂	1 Octet 		# Register:	2 Octets for NXP proprietary
+	﹂	ID:					﹂	1 Octet
 	﹂	Len: 				﹂	1 Octet (m)
 	﹂	Val:				﹂	m Octet(s)
 	"""""""""""""""
@@ -239,14 +239,11 @@ def CORE_SET_CONFIG_CMD(raw):
 	# print("- Parameter:")
 	for i in range(n):
 		print("  -- [Parameter_"+str(i)+"] --  ")
-		# id = raw[p_payload:(p_payload+2*1)]
-		# if((int(id ,16) >= 160) & (int(id, 16) <= 254)):
-		# 	id = 'A0-FE'
-		# print("  -- ID: "+NFC_table.tbl_cfg_para.get(id,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
-		# p_payload = p_payload + 2*1
-		reg = raw[p_payload:(p_payload+2*2)]
-		print("  -- Register: "+reg)
-		p_payload = p_payload + 2*2
+		id = raw[p_payload:(p_payload+2*1)]
+		if((int(id ,16) >= 160) & (int(id, 16) <= 254)):
+			id = 'A0-FE'
+		print("  -- ID: "+NFC_table.tbl_cfg_para.get(id,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
+		p_payload = p_payload + 2*1
 		
 		id_len = raw[p_payload:(p_payload+2*1)]
 		m = int(id_len, 16)

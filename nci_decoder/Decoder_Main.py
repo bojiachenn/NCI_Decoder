@@ -1,6 +1,7 @@
-from nci_decode_pkg import NCI_Core
-from nci_decode_pkg import RF_Management
-from nci_decode_pkg import NFCEE_Management
+from nci_decoder.nfc_forum_pkg import NCI_Core
+from nci_decoder.nfc_forum_pkg import RF_Management
+from nci_decoder.nfc_forum_pkg import NFCEE_Management
+from nci_decoder.nxp_proprietary import NCI_Core as nxp_NCI_Core
 
 # Message Type
 tbl_mt_val = {
@@ -73,18 +74,18 @@ tbl_nci_cmd = {
 	# "Proprietary": {}
 }
 
-# def RFU(raw):
-# 	print("RFU")
-
-# def Proprietary(raw):
-# 	print("Proprietary")
+tbl_nci_cmd_Nxp = {
+	"NCI Core": {
+		"000010":  {"CMD": nxp_NCI_Core.CORE_SET_CONFIG_CMD,},
+	}
+}
 
 # direct = {"CMD": "DH ---> NFCC", "RSP": "DH <--- NFCC", "NTF": "DH <--- NFCC"}
 
 # def DATA_PACKET_PROCESS(raw):
 # 	print("- data:", raw)
 
-def NFC_NCI_DECODER(string):
+def NFC_NCI_DECODER(string, decode_key="defult"):
 	raw = string.replace(" ", "")
 	raw = raw.upper()
 	# print("")

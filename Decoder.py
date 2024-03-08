@@ -1,10 +1,10 @@
 import sys
 import os
 import random
-from nci_decode_pkg import Decoder_Main
+from nci_decoder import Decoder_Main
 
 __NFC_NCI_VER__ = "Ver 2.0" # 7 char
-__DECODER_VERSION__ = "Ver 1.1" # 7 char
+__DECODER_VERSION__ = "Ver 1.2" # 7 char
 
 kaomoji=[
     "(o´∀`o)", "(o･ω･o)", "( ･ω･ )",
@@ -65,47 +65,59 @@ def mode_1():
             #     continue
             
             clear_below(14)
-            defult_search = "Nxp"
-            print(f"Enter text to search (default is '\033[32m{defult_search}\033[0m'): ", end="")
-            search_string = input().strip() or defult_search
-            print(f"searching \033[32m{search_string}\033[0m in file: \033[33m{file_name}\033[0m...")
+            defult_decode_key = "Nxp"
+            print(f"Enter keyword to search raw data (default is '\033[32m{defult_decode_key}\033[0m'): ", end="")
+            decode_key = input().strip() or defult_decode_key
+            defult_other_key = "remain_all"
+            print(f"Enter filter keyword(s) for other messages (default is '\033[32m{defult_other_key}\033[0m'): ", end="")
+            other_key = input().strip() or defult_other_key
+            other_key_list = other_key.split()
+            print("")
+
+            print(f"searching \033[32m{decode_key}\033[0m in file: \033[33m{file_name}\033[0m...")
                 # Redirect standard output to a text file
             
             original_stdout = sys.stdout
             sys.stdout = open('output.txt', 'w')
 
             print("File Path: "+file_name)
-            print("Searching Keyword: "+search_string)
+            print("Searching Keyword: "+decode_key)
+            print("Filter: ", end="")
+            print(other_key_list)
             print("")
             count = 0
             for line in lines:
-                if ((search_string+"NciX" in line)):
+                if ((decode_key+"NciX" in line)): # 可以改成包含 NciX and Len
                     count = count + 1
                     print(line, end="")
-                    print(" ↓")
+                    print(" >>>")
                     print('{0:^25}'.format("DH ---> NFCC"))
                     raw_string = line.split(">")[1].strip()
 
-                elif(search_string+"NciR" in line):
+                elif(decode_key+"NciR" in line): # 可以改成包含 NciR and Len
                     count = count + 1
                     print(line, end="")
-                    print(" ↓")
+                    print(" >>>")
                     print('{0:^25}'.format("DH <--- NFCC"))
                     if(">" in line): # for case NxpNciR : len =   4 > 40090100
                         raw_string = line.split(">")[1].strip()
                     else:
                         raw_string = line.split("<=")[1].strip()
                 
-                else:
+                elif((other_key_list[0] == "remain_all") or (any(key.lower() in line.lower() for key in other_key_list))):
                     print(line.encode("utf8").decode("cp950", "ignore"), end="") # 
                     continue
 
+                else:
+                    continue
+
                 try:
-                    Decoder_Main.NFC_NCI_DECODER(raw_string)
+                    Decoder_Main.NFC_NCI_DECODER(raw_string, decode_key)
                 except ValueError as e:
                     # sys.stdout.flush()
                     # sys.stdout = original_stdout
                     print("\n\033[31mError:\033[0m This text is not available for search\n")
+                    print("#end")
                     # print(e)
                     # sys.exit(0)
                     continue
