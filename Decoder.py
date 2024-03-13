@@ -55,6 +55,7 @@ def mode_1():
                 with open(file_name, mode='r', encoding='utf8', errors='ignore') as file: # 
                     lines = file.readlines()
             except FileNotFoundError:
+                clear_below(14)
                 print("\033[31mError:\033[0m File Not Found!\n")
                 continue
 
@@ -91,14 +92,14 @@ def mode_1():
                     count = count + 1
                     print(line, end="")
                     print(" >>>")
-                    print('{0:^25}'.format("DH ---> NFCC"))
+                    print('{0:^30}'.format("DH ---> NFCC"))
                     raw_string = line.split(">")[1].strip()
 
                 elif(decode_key+"NciR" in line): # 可以改成包含 NciR and Len
                     count = count + 1
                     print(line, end="")
                     print(" >>>")
-                    print('{0:^25}'.format("DH <--- NFCC"))
+                    print('{0:^30}'.format("DH <--- NFCC"))
                     if(">" in line): # for case NxpNciR : len =   4 > 40090100
                         raw_string = line.split(">")[1].strip()
                     else:
@@ -146,8 +147,9 @@ def mode_2():
             print(f"decoding... \033[32m{raw}\033[0m\n")
             try:
                 Decoder_Main.NFC_NCI_DECODER(raw)
-            except ValueError:
+            except ValueError as e:
                 # clear_below(14)
+                # print(e)
                 print("\033[31mError: \033[33mNCI raw data\033[0m invalid. Try again!!\n")
 
 def main():

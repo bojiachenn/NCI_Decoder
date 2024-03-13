@@ -43,14 +43,14 @@ tbl_status_codes={
 # Table 132: Bit Rates
 tbl_bit_rates={
     'name': 'Table 132: Bit Rates:',
-    '00':   'NFC_BIT_RATE_106: 106 Kbit/s',
-    '01':   'NFC_BIT_RATE_212: 212 Kbit/s',
-    '02':   'NFC_BIT_RATE_424: 424 Kbit/s',
-    '03':   'NFC_BIT_RATE_848: 848 Kbit/s',
-    '04':   'NFC_BIT_RATE_1695: 1695 Kbit/s',
-    '05':   'NFC_BIT_RATE_3390: 3390 Kbit/s',
-    '06':   'NFC_BIT_RATE_6780: 6780 Kbit/s',
-    '20':   'NFC_BIT_RATE_26: 26 Kbit/s',
+    '00':   '106 Kbit/s',
+    '01':   '212 Kbit/s',
+    '02':   '424 Kbit/s',
+    '03':   '848 Kbit/s',
+    '04':   '1695 Kbit/s',
+    '05':   '3390 Kbit/s',
+    '06':   '6780 Kbit/s',
+    '20':   '26 Kbit/s',
     '80-FE':'For proprietary use',
 }
 
@@ -86,8 +86,8 @@ tbl_nfcee_id={
     '00':   'DH-NFCEE',
     '01':   'HCI-NTWK-NFCEE (RFU)',
     '02-0F':'Reserved for further static IDs',
-    '10-7F':'NFCEEs that are outside of the HCI Network. Dynamically assigned by the NFCC',
-    '80-FE':'HCI-NFCEEs that are inside of the HCI Network. Dynamically assigned by the NFCC',
+    '10-7F':'NFCEE',
+    '80-FE':'HCI-NFCEE',
     'FF':   'RFU',
 }
 
@@ -260,13 +260,15 @@ tbl_cfg_para={
     '55':   'LF_T3T_RD_ALLOWED',
     # Listen Mode – NFC-F Discovery Parameters
     '50':   'LF_PROTOCOL_TYPE',
-    '54':   'LF_CON_BITR_F',
-    '55':   'LF_ADV_FEAT',
-    # Listen Mode – ISO-DEP Discovery Parameters
-    '58':   'LI_FWI',
-    '59':   'LA_HIST_BY',
-    '5A':   'RFU',
+    '54':   'RFU',
     '56-57':'RFU',
+    # Listen Mode – ISO-DEP Discovery Parameters
+    '58':   'LI_A_RATS_TB1',
+    '59':   'LI_A_HIST_BY',
+    '5A':   'LI_B_H_INFO_RESP',
+    '5B':   'LI_A_BIT_RATE',
+    '5C':   'LI_A_RATS_TC1',
+    '5D-5F':'RFU',
     # Listen Mode – NFC-DEP Discovery Parameters
     '60':   'LN_WT',
     '61':   'LN_ATR_RES_GEN_BYTES',
@@ -283,8 +285,10 @@ tbl_cfg_para={
     '84':   'RFU',
     '85':   'NFCC_CONFIG_CONTROL',
     '86-9F':'RFU',
+    # Nxp Proprietary (2 Octets)
+    'A0':   'Register:',
     # Reserved for Proprietary Use
-    'A0-FE':'Reserved',
+    'A1-FE':'Reserved',
     # Reserved for Extension
     'FF':   'RFU',
 }

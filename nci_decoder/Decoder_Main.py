@@ -94,8 +94,6 @@ def NFC_NCI_DECODER(string, decode_key="defult"):
 	first_oct_b = bin(int(first_oct_hex,16))[2::].zfill(8)
 	mt_val = tbl_mt_val.get(first_oct_b[0:3],"RFU")
 	pbf = first_oct_b[3:4]
-	if(pbf == "1"):
-		print('{0:^25}'.format("PBF: "+pbf))
 
 	payload_len = raw[4:6]
 	
@@ -107,20 +105,20 @@ def NFC_NCI_DECODER(string, decode_key="defult"):
 
 	if(mt_val == "DATA"):
 		# print('{0:^25}'.format(direct.get(mt_val,"DH -><- NFCC")))
-		print('{0:^25}'.format("NCI: DATA Packet"))
+		print('{0:^30}'.format("NCI: DATA Packet"))
 		conn_id = first_oct_b[4::]
 		cr = bin(int(raw[2:4],16))[2::].zfill(8)[6::]
-		print("- Connection ID: " + conn_id, end=' ')
+		print("- Connection ID:", int(conn_id, 2), end=' ')
 		if(conn_id == "0000"): 
 			print("(Static RF Connection between the DH and a Remote NFC Endpoint)")
 		elif(conn_id == "0001"): 
 			print("(Static HCI Connection between the DH and the HCI Network)")
 		else: 
 			print("(Dynamically assigned by the NFCC)")
-		print("- Credits:", cr)
-		print("- Payload Length:", int(payload_len,16), "("+payload_len+")")
+		print("- Credits:", int(cr, 2))
+		print("- Payload Length:", int(payload_len,16))
 		print("- data:", payload_raw)
-		print("#end")
+		print("")
 
 	else:   # Control Packet
 		# print('{0:^25}'.format(direct.get(mt_val,"DH -><- NFCC")))
@@ -137,13 +135,16 @@ def NFC_NCI_DECODER(string, decode_key="defult"):
 		try:
 			function = f"{tbl_nci_cmd[gid_val][oid][mt_val]}"
 			function_name = function.split(" ")[1]
-			print('{0:^25}'.format(function_name))
+			print('{0:^30}'.format(function_name))
 			# eval("tbl_nci_cmd_{}[gid_val][oid][mt_val](payload_raw)".format(decode_key)) # 如果需要對應不同晶片的decode cmd，可以參考這裡
 			tbl_nci_cmd[gid_val][oid][mt_val](payload_raw) # 呼叫對應func，輸入rawdata
 		except KeyError as e:
 			print("\033[31mError:\033[0m May be \033[33mRFU\033[0m or \033[33mProprietary\033[0m, please check the documentation.\n")
-			print("#end")
 			# print(e)
+	
+	if(pbf == "1"):
+		print("PBF: "+pbf)
+	print("#end")
 
 # def main():
 # 	raw = input("Input the NCI raw data: ")

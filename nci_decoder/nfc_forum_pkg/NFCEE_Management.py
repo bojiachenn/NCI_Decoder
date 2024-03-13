@@ -11,7 +11,7 @@ def NFCEE_DISCOVER_CMD(raw):
 	"""""""""""""""
 	# print("NFCEE_DISCOVER_CMD")
 	print('{0:^25}'.format("(Empty)"))
-	print("\n#end")
+	print("")
 
 # 42 00
 def NFCEE_DISCOVER_RSP(raw):
@@ -31,7 +31,7 @@ def NFCEE_DISCOVER_RSP(raw):
 	n = int(num_nfcee,16)
 	print("- Number of NFCEEs:", n, "("+num_nfcee+")")
 	p_payload = p_payload + 2*1
-	print("\n#end")
+	print("")
 
 # 62 00
 def NFCEE_DISCOVER_NTF(raw):
@@ -51,8 +51,15 @@ def NFCEE_DISCOVER_NTF(raw):
 	# print("NFCEE_DISCOVER_NTF")
 	p_payload = 0
 
-	nfcee_id =raw[p_payload:(p_payload+2*1)]	
-	print("- NFCEE ID: "+NFC_table.tbl_nfcee_id.get(nfcee_id,"Dynamically assigned by the NFCC")+" ("+nfcee_id+")")
+	nfcee_id = raw[p_payload:(p_payload+2*1)]
+	nfcee_id_i = int(nfcee_id, 16)
+	if((nfcee_id_i >= 2) & (nfcee_id_i <= 15)):
+		nfcee_id = '02-0F'
+	elif((nfcee_id_i >= 16) & (nfcee_id_i <= 127)):
+		nfcee_id = '10-7F'
+	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
+		nfcee_id = '80-FE'
+	print("- NFCEE ID:", nfcee_id_i, "("+NFC_table.tbl_nfcee_id.get(nfcee_id,"RFU")+") ("+raw[p_payload:(p_payload+2*1)]+")")
 	p_payload = p_payload + 2*1
 	
 	nfcee_status = raw[p_payload:(p_payload+2*1)]
@@ -143,7 +150,7 @@ def NFCEE_DISCOVER_NTF(raw):
 		print("- NFCEE Power Supply: "+"The NFCC has control of the NFCEE Power Supply"+" ("+nfcee_pwr_sup+")")
 	else:
 		print("- NFCEE Power Supply: "+"RFU"+" ("+nfcee_pwr_sup+")")
-	print("\n#end")
+	print("")
 
 # 22 01
 def NFCEE_MODE_SET_CMD(raw):
@@ -155,14 +162,15 @@ def NFCEE_MODE_SET_CMD(raw):
 	# print("NFCEE_MODE_SET_CMD")
 	p_payload = 0
 	
-	nfcee_id = raw[p_payload:(p_payload+2*1)]	
-	if((int(nfcee_id,16) >= 2) & (int(nfcee_id,16) <= 15)):
+	nfcee_id = raw[p_payload:(p_payload+2*1)]
+	nfcee_id_i = int(nfcee_id, 16)
+	if((nfcee_id_i >= 2) & (nfcee_id_i <= 15)):
 		nfcee_id = '02-0F'
-	elif((int(nfcee_id,16) >= 16) & (int(nfcee_id,16) <= 127)):
+	elif((nfcee_id_i >= 16) & (nfcee_id_i <= 127)):
 		nfcee_id = '10-7F'
-	elif((int(nfcee_id,16) >= 128) & (int(nfcee_id,16) <= 254)):
+	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
 		nfcee_id = '80-FE'
-	print("- NFCEE ID: "+NFC_table.tbl_nfcee_id.get(nfcee_id,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
+	print("- NFCEE ID:", nfcee_id_i, "("+NFC_table.tbl_nfcee_id.get(nfcee_id,"RFU")+") ("+raw[p_payload:(p_payload+2*1)]+")")
 	p_payload = p_payload + 2*1
 	
 	nfcee_mode = raw[p_payload:(p_payload+2*1)]
@@ -173,7 +181,7 @@ def NFCEE_MODE_SET_CMD(raw):
 	else:
 		print("- NFCEE Mode: "+"RFU"+" ("+nfcee_mode+")")
 	p_payload = p_payload + 2*1	
-	print("\n#end")
+	print("")
 
 # 42 01
 def NFCEE_MODE_SET_RSP(raw):
@@ -187,7 +195,7 @@ def NFCEE_MODE_SET_RSP(raw):
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("\n#end")
+	print("")
 		
 # 62 01
 def NFCEE_MODE_SET_NTF(raw):
@@ -201,7 +209,7 @@ def NFCEE_MODE_SET_NTF(raw):
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("\n#end")
+	print("")
 
 # 62 02
 def NFCEE_STATUS_NTF(raw):
@@ -213,14 +221,15 @@ def NFCEE_STATUS_NTF(raw):
 	# print("NFCEE_STATUS_NTF")
 	p_payload = 0
 	
-	nfcee_id = raw[p_payload:(p_payload+2*1)]	
-	if((int(nfcee_id,16) >= 2) & (int(nfcee_id,16) <= 15)):
+	nfcee_id = raw[p_payload:(p_payload+2*1)]
+	nfcee_id_i = int(nfcee_id, 16)
+	if((nfcee_id_i >= 2) & (nfcee_id_i <= 15)):
 		nfcee_id = '02-0F'
-	elif((int(nfcee_id,16) >= 16) & (int(nfcee_id,16) <= 127)):
+	elif((nfcee_id_i >= 16) & (nfcee_id_i <= 127)):
 		nfcee_id = '10-7F'
-	elif((int(nfcee_id,16) >= 128) & (int(nfcee_id,16) <= 254)):
+	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
 		nfcee_id = '80-FE'
-	print("- NFCEE ID: "+NFC_table.tbl_nfcee_id.get(nfcee_id,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
+	print("- NFCEE ID:", nfcee_id_i, "("+NFC_table.tbl_nfcee_id.get(nfcee_id,"RFU")+") ("+raw[p_payload:(p_payload+2*1)]+")")
 	p_payload = p_payload + 2*1
 	
 	nfcee_status = raw[p_payload:(p_payload+2*1)]
@@ -235,7 +244,7 @@ def NFCEE_STATUS_NTF(raw):
 	else:
 		print("- NFCEE Status: "+"Proprietary"+" ("+nfcee_status+")")
 	p_payload = p_payload + 2*1	
-	print("\n#end")
+	print("")
 
 # 22 03
 def NFCEE_POWER_AND_LINK_CNTRL_CMD(raw):
@@ -247,14 +256,15 @@ def NFCEE_POWER_AND_LINK_CNTRL_CMD(raw):
 	# print("NFCEE_POWER_AND_LINK_CNTRL_CMD")
 	p_payload = 0
 	
-	nfcee_id = raw[p_payload:(p_payload+2*1)]	
-	if((int(nfcee_id,16) >= 2) & (int(nfcee_id,16) <= 15)):
+	nfcee_id = raw[p_payload:(p_payload+2*1)]
+	nfcee_id_i = int(nfcee_id, 16)
+	if((nfcee_id_i >= 2) & (nfcee_id_i <= 15)):
 		nfcee_id = '02-0F'
-	elif((int(nfcee_id,16) >= 16) & (int(nfcee_id,16) <= 127)):
+	elif((nfcee_id_i >= 16) & (nfcee_id_i <= 127)):
 		nfcee_id = '10-7F'
-	elif((int(nfcee_id,16) >= 128) & (int(nfcee_id,16) <= 254)):
+	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
 		nfcee_id = '80-FE'
-	print("- NFCEE ID: "+NFC_table.tbl_nfcee_id.get(nfcee_id,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
+	print("- NFCEE ID:", nfcee_id_i, "("+NFC_table.tbl_nfcee_id.get(nfcee_id,"RFU")+") ("+raw[p_payload:(p_payload+2*1)]+")")
 	p_payload = p_payload + 2*1
 	
 	nfcee_cfg = raw[p_payload:(p_payload+2*1)]
@@ -269,7 +279,7 @@ def NFCEE_POWER_AND_LINK_CNTRL_CMD(raw):
 	else:
 		print("- NFCEE Power and Link Cfg: "+"RFU"+" ("+nfcee_cfg+")")
 	p_payload = p_payload + 2*1	
-	print("\n#end")
+	print("")
 			
 # 22 03
 def NFCEE_POWER_AND_LINK_CNTRL_RSP(raw):
@@ -283,4 +293,4 @@ def NFCEE_POWER_AND_LINK_CNTRL_RSP(raw):
 	status = raw[p_payload:(p_payload+2*1)]	
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
-	print("\n#end")
+	print("")
