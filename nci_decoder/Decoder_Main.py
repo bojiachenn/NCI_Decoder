@@ -1,7 +1,7 @@
-from nci_decoder.nfc_forum_pkg import NCI_Core
-from nci_decoder.nfc_forum_pkg import RF_Management
-from nci_decoder.nfc_forum_pkg import NFCEE_Management
-from nci_decoder.nxp_proprietary import NCI_Core as nxp_NCI_Core
+from nfc_forum_pkg import NCI_Core
+from nfc_forum_pkg import RF_Management
+from nfc_forum_pkg import NFCEE_Management
+from nxp_proprietary import NCI_Core as nxp_NCI_Core
 
 # Message Type
 tbl_mt_val = {
@@ -21,7 +21,7 @@ tbl_gid_val = {
 	"1111":	"Proprietary",
 }
 
-tbl_nci_cmd = {
+tbl_nci_ctrl = {
 	"NCI Core": {
 		"000000":  {"CMD": NCI_Core.CORE_RESET_CMD, 				"RSP": NCI_Core.CORE_RESET_RSP, 					"NTF": NCI_Core.CORE_RESET_NTF},
 		"000001":  {"CMD": NCI_Core.CORE_INIT_CMD, 					"RSP": NCI_Core.CORE_INIT_RSP},
@@ -75,7 +75,7 @@ tbl_nci_cmd = {
 }
 
 # 原本要寫對應Nxp的專用cmd，不過目前用不到
-# tbl_nci_cmd_Nxp = {
+# tbl_nci_ctrl_Nxp = {
 # 	"NCI Core": {
 # 		"000010":  {"CMD": nxp_NCI_Core.CORE_SET_CONFIG_CMD,},
 # 	}
@@ -105,7 +105,7 @@ def NFC_NCI_DECODER(string, decode_key="defult"):
 
 	if(mt_val == "DATA"):
 		# print('{0:^25}'.format(direct.get(mt_val,"DH -><- NFCC")))
-		print('{0:^30}'.format("NCI: DATA Packet"))
+		print('{0:^35}'.format("NCI: DATA Packet"))
 		conn_id = first_oct_b[4::]
 		cr = bin(int(raw[2:4],16))[2::].zfill(8)[6::]
 		print("- Connection ID:", int(conn_id, 2), end=' ')
@@ -133,14 +133,14 @@ def NFC_NCI_DECODER(string, decode_key="defult"):
 		# 	print("")
 		# else:
 		try:
-			function = f"{tbl_nci_cmd[gid_val][oid][mt_val]}"
+			function = f"{tbl_nci_ctrl[gid_val][oid][mt_val]}"
 			function_name = function.split(" ")[1]
-			print('{0:^30}'.format(function_name))
-			# eval("tbl_nci_cmd_{}[gid_val][oid][mt_val](payload_raw)".format(decode_key)) # 如果需要對應不同晶片的decode cmd，可以參考這裡
-			tbl_nci_cmd[gid_val][oid][mt_val](payload_raw) # 呼叫對應func，輸入rawdata
+			print('{0:^35}'.format("[ "+function_name+" ]"))
+			# eval("tbl_nci_ctrl{}[gid_val][oid][mt_val](payload_raw)".format(decode_key)) # 如果需要對應不同晶片的decode cmd，可以參考這裡
+			tbl_nci_ctrl[gid_val][oid][mt_val](payload_raw) # 呼叫對應func，輸入rawdata
 		except KeyError as e:
 			print("\033[31mError:\033[0m May be \033[33mRFU\033[0m or \033[33mProprietary\033[0m, please check the documentation.\n")
-			# print(e)
+			print(e)
 	
 	if(pbf == "1"):
 		print("PBF: "+pbf)

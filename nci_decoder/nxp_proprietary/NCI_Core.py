@@ -1,4 +1,4 @@
-from nci_decoder.nfc_forum_pkg import __table__ as NFC_table
+from nfc_forum_pkg import __table__ as NFC_table
 
 # 20 02
 def CORE_SET_CONFIG_CMD(raw):

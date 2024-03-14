@@ -3,8 +3,8 @@ import os
 import random
 from nci_decoder import Decoder_Main
 
-__NFC_NCI_VER__ = "Ver 2.0" # 7 char
-__DECODER_VERSION__ = "Ver 1.2" # 7 char
+__NFC_NCI_VER__ = "2.0" # 3 char
+__DECODER_VERSION__ = "1.2" # 3 char
 
 kaomoji=[
     "(o´∀`o)", "(o･ω･o)", "( ･ω･ )",
@@ -33,13 +33,13 @@ def print_menu():
     print_at(1,  "┌─────╮┌─────┐╭─────┐╭─────╮┌─────╮┌─────┐┌─────╮")
     print_at(2,  "│ ║   ││  ═══╡│ ┌───┘│ ║   ││ ║   ││  ═══╡│ ║   │")
     print_at(3,  "│ ║   ││  ═══╡│ └───┐│ ║   ││ ║   ││  ═══╡│ ┌┐ ┌╯")
-    print_at(4, f"└─────╯└─────┘╰─────┘╰─────╯└─────╯└─────┘└─┘└─┘ \033[35;3;5m{__DECODER_VERSION__}\033[0m")
+    print_at(4, f"└─────╯└─────┘╰─────┘╰─────╯└─────╯└─────┘└─┘└─┘ \033[35;3;5mVer {__DECODER_VERSION__}\033[0m")
     print_at(5,   "┌──────────────────────────────────────────────┐")
     print_at(6,   "│                                              │")
     print_at(7,   "│   1: Read file                               │")
     print_at(8,   "│   2: Read raw data                           │")
     print_at(9,   "│   3: Exit              "+"{0:^20}".format(kaomoji[ran])+"  │")
-    print_at(10, f"│                        \033[33mSupport NCI: \033[0m{__NFC_NCI_VER__}  │")
+    print_at(10, f"│                        \033[33mSupport NCI: \033[0mVer {__NFC_NCI_VER__}  │")
     print_at(11,  "└──────────────────────────────────────────────┘ \033[3;4;5mJimmy Chen\033[0m")
 
 def mode_1():
@@ -92,14 +92,14 @@ def mode_1():
                     count = count + 1
                     print(line, end="")
                     print(" >>>")
-                    print('{0:^30}'.format("DH ---> NFCC"))
+                    print('{0:^35}'.format("DH ---> NFCC"))
                     raw_string = line.split(">")[1].strip()
 
                 elif(decode_key+"NciR" in line): # 可以改成包含 NciR and Len
                     count = count + 1
                     print(line, end="")
                     print(" >>>")
-                    print('{0:^30}'.format("DH <--- NFCC"))
+                    print('{0:^35}'.format("DH <--- NFCC"))
                     if(">" in line): # for case NxpNciR : len =   4 > 40090100
                         raw_string = line.split(">")[1].strip()
                     else:
