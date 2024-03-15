@@ -126,8 +126,8 @@ tbl_conn_id={
 # Table 5: Control Messages to Reset the NFCC
 tbl_rst_msg={
     'name': 'Table 5: Control Messages to Reset the NFCC:',
-    '00':   'Keep Configuration', # Reset the NFCC and keep the NCI RF Configuration (if supported).
-    '01':   'Reset Configuration', # Reset the NFCC including the NCI RF Configuration.
+    '00':   'Keep NCI RF Configuration', # Reset the NFCC and keep the NCI RF Configuration (if supported).
+    '01':   'Reset NCI RF Configuration', # Reset the NFCC including the NCI RF Configuration.
 }
 tbl_rst_trig={
     'name': 'Table 5: Control Messages to Reset the NFCC:',
@@ -147,8 +147,8 @@ tbl_nci_ver={
 # Table 7: Configuration Status
 tbl_cfg_status={
     'name': 'Table 7: Configuration Status:',
-    '00':   'NCI RF Configuration has been kept',
-    '01':   'NCI RF Configuration has been reset',
+    '00':   'Keep NCI RF Configuration',
+    '01':   'Reset NCI RF Configuration',
 }
 
 # Table 10: NFCC Features (Octet 1)

@@ -105,7 +105,7 @@ def NFC_NCI_DECODER(string, decode_key="defult"):
 
 	if(mt_val == "DATA"):
 		# print('{0:^25}'.format(direct.get(mt_val,"DH -><- NFCC")))
-		print('{0:^35}'.format("NCI: DATA Packet"))
+		print('{0:^35}'.format("[ NCI: DATA Packet ]"))
 		conn_id = first_oct_b[4::]
 		cr = bin(int(raw[2:4],16))[2::].zfill(8)[6::]
 		print("- Connection ID:", int(conn_id, 2), end=' ')
@@ -140,7 +140,7 @@ def NFC_NCI_DECODER(string, decode_key="defult"):
 			tbl_nci_ctrl[gid_val][oid][mt_val](payload_raw) # 呼叫對應func，輸入rawdata
 		except KeyError as e:
 			print("\033[31mError:\033[0m May be \033[33mRFU\033[0m or \033[33mProprietary\033[0m, please check the documentation.\n")
-			print(e)
+			# print(e)
 	
 	if(pbf == "1"):
 		print("PBF: "+pbf)

@@ -1,4 +1,4 @@
-from nfc_forum_pkg import __table__ as NFC_table
+import __table__ as NFC_table
 
 #	    Jimmt Chen  	#
 #	Done on: 2024/2/20	#
