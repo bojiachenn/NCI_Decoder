@@ -118,6 +118,7 @@ def NFC_NCI_DECODER(string, decode_key="defult"):
 		print("- Credits:", int(cr, 2))
 		print("- Payload Length:", int(payload_len,16))
 		print("- data:", payload_raw)
+		# Data 封包也有格式需要解析 之後做~~
 		print("")
 
 	else:   # Control Packet
@@ -132,15 +133,19 @@ def NFC_NCI_DECODER(string, decode_key="defult"):
 		# 	print('{0:^25}'.format("NCI CMD: Proprietary"))
 		# 	print("")
 		# else:
-		try:
-			function = f"{tbl_nci_ctrl[gid_val][oid][mt_val]}"
-			function_name = function.split(" ")[1]
-			print('{0:^35}'.format("[ "+function_name+" ]"))
-			# eval("tbl_nci_ctrl{}[gid_val][oid][mt_val](payload_raw)".format(decode_key)) # 如果需要對應不同晶片的decode cmd，可以參考這裡
-			tbl_nci_ctrl[gid_val][oid][mt_val](payload_raw) # 呼叫對應func，輸入rawdata
-		except KeyError as e:
-			print("\033[31mError:\033[0m May be \033[33mRFU\033[0m or \033[33mProprietary\033[0m, please check the documentation.\n")
+		# try:
+		function = f"{tbl_nci_ctrl[gid_val][oid][mt_val]}"
+		function_name = function.split(" ")[1]
+		print('{0:^35}'.format("[ "+function_name+" ]"))
+		# eval("tbl_nci_ctrl{}[gid_val][oid][mt_val](payload_raw)".format(decode_key)) # 如果需要對應不同晶片的decode cmd，可以參考這裡
+		check = tbl_nci_ctrl[gid_val][oid][mt_val](payload_raw) # 呼叫對應func，輸入rawdata
+		# except KeyError as e:
+		# 	print("\033[31mError:\033[0m May be \033[33mRFU\033[0m or \033[33mProprietary\033[0m, please check the documentation.\n")
 			# print(e)
+		if(check != 2*int(payload_len,16)):
+			print("Check Length:", check)
+			print("Payload Length:", int(payload_len,16))
+			print("\033[31mError: \033[0mPayload error!!")
 	
 	if(pbf == "1"):
 		print("PBF: "+pbf)

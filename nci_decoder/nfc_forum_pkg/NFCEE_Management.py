@@ -153,6 +153,7 @@ def NFCEE_DISCOVER_NTF(raw):
 		print("- NFCEE Power Supply: "+"The NFCC has control of the NFCEE Power Supply"+" ("+nfcee_pwr_sup+")")
 	else:
 		print("- NFCEE Power Supply: "+"RFU"+" ("+nfcee_pwr_sup+")")
+	p_payload = p_payload + 2*1	
 	print("")
 	return p_payload
 
