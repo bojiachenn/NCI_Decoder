@@ -10,8 +10,10 @@ def NFCEE_DISCOVER_CMD(raw):
     (Empty)
 	"""""""""""""""
 	# print("NFCEE_DISCOVER_CMD")
+	p_payload = 0
 	print('{0:^25}'.format("(Empty)"))
 	print("")
+	return p_payload
 
 # 42 00
 def NFCEE_DISCOVER_RSP(raw):
@@ -32,6 +34,7 @@ def NFCEE_DISCOVER_RSP(raw):
 	print("- Number of NFCEEs:", n, "("+num_nfcee+")")
 	p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 
 # 62 00
 def NFCEE_DISCOVER_NTF(raw):
@@ -151,6 +154,7 @@ def NFCEE_DISCOVER_NTF(raw):
 	else:
 		print("- NFCEE Power Supply: "+"RFU"+" ("+nfcee_pwr_sup+")")
 	print("")
+	return p_payload
 
 # 22 01
 def NFCEE_MODE_SET_CMD(raw):
@@ -182,6 +186,7 @@ def NFCEE_MODE_SET_CMD(raw):
 		print("- NFCEE Mode: "+"RFU"+" ("+nfcee_mode+")")
 	p_payload = p_payload + 2*1	
 	print("")
+	return p_payload
 
 # 42 01
 def NFCEE_MODE_SET_RSP(raw):
@@ -196,6 +201,7 @@ def NFCEE_MODE_SET_RSP(raw):
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 		
 # 62 01
 def NFCEE_MODE_SET_NTF(raw):
@@ -210,6 +216,7 @@ def NFCEE_MODE_SET_NTF(raw):
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 
 # 62 02
 def NFCEE_STATUS_NTF(raw):
@@ -245,6 +252,7 @@ def NFCEE_STATUS_NTF(raw):
 		print("- NFCEE Status: "+"Proprietary"+" ("+nfcee_status+")")
 	p_payload = p_payload + 2*1	
 	print("")
+	return p_payload
 
 # 22 03
 def NFCEE_POWER_AND_LINK_CNTRL_CMD(raw):
@@ -280,6 +288,7 @@ def NFCEE_POWER_AND_LINK_CNTRL_CMD(raw):
 		print("- NFCEE Power and Link Cfg: "+"RFU"+" ("+nfcee_cfg+")")
 	p_payload = p_payload + 2*1	
 	print("")
+	return p_payload
 			
 # 22 03
 def NFCEE_POWER_AND_LINK_CNTRL_RSP(raw):
@@ -294,3 +303,4 @@ def NFCEE_POWER_AND_LINK_CNTRL_RSP(raw):
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
 	print("")
+	return p_payload

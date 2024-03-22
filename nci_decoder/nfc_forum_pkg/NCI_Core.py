@@ -16,6 +16,7 @@ def CORE_RESET_CMD(raw):
 	print("- Reset Type: "+NFC_table.tbl_rst_msg.get(reset_type,"RFU")+" ("+reset_type+")")
 	p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 
 # 40 00
 def CORE_RESET_RSP(raw):
@@ -30,6 +31,7 @@ def CORE_RESET_RSP(raw):
 	print("- Status: "+NFC_table.tbl_status_codes.get(status, "RFU (0xE0-0xFF: For proprietary use.)")+" ("+status+")")
 	p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 
 # 60 00
 def CORE_RESET_NTF(raw):
@@ -66,17 +68,18 @@ def CORE_RESET_NTF(raw):
 
 	mfg_spec_info_len = raw[p_payload:(p_payload+2*1)]
 	n = int(mfg_spec_info_len, 16)
+	p_payload = p_payload + 2*1
 	if(mfg_spec_info_len == 0):
 		print("- Manufacturer Specific Information Length: Information is not available.")
 	else:
 		print("- Manufacturer Specific Information Length: "+str(n)+" ("+mfg_spec_info_len+")")
-		p_payload = p_payload + 2*1
 
 		print("- Manufacturer Specific Information: "+raw[p_payload:(p_payload+2*n)])
 		for i in range (n):
 			print("  -- octet"+str(i)+": "+bin(int(raw[p_payload:(p_payload+2*1)],16))[2::].zfill(8)+" ("+raw[p_payload:(p_payload+2*1)]+")") # 之後再看看要不要做其他處理
 			p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 
 # 20 01
 def CORE_INIT_CMD(raw):
@@ -85,11 +88,14 @@ def CORE_INIT_CMD(raw):
 	Feature Enable: 2 Octets
 	"""""""""""""""
 	# print("CORE_INIT_CMD")
-	feature = raw[0:(2*2)]
+	p_payload = 0
+	feature = raw[p_payload:(p_payload+2*2)]
 	print("- Feature Enable: "+feature+" --refer to Table 9")
 	print("  -- octet0: "+bin(int(feature[0:2],16))[2::].zfill(8)+" ("+feature[0:2]+")")
 	print("  -- octet1: "+bin(int(feature[2:4],16))[2::].zfill(8)+" ("+feature[2:4]+")")
+	p_payload = p_payload + 2*2
 	print("")
+	return p_payload
 
 # 40 01
 def CORE_INIT_RSP(raw):
@@ -217,6 +223,7 @@ def CORE_INIT_RSP(raw):
 		print("")
 	p_payload = p_payload + list_payload
 	# print("#end")
+	return p_payload
 
 # 20 02
 def CORE_SET_CONFIG_CMD(raw):
@@ -243,7 +250,7 @@ def CORE_SET_CONFIG_CMD(raw):
 		# Nxp Proprietary
 		if(id == 'A0'):
 			reg = raw[p_payload:(p_payload+2*2)]
-			print("  -- Register: "+reg)
+			print("  -- Register: "+reg+" (For Nxp)")
 			p_payload = p_payload + 2*2
 		else:
 			if((int(id ,16) >= 161) & (int(id, 16) <= 254)):
@@ -263,6 +270,7 @@ def CORE_SET_CONFIG_CMD(raw):
 			p_payload = p_payload + 2*m
 		print("")
 	# print("#end")
+	return p_payload
 
 # 40 02
 def CORE_SET_CONFIG_RSP(raw):
@@ -294,6 +302,7 @@ def CORE_SET_CONFIG_RSP(raw):
 			print(NFC_table.tbl_cfg_para.get(para_id,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
 			p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 
 # 20 03
 def CORE_GET_CONFIG_CMD(raw):
@@ -319,6 +328,7 @@ def CORE_GET_CONFIG_CMD(raw):
 		print(NFC_table.tbl_cfg_para.get(para_id,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
 		p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 
 # 40 03
 def CORE_GET_CONFIG_RSP(raw):
@@ -347,8 +357,8 @@ def CORE_GET_CONFIG_RSP(raw):
 	for i in range(n):
 		print("  -- [Parameter_"+str(i)+"] --  ")
 		id = raw[p_payload:(p_payload+2*1)]
-		if((int(id ,16) >= 160) & (int(id, 16) <= 254)):
-			id = 'A0-FE'
+		# if((int(id ,16) >= 160) & (int(id, 16) <= 254)):
+		# 	id = 'A0-FE'
 		print("  -- ID: "+NFC_table.tbl_cfg_para.get(id,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
 		p_payload = p_payload + 2*1
 		
@@ -363,6 +373,7 @@ def CORE_GET_CONFIG_RSP(raw):
 			VALUE_OF_CFG_PARA(id, id_val)
 			p_payload = p_payload + 2*m
 		print("")
+	return p_payload
 	# print("#end")
 
 # 20 04
@@ -435,6 +446,7 @@ def CORE_CONN_CREATE_CMD(raw):
 		p_payload = p_payload + 2*m
 		print("")
 	# print("#end")
+	return p_payload
 
 # 40 04
 def CORE_CONN_CREATE_RSP(raw):
@@ -467,6 +479,7 @@ def CORE_CONN_CREATE_RSP(raw):
 	print("- Conn ID:", int(conn_id, 16), "("+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC")+") ("+conn_id+")")
 	p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 
 # 20 05
 def CORE_CONN_CLOSE_CMD(raw):
@@ -481,6 +494,7 @@ def CORE_CONN_CLOSE_CMD(raw):
 	print("- Conn ID:", int(conn_id, 16), "("+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC")+") ("+conn_id+")")
 	p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 
 # 40 05
 def CORE_CONN_CLOSE_RSP(raw):
@@ -495,6 +509,7 @@ def CORE_CONN_CLOSE_RSP(raw):
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 
 # 60 06
 def CORE_CONN_CREDITS_NTF(raw):
@@ -525,6 +540,7 @@ def CORE_CONN_CREDITS_NTF(raw):
 		p_payload = p_payload + 2*1
 		print("")
 	# print("#end")
+	return p_payload
 
 # 60 07
 def CORE_GENERIC_ERROR_NTF(raw):
@@ -539,6 +555,7 @@ def CORE_GENERIC_ERROR_NTF(raw):
 	print("- Status: "+NFC_table.tbl_status_codes.get(status,"RFU")+" ("+status+")")
 	p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 
 # 60 08
 def CORE_INTERFACE_ERROR_NTF(raw):
@@ -558,6 +575,7 @@ def CORE_INTERFACE_ERROR_NTF(raw):
 	print("- Conn ID: ", int(conn_id, 16),"("+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC")+") ("+conn_id+")")
 	p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 
 # 20 09
 def CORE_SET_POWER_SUB_STATE_CMD(raw):
@@ -579,7 +597,9 @@ def CORE_SET_POWER_SUB_STATE_CMD(raw):
 		print("- Power State: "+"Switched On Sub-State 3"+" ("+pwr_state+")")
 	else:
 		print("- Power State: "+"RFU"+" ("+pwr_state+")")
+	p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 
 # 40 09
 def CORE_SET_POWER_SUB_STATE_RSP(raw):
@@ -594,6 +614,7 @@ def CORE_SET_POWER_SUB_STATE_RSP(raw):
 	print("- Status: "+NFC_table.tbl_status_codes.get(status, "RFU (0xE0-0xFF: For proprietary use.)")+" ("+status+")")
 	p_payload = p_payload + 2*1
 	print("")
+	return p_payload
 
 
 def VALUE_OF_CFG_PARA(id, val):
@@ -768,7 +789,7 @@ def VALUE_OF_CFG_PARA(id, val):
 		print("  -- Val:", val_b, "("+val+")")
 		print("   * If set to 1b DID MAY be used. Otherwise it SHALL NOT be used.", "("+val_b[6:7]+")")
 	elif(id == '60'): # LN_WT
-		print("  -- Val:", int(val, 16), "("+val+")")
+		print("  -- Val:", int(val, 16), "ms ("+val+")")
 		print("   * Waiting Time defined in [DIGITAL].")
 	elif(id == '61'): # LN_ATR_RES_GEN_BYTES
 		print("  -- Val:", val)

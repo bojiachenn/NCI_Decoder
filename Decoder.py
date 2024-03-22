@@ -77,9 +77,10 @@ def mode_1():
 
             print(f"searching \033[32m{decode_key}\033[0m in file: \033[33m{file_name}\033[0m...")
                 # Redirect standard output to a text file
+            output_name = file_name.split("\\")[-1]+"_d"
             
             original_stdout = sys.stdout
-            sys.stdout = open('output.txt', 'w')
+            sys.stdout = open(output_name+'.txt', 'w')
 
             print("File Path: "+file_name)
             print("Searching Keyword: "+decode_key)
@@ -114,19 +115,26 @@ def mode_1():
 
                 try:
                     Decoder_Main.NFC_NCI_DECODER(raw_string)
-                except ValueError as e:
+                except KeyError as e1:
                     # sys.stdout.flush()
                     # sys.stdout = original_stdout
-                    print("\n\033[31mError:\033[0m This text is not available for search\n")
+                    print(f"Error: {e1} control code not found, please check the documentation.\n")
                     print("#end")
                     # print(e)
                     # sys.exit(0)
                     continue
+                except ValueError as e2:
+                    print(f"Error: {e2}")
+                except:
+                    print("Error: Unexpected error!!")
 
             print("\nTotal " + str(count) + " matche(s) in the file.")
             sys.stdout.flush()
+            sys.stdout.close()
             sys.stdout = original_stdout
-            print("\n\033[36mDone!!\033[0m\n")
+            print("")
+            print("Output File:", f"\033[33m{output_name}.txt\033[0m")
+            print("\033[36mDone!!\033[0m\n")
             # os.system("PAUSE")
             # clear_below(12)
             # sys.exit(0)
@@ -147,10 +155,15 @@ def mode_2():
             print(f"decoding... \033[32m{raw}\033[0m\n")
             try:
                 Decoder_Main.NFC_NCI_DECODER(raw)
-            except ValueError as e:
+            except KeyError as e1:
+                print(f"\033[31mError:\033[0m \033[33m{e1}\033[0m control code not found, please check the documentation.\n")
+            except ValueError as e2:
                 # clear_below(14)
                 # print(e)
-                print("\033[31mError: \033[33mNCI raw data\033[0m invalid. Try again!!\n")
+                print("\033[31mError: \033[33mNCI raw data\033[0m invalid. Try again!!")
+                print(f"\033[31mError: \033[0m{e2}\n")
+            except:
+                print("\033[31mError: \033[0mUnexpected error!!")
 
 def main():
     clear_terminal()
