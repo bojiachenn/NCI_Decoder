@@ -143,9 +143,9 @@ def NFC_NCI_DECODER(string, decode_key="defult"):
 		# 	print("\033[31mError:\033[0m May be \033[33mRFU\033[0m or \033[33mProprietary\033[0m, please check the documentation.\n")
 			# print(e)
 		if(check != 2*int(payload_len,16)):
-			print("Check Length:", check)
-			print("Payload Length:", int(payload_len,16))
-			print("\033[31mError: \033[0mPayload error!!")
+			print("Payload Length:", int(payload_len,16), "Octet(s)")
+			# print("Check Length:", check/2, "Octet(s)")
+			print("Error: Payload error!!")
 	
 	if(pbf == "1"):
 		print("PBF: "+pbf)
