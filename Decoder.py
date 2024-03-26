@@ -138,43 +138,62 @@ def mode_1():
                 count = 0
                 for line in lines:
                     if ((decode_key+"NciX" in line)): # 可以改成包含 NciX and Len
+                        line_sp = line.split()
+                        # print(line_sp)
+                        print(line_sp[1]+"  DH --> NFCC  "+line_sp[5]+"  "+line_sp[-1], end="")
                         count = count + 1
-                        print(line, end="")
-                        print(" >>>")
-                        print('{0:^35}'.format("DH ---> NFCC"))
-                        raw_string = line.split(">")[1].strip()
+                        # print(line.strip(), end="")
+                        # print(" >>>")
+                        # print('{0:^35}'.format("DH ---> NFCC"))
+                        # if("=>" in line):
+                        #     raw_string = line.split("=>")[1].strip()
+                        #     len = line.split("=>")[0].split("len =")[1].strip()
+                        # else:
+                        #     raw_string = line.split(">")[1].strip()
+                        #     len = line.split(">")[0].split("len =")[1].strip()
 
                     elif(decode_key+"NciR" in line): # 可以改成包含 NciR and Len
+                        line_sp = line.split()
+                        # print(line_sp)
+                        print(line_sp[1]+"  DH <-- NFCC  "+line_sp[5]+"  "+line_sp[-1], end="")
                         count = count + 1
-                        print(line, end="")
-                        print(" >>>")
-                        print('{0:^35}'.format("DH <--- NFCC"))
-                        if(">" in line): # for case NxpNciR : len =   4 > 40090100
-                            raw_string = line.split(">")[1].strip()
-                        else:
-                            raw_string = line.split("<=")[1].strip()
+                        # print(line.strip(), end="")
+                        # print(" >>>")
+                        # print('{0:^35}'.format("DH <--- NFCC"))
+                        # if("<=" in line):
+                        #     raw_string = line.split("<=")[1].strip()
+                        #     len = line.split("<=")[0].split("len =")[1].strip()
+                        # else:  # for case NxpNciR : len =   4 > 40090100
+                        #     raw_string = line.split(">")[1].strip()
+                        #     len = line.split(">")[0].split("len =")[1].strip()
                 
                     elif((filter_key_list[0] == "remain_all") or (any(key.lower() in line.lower() for key in filter_key_list))):
-                        print(line.encode("utf8").decode("cp950", "ignore"), end="") # 
+                        line = line.rstrip().encode("utf8").decode("cp950", "ignore") # 
+                        line_sp = line.split()
+                        print(line_sp[1]+"               "+line.split(" "+line_sp[4]+" ")[1])
                         continue
 
                     else:
                         continue
 
                     try:
-                        Decoder_Main.NFC_NCI_DECODER(raw_string)
+                        Decoder_Main.NFC_NCI_DECODER(line_sp[-3], line_sp[-1])
                     except KeyError as e1:
                         # sys.stdout.flush()
                         # sys.stdout = original_stdout
-                        print(f"Error: {e1} control code not found, please check the documentation.\n")
+                        print(f"\nError: {e1} control code not found, please check the documentation.\n")
                         print("#end")
                         # print(e)
                         # sys.exit(0)
                         continue
                     except ValueError as e2:
-                        print(f"Error: {e2}")
-                    except:
-                        print("Error: Unexpected error!!")
+                        print(f"\nError: {e2}")
+                        print("#end")
+                    except Exception as e:
+                        print("\nError: Unexpected error!!")
+                        print("type:", type(e))
+                        print("message:", str(e))
+                        print("#end")
 
                 print("\nTotal " + str(count) + " matche(s) in the file.")
                 sys.stdout.flush()
@@ -203,7 +222,7 @@ def mode_2():
             # clear_below(14)
             print(f"decoding... \033[32m{raw}\033[0m\n")
             try:
-                Decoder_Main.NFC_NCI_DECODER(raw)
+                Decoder_Main.NFC_NCI_DECODER(int(len(raw)/2), raw)
             except KeyError as e1:
                 print(f"\033[31mError:\033[0m \033[33m{e1}\033[0m control code not found, please check the documentation.\n")
             except ValueError as e2:
@@ -211,8 +230,10 @@ def mode_2():
                 # print(e)
                 print("\033[31mError: \033[33mNCI raw data\033[0m invalid. Try again!!")
                 print(f"\033[31mError: \033[0m{e2}\n")
-            except:
+            except Exception as e:
                 print("\033[31mError: \033[0mUnexpected error!!")
+                print("type:", type(e))
+                print("message:", str(e))
 
 def main():
     status = load_config("config.json")

@@ -57,14 +57,14 @@ tbl_bit_rates={
 # Table 133: RF Protocols
 tbl_rf_proto={
     'name': 'Table 133: RF Protocols:',
-    '00':   'PROTOCOL_UNDETERMINED',
-    '01':   'PROTOCOL_T1T',
-    '02':   'PROTOCOL_T2T',
-    '03':   'PROTOCOL_T3T',
-    '04':   'PROTOCOL_ISO_DEP',
-    '05':   'PROTOCOL_NFC_DEP',
-    '06':   'PROTOCOL_T5T',
-    '07':   'PROTOCOL_NDEF',
+    '00':   'UNDETERMINED',
+    '01':   'T1T',
+    '02':   'T2T',
+    '03':   'T3T',
+    '04':   'ISO-DEP',
+    '05':   'NFC-DEP',
+    '06':   'T5T',
+    '07':   'NDEF',
     '80-FE':'For proprietary use',
 }
 
@@ -94,11 +94,11 @@ tbl_nfcee_id={
 # Table 134: RF Interfaces
 tbl_rf_if={
     'name': 'Table 134: RF Interfaces:',
-    '00':   'NFCEE Direct RF Interface',
-    '01':   'Frame RF Interface',
-    '02':   'ISO-DEP RF Interface',
-    '03':   'NFC-DEP RF Interface',
-    '06':   'NDEF RF Interface',
+    '00':   'NFCEE Direct',
+    '01':   'Frame',
+    '02':   'ISO-DEP',
+    '03':   'NFC-DEP',
+    '06':   'NDEF',
     '80-FE':'For proprietary use',
 }
 
@@ -123,38 +123,38 @@ tbl_conn_id={
     '0010-1111': 'Dynamically assigned by the NFCC',
 }
 
-# Table 5: Control Messages to Reset the NFCC
-tbl_rst_msg={
-    'name': 'Table 5: Control Messages to Reset the NFCC:',
-    '00':   'Keep NCI RF Configuration', # Reset the NFCC and keep the NCI RF Configuration (if supported).
-    '01':   'Reset NCI RF Configuration', # Reset the NFCC including the NCI RF Configuration.
-}
+# Table 5: Control Messages to Reset the NFCC  (same as table 7)
+# tbl_rst_msg={
+#     'name': 'Table 5: Control Messages to Reset the NFCC:',
+#     '00':   'Keep Config', # Reset the NFCC and keep the NCI RF Configuration (if supported).
+#     '01':   'Reset Config', # Reset the NFCC including the NCI RF Configuration.
+# }
 tbl_rst_trig={
     'name': 'Table 5: Control Messages to Reset the NFCC:',
     '00':   'Unrecoverable error occurred in the NFCC',
     '01':   'NFCC was powered on',
-    '02':   'CORE_RESET_CMD was received',
+    '02':   'CORE_RESET_CMD',
 }
 
 # Table 6: NCI Version
 tbl_nci_ver={
     'name': 'Table 6: NCI Version:',
-    '10':   'NCI Version 1.0',
-    '11':   'NCI Version 1.1',
-    '20':   'NCI Version 2.0',
+    '10':   '1.0',
+    '11':   '1.1',
+    '20':   '2.0',
 }
 
 # Table 7: Configuration Status
 tbl_cfg_status={
     'name': 'Table 7: Configuration Status:',
-    '00':   'Keep NCI RF Configuration',
-    '01':   'Reset NCI RF Configuration',
+    '00':   'Keep Config', # Reset the NFCC and keep the NCI RF Configuration (if supported).
+    '01':   'Reset Config', # Reset the NFCC including the NCI RF Configuration.
 }
 
 # Table 10: NFCC Features (Octet 1)
 tbl_nfcc_feat_oct1={
     'name': 'Table 10: NFCC Features:',
-    6:  'Forced NFCEE Routing',
+    6:  'Forced NFCEE routing',
     5:  'APDU Pattern based routing',
     4:  'System Code based routing',
     3:  'AID based routing',
@@ -540,18 +540,18 @@ tbl_rf_tech={
 # Table 131: RF Technology and Mode
 tbl_rf_tech_mode={
     'name': 'Table 131: RF Technology and Mode:',
-    '00':   'NFC_A_PASSIVE_POLL_MODE',
-    '01':   'NFC_B_PASSIVE_POLL_MODE',
-    '02':   'NFC_F_PASSIVE_POLL_MODE',
-    '03':   'NFC_ACTIVE_POLL_MODE',
+    '00':   'A_PASSIVE_POLL',
+    '01':   'B_PASSIVE_POLL',
+    '02':   'F_PASSIVE_POLL',
+    '03':   'ACTIVE_POLL',
     '04-05':'RFU',
-    '06':   'NFC_V_PASSIVE_POLL_MODE',
+    '06':   'V_PASSIVE_POLL',
     '07-6F':'RFU',
     '70-7F':'Reserved for Proprietary Technologies in Poll Mode',
-    '80':   'NFC_A_PASSIVE_LISTEN_MODE',
-    '81':   'NFC_B_PASSIVE_LISTEN_MODE',
-    '82':   'NFC_F_PASSIVE_LISTEN_MODE',
-    '83':   'NFC_ACTIVE_LISTEN_MODE',
+    '80':   'A_PASSIVE_LISTEN',
+    '81':   'B_PASSIVE_LISTEN',
+    '82':   'F_PASSIVE_LISTEN',
+    '83':   'ACTIVE_LISTEN',
     '84-EF':'RFU',
     'F0-FF':'Reserved for Proprietary Technologies in Listen Mode',
 }

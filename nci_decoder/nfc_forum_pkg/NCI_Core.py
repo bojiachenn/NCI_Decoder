@@ -13,7 +13,7 @@ def CORE_RESET_CMD(raw):
 	p_payload = 0
 
 	reset_type = raw[p_payload:(p_payload + 2*1)]
-	print("- Reset Type: "+NFC_table.tbl_rst_msg.get(reset_type,"RFU")+" ("+reset_type+")")
+	print("- Reset Type: "+NFC_table.tbl_cfg_status.get(reset_type,"RFU")+" ("+reset_type+")")
 	p_payload = p_payload + 2*1
 	print("")
 	return p_payload
@@ -52,7 +52,7 @@ def CORE_RESET_NTF(raw):
 	p_payload = p_payload + 2*1
 
 	cfg_status = raw[p_payload:(p_payload+2*1)]
-	print("- Configuration Status: "+NFC_table.tbl_cfg_status.get(cfg_status, "RFU")+" ("+cfg_status+")")
+	print("- Config Status: "+NFC_table.tbl_cfg_status.get(cfg_status, "RFU")+" ("+cfg_status+")")
 	p_payload = p_payload + 2*1
 
 	nci_ver = raw[p_payload:(p_payload+2*1)]
@@ -70,9 +70,9 @@ def CORE_RESET_NTF(raw):
 	n = int(mfg_spec_info_len, 16)
 	p_payload = p_payload + 2*1
 	if(mfg_spec_info_len == 0):
-		print("- Manufacturer Specific Information Length: Information is not available.")
+		print("- Manufacturer Specific Information: Information is not available.")
 	else:
-		print("- Manufacturer Specific Information Length: "+str(n)+" ("+mfg_spec_info_len+")")
+		# print("- Manufacturer Specific Information Length: "+str(n)+" ("+mfg_spec_info_len+")")
 
 		print("- Manufacturer Specific Information: "+raw[p_payload:(p_payload+2*n)])
 		for i in range (n):
@@ -123,7 +123,7 @@ def CORE_INIT_RSP(raw):
 	p_payload = p_payload + 2*1
 
 	nfcc_feature = raw[p_payload:(p_payload+2*4)]
-	print("- NFCC Features: "+nfcc_feature+" --refer to table 10")
+	print("- NFCC Features: "+nfcc_feature) # +" --refer to table 10"
 	oct_0 = bin(int(nfcc_feature[0:2],16))[2::].zfill(8)
 	print("  -- octet0: "+oct_0+" ("+nfcc_feature[0:2]+")")
 	print('{0:<40}'.format("    * "+"Active Communication Mode: "), end="")
@@ -166,7 +166,7 @@ def CORE_INIT_RSP(raw):
 			print("Not support")
 	oct_3 = bin(int(nfcc_feature[6:8],16))[2::].zfill(8)
 	print("  -- octet3: "+oct_3+" ("+nfcc_feature[6:8]+")")
-	print('{0:<40}'.format("    * "+"Octet 3 is reserved for proprietary capabilities"))
+	print('{0:<40}'.format("    * "+"Octet_3 is reserved for proprietary capabilities"))
 	p_payload = p_payload + 2*4
 	
 	max_logical_conn = raw[p_payload:(p_payload+2*1)]
@@ -201,7 +201,7 @@ def CORE_INIT_RSP(raw):
 
 	num_of_support_rf_if = raw[p_payload:(p_payload+2*1)]
 	n = int(num_of_support_rf_if, 16)
-	print("- Number of Supported RF Interfaces:", n, "("+num_of_support_rf_if+")")
+	# print("- Number of Supported RF Interfaces:", n, "("+num_of_support_rf_if+")")
 	p_payload = p_payload + 2*1	
 	
 	rf_if = raw[p_payload:]

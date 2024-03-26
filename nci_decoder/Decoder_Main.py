@@ -86,7 +86,7 @@ tbl_nci_ctrl = {
 # def DATA_PACKET_PROCESS(raw):
 # 	print("- data:", raw)
 
-def NFC_NCI_DECODER(string, decode_key="defult"):
+def NFC_NCI_DECODER(len, string, decode_key="defult"):
 	raw = string.replace(" ", "")
 	raw = raw.upper()
 	# print("")
@@ -105,7 +105,8 @@ def NFC_NCI_DECODER(string, decode_key="defult"):
 
 	if(mt_val == "DATA"):
 		# print('{0:^25}'.format(direct.get(mt_val,"DH -><- NFCC")))
-		print('{0:^35}'.format("[ NCI: DATA Packet ]"))
+		# print('{0:^35}'.format("[ NCI: DATA Packet ]"))
+		print("   << NCI: DATA Packet >>\n")
 		conn_id = first_oct_b[4::]
 		cr = bin(int(raw[2:4],16))[2::].zfill(8)[6::]
 		print("- Connection ID:", int(conn_id, 2), end=' ')
@@ -116,10 +117,13 @@ def NFC_NCI_DECODER(string, decode_key="defult"):
 		else: 
 			print("(Dynamically assigned by the NFCC)")
 		print("- Credits:", int(cr, 2))
-		print("- Payload Length:", int(payload_len,16))
+		# print("- Payload Length:", int(payload_len,16))
 		print("- data:", payload_raw)
 		# Data 封包也有格式需要解析 之後做~~
 		print("")
+		if((int(len)-3) != int(payload_len,16)):
+			print("Payload Length:", int(payload_len,16), "Octet(s)")
+			print("Error: Payload error!!")
 
 	else:   # Control Packet
 		# print('{0:^25}'.format(direct.get(mt_val,"DH -><- NFCC")))
@@ -136,15 +140,15 @@ def NFC_NCI_DECODER(string, decode_key="defult"):
 		# try:
 		function = f"{tbl_nci_ctrl[gid_val][oid][mt_val]}"
 		function_name = function.split(" ")[1]
-		print('{0:^35}'.format("[ "+function_name+" ]"))
+		# print('{0:^35}'.format("[ "+function_name+" ]"))
+		print("   << "+function_name+" >>\n")
 		# eval("tbl_nci_ctrl{}[gid_val][oid][mt_val](payload_raw)".format(decode_key)) # 如果需要對應不同晶片的decode cmd，可以參考這裡
 		check = tbl_nci_ctrl[gid_val][oid][mt_val](payload_raw) # 呼叫對應func，輸入rawdata
 		# except KeyError as e:
 		# 	print("\033[31mError:\033[0m May be \033[33mRFU\033[0m or \033[33mProprietary\033[0m, please check the documentation.\n")
 			# print(e)
-		if(check != 2*int(payload_len,16)):
+		if(check != 2*int(payload_len,16) or (int(len)-3) != int(payload_len,16)):
 			print("Payload Length:", int(payload_len,16), "Octet(s)")
-			# print("Check Length:", check/2, "Octet(s)")
 			print("Error: Payload error!!")
 	
 	if(pbf == "1"):

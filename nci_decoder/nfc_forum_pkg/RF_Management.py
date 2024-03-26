@@ -57,8 +57,8 @@ def RF_DISCOVER_MAP_RSP(raw):
 	return p_payload
 
 def LISTEN_MODE_ROUTING_INFO(raw):
-	"""共用"""
 	"""""""""""""""
+		共用
 		[RF_SET_LISTEN_MODE_ROUTING_CMD]
 		[RF_GET_LISTEN_MODE_ROUTING_NTF]
 	More:						1 Octet
@@ -294,8 +294,8 @@ def RF_DISCOVER_RSP(raw):
 	return p_payload
 
 def RF_TECH_SPEC_PARA(rf_tech_mode, para_raw):
-	"""部分共用"""
 	"""""""""""""""
+		部分共用
 		[RF_DISCOVER_NTF]
 		[RF_INTF_ACTIVATED_NTF]
 	"""""""""""""""
@@ -605,24 +605,24 @@ def RF_INTF_ACTIVATED_NTF(raw):
 		activ_rf_tech_mode = '70-7F'
 	elif((int(activ_rf_tech_mode,16) >= 240) & (int(activ_rf_tech_mode,16) <= 255)):
 		activ_rf_tech_mode = 'F0-FF'
-	print("- Activation RF Technology and Mode: "+NFC_table.tbl_rf_tech_mode.get(activ_rf_tech_mode,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
+	print("- Activation Mode: "+NFC_table.tbl_rf_tech_mode.get(activ_rf_tech_mode,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
 	p_payload = p_payload + 2*1
 	
 	max_data_size=raw[p_payload:(p_payload+2*1)]
 	size = int(max_data_size,16)
-	print("- Max Data Packet Payload Size:", size, "("+max_data_size+")")
+	print("- Max Data Size:", size, "("+max_data_size+")")
 	p_payload = p_payload + 2*1
 
 	num_credits = raw[p_payload:(p_payload+2*1)]
 	if(num_credits == "FF"):
-		print("- Initial Number of Credits: "+"Data flow control is not used"+" ("+num_credits+")")
+		print("- Number of Credits: "+"Not used"+" ("+num_credits+")")
 	else:
-		print("- Initial Number of Credits:", int(num_credits), "("+num_credits+")")
+		print("- Number of Credits:", int(num_credits), "("+num_credits+")")
 	p_payload = p_payload + 2*1
 	
 	len_rf_tech_para = raw[p_payload:(p_payload+2*1)]
 	l = int(len_rf_tech_para,16)
-	print("- Length of RF Technology Specific Parameters:", l, "("+len_rf_tech_para+")")
+	# print("- Length of RF Technology Specific Parameters:", l, "("+len_rf_tech_para+")")
 	p_payload = p_payload + 2*1
 
 	if(l != 0):
@@ -635,24 +635,24 @@ def RF_INTF_ACTIVATED_NTF(raw):
 		data_ex_rf_tech_mode = '70-7F'
 	elif((int(data_ex_rf_tech_mode,16) >= 240) & (int(data_ex_rf_tech_mode,16) <= 255)):
 		data_ex_rf_tech_mode = 'F0-FF'
-	print("- Data Exchange RF Technology and Mode: "+NFC_table.tbl_rf_tech_mode.get(data_ex_rf_tech_mode,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
+	print("- Data Mode: "+NFC_table.tbl_rf_tech_mode.get(data_ex_rf_tech_mode,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
 	p_payload = p_payload + 2*1
 
 	data_ex_tx_bitrate = raw[p_payload:(p_payload+2*1)]	
 	if((int(data_ex_tx_bitrate,16) >= 128) & (int(data_ex_tx_bitrate,16) <= 254)):
 		data_ex_tx_bitrate = '80-FE'
-	print("- Data Exchange Transmit Bit Rate: "+NFC_table.tbl_bit_rates.get(data_ex_tx_bitrate,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
+	print("- Tx: "+NFC_table.tbl_bit_rates.get(data_ex_tx_bitrate,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
 	p_payload = p_payload + 2*1
 
 	data_ex_rx_bitrate=raw[p_payload:(p_payload+2*1)]
 	if((int(data_ex_rx_bitrate,16) >= 128) & (int(data_ex_rx_bitrate,16) <= 254)):
 		data_ex_rx_bitrate = '80-FE'
-	print("- Data Exchange Receive Bit Rate: "+NFC_table.tbl_bit_rates.get(data_ex_rx_bitrate,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
+	print("- Rx: "+NFC_table.tbl_bit_rates.get(data_ex_rx_bitrate,"RFU")+" ("+raw[p_payload:(p_payload+2*1)]+")")
 	p_payload = p_payload + 2*1
 	
 	len_activate_para = raw[p_payload:(p_payload+2*1)]
 	n = int(len_activate_para,16)
-	print("- Length of Activation Parameters:", n, "("+len_activate_para+")")
+	# print("- Length of Activation Parameters:", n, "("+len_activate_para+")")
 	p_payload = p_payload + 2*1
 	
 	rf_if_type = NFC_table.tbl_rf_if.get(rf_if,"RFU")
