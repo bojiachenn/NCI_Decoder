@@ -1,0 +1,55 @@
+# -*- mode: python ; coding: utf-8 -*-
+
+
+a = Analysis(
+    ['Decoder.py'],
+    pathex=['nci_decoder',
+			'nci_decoder.nfc_forum_2_0_pkg',
+			'nci_decoder.Nxp_pkg'],
+    binaries=[],
+    datas=[],
+    hiddenimports=[
+		'nci_decoder.__init__',
+		'nci_decoder.__pkg_import__',
+		'nci_decoder.Decoder_Main',
+		'nci_decoder.nfc_forum_2_0_pkg.__ctrl__',
+		'nci_decoder.nfc_forum_2_0_pkg.__table__',
+		'nci_decoder.nfc_forum_2_0_pkg.NCI_Core',
+		'nci_decoder.nfc_forum_2_0_pkg.NFCEE_Management',
+		'nci_decoder.nfc_forum_2_0_pkg.RF_Management',
+		'nci_decoder.Nxp_pkg.__ctrl__',
+		'nci_decoder.Nxp_pkg.__table__',
+		'nci_decoder.Nxp_pkg.NCI_Core',
+		'nci_decoder.Nxp_pkg.NFCEE_Management',
+		'nci_decoder.Nxp_pkg.RF_Management',
+		'nci_decoder.Nxp_pkg.Proprietary',
+	],
+    hookspath=[],
+    hooksconfig={},
+    runtime_hooks=[],
+    excludes=[],
+    noarchive=False,
+)
+pyz = PYZ(a.pure)
+
+exe = EXE(
+    pyz,
+    a.scripts,
+    a.binaries,
+    a.datas,
+    [],
+    name='NCI_Decoder_v1.3_0408.exe',
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    runtime_tmpdir=None,
+    console=True,
+    disable_windowed_traceback=False,
+    argv_emulation=False,
+    target_arch=None,
+    codesign_identity=None,
+    entitlements_file=None,
+    icon=['decode.ico'],
+)

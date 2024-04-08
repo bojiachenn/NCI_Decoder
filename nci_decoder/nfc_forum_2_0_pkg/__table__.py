@@ -38,6 +38,8 @@ tbl_status_codes={
     'C1':   'NFCEE_TRANSMISSION_ERROR',
     'C2':   'NFCEE_PROTOCOL_ERROR',
     'C3':   'NFCEE_TIMEOUT_ERROR',
+    # Proprietary Status Codes
+    # 0xE0-0xFF
 }
 
 # Table 132: Bit Rates
@@ -118,9 +120,9 @@ tbl_rf_if_exten={
 # Table 4: Conn ID
 tbl_conn_id={
     'name': 'Table 4: Conn ID',
-    '0000': 'Static RF Connection between the DH and a Remote NFC Endpoint',
-    '0001': 'Static HCI Connection between the DH and the HCI Network',
-    '0010-1111': 'Dynamically assigned by the NFCC',
+    '0000': 'Static: DH -- Remote NFC Endpoint',
+    '0001': 'Static: DH -- HCI Network',
+    '0010-1111': 'Dynamically assigned',
 }
 
 # Table 5: Control Messages to Reset the NFCC  (same as table 7)
@@ -285,10 +287,8 @@ tbl_cfg_para={
     '84':   'RFU',
     '85':   'NFCC_CONFIG_CONTROL',
     '86-9F':'RFU',
-    # Nxp Proprietary (2 Octets)
-    'A0':   'Register:',
     # Reserved for Proprietary Use
-    'A1-FE':'Reserved',
+    'A0-FE':'Reserved',
     # Reserved for Extension
     'FF':   'RFU',
 }
@@ -305,9 +305,9 @@ tbl_cfg_para={
 tbl_mode={
     'name': 'Table 49: Value Field for Mode:',
     '00':   'Error',
-    '01':   'Polling mode',
-    '02':   'Listen mode',
-    '03':   'Listen/Polling mode',
+    '01':   'Polling',
+    '02':   'Listen',
+    '03':   'Listen/Polling',
 }
 
 # Table 51: More field values
@@ -560,10 +560,10 @@ tbl_rf_tech_mode={
 tbl_len_rdu_val={
     'name': 'Table 137: Length Reduction Value',
     '00':   'No PSL_REQ and PSL_RES were exchanged',
-    '01':   'NFC_LR_254: 254 Bytes',
-    '02':   'NFC_LR_192: 192 Bytes',
-    '03':   'NFC_LR_128: 128 Bytes',
-    '04':   'NFC_LR_64: 64 Bytes',
+    '01':   '254 Bytes',
+    '02':   '192 Bytes',
+    '03':   '128 Bytes',
+    '04':   '64 Bytes',
     '05-FF':'RFU',
 }
 
@@ -596,3 +596,13 @@ tbl_tlv_type={
 #     '05-9F':'RFU',
 #     'A0-FF':'For proprietary use',
 # }
+
+# Table 122: NFCEE_STATUS_NTF NFCEE Status
+tbl_nfcee_status={
+    'name': 'Table 122: NFCEE_STATUS_NTF NFCEE Status:',
+    '00':   'Unrecoverable error',
+    '01':   'NFCEE Initialization sequence started',
+    '02':   'NFCEE Initialization sequence completed',
+    '03-7F':'RFU',
+    '80-FF':'Proprietary',
+}

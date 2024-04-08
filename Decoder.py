@@ -15,16 +15,15 @@ config = {}
 
 def load_config(file_path):
     global config
-    config = {}
     try:
         with open(file_path, mode='r') as json_file:
             config = json.load(json_file)
     except FileNotFoundError:
         return 0
+    except json.JSONDecodeError as e:
+        print("JSON 解析失败:", e)
+        return 0
     return 1
-    # print_at(25, "Vendor = "+config.get("vendor", "None"))
-    # print_at(26, "Chip Model = "+config.get("chip_model", "None"))
-    # print_at(27, "Filter = "+config.get("filter", "None"))
 
 def clear_terminal():
     # 適用於 Windows
@@ -140,7 +139,7 @@ def mode_1():
                     if ((decode_key+"NciX" in line)): # 可以改成包含 NciX and Len
                         line_sp = line.split()
                         # print(line_sp)
-                        print(line_sp[1]+"  DH --> NFCC  "+line_sp[5]+"  "+line_sp[-1], end="")
+                        print(line_sp[0]+" "+line_sp[1]+"  DH --> NFCC  "+decode_key+"NciX"+"  "+line_sp[-1], end="")
                         count = count + 1
                         # print(line.strip(), end="")
                         # print(" >>>")
@@ -155,7 +154,7 @@ def mode_1():
                     elif(decode_key+"NciR" in line): # 可以改成包含 NciR and Len
                         line_sp = line.split()
                         # print(line_sp)
-                        print(line_sp[1]+"  DH <-- NFCC  "+line_sp[5]+"  "+line_sp[-1], end="")
+                        print(line_sp[0]+" "+line_sp[1]+"  DH <-- NFCC  "+decode_key+"NciR"+"  "+line_sp[-1], end="")
                         count = count + 1
                         # print(line.strip(), end="")
                         # print(" >>>")
@@ -169,28 +168,29 @@ def mode_1():
                 
                     elif((filter_key_list[0] == "remain_all") or (any(key.lower() in line.lower() for key in filter_key_list))):
                         line = line.rstrip().encode("utf8").decode("cp950", "ignore") # 
-                        line_sp = line.split()
-                        print(line_sp[1]+"               "+line.split(" "+line_sp[4]+" ")[1])
+                        # line_sp = line.split()
+                        # print(line_sp[1]+"               "+line.split(" "+line_sp[4]+" ")[1])
+                        print(line)
                         continue
 
                     else:
                         continue
 
                     try:
-                        Decoder_Main.NFC_NCI_DECODER(line_sp[-3], line_sp[-1])
+                        Decoder_Main.NFC_NCI_DECODER(line_sp[-3], line_sp[-1], config.get("vendor", "None"), config.get("chip_model", "None"))
                     except KeyError as e1:
                         # sys.stdout.flush()
                         # sys.stdout = original_stdout
-                        print(f"\nError: {e1} control code not found, please check the documentation.\n")
+                        print(f"\nError: {e1} control code not found, please check the documentation.")
                         print("#end")
                         # print(e)
                         # sys.exit(0)
                         continue
                     except ValueError as e2:
-                        print(f"\nError: {e2}")
+                        print(f"Error: {e2}")
                         print("#end")
                     except Exception as e:
-                        print("\nError: Unexpected error!!")
+                        print("Error: Unexpected error!!")
                         print("type:", type(e))
                         print("message:", str(e))
                         print("#end")
@@ -222,7 +222,7 @@ def mode_2():
             # clear_below(14)
             print(f"decoding... \033[32m{raw}\033[0m\n")
             try:
-                Decoder_Main.NFC_NCI_DECODER(int(len(raw)/2), raw)
+                Decoder_Main.NFC_NCI_DECODER(int(len(raw)/2), raw, config.get("vendor", "None"), config.get("chip_model", "None"))
             except KeyError as e1:
                 print(f"\033[31mError:\033[0m \033[33m{e1}\033[0m control code not found, please check the documentation.\n")
             except ValueError as e2:
@@ -234,13 +234,14 @@ def mode_2():
                 print("\033[31mError: \033[0mUnexpected error!!")
                 print("type:", type(e))
                 print("message:", str(e))
+            print("")
 
 def main():
     status = load_config("config.json")
     clear_terminal()
     while True:
         print_menu(status)
-        print_at(12, " " * 110) # 清除第8行
+        print_at(12, " " * 110) # 清除第12行
         print_at(12, "                              (\"\033[31mr\033[0m\" reload json)")
         print_at(12, "Select Decoder Mode: ")
         select = input().strip()
@@ -259,8 +260,8 @@ def main():
             sys.exit(0)
 
         elif(select == "r"):
-            status = load_config("config.json")
             clear_terminal()
+            status = load_config("config.json")
 
         else:
             print("\033[31mInvalid\033[0m choice. Try again!!\n")
