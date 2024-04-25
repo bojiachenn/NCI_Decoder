@@ -6,6 +6,16 @@
 #                          #
 ############################
 
+tbl_general_status={
+    '00': 'Disabled',
+    '01': 'Enabled ',
+}
+
+tbl_general_status_n={
+    '00': 'Enabled ',
+    '01': 'Disabled',
+}
+
 # Table 129: Status Codes
 tbl_status_codes={
     'name': 'Table 129: Status Codes:',
@@ -217,25 +227,25 @@ tbl_cfg_para={
     '00':   'TOTAL_DURATION',
     '02':   'CON_DISCOVERY_PARAM',
     # Poll Mode – NFC-A Discovery Parameters
-    '08':   'PA_BAIL_OUT           ( Default - )',
+    '08':   'PA_BAIL_OUT',
     '09':   'PA_DEVICES_LIMIT',
     # Poll Mode – NFC-B Discovery Parameters
     '10':   'PB_AFI',
-    '11':   'PB_BAIL_OUT           ( Default - )',
+    '11':   'PB_BAIL_OUT',
     '12':   'PB_ATTRIB_PARAM1',
     '13':   'PB_SENSB_REQ_PARAM',
     '14':   'PB_DEVICES_LIMIT',
     # Poll Mode – NFC-F Discovery Parameters
     '18':   'PF_BIT_RATE',
-    '19':   'PF_BAIL_OUT           ( Default - )',
+    '19':   'PF_BAIL_OUT',
     '1A':   'PF_DEVICES_LIMIT',
     # Poll Mode – ISO-DEP Discovery Parameters
     '20':   'PI_B_H_INFO',
     '21':   'PI_BIT_RATE',
     # Poll Mode – NFC-DEP Discovery Parameters
-    '28':   'PN_NFC_DEP_PSL        ( Default 00 )',
-    '29':   'PN_ATR_REQ_GEN_BYTES  ( Default empty )',
-    '2A':   'PN_ATR_REQ_CONFIG     ( Default 30 )',
+    '28':   'PN_NFC_DEP_PSL',
+    '29':   'PN_ATR_REQ_GEN_BYTES',
+    '2A':   'PN_ATR_REQ_CONFIG',
     # Poll Mode – NFC-V Discovery Parameters
     '2F':   'PV_DEVICES_LIMIT',
     # Listen Mode – NFC-A Discovery Parameters
@@ -255,18 +265,18 @@ tbl_cfg_para={
     '41':   'LF_T3T_IDENTIFIERS_2',
     '42':   'LF_T3T_IDENTIFIERS_3',
     '43':   'LF_T3T_IDENTIFIERS_4',
-    '44':   'LF_T3T_IDENTIFIERS_5  ( Default - )',
-    '45':   'LF_T3T_IDENTIFIERS_6  ( Default - )',
-    '46':   'LF_T3T_IDENTIFIERS_7  ( Default - )',
-    '47':   'LF_T3T_IDENTIFIERS_8  ( Default - )',
-    '48':   'LF_T3T_IDENTIFIERS_9  ( Default - )',
-    '49':   'LF_T3T_IDENTIFIERS_10 ( Default - )',
-    '4A':   'LF_T3T_IDENTIFIERS_11 ( Default - )',
-    '4B':   'LF_T3T_IDENTIFIERS_12 ( Default - )',
-    '4C':   'LF_T3T_IDENTIFIERS_13 ( Default - )',
-    '4D':   'LF_T3T_IDENTIFIERS_14 ( Default - )',
-    '4E':   'LF_T3T_IDENTIFIERS_15 ( Default - )',
-    '4F':   'LF_T3T_IDENTIFIERS_16 ( Default - )',
+    '44':   'LF_T3T_IDENTIFIERS_5',
+    '45':   'LF_T3T_IDENTIFIERS_6',
+    '46':   'LF_T3T_IDENTIFIERS_7',
+    '47':   'LF_T3T_IDENTIFIERS_8',
+    '48':   'LF_T3T_IDENTIFIERS_9',
+    '49':   'LF_T3T_IDENTIFIERS_10',
+    '4A':   'LF_T3T_IDENTIFIERS_11',
+    '4B':   'LF_T3T_IDENTIFIERS_12',
+    '4C':   'LF_T3T_IDENTIFIERS_13',
+    '4D':   'LF_T3T_IDENTIFIERS_14',
+    '4E':   'LF_T3T_IDENTIFIERS_15',
+    '4F':   'LF_T3T_IDENTIFIERS_16',
     '52':   'LF_T3T_MAX',
     '53':   'LF_T3T_FLAGS',
     '55':   'LF_T3T_RD_ALLOWED',
@@ -280,16 +290,16 @@ tbl_cfg_para={
     '5B':   'LI_A_BIT_RATE',
     '5C':   'LI_A_RATS_TC1',
     # Listen Mode – NFC-DEP Discovery Parameters
-    '60':   'LN_WT                 ( Default 08 )',
-    '61':   'LN_ATR_RES_GEN_BYTES  ( Default empty )',
-    '62':   'LN_ATR_RES_CONFIG     ( Default 30 )',
+    '60':   'LN_WT',
+    '61':   'LN_ATR_RES_GEN_BYTES',
+    '62':   'LN_ATR_RES_CONFIG',
     # Active Poll Mode Parameters
-    '68':   'PACM_BIT_RATE         ( Default 01 )',
+    '68':   'PACM_BIT_RATE',
     # Other Parameters
     '80':   'RF_FIELD_INFO',
     '81':   'RF_NFCEE_ACTION',
-    '82':   'NFCDEP_OP             ( Default 0E )',
-    '83':   'LLCP_VERSION          ( Default 11 )',
+    '82':   'NFCDEP_OP',
+    '83':   'LLCP_VERSION',
     '85':   'NFCC_CONFIG_CONTROL',
     # Reserved for Proprietary Use
     'A0-FE':'Reserved',
@@ -399,10 +409,18 @@ tbl_cfg_para={
     # Table 108. GPIO configuration parameters
     'A196': 'GPIO_SELECTION',
     # in SN220 RF Register Setting Guidelines
-    # 2.4.2
-    'A06A': 'RF_CE_Phase_CFG',
+    # 2.4.2  2.7.4.2
+    'A06A': 'RF_CLK_PLL_DPLL3',
     # 2.7.2
-    'A0AF': 'Card Mode Cfg',
+    'A0AF': 'DLMA_CTRL',
+    # 2.8.2.2
+    'A0A7': 'RM_GLOBAL_TX_SHAPING',
+    # 2.8.2.3
+    'A0A8': 'RM_TECHNO_TX_SHAPING',
+    # AN13076-SN220DLMA.pdf
+    'A098': 'MEASURED_LMA_RSSI',
+    'A0AB': 'RSSI_GAIN',
+    'A0A9': 'DLMA_TX'
 }
 
 
@@ -742,9 +760,11 @@ tbl_in_clk_freq={
     '06': '32 MHz',
     '07': 'HFO',
     '08': 'XTAL 27.12 MHz',
+    '09': 'Not applicable',
     '0A': '48 MHz',
 }
 
+# Table 1
 tbl_rf_trans_id={
     # BOOT
     '10': 'RF_CLIF_CFG_BOOT',
@@ -814,4 +834,23 @@ tbl_rf_trans_id={
     '98': 'RF_CM_TXRX_B848',
     '99': 'RF_CM_TXRX_F212',
     '9A': 'RF_CM_TXRX_F424',
+    # RF_CM_TXRX_TECHNO_X
+    '9B': 'RF_CM_TXRX_TECHNO_A',
+    '9C': 'RF_CM_TXRX_TECHNO_B',
+    '9D': 'RF_CM_TXRX_TECHNO_F',
+}
+
+# Table 3
+tbl_register={
+    '32': 'CLIF_TX_UNDERSHOOT_CONFIG_REG',
+    '3A': 'CLIF_GCM_CONFIG2_REG',
+    '40': 'CLIF_DGRM_RSSI_REG',
+    '4C': 'CLIF_ANACTRL_TX_CONFIG_REG',
+    '4E': 'CLIF_ANACTRL_TX1_GSN_REG',
+    '4F': 'CLIF_ANACTRL_TX2_GSN_REG',
+    '50': 'CLIF_ANACTRL_TX_GSP_REG',
+    '82': 'CLIF_SIGPRO_CM_FILT128A_REG',
+    '95': 'CLIF_SS_TX1_CMCFG_REG',
+    '97': 'CLIF_SS_TX2_CMCFG_REG',
+    'AB': 'CLIF_SS_TX_SCALE_CFG_REG',
 }

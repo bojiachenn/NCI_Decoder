@@ -157,7 +157,7 @@ def LISTEN_MODE_ROUTING_INFO(raw, vendor, model):
 				[Table 57: Value Field for System Code-based Routing]
 			SC Route List:  2n Octets
 			"""""""""""""""
-			n = (x-2)/2
+			n = int((x-2)/2)
 			for j in range(n):
 				print("      * SC Route "+str(i)+": "+val_raw[val_payload:(val_payload+2*2)])
 				val_payload = val_payload + 2*2
@@ -168,7 +168,7 @@ def LISTEN_MODE_ROUTING_INFO(raw, vendor, model):
 			Reference data:	n Octet(s)
 			Mask:       	n Octet(s)
 			"""""""""""""""
-			n = (x-2)/2
+			n = int((x-2)/2)
 			print("      * Reference data: "+val_raw[val_payload:(val_payload+2*1)])
 			val_payload = val_payload + 2*n
 			print("      * Mask: "+val_raw[val_payload:(val_payload+2*1)])

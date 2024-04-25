@@ -3,7 +3,7 @@ import json
 from nci_decoder import Decoder_Main
 
 __NFC_NCI_VER__ = "2.0" # 3 char
-__DECODER_VERSION__ = "1.3" # 3 char
+__DECODER_VERSION__ = "1.4" # 3 char
 
 kaomoji=[
     "(o´∀`o)", "(o･ω･o)", "( ･ω･ )",
@@ -139,7 +139,7 @@ def mode_1():
                     if ((decode_key+"NciX" in line)): # 可以改成包含 NciX and Len
                         line_sp = line.split()
                         # print(line_sp)
-                        print(line_sp[0]+" "+line_sp[1]+"  DH --> NFCC  "+decode_key+"NciX"+"  "+line_sp[-1], end="")
+                        print(line_sp[0]+" "+line_sp[1]+"  DH --> NFCC  "+decode_key+"NciX", end="")
                         count = count + 1
                         # print(line.strip(), end="")
                         # print(" >>>")
@@ -154,7 +154,7 @@ def mode_1():
                     elif(decode_key+"NciR" in line): # 可以改成包含 NciR and Len
                         line_sp = line.split()
                         # print(line_sp)
-                        print(line_sp[0]+" "+line_sp[1]+"  DH <-- NFCC  "+decode_key+"NciR"+"  "+line_sp[-1], end="")
+                        print(line_sp[0]+" "+line_sp[1]+"  DH <-- NFCC  "+decode_key+"NciR", end="")
                         count = count + 1
                         # print(line.strip(), end="")
                         # print(" >>>")
@@ -177,7 +177,7 @@ def mode_1():
                         continue
 
                     try:
-                        Decoder_Main.NFC_NCI_DECODER(line_sp[-3], line_sp[-1], config.get("vendor", "None"), config.get("chip_model", "None"))
+                        Decoder_Main.NFC_NCI_DECODER(line_sp[-3], line_sp[-1], config.get("vendor", "None"), config.get("chip_model", "None"), 1)
                     except KeyError as e1:
                         # sys.stdout.flush()
                         # sys.stdout = original_stdout
@@ -213,6 +213,8 @@ def mode_2():
         # print_at(14, "Input the \"\033[33mNCI raw data\033[0m\" or \"\033[31m-1\033[0m\" back to Menu: ")
         print("Input the \"\033[33mNCI raw data\033[0m\" or \"\033[31m-1\033[0m\" back to Menu: ", end="")
         raw = input().strip()
+        raw = raw.replace("0x", "")
+        raw = raw.replace(" ", "")
 
         if(raw == "-1"):
             clear_terminal()
@@ -222,7 +224,7 @@ def mode_2():
             # clear_below(14)
             print(f"decoding... \033[32m{raw}\033[0m\n")
             try:
-                Decoder_Main.NFC_NCI_DECODER(int(len(raw)/2), raw, config.get("vendor", "None"), config.get("chip_model", "None"))
+                Decoder_Main.NFC_NCI_DECODER(int(len(raw)/2), raw, config.get("vendor", "None"), config.get("chip_model", "None"), 2)
             except KeyError as e1:
                 print(f"\033[31mError:\033[0m \033[33m{e1}\033[0m control code not found, please check the documentation.\n")
             except ValueError as e2:

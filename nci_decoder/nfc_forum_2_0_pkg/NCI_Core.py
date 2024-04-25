@@ -129,7 +129,7 @@ def CORE_INIT_RSP(raw, vendor="None", model="None"):
 		print("Not support")
 	print('{0:<40}'.format("     ~ "+"HCI Network Support: "), end="")
 	if(oct_0[4:5] == "1"):
-		print("As defined in [ETSI_102622]")
+		print("Implements as defined in [ETSI_102622]")
 	else:
 		print("Not implement")
 	print('{0:<40}'.format("     ~ "+"Discovery Cfg Mode: "), end="")
@@ -520,7 +520,7 @@ def CORE_CONN_CREDITS_NTF(raw, vendor="None", model="None"):
 	for i in range(n):
 		print("   ~ [Entry_"+str(i)+"] ~  ")
 		conn_id = raw[p_payload:(p_payload+2*1)]
-		print("    * Conn ID:", int(conn_id, 16), "("+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC"))
+		print("    * Conn ID:", int(conn_id, 16), "("+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC")+")")
 		p_payload = p_payload + 2*1
 
 		credits = raw[p_payload:(p_payload+2*1)]	
