@@ -87,10 +87,10 @@ tbl_nfcee_id={
     'name': 'Table 116: NFCEE IDs:',
     '00':   'DH-NFCEE',
     '01':   'HCI-NTWK-NFCEE (RFU)',
-    '02-0F':'Reserved for further static IDs',
-    '10-7F':'NFCEE',
-    '80-FE':'HCI-NFCEE',
-    'FF':   'RFU',
+    '02-0F':'(Static IDs)',
+    '10-7F':'(NFCEE)',
+    '80-FE':'(HCI-NFCEE)',
+    'FF':   '(RFU)',
 }
 
 # Table 134: RF Interfaces
@@ -388,12 +388,12 @@ tbl_pwr_state={
     'name': 'Table 59: Value Field for Power State:',
     # 7:  "RFU",
     # 6:  "RFU",
-    5:   "Switched On Sub-State 3",   # 1: Apply, 0: Not apply
-    4:   "Switched On Sub-State 2",   # 1: Apply, 0: Not apply
-    3:   "Switched On Sub-State 1",   # 1: Apply, 0: Not apply
-    2:   "Battery Off State",         # 1: Apply, 0: Not apply
-    1:   "Switched Off State",        # 1: Apply, 0: Not apply
-    0:   "Switched On State",         # 1: Apply, 0: Not apply
+    5:   "Screen Off lock (Sub-State 3)",   # 1: Apply, 0: Not apply
+    4:   "Screen On lock (Sub-State 2)",    # 1: Apply, 0: Not apply
+    3:   "Screen off unlock (Sub-State 1)", # 1: Apply, 0: Not apply
+    2:   "Battery Off State",               # 1: Apply, 0: Not apply
+    1:   "Switch Off State",                # 1: Apply, 0: Not apply
+    0:   "Switch On State",                 # 1: Apply, 0: Not apply
 }
 
 # Table 67: RF Discovery ID
@@ -580,7 +580,7 @@ tbl_tlv_type={
     '01':   'ATR Bytes',
     '02':   'T3T Command Set Interface Supplementary Information',
     '03':   'Host ID in the HCI Network',
-    '04':   'Support NDEF storage',
+    '04':   'NDEF',
     '05-9F':'RFU',
     'A0-FF':'For proprietary use',
 }

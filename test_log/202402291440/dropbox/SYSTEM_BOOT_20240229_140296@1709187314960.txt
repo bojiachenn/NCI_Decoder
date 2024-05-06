@@ -1,0 +1,8 @@
+isPrevious: true
+Build: Unkown/DG2_00WW_FIH/DG2:13/TKQ1.231110.001/00WW_1_220000:user/test-keys
+Hardware: kalama
+Revision: 0
+Bootloader: unknown
+Radio: null
+Kernel: Linux version 5.15.123-android13-8-g3b87705b9083 (build-user@build-host) (Android (8508608, based on r450784e) clang version 14.0.7 (https://android.googlesource.com/toolchain/llvm-project 4c603efb0cca074e9238af8b4106c30add4418f6), LLD 14.0.7) #1 SMP PREEMPT Mon Feb 19 05:50:05 UTC 2024
+

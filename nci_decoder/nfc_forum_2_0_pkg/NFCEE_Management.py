@@ -26,7 +26,7 @@ def NFCEE_DISCOVER_RSP(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
-	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU ("+status+")"))
+	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU"), "("+status+")")
 	p_payload = p_payload + 2*1
 	
 	num_nfcee  =raw[p_payload:(p_payload+2*1)]	
@@ -63,7 +63,9 @@ def NFCEE_DISCOVER_NTF(raw, vendor="None", model="None"):
 		nfcee_id = '10-7F'
 	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
 		nfcee_id = '80-FE'
-	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], "("+NFC_table.tbl_nfcee_id.get(nfcee_id,"RFU")+")")
+	else:
+		nfcee_id = 'None'
+	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], NFC_table.tbl_nfcee_id.get(raw[p_payload:(p_payload+2*1)], ""), NFC_table.tbl_nfcee_id.get(nfcee_id,""))
 	p_payload = p_payload + 2*1
 	
 	nfcee_status = raw[p_payload:(p_payload+2*1)]
@@ -84,13 +86,15 @@ def NFCEE_DISCOVER_NTF(raw, vendor="None", model="None"):
 
 	if(n != 0):
 		support_proto_val = raw[p_payload:(p_payload+2*n)]
-		print("  * Supported NFCEE Protocols: "+ support_proto_val)
+		print("  * Supported NFCEE Protocols:", end=" ")
 		entry_payload = 0
 		for i in range(n):
+			# print()
 			nfcee_proto = support_proto_val[entry_payload:(entry_payload+2*1)]	
-			print("    * Protocol "+str(i)+": "+NFC_table.tbl_nfcee_proto.get(nfcee_proto,"RFU ("+nfcee_proto+")"))
+			print(NFC_table.tbl_nfcee_proto.get(nfcee_proto,"RFU"), "("+nfcee_proto+")", end=", ")
 			entry_payload = entry_payload + 2*1	
 		p_payload = p_payload + 2*n	
+	print()
 
 	num_nfcee_info_tlv = raw[p_payload:(p_payload+2*1)]	
 	m = int(num_nfcee_info_tlv, 16)
@@ -98,14 +102,16 @@ def NFCEE_DISCOVER_NTF(raw, vendor="None", model="None"):
 	p_payload = p_payload + 2*1
 	
 	if(m != 0):
+		print("  * NFCEE Information:")
 		for i in range(m):
+			print()
 			print("   ~ [NFCEE Info TLV_"+str(i)+"] ~  ")
 			tlv_type = raw[p_payload:(p_payload+2*1)]
 			if((int(tlv_type, 16) >= 5) & (int(tlv_type, 16) <= 159)):
 				tlv_type = '05-9F'
 			elif((int(tlv_type, 16) >= 160) & (int(tlv_type, 16) <= 255)):
 				tlv_type = 'A0-FF'
-			print("    * Type: "+NFC_table.tbl_tlv_type.get(tlv_type,"RFU ("+raw[p_payload:(p_payload+2*1)]+")"))
+			print("    * Type: "+NFC_table.tbl_tlv_type.get(tlv_type,"RFU"), "("+raw[p_payload:(p_payload+2*1)]+")")
 			p_payload = p_payload + 2*1		
 
 			tlv_len = raw[p_payload:(p_payload+2*1)]
@@ -127,12 +133,12 @@ def NFCEE_DISCOVER_NTF(raw, vendor="None", model="None"):
 					# print("")
 
 			elif(tlv_type == "04"):
-				print("      * NDEF max size: "+tlv_val[0:8])
+				print("      * NDEF max size:", int(tlv_val[6:8] + tlv_val[4:6] + tlv_val[2:4] + tlv_val[0:2], 16), "Bytes", "("+tlv_val[0:8]+")")
 				pwr_state = tlv_val[8:10]
 				pwr_state_b = bin(int(pwr_state,16))[2::].zfill(8)
 				print("      * Power State: "+pwr_state_b+" ("+pwr_state+")")
 				for j in range (5,-1,-1):
-					print('{0:<40}'.format("       ~ "+NFC_table.tbl_pwr_state.get(j,"RFU")+":"), end="")
+					print('{0:<43}'.format("       ~ "+NFC_table.tbl_pwr_state.get(j,"RFU")+":"), end="")
 					if(pwr_state_b[7-j:8-j] == "1"):
 						print('{0:<10}'.format("Apply"))
 					else:
@@ -140,18 +146,20 @@ def NFCEE_DISCOVER_NTF(raw, vendor="None", model="None"):
 				ndef_nfcee_char = tlv_val[10:12]
 				ndef_nfcee_char_b0 = bin(int(ndef_nfcee_char,16))[2::].zfill(8)[7:8]
 				if(ndef_nfcee_char_b0 == "0"):
-					print("      * NDEF-NFCEE characteristics: "+"NDEF message is not persistent.")
+					print("      * NDEF-NFCEE characteristics:", "Not persistent")
 				elif(ndef_nfcee_char_b0 == "1"):
-					print("      * NDEF-NFCEE characteristics: "+"NDEF message is persistent.")
+					print("      * NDEF-NFCEE characteristics:", "Persistent")
 
 			p_payload = p_payload + 2*x	
-			# print("")
-	
+			
+			# if(i < m-1):
+			# 	print("")
+	print()
 	nfcee_pwr_sup = raw[p_payload:(p_payload+2*1)]
 	if(nfcee_pwr_sup == "00"):
-		print("  * NFCEE Power Supply: "+"NFCC no control")
+		print("  * NFCEE Power Supply: "+"NFCC control power supply for any NFCEE_UICCx")
 	elif(nfcee_pwr_sup == "01"):
-		print("  * NFCEE Power Supply: "+"NFCC control")
+		print("  * NFCEE Power Supply: "+"NFCC control power supply for NFCEE_eSE and NFCEE_NDEF")
 	else:
 		print("  * NFCEE Power Supply: "+"RFU"+" ("+nfcee_pwr_sup+")")
 	p_payload = p_payload + 2*1	
@@ -177,7 +185,7 @@ def NFCEE_MODE_SET_CMD(raw, vendor="None", model="None"):
 		nfcee_id = '10-7F'
 	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
 		nfcee_id = '80-FE'
-	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], "("+NFC_table.tbl_nfcee_id.get(nfcee_id,"RFU")+")")
+	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], NFC_table.tbl_nfcee_id.get(raw[p_payload:(p_payload+2*1)], ""), NFC_table.tbl_nfcee_id.get(nfcee_id, ""))
 	p_payload = p_payload + 2*1
 	
 	nfcee_mode = raw[p_payload:(p_payload+2*1)]
@@ -202,7 +210,7 @@ def NFCEE_MODE_SET_RSP(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
-	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU ("+status+")"))
+	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU"), "("+status+")")
 	p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
@@ -218,7 +226,7 @@ def NFCEE_MODE_SET_NTF(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
-	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU ("+status+")"))
+	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU"), "("+status+")")
 	p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
@@ -242,11 +250,11 @@ def NFCEE_STATUS_NTF(raw, vendor="None", model="None"):
 		nfcee_id = '10-7F'
 	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
 		nfcee_id = '80-FE'
-	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], "("+NFC_table.tbl_nfcee_id.get(nfcee_id,"RFU")+")")
+	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], NFC_table.tbl_nfcee_id.get(raw[p_payload:(p_payload+2*1)], ""), NFC_table.tbl_nfcee_id.get(nfcee_id,""))
 	p_payload = p_payload + 2*1
 	
 	nfcee_status = raw[p_payload:(p_payload+2*1)]
-	print("  * NFCEE Status: "+NFC_table.tbl_nfcee_status.get(nfcee_status, "RFU ("+nfcee_status+")"))
+	print("  * NFCEE Status: "+NFC_table.tbl_nfcee_status.get(nfcee_status, "RFU"), "("+nfcee_status+")")
 	p_payload = p_payload + 2*1	
 	# print("")
 	return p_payload
@@ -270,7 +278,7 @@ def NFCEE_POWER_AND_LINK_CNTRL_CMD(raw, vendor="None", model="None"):
 		nfcee_id = '10-7F'
 	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
 		nfcee_id = '80-FE'
-	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], "("+NFC_table.tbl_nfcee_id.get(nfcee_id,"RFU")+")")
+	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], NFC_table.tbl_nfcee_id.get(raw[p_payload:(p_payload+2*1)], ""), NFC_table.tbl_nfcee_id.get(nfcee_id,""))
 	p_payload = p_payload + 2*1
 	
 	nfcee_cfg = raw[p_payload:(p_payload+2*1)]
@@ -299,7 +307,7 @@ def NFCEE_POWER_AND_LINK_CNTRL_RSP(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
-	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU ("+status+")"))
+	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU"), "("+status+")")
 	p_payload = p_payload + 2*1
 	# print("")
 	return p_payload

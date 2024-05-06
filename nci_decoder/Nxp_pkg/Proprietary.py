@@ -184,7 +184,7 @@ def RF_GET_TRANSITION_CMD(raw):
     # print("  << RF_GET_TRANSITION_CMD >>  ")
     p_payload = 0
     trans_id = raw[p_payload:(p_payload+2*1)]
-    print("  * RF Transition ID:", NFC_table.tbl_rf_trans_id.get(trans_id, "RFU ("+trans_id+")"), "("+trans_id+")")
+    print("  * RF Transition ID:", NFC_table.tbl_rf_trans_id.get(trans_id, "RFU"), "("+trans_id+")")
     p_payload = p_payload + 2*1
     
     offset = raw[p_payload:(p_payload+2*1)]

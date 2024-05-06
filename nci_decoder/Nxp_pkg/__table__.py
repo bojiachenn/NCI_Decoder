@@ -109,10 +109,17 @@ tbl_nfcee_id={
     'name': 'Table 116: NFCEE IDs:',
     '00':   'DH-NFCEE',
     '01':   'HCI-NTWK-NFCEE (RFU)',
-    '02-0F':'Reserved for further static IDs',
-    '10-7F':'NFCEE',
-    '80-FE':'HCI-NFCEE',
-    'FF':   'RFU',
+    '02-0F':'(Static IDs)',
+    '10-7F':'(NFCEE)',
+    '80-FE':'(HCI-NFCEE)',
+    'FF':   '(RFU)',
+    # SN2x0
+    '10': 'NFCEE_NDEF',
+    '80': 'NFCEE_UICC1',
+    '81': 'NFCEE_UICC2',
+    'C0': 'NFCEE_eSE',
+    'C1': 'NFCEE_eUICC Profile 1 (SEP/MEP Mode)',
+    'C2': 'NFCEE_eUICC Profile 2 (MEP Mode)',
 }
 
 # Table 134: RF Interfaces
@@ -399,6 +406,7 @@ tbl_cfg_para={
     # Table 103. Mechanism to configure the RF transitions
     'A017': 'RF_CUST_PHAS E_COMPENSATI ON',
     'A068': 'RF_LPCD_CFG',
+    'A149': 'RF_ADV_LPCD_CFG',
     'A034': 'RF_DLMA_CFG',
     'A10A': 'RF_DLMA_CLOCK_LESS_CEF_CFG',
     'A00B': 'RF_DPC_CFG',
@@ -411,6 +419,8 @@ tbl_cfg_para={
     # in SN220 RF Register Setting Guidelines
     # 2.4.2  2.7.4.2
     'A06A': 'RF_CLK_PLL_DPLL3',
+    'A0A4': 'HFatt. Phase Correction',
+    'A0A5': 'HF attenuator phase correction',
     # 2.7.2
     'A0AF': 'DLMA_CTRL',
     # 2.8.2.2
@@ -518,12 +528,12 @@ tbl_pwr_state={
     'name': 'Table 59: Value Field for Power State:',
     # 7:  "RFU",
     # 6:  "RFU",
-    5:   "Switched On Sub-State 3",   # 1: Apply, 0: Not apply
-    4:   "Switched On Sub-State 2",   # 1: Apply, 0: Not apply
-    3:   "Switched On Sub-State 1",   # 1: Apply, 0: Not apply
-    2:   "Battery Off State",         # 1: Apply, 0: Not apply
-    1:   "Switched Off State",        # 1: Apply, 0: Not apply
-    0:   "Switched On State",         # 1: Apply, 0: Not apply
+    5:   "Screen Off lock (Sub-State 3)",   # 1: Apply, 0: Not apply
+    4:   "Screen On lock (Sub-State 2)",    # 1: Apply, 0: Not apply
+    3:   "Screen off unlock (Sub-State 1)", # 1: Apply, 0: Not apply
+    2:   "Battery Off State",               # 1: Apply, 0: Not apply
+    1:   "Switch Off State",                # 1: Apply, 0: Not apply
+    0:   "Switch On State",                 # 1: Apply, 0: Not apply
 }
 
 # Table 67: RF Discovery ID
@@ -706,7 +716,7 @@ tbl_tlv_type={
     '01':   'ATR Bytes',
     '02':   'T3T Command Set Interface Supplementary Information',
     '03':   'Host ID in the HCI Network',
-    '04':   'Support NDEF storage',
+    '04':   'NDEF',
     '05-9F':'RFU',
     'A0-FF':'For proprietary use',
 }

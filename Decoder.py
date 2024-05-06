@@ -214,7 +214,9 @@ def mode_2():
         print("Input the \"\033[33mNCI raw data\033[0m\" or \"\033[31m-1\033[0m\" back to Menu: ", end="")
         raw = input().strip()
         raw = raw.replace("0x", "")
+        raw = raw.replace(",", "")
         raw = raw.replace(" ", "")
+        raw = raw.upper()
 
         if(raw == "-1"):
             clear_terminal()

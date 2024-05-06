@@ -1,0 +1,43 @@
+Process: com.android.networkstack.process
+PID: 3404
+UID: 1073
+Frozen: false
+Flags: 0x2888be4d
+Package: com.android.networkstack v330400000 (330400000)
+Package: com.android.cellbroadcastservice v300000000 (R-initial)
+Package: com.android.networkstack.tethering v33 (13)
+Build: Unkown/DG2_0UWW_FIH/DG2:13/TKQ1.231110.001/0UWW_1_250000:userdebug/test-keys
+System-App: true
+Uptime-Millis: 634256
+
+android.os.strictmode.UntaggedSocketViolation: Untagged socket detected; use TrafficStats.setTrafficStatsTag() to track all network usage
+	at android.os.StrictMode.onUntaggedSocket(StrictMode.java:2250)
+	at android.os.StrictMode.noteUntaggedSocket(StrictMode.java:2699)
+	at android.net.TrafficStats$SocketTagger.tag(TrafficStats.java:255)
+	at libcore.io.BlockGuardOs.tagSocket(BlockGuardOs.java:55)
+	at libcore.io.BlockGuardOs.socket(BlockGuardOs.java:404)
+	at libcore.io.ForwardingOs.socket(ForwardingOs.java:821)
+	at android.system.Os.socket(Os.java:834)
+	at android.net.util.DnsUtils.findSrcAddress(DnsUtils.java:169)
+	at android.net.util.DnsUtils.rfc6724Sort(DnsUtils.java:144)
+	at android.net.DnsResolver$InetAddressAnswerAccumulator.maybeReportAnswer(DnsResolver.java:283)
+	at android.net.DnsResolver$InetAddressAnswerAccumulator.onAnswer(DnsResolver.java:305)
+	at android.net.DnsResolver$InetAddressAnswerAccumulator.onAnswer(DnsResolver.java:251)
+	at android.net.DnsResolver.lambda$registerFDListener$8(DnsResolver.java:511)
+	at android.net.DnsResolver$$ExternalSyntheticLambda9.run(Unknown Source:8)
+	at com.android.networkstack.util.DnsUtils.lambda$getAllByName$0(DnsUtils.java:132)
+	at com.android.networkstack.util.DnsUtils.$r8$lambda$rStL6e0vqOKGL6b_Ik6ob6JiY2U(Unknown Source:0)
+	at com.android.networkstack.util.DnsUtils$$ExternalSyntheticLambda0.execute(Unknown Source:0)
+	at android.net.DnsResolver.lambda$registerFDListener$9(DnsResolver.java:493)
+	at android.net.DnsResolver$$ExternalSyntheticLambda3.onFileDescriptorEvents(Unknown Source:12)
+	at android.os.MessageQueue.dispatchEvents(MessageQueue.java:293)
+	at android.os.MessageQueue.nativePollOnce(Native Method)
+	at android.os.MessageQueue.next(MessageQueue.java:335)
+	at android.os.Looper.loopOnce(Looper.java:161)
+	at android.os.Looper.loop(Looper.java:288)
+	at android.app.ActivityThread.main(ActivityThread.java:7964)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:548)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:942)
+
+Untagged socket detected; use TrafficStats.setTrafficStatsTag() to track all network usage
