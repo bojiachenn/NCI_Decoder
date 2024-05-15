@@ -1,5 +1,5 @@
 {
     "vendor": "Nxp",
     "chip_model": "None",
-    "filter": "nfc ncix ncir"
+    "filter": "nxpncir nxpncix"
 }
