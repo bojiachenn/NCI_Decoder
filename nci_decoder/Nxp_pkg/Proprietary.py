@@ -1060,6 +1060,7 @@ def TEST_SWP_NTF(raw):
         print("  * Power Mode:", "SIMVCC undetermined")
     else:
         print("  * Power Mode:", "RFU")
+    p_payload = p_payload + 2*1
 
     return p_payload
 

@@ -39,7 +39,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='NCI_Decoder_v1.4_0503.exe',
+    name='NCI_Decoder_v1.4_0618.exe',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
