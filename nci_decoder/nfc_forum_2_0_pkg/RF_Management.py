@@ -108,23 +108,23 @@ def LISTEN_MODE_ROUTING_INFO(raw, vendor, model):
 		print("    * Val: "+val_raw)
 		route_val = val_raw[val_payload:(val_payload+2*1)]
 		if((int(route_val,16) >= 2) & (int(route_val,16) <= 15)):
-			route_val = '02-0F'
+			route_val_range = '02-0F'
 		elif((int(route_val,16) >= 16) & (int(route_val,16) <= 127)):
-			route_val = '10-7F'
+			route_val_range = '10-7F'
 		elif((int(route_val,16) >= 128) & (int(route_val,16) <= 254)):
-			route_val = '80-FE'
-		print("      * Route:", raw[p_payload:(p_payload+2*1)], NFC_table.tbl_nfcee_id.get(raw[p_payload:(p_payload+2*1)], ""), NFC_table.tbl_nfcee_id.get(route_val, ""))
+			route_val_range = '80-FE'
+		print("      * Route:", NFC_table.tbl_nfcee_id.get(route_val, route_val), NFC_table.tbl_nfcee_id.get(route_val_range, ""), "("+route_val+")")
 		val_payload = val_payload + 2*1
 		
 		pwr_state = val_raw[val_payload:(val_payload+2*1)]	
 		pwr_state_b = bin(int(pwr_state,16))[2::].zfill(8)
 		print("      * Power State: "+pwr_state_b+" ("+pwr_state+")")
 		for j in range (5,-1,-1):
-			print('{0:<35}'.format("       ~ "+NFC_table.tbl_pwr_state.get(j,"RFU")+":"), end="")
+			print('{0:<43}'.format("       ~ "+NFC_table.tbl_pwr_state.get(j,"RFU")+":"), end="")
 			if(pwr_state_b[7-j:8-j] == "1"):
-				print('{0:<10}'.format("Apply"))
+				print('{0:>10}'.format("Apply"))
 			else:
-				print('{0:<10}'.format("Not apply"))
+				print('{0:>10}'.format("Not apply"))
 		val_payload = val_payload + 2*1
 
 		if (q_type[1:2] == "0"):
@@ -417,14 +417,14 @@ def RF_TECH_SPEC_PARA(rf_tech_mode, para_raw, NFC_table):
 		Local NFCID2 Length: 	1 Octet
 		Local NFCID2:			0 or 8 Octet(s)
 		"""""""""""""""
-		local_nfcid2_len = para_raw[p_payload:(p_payload+2*1)]
+		local_nfcid2_len = para_raw[para_payload:(para_payload+2*1)]
 		l = int(local_nfcid2_len,16)
 		print("  * Local NFCID2 Len:", l)
-		p_payload = p_payload + 2*1
+		para_payload = para_payload + 2*1
 		
-		nfcid_2 = para_raw[p_payload:(p_payload+2*l)]	
+		nfcid_2 = para_raw[para_payload:(para_payload+2*l)]	
 		print("  * Local NFCID2: "+nfcid_2)
-		p_payload = p_payload + 2*l	
+		para_payload = para_payload + 2*l	
 
 	elif(rf_tech_mode_type == "V_PASSIVE_POLL"):
 		"""""""""""""""
@@ -451,14 +451,14 @@ def RF_TECH_SPEC_PARA(rf_tech_mode, para_raw, NFC_table):
 		ATR_RES Response Length: 	1 Octet (n)
 		ATR_RES Response: 			n Octet(s)
 		"""""""""""""""
-		atr_res_rsp_len = para_raw[p_payload:(p_payload+2*1)]
+		atr_res_rsp_len = para_raw[para_payload:(para_payload+2*1)]
 		l = int(atr_res_rsp_len,16)
 		print("  * ATR_RES Rsp Len:", l)
-		p_payload = p_payload + 2*1
+		para_payload = para_payload + 2*1
 		
-		atr_res_rsp = para_raw[p_payload:(p_payload+2*l)]	
+		atr_res_rsp = para_raw[para_payload:(para_payload+2*l)]	
 		print("  * ATR_RES Rsp: "+atr_res_rsp)
-		p_payload = p_payload + 2*l	
+		para_payload = para_payload + 2*l	
 
 	elif(rf_tech_mode_type == "ACTIVE_LISTEN"):
 		"""""""""""""""
@@ -466,14 +466,14 @@ def RF_TECH_SPEC_PARA(rf_tech_mode, para_raw, NFC_table):
 		ATR_REQ Command Length: 	1 Octet (n)
 		ATR_REQ Command: 			n Octet(s)
 		"""""""""""""""
-		atr_req_cmd_len = para_raw[p_payload:(p_payload+2*1)]
+		atr_req_cmd_len = para_raw[para_payload:(para_payload+2*1)]
 		l = int(atr_req_cmd_len,16)
 		print("  * ATR_REQ Cmd Len:", l)
-		p_payload = p_payload + 2*1
+		para_payload = para_payload + 2*1
 		
-		atr_req_cmd = para_raw[p_payload:(p_payload+2*l)]	
+		atr_req_cmd = para_raw[para_payload:(para_payload+2*l)]	
 		print("  * ATR_REQ Cmd: "+atr_req_cmd)
-		p_payload = p_payload + 2*l	
+		para_payload = para_payload + 2*l	
 
 	else:
 		print("  * Proprietary parameters: "+para_raw[para_payload::])
@@ -516,11 +516,11 @@ def RF_DISCOVER_NTF(raw, vendor="None", model="None"):
 	
 	notificaiton_type = raw[p_payload:(p_payload+2*1)]	
 	if(notificaiton_type == "00"):
-		print("  * NTF Type: Last NTF")
+		print("  * NTF Type: Last NTF (00)")
 	elif(notificaiton_type == "01"):
-		print("  * NTF Type: Last NTF (due to NFCC reaching its resource limit)")
+		print("  * NTF Type: Last NTF (due to NFCC reaching its resource limit) (01)")
 	elif(notificaiton_type == "02"):
-		print("  * NTF Type: More NTF to follow")
+		print("  * NTF Type: More NTF to follow (02)")
 	else:
 		print("  * NTF Type: RFU ("+notificaiton_type+")")	
 	p_payload = p_payload + 2*1

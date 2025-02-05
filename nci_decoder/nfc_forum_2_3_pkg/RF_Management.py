@@ -507,11 +507,11 @@ def RF_DISCOVER_NTF(raw, vendor="None", model="None"):
 	
 	notificaiton_type = raw[p_payload:(p_payload+2*1)]	
 	if(notificaiton_type == "00"):
-		print("  * NTF Type: Last NTF")
+		print("  * NTF Type: Last NTF (00)")
 	elif(notificaiton_type == "01"):
-		print("  * NTF Type: Last NTF (due to NFCC reaching its resource limit)")
+		print("  * NTF Type: Last NTF (due to NFCC reaching its resource limit) (01)")
 	elif(notificaiton_type == "02"):
-		print("  * NTF Type: More NTF to follow")
+		print("  * NTF Type: More NTF to follow (02)")
 	else:
 		print("  * NTF Type: RFU ("+notificaiton_type+")")	
 	p_payload = p_payload + 2*1

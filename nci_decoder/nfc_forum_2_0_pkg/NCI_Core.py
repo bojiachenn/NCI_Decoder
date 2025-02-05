@@ -478,7 +478,7 @@ def CORE_CONN_CREATE_RSP(raw, vendor="None", model="None"):
 	p_payload = p_payload + 2*1
 
 	conn_id = raw[p_payload:(p_payload+2*1)]
-	print("  * Conn ID:", int(conn_id, 16), "("+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC"))
+	print("  * Conn ID:", int(conn_id, 16), "("+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC") + ")")
 	p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
@@ -716,7 +716,7 @@ def VALUE_OF_CFG_PARA(id, val, NFC_table):
 	elif(id == '31'): # LA_PLATFORM_CONFIG
 		val_b = bin(int(val, 16))[2::].zfill(8)
 		print("    * Val:", val_b, "("+val+")")
-		print("     ~ Bit Frame SDD value to be sent in Byte 2 of SENS_RES. This is a 4-bit value.")
+		print("     ~ Platform Configuration value to be sent in Byte 2 of SENS_RES. This is a 4-bit value.")
 	elif(id == '32'): # LA_SEL_INFO
 		val_b = bin(int(val, 16))[2::].zfill(8)
 		print("    * Val:", val_b, "("+val+")")

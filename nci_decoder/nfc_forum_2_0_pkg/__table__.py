@@ -72,7 +72,7 @@ tbl_rf_proto={
 
 # Table 136: NFCEE Protocols / Interfaces
 tbl_nfcee_proto={
-    'name': 'Table 136: NFCEE Protocols / Interfaces:',
+    'name': 'Table 136: NFCEE Protocols / Interfaces:', 
     '00':   'APDU',
     '01':   'RFU',
     '02':   'Type 3 Tag Command Set',

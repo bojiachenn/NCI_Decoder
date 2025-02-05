@@ -463,7 +463,7 @@ def VALUE_OF_CFG_PARA(id, val):
 	elif(id == '31'): # LA_PLATFORM_CONFIG
 		val_b = bin(int(val, 16))[2::].zfill(8)
 		print("    * Val:", val_b, "("+val+")")
-		print("     ~ Bit Frame SDD value to be sent in Byte 2 of SENS_RES. This is a 4-bit value.")
+		print("     ~ Platform Configuration value to be sent in Byte 2 of SENS_RES. This is a 4-bit value.")
 	elif(id == '32'): # LA_SEL_INFO
 		val_b = bin(int(val, 16))[2::].zfill(8)
 		print("    * Val:", val_b, "("+val+")")

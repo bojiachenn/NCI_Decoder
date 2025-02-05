@@ -753,7 +753,7 @@ def VALUE_OF_CFG_PARA(id, val, NFC_table):
 		val_oct0_b_r = val_oct0_b[8::-1]
 		val_oct1_b = bin(int(val[2:4], 16))[2::].zfill(8)
 		val_oct1_b_r = val_oct1_b[8::-1]
-		val_b_r = val_oct0_b_r + val_oct1_b_r
+		val_b_r = val_oct1_b_r + val_oct0_b_r
 		print("    * Val:", val_oct0_b, val_oct1_b, "("+val+")")
 		for i in range (1, 17):
 			print('{0:<30}'.format("     ~ LF_T3T_IDENTIFIERS_"+str(i)+":"), end=" ")

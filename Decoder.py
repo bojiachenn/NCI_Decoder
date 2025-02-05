@@ -3,7 +3,7 @@ import json
 from nci_decoder import Decoder_Main
 
 __NFC_NCI_VER__ = "2.0" # 3 char
-__DECODER_VERSION__ = "1.4" # 3 char
+__DECODER_VERSION__ = "1.5" # 3 char
 
 kaomoji=[
     "(o´∀`o)", "(o･ω･o)", "( ･ω･ )",
