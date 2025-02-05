@@ -8,3 +8,9 @@ This is the decoder for NFC Controller Interface (NCI).
 3. Select decode mode "file mode" or "raw data mode".
 
 4. Check the result.
+
+Package into executable file with pyinstaller
+
+1. pyinstaller NCI_Decoder.spec
+
+2. Check the .exe file in ./dist 
