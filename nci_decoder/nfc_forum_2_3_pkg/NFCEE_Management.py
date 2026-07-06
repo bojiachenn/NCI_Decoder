@@ -67,14 +67,7 @@ def NFCEE_DISCOVER_NTF(raw, vendor="None", model="None"):
 	p_payload = p_payload + 2*1
 	
 	nfcee_status = raw[p_payload:(p_payload+2*1)]
-	if(nfcee_status == "00"):
-		print("  * NFCEE Status: "+"Enabled")
-	elif(nfcee_status == "01"):
-		print("  * NFCEE Status: "+"Disabled")
-	elif(nfcee_status == "02"):
-		print("  * NFCEE Status: "+"Unresponsive")
-	else:
-		print("  * NFCEE Status: "+"RFU"+" ("+nfcee_status+")")
+	print("  * NFCEE Status: "+NFC_table.tbl_nfcee_disc_status.get(nfcee_status,"RFU")+" ("+nfcee_status+")")
 	p_payload = p_payload + 2*1
 
 	num_proto_info = raw[p_payload:(p_payload+2*1)]

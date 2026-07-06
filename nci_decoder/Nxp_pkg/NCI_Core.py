@@ -298,8 +298,8 @@ def CORE_CONN_CREATE_RSP(raw):
 		p_payload = p_payload + 2*1
 
 		num_credits = raw[p_payload:(p_payload+2*1)]
-		if(num_credits == "FF"):
-			print("  * Initial Number of Credits: "+"Data flow control is not used")
+		if(num_credits in NFC_table.tbl_init_credits):
+			print("  * Initial Number of Credits: "+NFC_table.tbl_init_credits[num_credits])
 		else:
 			print("  * Initial Number of Credits:", int(num_credits, 16))
 		p_payload = p_payload + 2*1
