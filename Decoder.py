@@ -1,6 +1,7 @@
 import sys, os, random
 import json
 from nci_decoder import Decoder_Main
+import log_profiles
 
 __NFC_NCI_VER__ = "2.0" # 3 char
 __DECODER_VERSION__ = "2.0" # 3 char
@@ -24,6 +25,22 @@ def load_config(file_path):
         print("JSON 解析失败:", e)
         return 0
     return 1
+
+def decode_and_print(prefix, hex_str, vendor, chip_model):
+    print(prefix, end="")
+    try:
+        Decoder_Main.NFC_NCI_DECODER(int(len(hex_str)/2), hex_str, vendor, chip_model, 1)
+    except KeyError as e1:
+        print(f"Error: {e1} control code not found, please check the documentation.")
+        print("#end")
+    except ValueError as e2:
+        print(f"Error: {e2}")
+        print("#end")
+    except Exception as e:
+        print("Error: Unexpected error!!")
+        print("type:", type(e))
+        print("message:", str(e))
+        print("#end")
 
 def clear_terminal():
     # 適用於 Windows
@@ -135,65 +152,58 @@ def mode_1():
                 print(filter_key_list)
                 print("")
                 count = 0
+                profile = log_profiles.get_profile(decode_key)
+                pending = {}   # ST-style sequence number -> accumulated fragment (dict has "sequence")
+
                 for line in lines:
-                    if ((decode_key+"NciX" in line)): # 可以改成包含 NciX and Len
-                        line_sp = line.split()
-                        # print(line_sp)
-                        print(line_sp[0]+" "+line_sp[1]+"  DH --> NFCC  "+decode_key+"NciX", end="")
-                        count = count + 1
-                        # print(line.strip(), end="")
-                        # print(" >>>")
-                        # print('{0:^35}'.format("DH ---> NFCC"))
-                        # if("=>" in line):
-                        #     raw_string = line.split("=>")[1].strip()
-                        #     len = line.split("=>")[0].split("len =")[1].strip()
-                        # else:
-                        #     raw_string = line.split(">")[1].strip()
-                        #     len = line.split(">")[0].split("len =")[1].strip()
+                    cand = log_profiles.extract_candidate(line, profile)
 
-                    elif(decode_key+"NciR" in line): # 可以改成包含 NciR and Len
-                        line_sp = line.split()
-                        # print(line_sp)
-                        print(line_sp[0]+" "+line_sp[1]+"  DH <-- NFCC  "+decode_key+"NciR", end="")
-                        count = count + 1
-                        # print(line.strip(), end="")
-                        # print(" >>>")
-                        # print('{0:^35}'.format("DH <--- NFCC"))
-                        # if("<=" in line):
-                        #     raw_string = line.split("<=")[1].strip()
-                        #     len = line.split("<=")[0].split("len =")[1].strip()
-                        # else:  # for case NxpNciR : len =   4 > 40090100
-                        #     raw_string = line.split(">")[1].strip()
-                        #     len = line.split(">")[0].split("len =")[1].strip()
-                
-                    elif((filter_key_list[0] == "remain_all") or (any(key.lower() in line.lower() for key in filter_key_list))):
-                        line = line.rstrip().encode("utf8").decode("cp950", "ignore") # 
-                        # line_sp = line.split()
-                        # print(line_sp[1]+"               "+line.split(" "+line_sp[4]+" ")[1])
-                        print(line)
+                    if cand is None:
+                        if((filter_key_list[0] == "remain_all") or (any(key.lower() in line.lower() for key in filter_key_list))):
+                            line = line.rstrip().encode("utf8").decode("cp950", "ignore") #
+                            print(line)
                         continue
 
+                    if profile.get("sequence") is None:
+                        # 沒有分段機制（例如 NXP）：一行就是一個完整封包
+                        arrow = "DH --> NFCC" if cand["direction"] == "TX" else "DH <-- NFCC"
+                        tag = decode_key + ("NciX" if cand["direction"] == "TX" else "NciR")
+                        if cand["kind"] == "redacted":
+                            print(f"{cand['ts']}  {arrow}  {tag}  [REDACTED: payload hidden by HAL]")
+                            count = count + 1
+                            continue
+                        if len(cand["hex"]) < 6:
+                            continue
+                        count = count + 1
+                        decode_and_print(f"{cand['ts']}  {arrow}  {tag}", cand["hex"], config.get("vendor", "None"), config.get("chip_model", "None"))
+                        continue
+
+                    # 有分段機制（例如 ST）：依序號累積 hex，湊滿宣告長度才解碼
+                    seq = cand["seq"]
+                    if cand["kind"] == "redacted":
+                        pending[seq] = {"redacted": True}
+                        continue
+
+                    if cand["is_start"] or seq not in pending:
+                        pending[seq] = {"direction": cand["direction"], "ts": cand["ts"], "hex": cand["hex"]}
+                    elif cand["is_continue"] and seq in pending and not pending[seq].get("redacted"):
+                        pending[seq]["hex"] += cand["hex"]
+
+                    entry = pending.get(seq)
+                    if entry and not entry.get("redacted") and len(entry["hex"]) >= 6:
+                        declared_total_bytes = 3 + int(entry["hex"][4:6], 16)
+                        if len(entry["hex"]) >= declared_total_bytes * 2:
+                            arrow = "DH --> NFCC" if entry["direction"] == "TX" else "DH <-- NFCC"
+                            count = count + 1
+                            decode_and_print(f"{entry['ts']}  {arrow}", entry["hex"], config.get("vendor", "None"), config.get("chip_model", "None"))
+                            del pending[seq]
+
+                for seq, entry in pending.items():
+                    count = count + 1
+                    if entry.get("redacted"):
+                        print(f"[REDACTED: packet #{seq} payload hidden by HAL]")
                     else:
-                        continue
-
-                    try:
-                        Decoder_Main.NFC_NCI_DECODER(line_sp[-3], line_sp[-1], config.get("vendor", "None"), config.get("chip_model", "None"), 1)
-                    except KeyError as e1:
-                        # sys.stdout.flush()
-                        # sys.stdout = original_stdout
-                        print(f"\nError: {e1} control code not found, please check the documentation.")
-                        print("#end")
-                        # print(e)
-                        # sys.exit(0)
-                        continue
-                    except ValueError as e2:
-                        print(f"Error: {e2}")
-                        print("#end")
-                    except Exception as e:
-                        print("Error: Unexpected error!!")
-                        print("type:", type(e))
-                        print("message:", str(e))
-                        print("#end")
+                        print(f"[INCOMPLETE: packet #{seq} never reached its declared length]")
 
                 print("\nTotal " + str(count) + " matche(s) in the file.")
                 sys.stdout.flush()

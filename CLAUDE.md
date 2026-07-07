@@ -31,13 +31,17 @@ Output goes to `./dist`. There are no automated tests or linters in this repo.
 ## Configuration
 
 `config.json` (next to `Decoder.py`) pre-fills the interactive prompts:
-- `vendor` — `"Nxp"` selects the NXP proprietary decode package; anything else falls back to the plain NFC Forum 2.0 decoder. When set to `"None"`, the tool prompts interactively instead.
+- `vendor` — drives two independent things off the same value: `"Nxp"` selects the NXP proprietary decode package (anything else falls back to the plain NFC Forum 2.0 decoder), and it also selects the mode-1 log-line profile from `log_profiles.py` (`"St"` gets the ST HAL profile, anything else gets the generic NXP-shaped `"<value>NciX"/"<value>NciR"` profile — so a custom keyword still works for any log that follows that same tag+length shape). When set to `"None"`, the tool prompts interactively instead.
 - `chip_model` — passed through to handlers but not currently used to branch behavior.
 - `filter` — space-separated keywords; in file mode, non-NCI log lines containing any keyword are passed through to the output unmodified (default `remain_all` keeps everything).
 
 ## Architecture
 
-**Entry point (`Decoder.py`)** — the CLI menu. Mode 1 (file mode) scans each line of the input file(s) for markers `"<vendor>NciX"` (host→controller) / `"<vendor>NciR"` (controller→host, e.g. `NxpNciX`/`NxpNciR`), extracts the hex payload from the matched line, and writes a decoded transcript to `NCI_output/<filename>_d.txt` (falls back to cp950 decoding for garbled bytes on non-matching lines). Mode 2 decodes one hex string typed at the prompt.
+**Entry point (`Decoder.py`)** — the CLI menu. Mode 1 (file mode) scans each line of the input file(s) using a `log_profiles` profile (chosen by `config.json`'s `vendor`/typed keyword, see below), extracts the hex payload, and writes a decoded transcript to `NCI_output/<filename>_d.txt` (falls back to cp950 decoding for garbled bytes on non-matching lines). Mode 2 decodes one hex string typed at the prompt.
+
+**`log_profiles.py`** (repo root) — recognizes NCI packets embedded in arbitrary log line formats, decoupled from `Decoder_Main.py`'s decode logic. `get_profile(decode_key)` returns a profile dict; `extract_candidate(line, profile)` tries to pull a packet (or fragment) out of one line. Two shapes exist:
+- **Single-line profiles** (`sequence: None`, e.g. the default NXP-shaped `"<decode_key>NciX"`/`"<decode_key>NciR"` profile built by `build_default_profile`) — each matching line is a complete packet; length is self-computed as `len(hex)//2` (mirroring mode 2) rather than parsed from any vendor-printed length field.
+- **Sequence-based profiles** (e.g. `PROFILES["st"]`, for ST HAL logs) — a packet too long for one line gets split across multiple lines sharing a `(#0000N)` sequence number, with an uppercase `Tx`/`Rx` marking the first segment and lowercase `tx`/`rx` marking continuations. `Decoder.py`'s `mode_1()` accumulates hex per sequence number in a `pending` dict until the running byte count satisfies the packet's own declared payload length, then decodes it; anything still incomplete (or explicitly redacted, e.g. ST's `(hidden)` placeholder) when the file ends is reported rather than silently dropped.
 
 **Dispatch (`nci_decoder/Decoder_Main.py`, function `NFC_NCI_DECODER`)** — the only place that understands the NCI packet header. It parses octet 0 into Message Type (DATA/CMD/RSP/NTF) and Group ID (NCI Core / RF Management / NFCEE Management / Proprietary), validates the declared payload length, and either:
 - prints DATA packets directly, or
@@ -68,3 +72,7 @@ Packages present:
 1. Add the field-parsing function to the appropriate `*_Management.py`/`NCI_Core.py`/`Proprietary.py` file (or create a vendor package from `template_pkg` if it's vendor-specific).
 2. Register it under the correct GID/OID/message-type in that package's `__ctrl__.py`.
 3. Add any new enum values to `__table__.py`.
+
+## Adding a new mode-1 log format
+
+Add an entry to `log_profiles.PROFILES` (or a new `get_profile` branch) describing: a `trigger` substring to cheaply skip irrelevant lines, how to tell direction apart (a single `directions` list, or `start_directions`/`continue_directions` if the format can split one packet across multiple lines), and a `region` locator (`after_last_literal` or `after_regex_end`) telling the shared `HEX_RUN_RE` where to look for the hex bytes on that line — this is usually 10-15 lines of data, no changes needed to `Decoder.py`'s loop or `Decoder_Main.py`.

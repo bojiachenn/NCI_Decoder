@@ -105,12 +105,20 @@ def NFC_NCI_DECODER(len, string, vendor, model, mode):
 				print("  Packet Len:", len, "Octet(s)")
 				print("  Payload Len:", int(payload_len,16), "Octet(s)")
 
-		else:   # Control Packet	
+		else:   # Control Packet
 			gid_val = tbl_gid_val.get(first_oct_b[4::]) # GID
 			oid = raw[2:4] # OID
 			# if(gid_val != "Proprietary"):
-			function = f"{pkg.tbl_nci_ctrl[gid_val][oid][mt_val]}"
-			function_name = function.split(" ")[1]
+			try:
+				function = f"{pkg.tbl_nci_ctrl[gid_val][oid][mt_val]}"
+				function_name = function.split(" ")[1]
+			except KeyError:
+				print("  << ERROR_NOT_FOUND >>  ", end="")
+				if(mode == 1):
+					print(raw)
+				else:
+					print("")
+				raise
 			print("  << "+function_name+" >>  ", end="")
 			if(mode == 1):
 				print(raw)
