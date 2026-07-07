@@ -69,14 +69,7 @@ def NFCEE_DISCOVER_NTF(raw, vendor="None", model="None"):
 	p_payload = p_payload + 2*1
 	
 	nfcee_status = raw[p_payload:(p_payload+2*1)]
-	if(nfcee_status == "00"):
-		print("  * NFCEE Status: "+"Enabled")
-	elif(nfcee_status == "01"):
-		print("  * NFCEE Status: "+"Disabled")
-	elif(nfcee_status == "02"):
-		print("  * NFCEE Status: "+"Unresponsive")
-	else:
-		print("  * NFCEE Status: "+"RFU"+" ("+nfcee_status+")")
+	print("  * NFCEE Status: "+NFC_table.tbl_nfcee_disc_status.get(nfcee_status,"RFU")+" ("+nfcee_status+")")
 	p_payload = p_payload + 2*1
 
 	num_proto_info = raw[p_payload:(p_payload+2*1)]
@@ -185,9 +178,11 @@ def NFCEE_MODE_SET_CMD(raw, vendor="None", model="None"):
 		nfcee_id = '10-7F'
 	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
 		nfcee_id = '80-FE'
+	else:
+		nfcee_id = 'None'
 	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], NFC_table.tbl_nfcee_id.get(raw[p_payload:(p_payload+2*1)], ""), NFC_table.tbl_nfcee_id.get(nfcee_id, ""))
 	p_payload = p_payload + 2*1
-	
+
 	nfcee_mode = raw[p_payload:(p_payload+2*1)]
 	if(nfcee_mode == "00"):
 		print("  * NFCEE Mode: "+"Disable")
@@ -250,9 +245,11 @@ def NFCEE_STATUS_NTF(raw, vendor="None", model="None"):
 		nfcee_id = '10-7F'
 	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
 		nfcee_id = '80-FE'
+	else:
+		nfcee_id = 'None'
 	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], NFC_table.tbl_nfcee_id.get(raw[p_payload:(p_payload+2*1)], ""), NFC_table.tbl_nfcee_id.get(nfcee_id,""))
 	p_payload = p_payload + 2*1
-	
+
 	nfcee_status = raw[p_payload:(p_payload+2*1)]
 	print("  * NFCEE Status: "+NFC_table.tbl_nfcee_status.get(nfcee_status, "RFU"), "("+nfcee_status+")")
 	p_payload = p_payload + 2*1	
@@ -278,9 +275,11 @@ def NFCEE_POWER_AND_LINK_CNTRL_CMD(raw, vendor="None", model="None"):
 		nfcee_id = '10-7F'
 	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
 		nfcee_id = '80-FE'
+	else:
+		nfcee_id = 'None'
 	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], NFC_table.tbl_nfcee_id.get(raw[p_payload:(p_payload+2*1)], ""), NFC_table.tbl_nfcee_id.get(nfcee_id,""))
 	p_payload = p_payload + 2*1
-	
+
 	nfcee_cfg = raw[p_payload:(p_payload+2*1)]
 	if(nfcee_cfg == "00"):
 		print("  * NFCEE Power and Link Cfg: "+"NFCC decides (default state).")
