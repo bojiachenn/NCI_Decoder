@@ -93,10 +93,7 @@ def NFCEE_DISCOVER_NTF(raw, vendor="None", model="None"):
 			print()
 			print("   ~ [NFCEE Info TLV_"+str(i)+"] ~  ")
 			tlv_type = raw[p_payload:(p_payload+2*1)]
-			if((int(tlv_type, 16) >= 5) & (int(tlv_type, 16) <= 159)):
-				tlv_type = '05-9F'
-			elif((int(tlv_type, 16) >= 160) & (int(tlv_type, 16) <= 255)):
-				tlv_type = 'A0-FF'
+			tlv_type = range_lookup.find_range_key(NFC_table.tbl_tlv_type, int(tlv_type, 16)) or tlv_type
 			print("    * Type: "+NFC_table.tbl_tlv_type.get(tlv_type,"RFU"), "("+raw[p_payload:(p_payload+2*1)]+")")
 			p_payload = p_payload + 2*1		
 

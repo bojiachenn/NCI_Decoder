@@ -138,8 +138,7 @@ def LISTEN_MODE_ROUTING_INFO(raw, vendor, model):
 			Protocol:		1 Octet
 			"""""""""""""""
 			proto = val_raw[val_payload:(val_payload+2*1)]
-			if((int(proto,16) >= 128) & (int(proto,16) <= 254)):
-				proto = '80-FE'
+			proto = range_lookup.find_range_key(NFC_table.tbl_rf_proto, int(proto, 16)) or proto
 			print("      * Protocol: "+NFC_table.tbl_rf_proto.get(proto,"RFU"), "("+proto+")")
 			val_payload = val_payload + 2*1
 		
@@ -884,8 +883,7 @@ def RF_NFCEE_ACTION_NTF(raw, vendor="None", model="None"):
 	p_payload = p_payload + 2*1
 
 	nfcee_ntf_trig = raw[p_payload:(p_payload+2*1)]
-	if((int(nfcee_ntf_trig,16) >= 16) & (int(nfcee_ntf_trig,16) <= 127)):
-		nfcee_ntf_trig = '10-7F'
+	nfcee_ntf_trig = range_lookup.find_range_key(NFC_table.tbl_nfcee_ntf_trig, int(nfcee_ntf_trig, 16)) or nfcee_ntf_trig
 	print("  * Trigger: "+NFC_table.tbl_nfcee_ntf_trig.get(nfcee_ntf_trig,"RFU"), "("+raw[p_payload:(p_payload+2*1)]+")")
 	p_payload = p_payload + 2*1
 	
@@ -934,13 +932,7 @@ def RF_NFCEE_DISCOVERY_REQ_NTF(raw, vendor="None", model="None"):
 		print()
 		print("   ~ [Info Entry_"+str(i)+"] ~  ")
 		type_val = raw[p_payload:(p_payload+2*1)] # Table 85
-		type_val_i = int(type_val,16)
-		if((type_val_i >= 2) & (type_val_i <= 127)):
-			type_key = '02-7F'
-		elif((type_val_i >= 128) & (type_val_i <= 255)):
-			type_key = '80-FF'
-		else:
-			type_key = type_val
+		type_key = range_lookup.find_range_key(NFC_table.tbl_nfcee_disc_req_type, int(type_val, 16)) or type_val
 		print("    * Type: "+NFC_table.tbl_nfcee_disc_req_type.get(type_key,"RFU"))
 		p_payload = p_payload + 2*1
 
@@ -956,10 +948,7 @@ def RF_NFCEE_DISCOVERY_REQ_NTF(raw, vendor="None", model="None"):
 			nfcee_id_range = range_lookup.find_range_key(NFC_table.tbl_nfcee_id, int(nfcee_id, 16))
 			print("      * NFCEE:", data_val[0:2], NFC_table.tbl_nfcee_id.get(data_val[0:2], ""), NFC_table.tbl_nfcee_id.get(nfcee_id_range, ""))
 			rf_tech_mode = data_val[2:4]
-			if((int(rf_tech_mode,16) >= 112) & (int(rf_tech_mode,16) <= 127)):
-				rf_tech_mode = '70-7F'
-			elif((int(rf_tech_mode,16) >= 240) & (int(rf_tech_mode,16) <= 255)):
-				rf_tech_mode = 'F0-FF'
+			rf_tech_mode = range_lookup.find_range_key(NFC_table.tbl_rf_tech_mode, int(rf_tech_mode, 16)) or rf_tech_mode
 			print("      * Mode: "+NFC_table.tbl_rf_tech_mode.get(rf_tech_mode,"RFU"), "("+data_val[2:4]+")")
 			rf_proto = data_val[4:6]
 			print("      * RF Protocol: "+NFC_table.tbl_rf_proto.get(rf_proto,"RFU"), "("+rf_proto+")")
