@@ -31,8 +31,13 @@ BOUNDARY_EXPECTED_NAME = {
 DYNAMIC_VALUE = "50"  # inside 10-7F ("(NFCEE)"), never buggy - sanity control
 
 # name -> (handler function, payload builder given the NFCEE-ID byte)
-# All five share the (raw, vendor="None", model="None") signature.
+# All six share the (raw, vendor="None", model="None") signature.
 SIMPLE_NFCEE_ID_CASES = {
+    "NFCEE_DISCOVER_NTF": (
+        NFCEE_Management.NFCEE_DISCOVER_NTF,
+        # + NFCEE Status(00) + NumProtoInfo(0) + NumNfceeInfoTlv(0) + PwrSupply(00)
+        lambda nfcee_byte: nfcee_byte + "00" + "00" + "00" + "00",
+    ),
     "NFCEE_MODE_SET_CMD": (
         NFCEE_Management.NFCEE_MODE_SET_CMD,
         lambda nfcee_byte: nfcee_byte + "00",  # + NFCEE Mode (Disable)

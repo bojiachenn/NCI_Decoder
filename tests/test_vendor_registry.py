@@ -21,6 +21,15 @@ def test_resolve_unregistered_or_empty_falls_back_to_forum_default():
         assert pkg.table_module == "nfc_forum_2_0_pkg.__table__"
 
 
+def test_resolve_handles_real_none_not_just_the_string():
+    # config.get("vendor") can yield a real None (e.g. `"vendor": null` in
+    # config.json), unlike the pre-refactor `vendor.lower()` which would have
+    # raised AttributeError on that input. `(vendor or "").lower()` must not
+    # crash and must fall back to the same default as any other unregistered
+    # value.
+    assert vendor_registry.resolve(None) is vendor_registry.DEFAULT_VENDOR_PACKAGE
+
+
 def test_all_pkg_dirs_has_no_duplicates_and_includes_default():
     dirs = vendor_registry.all_pkg_dirs()
     assert len(dirs) == len(set(dirs))

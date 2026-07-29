@@ -40,6 +40,28 @@ def test_ctrl_table_dispatches_to_templates_own_modules():
     assert __ctrl__.tbl_nci_ctrl["NCI Core"]["00"]["CMD"] is NCI_Core.CORE_RESET_CMD
 
 
+def test_ctrl_table_structurally_mirrors_forum_package():
+    # template_pkg/__ctrl__.py is meant to be a 1:1 structural mirror of
+    # nfc_forum_2_0_pkg/__ctrl__.py (same GID/OID/message-type shape, just
+    # pointing at template_pkg's own modules) - a single spot-check (above)
+    # can't catch a transcription error elsewhere in this ~32-entry,
+    # hand-copied literal (e.g. an OID typo, or a handler wired under the
+    # wrong OID/message type).
+    from nci_decoder.nfc_forum_2_0_pkg import __ctrl__ as forum_ctrl
+
+    for gid, oids in forum_ctrl.tbl_nci_ctrl.items():
+        assert gid in __ctrl__.tbl_nci_ctrl, f"missing GID {gid!r}"
+        for oid, handlers in oids.items():
+            assert oid in __ctrl__.tbl_nci_ctrl[gid], f"missing OID {gid}/{oid}"
+            for mt, forum_fn in handlers.items():
+                assert mt in __ctrl__.tbl_nci_ctrl[gid][oid], f"missing MT {gid}/{oid}/{mt}"
+                template_fn = __ctrl__.tbl_nci_ctrl[gid][oid][mt]
+                assert template_fn.__name__ == forum_fn.__name__, (
+                    f"{gid}/{oid}/{mt}: template wires {template_fn.__name__!r}, "
+                    f"forum has {forum_fn.__name__!r}"
+                )
+
+
 def test_delegation_output_matches_forum_function_directly():
     # Proves the vendor-forwarding fix actually works end-to-end, not just
     # "imports without crashing": calling CORE_RESET_CMD through the

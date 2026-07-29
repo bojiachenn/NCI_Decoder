@@ -12,6 +12,8 @@ a = Analysis(
 		'nci_decoder.__init__',
 		'nci_decoder.__pkg_import__',
 		'nci_decoder.Decoder_Main',
+		'nci_decoder.vendor_registry',
+		'nci_decoder.range_lookup',
 		'nci_decoder.nfc_forum_2_0_pkg.__ctrl__',
 		'nci_decoder.nfc_forum_2_0_pkg.__table__',
 		'nci_decoder.nfc_forum_2_0_pkg.NCI_Core',

@@ -1,3 +1,5 @@
+import pytest
+
 from nci_decoder import range_lookup
 
 
@@ -59,3 +61,50 @@ def test_generic_across_a_table_with_different_bucket_boundaries():
 
 def test_empty_table_returns_none():
     assert range_lookup.find_range_key({}, 0x50) is None
+
+
+def _range_entries(table):
+    for key in table:
+        match = range_lookup._RANGE_KEY_RE.match(key) if isinstance(key, str) else None
+        if match:
+            yield key, int(match.group(1), 16), int(match.group(2), 16)
+
+
+def _assert_well_formed(table):
+    # find_range_key can't tell a malformed/ambiguous table from a real
+    # single-match case (it just returns the first hit) - a reversed key
+    # (e.g. a typo'd 'FE-80') silently becomes permanently dead (every value
+    # falls through to ""), and overlapping ranges silently pick whichever
+    # entry iterates first. Neither produces a crash, so this must be caught
+    # here rather than at find_range_key's call sites.
+    entries = list(_range_entries(table))
+    for key, low, high in entries:
+        assert low <= high, f"{key!r} has low > high - dead range, never matches"
+    for i, (key_a, low_a, high_a) in enumerate(entries):
+        for key_b, low_b, high_b in entries[i + 1:]:
+            overlap = low_a <= high_b and low_b <= high_a
+            assert not overlap, f"{key_a!r} and {key_b!r} overlap - ambiguous match"
+
+
+def test_production_nfcee_id_tables_are_well_formed():
+    # All 8 current call sites in nfc_forum_2_0_pkg pass NFC_table.tbl_nfcee_id
+    # (from either nfc_forum_2_0_pkg or Nxp_pkg, depending on vendor) to
+    # find_range_key - both real tables must have sane, non-overlapping
+    # ranges, since ST-chip work is expected to add further tables via the
+    # same `from nfc_forum_2_0_pkg.__table__ import *` + override shadowing
+    # documented in template_pkg/README.md.
+    from nci_decoder.nfc_forum_2_0_pkg import __table__ as forum_table
+    from nci_decoder.Nxp_pkg import __table__ as nxp_table
+
+    _assert_well_formed(forum_table.tbl_nfcee_id)
+    _assert_well_formed(nxp_table.tbl_nfcee_id)
+
+
+def test_well_formed_helper_catches_reversed_range():
+    with pytest.raises(AssertionError):
+        _assert_well_formed({"FE-80": "typo'd reversed range"})
+
+
+def test_well_formed_helper_catches_overlapping_ranges():
+    with pytest.raises(AssertionError):
+        _assert_well_formed({"10-7F": "a", "40-9F": "b"})
