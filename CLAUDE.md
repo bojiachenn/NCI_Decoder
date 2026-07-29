@@ -54,20 +54,20 @@ pytest
 
 Each handler's return value (hex chars consumed) is compared against the declared length to flag `Payload error!!`.
 
+**Vendor selection (`nci_decoder/vendor_registry.py`)** — single source of truth for "which vendor string maps to which package". `resolve(vendor)` returns a `VendorPackage(pkg_dir, ctrl_module, table_module)`, falling back to the `nfc_forum_2_0_pkg` default for anything not explicitly registered (case-insensitive, mirrors `log_profiles.get_profile`'s explicit-override-else-default shape). `Decoder_Main.py` and `nci_decoder/__pkg_import__.py`'s `tbl_import(vendor, model)` both resolve through this registry via `importlib.import_module(...)` instead of a hardcoded if/else — **adding a vendor never requires editing either of those two files**, only registering an entry here (see "Adding a new vendor package" below).
+
 **Vendor/spec packages (`nci_decoder/*_pkg/`)** — each package is a self-contained decoder for one spec/vendor and follows the same shape:
 - `__ctrl__.py` — the `tbl_nci_ctrl` dispatch table: `{GID name: {OID hex: {"CMD"/"RSP"/"NTF": handler_fn}}}`.
 - `__table__.py` — lookup tables (named `tbl_*`, referencing NFC Forum spec table numbers in comments) mapping raw hex values to human-readable enum names.
-- `NCI_Core.py`, `RF_Management.py`, `NFCEE_Management.py` — one function per NCI message. Each takes the hex payload string and walks it with a running offset (`p_payload`, counted in hex chars, i.e. 2 per byte), printing each field via `NFC_table.tbl_*.get(value, "RFU")`, and returns the final offset.
+- `NCI_Core.py`, `RF_Management.py`, `NFCEE_Management.py` — one function per NCI message. Each takes the hex payload string and walks it with a running offset (`p_payload`, counted in hex chars, i.e. 2 per byte), printing each field via `NFC_table.tbl_*.get(value, "RFU")`, and returns the final offset. Several handlers collapse a raw ID byte into a range-bucket key (e.g. `'02-0F'`/`'10-7F'`/`'80-FE'`) before a second table lookup — use `nci_decoder/range_lookup.py`'s `find_range_key(table, value)` for this rather than hand-rolling another if/elif/else chain (that copy-pasted pattern caused 8 real bugs, fixed in commit `5f5cb72`).
 
 Packages present:
-- `nfc_forum_2_0_pkg` — baseline NFC Forum NCI 2.0 decoder; the default when `vendor` isn't `"Nxp"`.
-- `nfc_forum_2_3_pkg` — NCI 2.3 additions. **Not currently wired up** — `Decoder_Main.py` and `__pkg_import__.py` only branch between `"Nxp"` and the 2.0 package, so this package is dead code until that dispatch is extended.
-- `Nxp_pkg` — NXP's proprietary superset: re-exports/extends the forum handlers, adds the `Proprietary` GID table, and adds `HDLL.py` (the NXP secure-download/bootloader frame protocol, separate framing from normal NCI control packets).
-- `template_pkg` — scaffold for adding a new vendor package: each function just calls `Origin.<name>(raw)` from the forum package; copy this when a new vendor needs its own proprietary extensions, then override only the functions that actually differ.
+- `nfc_forum_2_0_pkg` — baseline NFC Forum NCI 2.0 decoder; the registry's default.
+- `nfc_forum_2_3_pkg` — NCI 2.3 additions. **Deliberately not wired up.** This is a spec-*version* delta of the default forum package, not a new *vendor* — orthogonal to what `vendor_registry.py` models, and folding it in would force a premature design decision (a `mode`/version axis vs. overloading the vendor key). Needs its own follow-up design before it's dispatchable.
+- `Nxp_pkg` — NXP's proprietary superset: re-exports/extends the forum handlers, adds the `Proprietary` GID table, and adds `HDLL.py` (the NXP secure-download/bootloader frame protocol, separate framing from normal NCI control packets). Predates `template_pkg`'s delegation convention, so a lot of it is a forked copy of the forum package rather than thin delegation — left as-is, not a pattern to copy for new vendors.
+- `template_pkg` — working scaffold for adding a new vendor package (see `template_pkg/README.md` and "Adding a new vendor package" below).
 
-**`nci_decoder/__pkg_import__.py`** (`tbl_import(vendor, model)`) — chooses which `__table__` module a handler should read enum values from (NXP vs. forum default). Handlers call this themselves rather than receiving the table as an argument.
-
-**Import path setup** — `nci_decoder/__init__.py` appends each vendor/spec package directory to `sys.path` at import time, which is why submodules use flat imports like `from Nxp_pkg import NCI_Core` instead of `nci_decoder.Nxp_pkg...`. This only works when the process is launched with this directory as the working directory (matches the README's `python Decoder.py` usage).
+**Import path setup** — `nci_decoder/__init__.py` appends `nci_decoder/vendor_registry.py`'s `all_pkg_dirs()` (plus `nfc_forum_2_3_pkg`, kept importable but not dispatchable) to `sys.path` at import time, `__file__`-relative — which is why submodules use flat imports like `from Nxp_pkg import NCI_Core` instead of `nci_decoder.Nxp_pkg...`.
 
 **`notepad++_form/NCI_Log.xml`** — a Notepad++ User Defined Language definition for syntax-highlighting raw/decoded NCI logs. Its keyword lists are a manually maintained mirror of the handler function names in `__ctrl__.py`/`Proprietary.py` — update it when adding new commands if log highlighting should stay in sync.
 
@@ -76,6 +76,12 @@ Packages present:
 1. Add the field-parsing function to the appropriate `*_Management.py`/`NCI_Core.py`/`Proprietary.py` file (or create a vendor package from `template_pkg` if it's vendor-specific).
 2. Register it under the correct GID/OID/message-type in that package's `__ctrl__.py`.
 3. Add any new enum values to `__table__.py`.
+
+## Adding a new vendor package
+
+Full steps are in `nci_decoder/template_pkg/README.md` — summary: copy `template_pkg/` to a new name, override only the handlers that genuinely differ (every function already forwards `vendor`/`model` to its forum delegate), then register it in `nci_decoder/vendor_registry.py`. That registry entry is the **only** file outside the new package's own directory that needs a change to make it dispatchable — `Decoder_Main.py`, `__pkg_import__.py`, and `__init__.py`'s `sys.path` all resolve through it automatically.
+
+One manual step still survives the registry, though: **`NCI_Decoder.spec`'s `pathex`/`hiddenimports`** must list the new package's modules explicitly for the packaged `.exe` to include them — PyInstaller's static analysis can't see the dynamic `importlib.import_module()` calls the registry uses. This is an accepted, documented limitation, not automated.
 
 ## Adding a new mode-1 log format
 
