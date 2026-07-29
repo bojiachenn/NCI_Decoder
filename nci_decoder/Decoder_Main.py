@@ -1,6 +1,6 @@
 import importlib
 
-from . import vendor_registry
+import vendor_registry
 
 
 def NFC_NCI_DECODER(len, string, vendor, model, mode):
