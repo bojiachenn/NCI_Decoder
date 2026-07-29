@@ -1,10 +1,11 @@
+import importlib
+
+from . import vendor_registry
+
+
 def NFC_NCI_DECODER(len, string, vendor, model, mode):
-	# NCI_Core, RF_Management, NFCEE_Management, Proprietary = pkg_import.ctrl_import(vendor, model)
-	if(vendor.lower() == "nxp"):
-		from Nxp_pkg import __ctrl__ as pkg
-	else:
-		from nfc_forum_2_0_pkg import  __ctrl__ as pkg
-	
+	pkg = importlib.import_module(vendor_registry.resolve(vendor).ctrl_module)
+
 	# Message Type
 	tbl_mt_val = {
 		"000":	"DATA",
