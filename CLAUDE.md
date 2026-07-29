@@ -26,7 +26,11 @@ Build the standalone Windows executable:
 pyinstaller NCI_Decoder.spec
 ```
 
-Output goes to `./dist`. There are no automated tests or linters in this repo.
+Output goes to `./dist`. There are no linters in this repo; run the pytest suite with:
+
+```
+pytest
+```
 
 ## Configuration
 
