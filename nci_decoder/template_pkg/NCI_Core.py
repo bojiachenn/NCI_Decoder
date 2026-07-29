@@ -1,30 +1,30 @@
-import nfc_forum_pkg.__table__ as NFC_table
-from nfc_forum_pkg import NCI_Core as Origin
+import nfc_forum_2_0_pkg.__table__ as NFC_table
+from nfc_forum_2_0_pkg import NCI_Core as Origin
 
 #       模板       #
 
 # 20 00
-def CORE_RESET_CMD(raw):
+def CORE_RESET_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_RESET_CMD]
 	Reset Type: 1 Octet
 	"""""""""""""""
 	# print("CORE_RESET_CMD")
-	p_payload = Origin.CORE_RESET_CMD(raw)
+	p_payload = Origin.CORE_RESET_CMD(raw, vendor, model)
 	return p_payload
 
 # 40 00
-def CORE_RESET_RSP(raw):
+def CORE_RESET_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_RESET_RSP]
     Status: 1 Octet
 	"""""""""""""""
 	# print("CORE_RESET_RSP")
-	p_payload = Origin.CORE_RESET_RSP(raw)
+	p_payload = Origin.CORE_RESET_RSP(raw, vendor, model)
 	return p_payload
 
 # 60 00
-def CORE_RESET_NTF(raw):
+def CORE_RESET_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_RESET_NTF]
     Reset Trigger: 								1 Octet
@@ -39,21 +39,21 @@ def CORE_RESET_NTF(raw):
 	﹂	FLASH Ver: 								﹂	2 Octet
 	"""""""""""""""
 	# print("CORE_RESET_NTF")
-	p_payload = Origin.CORE_RESET_NTF(raw)
+	p_payload = Origin.CORE_RESET_NTF(raw, vendor, model)
 	return p_payload
 
 # 20 01
-def CORE_INIT_CMD(raw):
+def CORE_INIT_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_INIT_CMD]
 	Feature Enable: 2 Octets
 	"""""""""""""""
 	# print("CORE_INIT_CMD")
-	p_payload = Origin.CORE_INIT_CMD(raw)
+	p_payload = Origin.CORE_INIT_CMD(raw, vendor, model)
 	return p_payload
 
 # 40 01
-def CORE_INIT_RSP(raw):
+def CORE_INIT_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_INIT_RSP]
 	Status:														1 Octet
@@ -71,11 +71,11 @@ def CORE_INIT_RSP(raw):
 	﹂	Extension List [0..x]:									﹂	x Octet(s)
 	"""""""""""""""
 	# print("CORE_INIT_RSP")
-	p_payload = Origin.CORE_INIT_RSP(raw)
+	p_payload = Origin.CORE_INIT_RSP(raw, vendor, model)
 	return p_payload
 
 # 20 02
-def CORE_SET_CONFIG_CMD(raw):
+def CORE_SET_CONFIG_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_SET_CONFIG_CMD]
 	Number of Parameters: 	1 Octet (n)
@@ -85,11 +85,11 @@ def CORE_SET_CONFIG_CMD(raw):
 	﹂	Val:				﹂	m Octet(s)
 	"""""""""""""""
 	# print("CORE_SET_CONFIG_CMD")
-	p_payload = Origin.CORE_SET_CONFIG_CMD(raw)
+	p_payload = Origin.CORE_SET_CONFIG_CMD(raw, vendor, model)
 	return p_payload
 
 # 40 02
-def CORE_SET_CONFIG_RSP(raw):
+def CORE_SET_CONFIG_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_SET_CONFIG_RSP]
 	Status: 				1 Octet
@@ -97,22 +97,22 @@ def CORE_SET_CONFIG_RSP(raw):
 	Parameter ID [0..n]: 	1 Octet
 	"""""""""""""""
 	# print("CORE_SET_CONFIG_RSP")
-	p_payload = Origin.CORE_SET_CONFIG_RSP(raw)
+	p_payload = Origin.CORE_SET_CONFIG_RSP(raw, vendor, model)
 	return p_payload
 
 # 20 03
-def CORE_GET_CONFIG_CMD(raw):
+def CORE_GET_CONFIG_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_GET_CONFIG_CMD]
 	Number of Parameters: 	1 Octet (n)
 	Parameter ID [0..n]: 	1 Octet
 	"""""""""""""""
 	# print("CORE_GET_CONFIG_CMD")
-	p_payload = Origin.CORE_GET_CONFIG_CMD(raw)
+	p_payload = Origin.CORE_GET_CONFIG_CMD(raw, vendor, model)
 	return p_payload
 
 # 40 03
-def CORE_GET_CONFIG_RSP(raw):
+def CORE_GET_CONFIG_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_GET_CONFIG_RSP]
 	Status: 				1 Octet
@@ -123,11 +123,11 @@ def CORE_GET_CONFIG_RSP(raw):
 	﹂	Val:				﹂	m Octet(s)
 	"""""""""""""""
 	# print("CORE_GET_CONFIG_RSP")
-	p_payload = Origin.CORE_GET_CONFIG_RSP(raw)
+	p_payload = Origin.CORE_GET_CONFIG_RSP(raw, vendor, model)
 	return p_payload
 
 # 20 04
-def CORE_CONN_CREATE_CMD(raw):
+def CORE_CONN_CREATE_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_CONN_CREATE_CMD]
 	Destination Type: 							1 Octet
@@ -138,11 +138,11 @@ def CORE_CONN_CREATE_CMD(raw):
 	﹂	Val:									﹂	m Octet(s)
 	"""""""""""""""
 	# print("CORE_CONN_CREATE_CMD")
-	p_payload = Origin.CORE_CONN_CREATE_CMD(raw)
+	p_payload = Origin.CORE_CONN_CREATE_CMD(raw, vendor, model)
 	return p_payload
 
 # 40 04
-def CORE_CONN_CREATE_RSP(raw):
+def CORE_CONN_CREATE_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_CONN_CREATE_RSP]
 	Status: 						1 Octet
@@ -151,31 +151,31 @@ def CORE_CONN_CREATE_RSP(raw):
 	Conn ID:						1 Octet
 	"""""""""""""""
 	# print("CORE_CONN_CREATE_RSP")
-	p_payload = Origin.CORE_CONN_CREATE_RSP(raw)
+	p_payload = Origin.CORE_CONN_CREATE_RSP(raw, vendor, model)
 	return p_payload
 
 # 20 05
-def CORE_CONN_CLOSE_CMD(raw):
+def CORE_CONN_CLOSE_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_CONN_CLOSE_CMD]
 	Conn ID:	1 Octet
 	"""""""""""""""
 	# print("CORE_CONN_CLOSE_CMD")
-	p_payload = Origin.CORE_CONN_CLOSE_CMD(raw)
+	p_payload = Origin.CORE_CONN_CLOSE_CMD(raw, vendor, model)
 	return p_payload
 
 # 40 05
-def CORE_CONN_CLOSE_RSP(raw):
+def CORE_CONN_CLOSE_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_CONN_CLOSE_RSP]
 	Status:		1 Octet
 	"""""""""""""""
 	# print("CORE_CONN_CLOSE_RSP")
-	p_payload = Origin.CORE_CONN_CLOSE_RSP(raw)
+	p_payload = Origin.CORE_CONN_CLOSE_RSP(raw, vendor, model)
 	return p_payload
 
 # 60 06
-def CORE_CONN_CREDITS_NTF(raw):
+def CORE_CONN_CREDITS_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_CONN_CREDITS_NTF]
 	Number of Entries:	1 Octet (n)
@@ -184,48 +184,48 @@ def CORE_CONN_CREDITS_NTF(raw):
 	﹂	Credits: 		﹂	1 Octet
 	"""""""""""""""
 	# print("CORE_CONN_CREDITS_NTF")
-	p_payload = Origin.CORE_CONN_CREDITS_NTF(raw)
+	p_payload = Origin.CORE_CONN_CREDITS_NTF(raw, vendor, model)
 	return p_payload
 
 # 60 07
-def CORE_GENERIC_ERROR_NTF(raw):
+def CORE_GENERIC_ERROR_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_GENERIC_ERROR_NTF]
 	Status:		1 Octet
 	"""""""""""""""
 	# print("CORE_GENERIC_ERROR_NTF")
-	p_payload = Origin.CORE_GENERIC_ERROR_NTF(raw)
+	p_payload = Origin.CORE_GENERIC_ERROR_NTF(raw, vendor, model)
 	return p_payload
 
 # 60 08
-def CORE_INTERFACE_ERROR_NTF(raw):
+def CORE_INTERFACE_ERROR_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_INTERFACE_ERROR_NTF]
 	Status:		1 Octet
 	Conn ID:	1 Octet
 	"""""""""""""""
 	# print("CORE_INTERFACE_ERROR_NTF")
-	p_payload = Origin.CORE_INTERFACE_ERROR_NTF(raw)
+	p_payload = Origin.CORE_INTERFACE_ERROR_NTF(raw, vendor, model)
 	return p_payload
 
 # 20 09
-def CORE_SET_POWER_SUB_STATE_CMD(raw):
+def CORE_SET_POWER_SUB_STATE_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_SET_POWER_SUB_STATE_CMD]
 	Power State:	1 Octet
 	"""""""""""""""
 	# print("CORE_SET_POWER_SUB_STATE_CMD")
-	p_payload = Origin.CORE_SET_POWER_SUB_STATE_CMD(raw)
+	p_payload = Origin.CORE_SET_POWER_SUB_STATE_CMD(raw, vendor, model)
 	return p_payload
 
 # 40 09
-def CORE_SET_POWER_SUB_STATE_RSP(raw):
+def CORE_SET_POWER_SUB_STATE_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[CORE_SET_POWER_SUB_STATE_RSP]
     Status: 1 Octet
 	"""""""""""""""
 	# print("CORE_SET_POWER_SUB_STATE_RSP")
-	p_payload = Origin.CORE_SET_POWER_SUB_STATE_RSP(raw)
+	p_payload = Origin.CORE_SET_POWER_SUB_STATE_RSP(raw, vendor, model)
 	return p_payload
 
 # def VALUE_OF_CFG_PARA(id, val):

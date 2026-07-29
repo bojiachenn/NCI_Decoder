@@ -1,31 +1,31 @@
-import nfc_forum_pkg.__table__ as NFC_table
-from nfc_forum_pkg import NFCEE_Management as Origin
+import nfc_forum_2_0_pkg.__table__ as NFC_table
+from nfc_forum_2_0_pkg import NFCEE_Management as Origin
 
 #       模板       #
 
 # 22 00
-def NFCEE_DISCOVER_CMD(raw):
+def NFCEE_DISCOVER_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[NFCEE_DISCOVER_CMD]
     (Empty)
 	"""""""""""""""
 	# print("NFCEE_DISCOVER_CMD")
-	p_payload = Origin.NFCEE_DISCOVER_CMD(raw)
+	p_payload = Origin.NFCEE_DISCOVER_CMD(raw, vendor, model)
 	return p_payload
 
 # 42 00
-def NFCEE_DISCOVER_RSP(raw):
+def NFCEE_DISCOVER_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[NFCEE_DISCOVER_RSP]
     Status:				1 Octet
 	Number of NFCEEs:	1 Octet
 	"""""""""""""""
 	# print("NFCEE_DISCOVER_RSP")
-	p_payload = Origin.NFCEE_DISCOVER_RSP(raw)
+	p_payload = Origin.NFCEE_DISCOVER_RSP(raw, vendor, model)
 	return p_payload
 
 # 62 00
-def NFCEE_DISCOVER_NTF(raw):
+def NFCEE_DISCOVER_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[NFCEE_DISCOVER_NTF]
     NFCEE ID: 									1 Octet
@@ -40,68 +40,68 @@ def NFCEE_DISCOVER_NTF(raw):
 	NFCEE Power Supply: 						1 Octet
 	"""""""""""""""
 	# print("NFCEE_DISCOVER_NTF")
-	p_payload = Origin.NFCEE_DISCOVER_NTF(raw)
+	p_payload = Origin.NFCEE_DISCOVER_NTF(raw, vendor, model)
 	return p_payload
 
 # 22 01
-def NFCEE_MODE_SET_CMD(raw):
+def NFCEE_MODE_SET_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[NFCEE_MODE_SET_CMD]
     NFCEE ID:			1 Octet
 	NFCEE Mode:			1 Octet
 	"""""""""""""""
 	# print("NFCEE_MODE_SET_CMD")
-	p_payload = Origin.NFCEE_MODE_SET_CMD(raw)
+	p_payload = Origin.NFCEE_MODE_SET_CMD(raw, vendor, model)
 	return p_payload
 
 # 42 01
-def NFCEE_MODE_SET_RSP(raw):
+def NFCEE_MODE_SET_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[NFCEE_MODE_SET_RSP]
     Status:		1 Octet
 	"""""""""""""""
 	# print("NFCEE_MODE_SET_RSP")
-	p_payload = Origin.NFCEE_MODE_SET_RSP(raw)
+	p_payload = Origin.NFCEE_MODE_SET_RSP(raw, vendor, model)
 	return p_payload
 		
 # 62 01
-def NFCEE_MODE_SET_NTF(raw):
+def NFCEE_MODE_SET_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[NFCEE_MODE_SET_NTF]
     Status:		1 Octet
 	"""""""""""""""
 	# print("NFCEE_MODE_SET_NTF")
-	p_payload = Origin.NFCEE_MODE_SET_NTF(raw)
+	p_payload = Origin.NFCEE_MODE_SET_NTF(raw, vendor, model)
 	return p_payload
 
 # 62 02
-def NFCEE_STATUS_NTF(raw):
+def NFCEE_STATUS_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[NFCEE_STATUS_NTF]
     NFCEE ID:			1 Octet
 	NFCEE Status:		1 Octet
 	"""""""""""""""
 	# print("NFCEE_STATUS_NTF")
-	p_payload = Origin.NFCEE_STATUS_NTF(raw)
+	p_payload = Origin.NFCEE_STATUS_NTF(raw, vendor, model)
 	return p_payload
 
 # 22 03
-def NFCEE_POWER_AND_LINK_CNTRL_CMD(raw):
+def NFCEE_POWER_AND_LINK_CNTRL_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[NFCEE_POWER_AND_LINK_CNTRL_CMD]
     NFCEE ID:								1 Octet
 	NFCEE Power and Link Configuration:		1 Octet
 	"""""""""""""""
 	# print("NFCEE_POWER_AND_LINK_CNTRL_CMD")
-	p_payload = Origin.NFCEE_POWER_AND_LINK_CNTRL_CMD(raw)
+	p_payload = Origin.NFCEE_POWER_AND_LINK_CNTRL_CMD(raw, vendor, model)
 	return p_payload
 			
 # 22 03
-def NFCEE_POWER_AND_LINK_CNTRL_RSP(raw):
+def NFCEE_POWER_AND_LINK_CNTRL_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[NFCEE_POWER_AND_LINK_CNTRL_RSP]
     Status:		1 Octet
 	"""""""""""""""
 	# print("NFCEE_POWER_AND_LINK_CNTRL_RSP")
-	p_payload = Origin.NFCEE_POWER_AND_LINK_CNTRL_RSP(raw)
+	p_payload = Origin.NFCEE_POWER_AND_LINK_CNTRL_RSP(raw, vendor, model)
 	return p_payload

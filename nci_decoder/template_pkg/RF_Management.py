@@ -1,10 +1,10 @@
-import nfc_forum_pkg.__table__ as NFC_table
-from nfc_forum_pkg import RF_Management as Origin
+import nfc_forum_2_0_pkg.__table__ as NFC_table
+from nfc_forum_2_0_pkg import RF_Management as Origin
 
 #       模板       #
 
 # 21 00
-def RF_DISCOVER_MAP_CMD(raw):
+def RF_DISCOVER_MAP_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_DISCOVER_MAP_CMD]
 	Number of Mapping Configurations:	1 Octet (n)
@@ -14,20 +14,20 @@ def RF_DISCOVER_MAP_CMD(raw):
 	﹂	RF Interface: 					﹂	1 Octet
 	"""""""""""""""
 	# print("RF_DISCOVER_MAP_CMD")
-	p_payload = Origin.RF_DISCOVER_MAP_CMD(raw)
+	p_payload = Origin.RF_DISCOVER_MAP_CMD(raw, vendor, model)
 	return p_payload
 
 # 41 00
-def RF_DISCOVER_MAP_RSP(raw):
+def RF_DISCOVER_MAP_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_DISCOVER_MAP_RSP]
     Status: 1 Octet
 	"""""""""""""""
 	# print("RF_DISCOVER_MAP_RSP")
-	p_payload = Origin.RF_DISCOVER_MAP_RSP(raw)
+	p_payload = Origin.RF_DISCOVER_MAP_RSP(raw, vendor, model)
 	return p_payload
 
-# def LISTEN_MODE_ROUTING_INFO(raw):
+# def LISTEN_MODE_ROUTING_INFO(raw, vendor="None", model="None"):
 # 	"""""""""""""""
 # 		共用
 # 		[RF_SET_LISTEN_MODE_ROUTING_CMD]
@@ -149,49 +149,49 @@ def RF_DISCOVER_MAP_RSP(raw):
 # 	return p_payload
 
 # 21 01
-def RF_SET_LISTEN_MODE_ROUTING_CMD(raw):
+def RF_SET_LISTEN_MODE_ROUTING_CMD(raw, vendor="None", model="None"):
 	# print("RF_SET_LISTEN_MODE_ROUTING_CMD")
-	p_payload = Origin.RF_SET_LISTEN_MODE_ROUTING_CMD(raw)
+	p_payload = Origin.RF_SET_LISTEN_MODE_ROUTING_CMD(raw, vendor, model)
 	return p_payload
 
 # 41 01
-def RF_SET_LISTEN_MODE_ROUTING_RSP(raw):
+def RF_SET_LISTEN_MODE_ROUTING_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_SET_LISTEN_MODE_ROUTING_RSP]
     Status: 1 Octet
 	"""""""""""""""
 	# print("RF_SET_LISTEN_MODE_ROUTING_RSP")
-	p_payload = Origin.RF_SET_LISTEN_MODE_ROUTING_RSP(raw)
+	p_payload = Origin.RF_SET_LISTEN_MODE_ROUTING_RSP(raw, vendor, model)
 	return p_payload
 
 # 21 02
-def RF_GET_LISTEN_MODE_ROUTING_CMD(raw):
+def RF_GET_LISTEN_MODE_ROUTING_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_GET_LISTEN_MODE_ROUTING_CMD]
     (Empty)
 	"""""""""""""""
 	# print("RF_GET_LISTEN_MODE_ROUTING_CMD")
-	p_payload = Origin.RF_GET_LISTEN_MODE_ROUTING_CMD(raw)
+	p_payload = Origin.RF_GET_LISTEN_MODE_ROUTING_CMD(raw, vendor, model)
 	return p_payload
 
 # 41 02
-def RF_GET_LISTEN_MODE_ROUTING_RSP(raw):
+def RF_GET_LISTEN_MODE_ROUTING_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_SET_LISTEN_MODE_ROUTING_RSP]
     Status: 1 Octet
 	"""""""""""""""
 	# print("RF_GET_LISTEN_MODE_ROUTING_RSP")
-	p_payload = Origin.RF_GET_LISTEN_MODE_ROUTING_RSP(raw)
+	p_payload = Origin.RF_GET_LISTEN_MODE_ROUTING_RSP(raw, vendor, model)
 	return p_payload
 
 # 61 02
-def RF_GET_LISTEN_MODE_ROUTING_NTF(raw):
+def RF_GET_LISTEN_MODE_ROUTING_NTF(raw, vendor="None", model="None"):
 	# print("RF_GET_LISTEN_MODE_ROUTING_NTF")
-	p_payload = Origin.RF_GET_LISTEN_MODE_ROUTING_NTF(raw)
+	p_payload = Origin.RF_GET_LISTEN_MODE_ROUTING_NTF(raw, vendor, model)
 	return p_payload
 
 # 21 03
-def RF_DISCOVER_CMD(raw):
+def RF_DISCOVER_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_DISCOVER_CMD]
 	Number of Configurations:		1 Octet (n)
@@ -200,17 +200,17 @@ def RF_DISCOVER_CMD(raw):
 	﹂	Discovery Frequency: 		﹂	1 Octet
 	"""""""""""""""
 	# print("RF_DISCOVER_CMD")
-	p_payload = Origin.RF_DISCOVER_CMD(raw)
+	p_payload = Origin.RF_DISCOVER_CMD(raw, vendor, model)
 	return p_payload
 
 # 41 03
-def RF_DISCOVER_RSP(raw):
+def RF_DISCOVER_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_DISCOVER_RSP]
     Status: 1 Octet
 	"""""""""""""""
 	# print("RF_DISCOVER_RSP")
-	p_payload = Origin.RF_DISCOVER_RSP(raw)
+	p_payload = Origin.RF_DISCOVER_RSP(raw, vendor, model)
 	return p_payload
 
 # def RF_TECH_SPEC_PARA(rf_tech_mode, para_raw):
@@ -389,7 +389,7 @@ def RF_DISCOVER_RSP(raw):
 # 		print("  * Proprietary parameters: "+para_raw[para_payload::])
 
 # 61 03
-def RF_DISCOVER_NTF(raw):
+def RF_DISCOVER_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_DISCOVER_NTF]
     RF Discovery ID: 								1 Octet
@@ -400,11 +400,11 @@ def RF_DISCOVER_NTF(raw):
     Notification Type: 								1 Octet
 	"""""""""""""""
 	# print("RF_DISCOVER_NTF")
-	p_payload = Origin.RF_DISCOVER_NTF(raw)
+	p_payload = Origin.RF_DISCOVER_NTF(raw, vendor, model)
 	return p_payload
 
 # 21 04
-def RF_DISCOVER_SELECT_CMD(raw):
+def RF_DISCOVER_SELECT_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_DISCOVER_SELECT_CMD]
     RF Discovery ID:	1 Octet
@@ -412,21 +412,21 @@ def RF_DISCOVER_SELECT_CMD(raw):
     RF Interface:		1 Octet
 	"""""""""""""""
 	# print("RF_DISCOVER_SELECT_CMD")
-	p_payload = Origin.RF_DISCOVER_SELECT_CMD(raw)
+	p_payload = Origin.RF_DISCOVER_SELECT_CMD(raw, vendor, model)
 	return p_payload
 
 # 41 04
-def RF_DISCOVER_SELECT_RSP(raw):
+def RF_DISCOVER_SELECT_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_DISCOVER_SELECT_RSP]
     Status:		1 Octet
 	"""""""""""""""
 	# print("RF_DISCOVER_SELECT_RSP")
-	p_payload = Origin.RF_DISCOVER_SELECT_RSP(raw)
+	p_payload = Origin.RF_DISCOVER_SELECT_RSP(raw, vendor, model)
 	return p_payload
 		
 # 61 05
-def RF_INTF_ACTIVATED_NTF(raw):
+def RF_INTF_ACTIVATED_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_INTF_ACTIVATED_NTF]
     RF Discovery ID:								1 Octet
@@ -444,72 +444,72 @@ def RF_INTF_ACTIVATED_NTF(raw):
 	Activation Parameters:							0-n Octet(s)
 	"""""""""""""""
 	# print("RF_INTF_ACTIVATED_NTF")
-	p_payload = Origin.RF_INTF_ACTIVATED_NTF(raw)
+	p_payload = Origin.RF_INTF_ACTIVATED_NTF(raw, vendor, model)
 	return p_payload
 
 # 21 06
-def RF_DEACTIVATE_CMD(raw):
+def RF_DEACTIVATE_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_DEACTIVATE_CMD]
     Deactivation Type:		1 Octet
 	"""""""""""""""
 	# print("RF_DEACTIVATE_CMD")
-	p_payload = Origin.RF_DEACTIVATE_CMD(raw)
+	p_payload = Origin.RF_DEACTIVATE_CMD(raw, vendor, model)
 	return p_payload
 	
 # 41 06
-def RF_DEACTIVATE_RSP(raw):
+def RF_DEACTIVATE_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_DEACTIVATE_RSP]
     Status:		1 Octet
 	"""""""""""""""
 	# print("RF_DEACTIVATE_RSP")
-	p_payload = Origin.RF_DEACTIVATE_RSP(raw)
+	p_payload = Origin.RF_DEACTIVATE_RSP(raw, vendor, model)
 	return p_payload
 
 # 61 06
-def RF_DEACTIVATE_NTF(raw):
+def RF_DEACTIVATE_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_DEACTIVATE_NTF]
     Deactivation Type:		1 Octet
     Deactivation Reason:	1 Octet
 	"""""""""""""""
 	# print("RF_DEACTIVATE_NTF")
-	p_payload = Origin.RF_DEACTIVATE_NTF(raw)
+	p_payload = Origin.RF_DEACTIVATE_NTF(raw, vendor, model)
 	return p_payload
 	
 # 61 07
-def RF_FIELD_INFO_NTF(raw):
+def RF_FIELD_INFO_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_FIELD_INFO_NTF]
     RF Field Status:		1 Octet
 	"""""""""""""""
 	# print("RF_FIELD_INFO_NTF")
-	p_payload = Origin.RF_FIELD_INFO_NTF(raw)
+	p_payload = Origin.RF_FIELD_INFO_NTF(raw, vendor, model)
 	return p_payload
 	
 # 21 08
-def RF_T3T_POLLING_CMD(raw):
+def RF_T3T_POLLING_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_T3T_POLLING_CMD]
     SENSF_REQ_PARAMS:		4 Octets
 	"""""""""""""""
 	# print("RF_T3T_POLLING_CMD")
-	p_payload = Origin.RF_T3T_POLLING_CMD(raw)
+	p_payload = Origin.RF_T3T_POLLING_CMD(raw, vendor, model)
 	return p_payload
 
 # 41 08
-def RF_T3T_POLLING_RSP(raw):
+def RF_T3T_POLLING_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_T3T_POLLING_RSP]
     Status:		1 Octet
 	"""""""""""""""
 	# print("RF_T3T_POLLING_RSP")
-	p_payload = Origin.RF_T3T_POLLING_RSP(raw)
+	p_payload = Origin.RF_T3T_POLLING_RSP(raw, vendor, model)
 	return p_payload
 
 # 61 08
-def RF_T3T_POLLING_NTF(raw):
+def RF_T3T_POLLING_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_T3T_POLLING_RSP]
     Status:					1 Octet
@@ -519,11 +519,11 @@ def RF_T3T_POLLING_NTF(raw):
 	﹂	SENSF_RES: 			﹂	m Octet(s)
 	"""""""""""""""
 	# print("RF_T3T_POLLING_NTF")
-	p_payload = Origin.RF_T3T_POLLING_NTF(raw)
+	p_payload = Origin.RF_T3T_POLLING_NTF(raw, vendor, model)
 	return p_payload
 
 # 61 09
-def RF_NFCEE_ACTION_NTF(raw):
+def RF_NFCEE_ACTION_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_NFCEE_ACTION_NTF]
     NFCEE ID:					1 Octet
@@ -532,11 +532,11 @@ def RF_NFCEE_ACTION_NTF(raw):
 	Supporting Data:			n Octet(s)
 	"""""""""""""""
 	# print("RF_NFCEE_ACTION_NTF")
-	p_payload = Origin.RF_NFCEE_ACTION_NTF(raw)
+	p_payload = Origin.RF_NFCEE_ACTION_NTF(raw, vendor, model)
 	return p_payload
 
 # 61 0A
-def RF_NFCEE_DISCOVERY_REQ_NTF(raw):
+def RF_NFCEE_DISCOVERY_REQ_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_NFCEE_DISCOVERY_REQ_NTF]
 	Number of Information Entries:		1 Octet (n)
@@ -546,11 +546,11 @@ def RF_NFCEE_DISCOVERY_REQ_NTF(raw):
 	﹂	Value: 							﹂	x Octet(s)
 	"""""""""""""""
 	# print("RF_NFCEE_DISCOVERY_REQ_NTF")
-	p_payload = Origin.RF_NFCEE_DISCOVERY_REQ_NTF(raw)
+	p_payload = Origin.RF_NFCEE_DISCOVERY_REQ_NTF(raw, vendor, model)
 	return p_payload
 
 # 21 0B
-def RF_PARAMETER_UPDATE_CMD(raw):
+def RF_PARAMETER_UPDATE_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_PARAMETER_UPDATE_CMD]
 	Number of Parameters:					1 Octet (n)
@@ -560,11 +560,11 @@ def RF_PARAMETER_UPDATE_CMD(raw):
 	﹂	Value: 								﹂	x Octet(s)
 	"""""""""""""""
 	# print("RF_PARAMETER_UPDATE_CMD")
-	p_payload = Origin.RF_PARAMETER_UPDATE_CMD(raw)
+	p_payload = Origin.RF_PARAMETER_UPDATE_CMD(raw, vendor, model)
 	return p_payload
 
 # 41 0B
-def RF_PARAMETER_UPDATE_RSP(raw):
+def RF_PARAMETER_UPDATE_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_PARAMETER_UPDATE_RSP]
     Status:		1 Octet
@@ -572,11 +572,11 @@ def RF_PARAMETER_UPDATE_RSP(raw):
 	RF Communication Parameters [1..n]:		1 Octets
 	"""""""""""""""
 	# print("RF_PARAMETER_UPDATE_RSP")
-	p_payload = Origin.RF_PARAMETER_UPDATE_RSP(raw)
+	p_payload = Origin.RF_PARAMETER_UPDATE_RSP(raw, vendor, model)
 	return p_payload
 
 # 21 0C
-def RF_INTF_EXT_START_CMD(raw):
+def RF_INTF_EXT_START_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_INTF_EXT_START_CMD]
 	RF Interface Extension:		1 Octet
@@ -584,21 +584,21 @@ def RF_INTF_EXT_START_CMD(raw):
 	Start Parameter: 			x Octet(s)
 	"""""""""""""""
 	# print("RF_INTF_EXT_START_CMD")
-	p_payload = Origin.RF_INTF_EXT_START_CMD(raw)
+	p_payload = Origin.RF_INTF_EXT_START_CMD(raw, vendor, model)
 	return p_payload
 
 # 41 0C
-def RF_INTF_EXT_START_RSP(raw):
+def RF_INTF_EXT_START_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_INTF_EXT_START_RSP]
     Status:		1 Octet
 	"""""""""""""""
 	# print("RF_INTF_EXT_START_RSP")
-	p_payload = Origin.RF_INTF_EXT_START_RSP(raw)
+	p_payload = Origin.RF_INTF_EXT_START_RSP(raw, vendor, model)
 	return p_payload
 
 # 21 0D
-def RF_INTF_EXT_STOP_CMD(raw):
+def RF_INTF_EXT_STOP_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_INTF_EXT_STOP_CMD]
     RF Interface Extension:		1 Octet
@@ -606,88 +606,88 @@ def RF_INTF_EXT_STOP_CMD(raw):
     Stop Parameter:				x Octet(s)
 	"""""""""""""""
 	# print("RF_INTF_EXT_STOP_CMD")
-	p_payload = Origin.RF_INTF_EXT_STOP_CMD(raw)
+	p_payload = Origin.RF_INTF_EXT_STOP_CMD(raw, vendor, model)
 	return p_payload
 
 # 41 0D
-def RF_INTF_EXT_STOP_RSP(raw):
+def RF_INTF_EXT_STOP_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_INTF_EXT_STOP_RSP]
     Status:		1 Octet
 	"""""""""""""""
 	# print("RF_INTF_EXT_STOP_RSP")
-	p_payload = Origin.RF_INTF_EXT_STOP_RSP(raw)
+	p_payload = Origin.RF_INTF_EXT_STOP_RSP(raw, vendor, model)
 	return p_payload
 
 # 21 0E
-def RF_EXT_AGG_ABORT_CMD(raw):
+def RF_EXT_AGG_ABORT_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_EXT_AGG_ABORT_CMD]
     (Empty)
 	"""""""""""""""
-	p_payload = Origin.RF_EXT_AGG_ABORT_CMD(raw)
+	p_payload = Origin.RF_EXT_AGG_ABORT_CMD(raw, vendor, model)
 	return p_payload
 
 # 41 0E
-def RF_EXT_AGG_ABORT_RSP(raw):
+def RF_EXT_AGG_ABORT_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_EXT_AGG_ABORT_RSP]
     Status:		1 Octet
 	"""""""""""""""
 	# print("RF_EXT_AGG_ABORT_RSP")
-	p_payload = Origin.RF_EXT_AGG_ABORT_RSP(raw)
+	p_payload = Origin.RF_EXT_AGG_ABORT_RSP(raw, vendor, model)
 	return p_payload
 
 # 21 0F
-def RF_NDEF_ABORT_CMD(raw):
+def RF_NDEF_ABORT_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_NDEF_ABORT_CMD]
     (Empty)
 	"""""""""""""""
-	p_payload = Origin.RF_NDEF_ABORT_CMD(raw)
+	p_payload = Origin.RF_NDEF_ABORT_CMD(raw, vendor, model)
 	return p_payload
 	
 # 41 0F
-def RF_NDEF_ABORT_RSP(raw):
+def RF_NDEF_ABORT_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_NDEF_ABORT_RSP]
     Status:		1 Octet
 	"""""""""""""""
 	# print("RF_NDEF_ABORT_RSP")
-	p_payload = Origin.RF_NDEF_ABORT_RSP(raw)
+	p_payload = Origin.RF_NDEF_ABORT_RSP(raw, vendor, model)
 	return p_payload
 
 # 21 10
-def RF_ISO_DEP_NAK_PRESENCE_CMD(raw):
+def RF_ISO_DEP_NAK_PRESENCE_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_ISO_DEP_NAK_PRESENCE_CMD]
     (Empty)
 	"""""""""""""""
-	p_payload = Origin.RF_ISO_DEP_NAK_PRESENCE_CMD(raw)
+	p_payload = Origin.RF_ISO_DEP_NAK_PRESENCE_CMD(raw, vendor, model)
 	return p_payload
 
 # 41 10
-def RF_ISO_DEP_NAK_PRESENCE_RSP(raw):
+def RF_ISO_DEP_NAK_PRESENCE_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_ISO_DEP_NAK_PRESENCE_RSP]
     Status:		1 Octet
 	"""""""""""""""
 	# print("RF_ISO_DEP_NAK_PRESENCE_RSP")
-	p_payload = Origin.RF_ISO_DEP_NAK_PRESENCE_RSP(raw)
+	p_payload = Origin.RF_ISO_DEP_NAK_PRESENCE_RSP(raw, vendor, model)
 	return p_payload
 	
 # 61 10
-def RF_ISO_DEP_NAK_PRESENCE_NTF(raw):
+def RF_ISO_DEP_NAK_PRESENCE_NTF(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_ISO_DEP_NAK_PRESENCE_NTF]
     Status:		1 Octet
 	"""""""""""""""
 	# print("RF_ISO_DEP_NAK_PRESENCE_NTF")
-	p_payload = Origin.RF_ISO_DEP_NAK_PRESENCE_NTF(raw)
+	p_payload = Origin.RF_ISO_DEP_NAK_PRESENCE_NTF(raw, vendor, model)
 	return p_payload
 	
 # 21 11
-def RF_SET_FORCED_NFCEE_ROUTING_CMD(raw):
+def RF_SET_FORCED_NFCEE_ROUTING_CMD(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_SET_FORCED_NFCEE_ROUTING_CMD]
     Forced NFCEE Routing State:		1 Octet
@@ -696,15 +696,15 @@ def RF_SET_FORCED_NFCEE_ROUTING_CMD(raw):
 	﹂	Forced Power State			﹂	1 Octet
 	"""""""""""""""
 	# print("RF_SET_FORCED_NFCEE_ROUTING_CMD")
-	p_payload = Origin.RF_SET_FORCED_NFCEE_ROUTING_CMD(raw)
+	p_payload = Origin.RF_SET_FORCED_NFCEE_ROUTING_CMD(raw, vendor, model)
 	return p_payload
 	
 # 41 11
-def RF_SET_FORCED_NFCEE_ROUTING_RSP(raw):
+def RF_SET_FORCED_NFCEE_ROUTING_RSP(raw, vendor="None", model="None"):
 	"""""""""""""""
 		[RF_SET_FORCED_NFCEE_ROUTING_RSP]
     Status:		1 Octet
 	"""""""""""""""
 	# print("RF_SET_FORCED_NFCEE_ROUTING_RSP")
-	p_payload = Origin.RF_SET_FORCED_NFCEE_ROUTING_RSP(raw)
+	p_payload = Origin.RF_SET_FORCED_NFCEE_ROUTING_RSP(raw, vendor, model)
 	return p_payload
