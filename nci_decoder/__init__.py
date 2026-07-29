@@ -1,6 +1,8 @@
+import os
 import sys
-sys.path.append(".\\nci_decoder")
-sys.path.append(".\\nci_decoder\\nfc_forum_2_0_pkg")
-sys.path.append(".\\nci_decoder\\nfc_forum_2_3_pkg")
-sys.path.append(".\\nci_decoder\\Nxp_pkg")
-print(sys.path)
+
+_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(_BASE_DIR)
+sys.path.append(os.path.join(_BASE_DIR, "nfc_forum_2_0_pkg"))
+sys.path.append(os.path.join(_BASE_DIR, "nfc_forum_2_3_pkg"))
+sys.path.append(os.path.join(_BASE_DIR, "Nxp_pkg"))
