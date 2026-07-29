@@ -1,5 +1,6 @@
 # import nfc_forum_pkg.__table__ as NFC_table
 import __pkg_import__ as pkg_import
+import range_lookup
 
 # 22 00
 def NFCEE_DISCOVER_CMD(raw, vendor="None", model="None"):
@@ -56,16 +57,8 @@ def NFCEE_DISCOVER_NTF(raw, vendor="None", model="None"):
 	p_payload = 0
 
 	nfcee_id = raw[p_payload:(p_payload+2*1)]
-	nfcee_id_i = int(nfcee_id, 16)
-	if((nfcee_id_i >= 2) & (nfcee_id_i <= 15)):
-		nfcee_id = '02-0F'
-	elif((nfcee_id_i >= 16) & (nfcee_id_i <= 127)):
-		nfcee_id = '10-7F'
-	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
-		nfcee_id = '80-FE'
-	else:
-		nfcee_id = 'None'
-	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], NFC_table.tbl_nfcee_id.get(raw[p_payload:(p_payload+2*1)], ""), NFC_table.tbl_nfcee_id.get(nfcee_id,""))
+	nfcee_id_range = range_lookup.find_range_key(NFC_table.tbl_nfcee_id, int(nfcee_id, 16))
+	print("  * NFCEE ID:", nfcee_id, NFC_table.tbl_nfcee_id.get(nfcee_id, ""), NFC_table.tbl_nfcee_id.get(nfcee_id_range, ""))
 	p_payload = p_payload + 2*1
 	
 	nfcee_status = raw[p_payload:(p_payload+2*1)]
@@ -171,16 +164,8 @@ def NFCEE_MODE_SET_CMD(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	nfcee_id = raw[p_payload:(p_payload+2*1)]
-	nfcee_id_i = int(nfcee_id, 16)
-	if((nfcee_id_i >= 2) & (nfcee_id_i <= 15)):
-		nfcee_id = '02-0F'
-	elif((nfcee_id_i >= 16) & (nfcee_id_i <= 127)):
-		nfcee_id = '10-7F'
-	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
-		nfcee_id = '80-FE'
-	else:
-		nfcee_id = 'None'
-	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], NFC_table.tbl_nfcee_id.get(raw[p_payload:(p_payload+2*1)], ""), NFC_table.tbl_nfcee_id.get(nfcee_id, ""))
+	nfcee_id_range = range_lookup.find_range_key(NFC_table.tbl_nfcee_id, int(nfcee_id, 16))
+	print("  * NFCEE ID:", nfcee_id, NFC_table.tbl_nfcee_id.get(nfcee_id, ""), NFC_table.tbl_nfcee_id.get(nfcee_id_range, ""))
 	p_payload = p_payload + 2*1
 
 	nfcee_mode = raw[p_payload:(p_payload+2*1)]
@@ -238,16 +223,8 @@ def NFCEE_STATUS_NTF(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	nfcee_id = raw[p_payload:(p_payload+2*1)]
-	nfcee_id_i = int(nfcee_id, 16)
-	if((nfcee_id_i >= 2) & (nfcee_id_i <= 15)):
-		nfcee_id = '02-0F'
-	elif((nfcee_id_i >= 16) & (nfcee_id_i <= 127)):
-		nfcee_id = '10-7F'
-	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
-		nfcee_id = '80-FE'
-	else:
-		nfcee_id = 'None'
-	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], NFC_table.tbl_nfcee_id.get(raw[p_payload:(p_payload+2*1)], ""), NFC_table.tbl_nfcee_id.get(nfcee_id,""))
+	nfcee_id_range = range_lookup.find_range_key(NFC_table.tbl_nfcee_id, int(nfcee_id, 16))
+	print("  * NFCEE ID:", nfcee_id, NFC_table.tbl_nfcee_id.get(nfcee_id, ""), NFC_table.tbl_nfcee_id.get(nfcee_id_range, ""))
 	p_payload = p_payload + 2*1
 
 	nfcee_status = raw[p_payload:(p_payload+2*1)]
@@ -268,16 +245,8 @@ def NFCEE_POWER_AND_LINK_CNTRL_CMD(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	nfcee_id = raw[p_payload:(p_payload+2*1)]
-	nfcee_id_i = int(nfcee_id, 16)
-	if((nfcee_id_i >= 2) & (nfcee_id_i <= 15)):
-		nfcee_id = '02-0F'
-	elif((nfcee_id_i >= 16) & (nfcee_id_i <= 127)):
-		nfcee_id = '10-7F'
-	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
-		nfcee_id = '80-FE'
-	else:
-		nfcee_id = 'None'
-	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], NFC_table.tbl_nfcee_id.get(raw[p_payload:(p_payload+2*1)], ""), NFC_table.tbl_nfcee_id.get(nfcee_id,""))
+	nfcee_id_range = range_lookup.find_range_key(NFC_table.tbl_nfcee_id, int(nfcee_id, 16))
+	print("  * NFCEE ID:", nfcee_id, NFC_table.tbl_nfcee_id.get(nfcee_id, ""), NFC_table.tbl_nfcee_id.get(nfcee_id_range, ""))
 	p_payload = p_payload + 2*1
 
 	nfcee_cfg = raw[p_payload:(p_payload+2*1)]

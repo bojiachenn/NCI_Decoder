@@ -1,5 +1,6 @@
 # import nfc_forum_pkg.__table__ as NFC_table
 import __pkg_import__ as pkg_import
+import range_lookup
 
 # 21 00
 def RF_DISCOVER_MAP_CMD(raw, vendor="None", model="None"):
@@ -107,14 +108,7 @@ def LISTEN_MODE_ROUTING_INFO(raw, vendor, model):
 
 		print("    * Val: "+val_raw)
 		route_val = val_raw[val_payload:(val_payload+2*1)]
-		if((int(route_val,16) >= 2) & (int(route_val,16) <= 15)):
-			route_val_range = '02-0F'
-		elif((int(route_val,16) >= 16) & (int(route_val,16) <= 127)):
-			route_val_range = '10-7F'
-		elif((int(route_val,16) >= 128) & (int(route_val,16) <= 254)):
-			route_val_range = '80-FE'
-		else:
-			route_val_range = 'None'
+		route_val_range = range_lookup.find_range_key(NFC_table.tbl_nfcee_id, int(route_val, 16))
 		print("      * Route:", NFC_table.tbl_nfcee_id.get(route_val, route_val), NFC_table.tbl_nfcee_id.get(route_val_range, ""), "("+route_val+")")
 		val_payload = val_payload + 2*1
 		
@@ -885,16 +879,8 @@ def RF_NFCEE_ACTION_NTF(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	nfcee_id = raw[p_payload:(p_payload+2*1)]
-	nfcee_id_i = int(nfcee_id, 16)
-	if((nfcee_id_i >= 2) & (nfcee_id_i <= 15)):
-		nfcee_id = '02-0F'
-	elif((nfcee_id_i >= 16) & (nfcee_id_i <= 127)):
-		nfcee_id = '10-7F'
-	elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
-		nfcee_id = '80-FE'
-	else:
-		nfcee_id = 'None'
-	print("  * NFCEE ID:", raw[p_payload:(p_payload+2*1)], NFC_table.tbl_nfcee_id.get(raw[p_payload:(p_payload+2*1)], ""), NFC_table.tbl_nfcee_id.get(nfcee_id, ""))
+	nfcee_id_range = range_lookup.find_range_key(NFC_table.tbl_nfcee_id, int(nfcee_id, 16))
+	print("  * NFCEE ID:", nfcee_id, NFC_table.tbl_nfcee_id.get(nfcee_id, ""), NFC_table.tbl_nfcee_id.get(nfcee_id_range, ""))
 	p_payload = p_payload + 2*1
 
 	nfcee_ntf_trig = raw[p_payload:(p_payload+2*1)]
@@ -967,16 +953,8 @@ def RF_NFCEE_DISCOVERY_REQ_NTF(raw, vendor="None", model="None"):
 		print("    * Val: "+data_val)
 		if((type_val == "00") | (type_val == "01")):
 			nfcee_id = data_val[0:2]
-			nfcee_id_i = int(nfcee_id, 16)
-			if((nfcee_id_i >= 2) & (nfcee_id_i <= 15)):
-				nfcee_id = '02-0F'
-			elif((nfcee_id_i >= 16) & (nfcee_id_i <= 127)):
-				nfcee_id = '10-7F'
-			elif((nfcee_id_i >= 128) & (nfcee_id_i <= 254)):
-				nfcee_id = '80-FE'
-			else:
-				nfcee_id = 'None'
-			print("      * NFCEE:", data_val[0:2], NFC_table.tbl_nfcee_id.get(data_val[0:2], ""), NFC_table.tbl_nfcee_id.get(nfcee_id, ""))
+			nfcee_id_range = range_lookup.find_range_key(NFC_table.tbl_nfcee_id, int(nfcee_id, 16))
+			print("      * NFCEE:", data_val[0:2], NFC_table.tbl_nfcee_id.get(data_val[0:2], ""), NFC_table.tbl_nfcee_id.get(nfcee_id_range, ""))
 			rf_tech_mode = data_val[2:4]
 			if((int(rf_tech_mode,16) >= 112) & (int(rf_tech_mode,16) <= 127)):
 				rf_tech_mode = '70-7F'
@@ -1294,15 +1272,7 @@ def RF_SET_FORCED_NFCEE_ROUTING_CMD(raw, vendor="None", model="None"):
 	elif(forced_nfcee_rout_state == "01"):
 		print("  * Forced NFCEE Routing State: "+"Enabled")
 		forced_nfcee = raw[p_payload:(p_payload+2*1)]
-		route_val = forced_nfcee
-		if((int(forced_nfcee,16) >= 2) & (int(forced_nfcee,16) <= 15)):
-			route_val = '02-0F'
-		elif((int(forced_nfcee,16) >= 16) & (int(forced_nfcee,16) <= 127)):
-			route_val = '10-7F'
-		elif((int(forced_nfcee,16) >= 128) & (int(forced_nfcee,16) <= 254)):
-			route_val = '80-FE'
-		else:
-			route_val = 'None'
+		route_val = range_lookup.find_range_key(NFC_table.tbl_nfcee_id, int(forced_nfcee, 16))
 		print("  * Forced NFCEE:", forced_nfcee, NFC_table.tbl_nfcee_id.get(forced_nfcee, ""), NFC_table.tbl_nfcee_id.get(route_val, ""))
 		p_payload = p_payload + 2*1
 
