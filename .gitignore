@@ -1,2 +1,5 @@
 build/
 NCI_output/
+__pycache__/
+*.pyc
+.pytest_cache/
