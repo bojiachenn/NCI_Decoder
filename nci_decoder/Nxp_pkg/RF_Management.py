@@ -682,7 +682,7 @@ def RF_ISO_DEP_NAK_PRESENCE_RSP(raw):
     Status:		1 Octet
 	"""""""""""""""
 	# print("RF_ISO_DEP_NAK_PRESENCE_RSP")
-	p_payload = Origin.RF_ISO_DEP_NAK_PRESENCE_RSP(raw)
+	p_payload = Origin.RF_ISO_DEP_NAK_PRESENCE_RSP(raw, "nxp")
 	return p_payload
 	
 # 61 10
@@ -756,10 +756,12 @@ def FIELD_DETECT_NTF(raw):
 	p_payload = p_payload + 2*1
 
 	sys_code = raw[p_payload:(p_payload+2*2)]
-	if(detect_b[3:4] == '1'):
+	# Bit3 (0x08) = PollReq (typeF) detected; detect_b is MSB-first so test the int
+	if(int(detect, 16) & 0x08):
 		print("  * POLL_REQ SC0-SC1:", sys_code)
 	else:
 		print("  * System Code:", sys_code)
+	p_payload = p_payload + 2*2
 	# print("")
 	return p_payload
 

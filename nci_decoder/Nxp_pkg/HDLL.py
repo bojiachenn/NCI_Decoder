@@ -1,3 +1,13 @@
+def crc16_ccitt_false(hex_str):
+    """CRC-16/CCITT-FALSE (poly 0x1021, init 0xFFFF, no reflection, xorout 0)
+    over a hex string; returns 4 uppercase hex chars."""
+    crc = 0xFFFF
+    for i in range(0, len(hex_str) - 1, 2):
+        crc ^= int(hex_str[i:i+2], 16) << 8
+        for _ in range(8):
+            crc = ((crc << 1) ^ 0x1021) & 0xFFFF if crc & 0x8000 else (crc << 1) & 0xFFFF
+    return "{:04X}".format(crc)
+
 # CMD
 
 # F0
@@ -140,7 +150,8 @@ def DL_OK(len, raw, pre_op):
 
     elif(pre_op == 'F2'):
         tbl_ssta = {'00': 'closed', '01': 'open', '02': 'locked'}
-        print("  * Session State:", tbl_ssta.get(raw[p_payload:(p_payload+2*1)]))
+        ssta = raw[p_payload:(p_payload+2*1)]
+        print("  * Session State:", tbl_ssta.get(ssta, "RFU ("+ssta+")"))
         p_payload = p_payload + 2*3
 
     elif(pre_op == 'F4'):
@@ -172,12 +183,14 @@ def DL_OK(len, raw, pre_op):
         tbl_status = {'1': 'OK', '0': 'KO'}
         print("  * Flash integrity:")
         print("         Data: {0:>2}               Code: {1:>2}".format(data_num, code_num))
-        for i in range(28):
+        for i in range(min(max(data_num, code_num), 28)):
             if(i < data_num and i < code_num):
                 print("    {0:>2}   {1:>2} {2}          {3:>2} {4}".format(i+1, tbl_status.get(crc_check_status[i:i+1], ""), "(" + data[8*i+6:8*i+8] + data[8*i+4:8*i+6] + data[8*i+2:8*i+4] + data[8*i+0:8*i+2] + ")", 
                                                                      tbl_status.get(crc_check_status[i+28:i+29], ""), "(" + code[8*i+6:8*i+8] + code[8*i+4:8*i+6] + code[8*i+2:8*i+4] + code[8*i+0:8*i+2] + ")"))
             elif(i < data_num):
                 print("    {0:>2}   {1:>2} {2}".format(i+1, tbl_status.get(crc_check_status[i:i+1], ""), "(" + data[8*i+6:8*i+8] + data[8*i+4:8*i+6] + data[8*i+2:8*i+4] + data[8*i+0:8*i+2] + ")"))
+            else: # code section only
+                print("    {0:>2}   {1:13}          {2:>2} {3}".format(i+1, "", tbl_status.get(crc_check_status[i+28:i+29], ""), "(" + code[8*i+6:8*i+8] + code[8*i+4:8*i+6] + code[8*i+2:8*i+4] + code[8*i+0:8*i+2] + ")"))
     else:
         p_payload = p_payload + 2*3
         # empty

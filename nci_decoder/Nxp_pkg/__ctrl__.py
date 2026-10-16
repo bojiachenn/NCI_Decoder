@@ -67,7 +67,7 @@ tbl_nci_ctrl = {
         '04':  {																									"NTF": Proprietary.APDU_LOGGING_NTF},
         '14':  {"CMD": Proprietary.RF_GET_TRANSITION_CMD, 		"RSP": Proprietary.RF_GET_TRANSITION_RSP, }, # 13.6
         '17':  {																									"NTF": Proprietary.WTX_NTF},
-        '1C':  {"CMD": Proprietary.LOW_POWER_TAG_REMOVAL_CMD,   "RSP": Proprietary.LOW_POWER_TAG_REMOVAL_RSP},
+        '1C':  {"CMD": Proprietary.LOW_POWER_TAG_REMOVAL_CMD,   "RSP": Proprietary.LOW_POWER_TAG_REMOVAL_RSP,		"NTF": Proprietary.LOW_POWER_TAG_REMOVAL_NTF},
         '1E':  {"CMD": Proprietary.SYSTEM_ESE_POWER_CYCLE_CMD, 	"RSP": Proprietary.SYSTEM_ESE_POWER_CYCLE_RSP},
         '1F':  {"CMD": Proprietary.COLD_RESET_CMD,              "RSP": Proprietary.COLD_RESET_RSP,					"NTF": Proprietary.COLD_RESET_NTF},
         '21':  {"CMD": Proprietary.FLUSH_SRAM_AO_TO_FLASH_CMD, 	"RSP": Proprietary.FLUSH_SRAM_AO_TO_FLASH_RSP},
@@ -133,18 +133,22 @@ def HDLL(raw, mode):
 	# print("  * Payload:", msg)
 	hdll_payload = hdll_payload + 2*(frame_len-1)
 
-	function = f"{tbl_nci_ctrl["HDLL"][op_code]}"
-	function_name = function.split(" ")[1]
+	handler = tbl_nci_ctrl["HDLL"].get(op_code)
+	function_name = handler.__name__ if handler else "UNKNOWN ("+op_code+")"
 	print("  << Nxp HDLL: "+function_name+" >>  ", end="")
 	if(mode == 1):
 		print(raw)
 	elif(mode == 2):
 		print("")
 
-	if(chunk == '01'):
+	if(chunk == '1'):
 		print("  * Chunk:", chunk)
 
-	check = tbl_nci_ctrl["HDLL"][op_code](frame_len, msg, HDLL_CMD)
+	if handler is None:
+		print("Error: unknown HDLL op code "+op_code+", raw: "+raw)
+		check = None
+	else:
+		check = handler(frame_len, msg, HDLL_CMD)
 	# print("  * Frame Len:", frame_len)
 	# print("  * Op Code:", op_code)
 	# print("  * Payload:", msg)
@@ -152,9 +156,13 @@ def HDLL(raw, mode):
 
 	crc = raw[hdll_payload:(hdll_payload+2*2)]
 	print("  * CRC:", crc, "(CRC-16-CCITT-FALSE)")
+	from Nxp_pkg.HDLL import crc16_ccitt_false # module name HDLL is shadowed by this function
+	crc_calc = crc16_ccitt_false(raw[0:hdll_payload])
+	if(crc_calc != crc):
+		print("    ! CRC mismatch: calculated "+crc_calc)
 	hdll_payload = hdll_payload + 2*2
 	
-	if(hdll_payload != len(raw) or check+2 != frame_len*2):
+	if(check is not None and (hdll_payload != len(raw) or check+2 != frame_len*2)):
 		print("")
 		print("Error: Payload error!!")
 		print("  check:", int(check/2), "Octet(s)")
@@ -162,3 +170,19 @@ def HDLL(raw, mode):
 		print("  Frame Len:", frame_len, "Octet(s)")
 		
 	print("#end")
+
+def reset_state():
+	"""Restore cross-packet decode state to import-time values.
+
+	Called by Decoder_Main.reset_state() at the start of each log file so state
+	carried between packets (e.g. last HDLL op code, NCI_Core/Proprietary
+	config values) does not leak from one file into the next.
+	"""
+	global HDLL_CMD
+	HDLL_CMD = '00'
+	Proprietary.PWR_MODE_00 = '0'
+	Proprietary.TEST_ID_3F = '32'
+	Proprietary.DPC_TYPE = '02'
+	Proprietary.AST_LOOP = '00'
+	NCI_Core.RSTN_CFG = '0'
+	NCI_Core.ULPDET_CFG = '00'

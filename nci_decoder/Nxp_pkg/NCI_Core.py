@@ -1,6 +1,7 @@
 import Nxp_pkg.__table__ as NFC_table
 from Nxp_pkg import Proprietary
 from nfc_forum_2_0_pkg import NCI_Core as Origin
+from range_lookup import lookup
 
 #       Nxp SN2X0       #
 
@@ -46,11 +47,11 @@ def CORE_RESET_NTF(raw):
 	p_payload = 0
 
 	rst_trig = raw[p_payload:(p_payload+2*1)]
-	print("  * Rest Trigger:", NFC_table.tbl_rst_trig.get(rst_trig, "RFU"), "("+rst_trig+")")
+	print("  * Reset Trigger:", lookup(NFC_table.tbl_rst_trig, rst_trig), "("+rst_trig+")")
 	p_payload = p_payload + 2*1
 
 	cfg_status = raw[p_payload:(p_payload+2*1)]
-	print("  * Config Status:", NFC_table.tbl_cfg_status.get(cfg_status, "RFU"), "("+cfg_status+")")
+	print("  * Config Status:", lookup(NFC_table.tbl_cfg_status, cfg_status), "("+cfg_status+")")
 	p_payload = p_payload + 2*1
 
 	if(rst_trig == 'A0'):
@@ -59,7 +60,7 @@ def CORE_RESET_NTF(raw):
 		p_payload = p_payload + 2*4
 	else:
 		nci_ver = raw[p_payload:(p_payload+2*1)]
-		print("  * NCI Version:", NFC_table.tbl_nci_ver.get(nci_ver, "RFU"), "("+nci_ver+")")
+		print("  * NCI Version:", lookup(NFC_table.tbl_nci_ver, nci_ver), "("+nci_ver+")")
 		p_payload = p_payload + 2*1
 
 		mfg_id = raw[p_payload:(p_payload+2*1)]
@@ -69,17 +70,24 @@ def CORE_RESET_NTF(raw):
 			print("  * Manufacturer ID:", mfg_id)
 		p_payload = p_payload + 2*1
 
-		# mfg_spec_info_len = raw[p_payload:(p_payload+2*1)]
-		# n = int(mfg_spec_info_len, 16)
+		mfg_spec_info_len = raw[p_payload:(p_payload+2*1)]
+		n = int(mfg_spec_info_len, 16) if mfg_spec_info_len else 0
 		p_payload = p_payload + 2*1
-		print("  * Model ID: "+raw[p_payload:(p_payload+2*1)])
-		p_payload = p_payload + 2*1
-		print("  * Hw Ver nb: "+raw[p_payload:(p_payload+2*1)])
-		p_payload = p_payload + 2*1
-		print("  * ROM Code Ver nb: "+raw[p_payload:(p_payload+2*1)])
-		p_payload = p_payload + 2*1
-		print("  * FLASH Ver: "+raw[p_payload:(p_payload+2*2)])
-		p_payload = p_payload + 2*2
+		if(n >= 5):
+			print("  * Model ID: "+raw[p_payload:(p_payload+2*1)])
+			p_payload = p_payload + 2*1
+			print("  * Hw Ver nb: "+raw[p_payload:(p_payload+2*1)])
+			p_payload = p_payload + 2*1
+			print("  * ROM Code Ver nb: "+raw[p_payload:(p_payload+2*1)])
+			p_payload = p_payload + 2*1
+			print("  * FLASH Ver: "+raw[p_payload:(p_payload+2*2)])
+			p_payload = p_payload + 2*2
+			if(n > 5):
+				print("  * Manufacturer Specific Info (extra): "+raw[p_payload:(p_payload+2*(n-5))])
+				p_payload = p_payload + 2*(n-5)
+		elif(n > 0):
+			print("  * Manufacturer Specific Info: "+raw[p_payload:(p_payload+2*n)])
+			p_payload = p_payload + 2*n
 		# print("")
 	return p_payload
 
@@ -140,10 +148,10 @@ def CORE_SET_CONFIG_CMD(raw):
 		para_id = raw[p_payload:(p_payload+2*1)]
 		if(para_id == 'A0' or para_id == 'A1'):
 			reg = raw[p_payload:(p_payload+2*2)]
-			print("    * Register:", NFC_table.tbl_cfg_para.get(reg,"RFU"), "("+reg+")")
+			print("    * Register:", lookup(NFC_table.tbl_cfg_para, reg), "("+reg+")")
 			p_payload = p_payload + 2*2
 		else:
-			print("    * ID:", NFC_table.tbl_cfg_para.get(para_id,"RFU"), "("+para_id+")")
+			print("    * ID:", lookup(NFC_table.tbl_cfg_para, para_id), "("+para_id+")")
 			p_payload = p_payload + 2*1
 		
 		para_len = raw[p_payload:(p_payload+2*1)]
@@ -174,7 +182,26 @@ def CORE_SET_CONFIG_RSP(raw):
 	Parameter ID [0..n]: 	1 Octet
 	"""""""""""""""
 	# print("CORE_SET_CONFIG_RSP")
-	p_payload = Origin.CORE_SET_CONFIG_RSP(raw, "nxp")
+	# NXP extended IDs (A0xx / A1xx) are 2 octets; the forum handler read every ID as 1 octet.
+	p_payload = 0
+
+	status = raw[p_payload:(p_payload+2*1)]
+	print("  * Status:", lookup(NFC_table.tbl_status_codes, status), "("+status+")")
+	p_payload = p_payload + 2*1
+
+	num_of_parameter = raw[p_payload:(p_payload+2*1)]
+	n = int(num_of_parameter, 16)
+	print("  * Number of Params:", n)
+	p_payload = p_payload + 2*1
+
+	if(n != 0):
+		print("  * Set Param ID:")
+		for i in range(n):
+			para_id = raw[p_payload:(p_payload+2*1)]
+			if(para_id == 'A0' or para_id == 'A1'):
+				para_id = raw[p_payload:(p_payload+2*2)]
+			print("    * ID "+str(i)+":", lookup(NFC_table.tbl_cfg_para, para_id), "("+para_id+")")
+			p_payload = p_payload + len(para_id)
 	return p_payload
 
 # 20 03
@@ -197,11 +224,11 @@ def CORE_GET_CONFIG_CMD(raw):
 		para_id = raw[p_payload:(p_payload+2*1)]
 		if(para_id == 'A0' or para_id == 'A1'):
 			para_id = raw[p_payload:(p_payload+2*2)]
-			print("    * Register:", NFC_table.tbl_cfg_para.get(para_id,"RFU"), "("+para_id+")")
+			print("    * Register:", lookup(NFC_table.tbl_cfg_para, para_id), "("+para_id+")")
 			p_payload = p_payload + 2*2
 		else:
 			print("    * ID "+str(i)+":", end=" ")
-			print(NFC_table.tbl_cfg_para.get(para_id,"RFU"), "("+para_id+")")
+			print(lookup(NFC_table.tbl_cfg_para, para_id), "("+para_id+")")
 			p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
@@ -237,10 +264,10 @@ def CORE_GET_CONFIG_RSP(raw):
 		
 		if(para_id == 'A0' or para_id == 'A1'):
 			reg = raw[p_payload:(p_payload+2*2)]
-			print("    * Register:", NFC_table.tbl_cfg_para.get(reg,"RFU"), "("+reg+")")
+			print("    * Register:", lookup(NFC_table.tbl_cfg_para, reg), "("+reg+")")
 			p_payload = p_payload + 2*2
 		else:
-			print("    * ID:", NFC_table.tbl_cfg_para.get(para_id,"RFU"), "("+para_id+")")
+			print("    * ID:", lookup(NFC_table.tbl_cfg_para, para_id), "("+para_id+")")
 			p_payload = p_payload + 2*1
 
 		id_len = raw[p_payload:(p_payload+2*1)]
@@ -305,7 +332,7 @@ def CORE_CONN_CREATE_RSP(raw):
 		p_payload = p_payload + 2*1
 
 		conn_id = raw[p_payload:(p_payload+2*1)]
-		print("  * Conn ID:", int(conn_id, 16), "("+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC"))
+		print("  * Conn ID: "+Origin.CONN_ID_TEXT(conn_id, NFC_table))
 		p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
@@ -384,7 +411,19 @@ def CORE_SET_POWER_SUB_STATE_RSP(raw):
 	p_payload = Origin.CORE_SET_POWER_SUB_STATE_RSP(raw, "nxp")
 	return p_payload
 
+# 1-octet bit-field parameters: decoded from the first octet only if Len > 1
+CFG_BITFIELD_1OCT = ('02', '13', '2A', '30', '31', '32', '38', '3C', '50', '5C', '62', '82', '85')
+
 def VALUE_OF_CFG_PARA(id, val):
+	len_warning = None
+	if(id in CFG_BITFIELD_1OCT and len(val) > 2):
+		len_warning = "      * Warning: Len "+str(len(val)//2)+", expected 1 (raw "+val+")"
+		val = val[0:2]
+	VALUE_OF_CFG_PARA_BODY(id, val)
+	if(len_warning is not None):
+		print(len_warning)
+
+def VALUE_OF_CFG_PARA_BODY(id, val):
 	# Common Discovery Parameters
 	if(id == '00'): # TOTAL_DURATION
 		print("    * Val:", int(val[2:4]+val[0:2], 16), "ms", "("+val+")")
@@ -618,6 +657,10 @@ def VALUE_OF_CFG_PARA(id, val):
 	else:
 		print("    * Val: "+val)
 
+def _le_int(val):
+	"""Little-endian hex string (any length) -> int."""
+	return int("".join(val[i:i+2] for i in range(len(val) - 2, -1, -2)), 16)
+
 def VALUE_OF_REGISTER(tag, val, val_len):
 	global ULPDET_CFG
 	global RSTN_CFG
@@ -640,6 +683,8 @@ def VALUE_OF_REGISTER(tag, val, val_len):
 				print(" + ULPDET With Notification")
 			else:
 				print()
+		else:
+			print("    * Val:", "RFU", "("+val+")")
 
 	elif(tag == 'A00A'): # WAIT_FOR_STABLE_SYSCLOCK
 		wait_for_stable = 18.8 * int(val, 16)
@@ -710,7 +755,7 @@ def VALUE_OF_REGISTER(tag, val, val_len):
 
 	elif(tag == 'A009'): # TO_BEFORE_STDBY_CFG
 		print("    * Val:", val)
-		print("      * Time:", int(val, 16)/1000, "s")
+		print("      * Time:", _le_int(val)/1000, "s")
 		print("       ~ Time-out used to wait after last DH/NFCEE communication before going into standby.")
 
 	elif(tag == 'A01D'): # Lx_DEBUG_CFG
@@ -735,7 +780,7 @@ def VALUE_OF_REGISTER(tag, val, val_len):
 	# Table 98. Poll Mode configuration
 	elif(tag == 'A064'): # EMVCo_PCD_SETTINGS Val 顛倒 (little endian)
 		print("    * Val:", val)
-		print("      * Polling delay between 2 phases:", int(val[0:2], 16) + int(val[2:4], 16) * 256 / 1000, "ms")
+		print("      * Polling delay between 2 phases:", (int(val[0:2], 16) + int(val[2:4], 16) * 256) / 1000, "ms")
 		print("      * Max nb of WupA/WupB when LPCD is triggered:", int(val[4:6], 16))
 
 	elif(tag == 'A044'): # POLL_PROFILE_SEL_CFG
@@ -858,7 +903,7 @@ def VALUE_OF_REGISTER(tag, val, val_len):
 		val_b = bin(int(val, 16))[2::].zfill(8)
 		print("      * Bit Rate Cfg1:", NFC_table.tbl_general_status.get('0'+val_b[5:6]), NFC_table.tbl_general_status.get('0'+val_b[6:7]), NFC_table.tbl_general_status.get('0'+val_b[7:8]))
 		print("      * Bit Rate Cfg2:", NFC_table.tbl_general_status.get('0'+val_b[1:2]), NFC_table.tbl_general_status.get('0'+val_b[2:3]), NFC_table.tbl_general_status.get('0'+val_b[3:4]))
-		print("      * UICC usage:", NFC_table.tbl_general_status.get(val_b[0:1]))
+		print("      * UICC usage:", NFC_table.tbl_general_status.get('0'+val_b[0:1]))
 
 	elif(tag == 'A11B'): # MERGE_SAK
 		print("    * Val:", val)
@@ -866,7 +911,7 @@ def VALUE_OF_REGISTER(tag, val, val_len):
 				   		 '02': 'Force clear',
 				   		 '03': 'Force merge',
 						}
-		print("      * Handle SAK merge:", tbl_merge_sak.get(val))
+		print("      * Handle SAK merge:", tbl_merge_sak.get(val, 'RFU'))
 
 	elif(tag == 'A155'): # RSSI_CONTINUOUS_NTF
 		print("    * Val:", val)
@@ -950,12 +995,15 @@ def VALUE_OF_REGISTER(tag, val, val_len):
 
 	elif(tag == 'A094'): # SE_TEMP_ERROR_DELAY_TIME
 		print("    * Val:", val)
-		val_b = bin(int(val, 16))[2::].zfill(8)
-		print("      * Delay after TEMP_ERROR:", int(val[1:2], 16), end="")
-		if(val_b[0:1] == '1'):
+		# NXP UM: 1 octet; Bit[0:3] timeout value, Bit[7] = 1 -> value in seconds, Bit[4:6] RFU
+		b = int(val[0:2], 16)
+		print("      * Delay after TEMP_ERROR:", b & 0x0F, end="")
+		if(b & 0x80):
 			print(" s")
 		else:
 			print(" (No unit defined)")
+		if(len(val) != 2):
+			print("      * Warning: Len "+str(len(val)//2)+", expected 1 (raw "+val+")")
 	
 	elif(tag == 'A084'): # VBAT_THRESHOLD_PHONE_OFF
 		print("    * Val:", val)
@@ -1061,7 +1109,7 @@ def VALUE_OF_REGISTER(tag, val, val_len):
 	# Table 103. Mechanism to configure the RF transitions:
 	elif(tag == 'A017'): # RF_CUST_PHASE_COMPENSATION
 		# print("    * Val:", val)
-		val = int(val[2:4] + val[0:2])
+		val = int(val[2:4] + val[0:2], 16)
 		if(val & 0x8000):
 			val = -((val ^ 0xFFFF) + 1)
 		
@@ -1163,7 +1211,7 @@ def VALUE_OF_REGISTER(tag, val, val_len):
 		for i in range(37):
 			dpc_entry = val[val_payload:(val_payload+2*4)]
 			print("      {0:^5} {1:>6.2f} V  {2:>10} mA       {3:^14} {4:^20} {5:^19}".format(i, i * 0.05 + 1.5, int(dpc_entry[0:2], 16), (int(dpc_entry[2:4], 16) ^ 0x80) - 0x80, 
-																	  str((int(dpc_entry[2:4], 16) ^ 0x80) - 0x80)+" / "+str((int(dpc_entry[5:6], 16) ^ 0x8) - 0x8), 
+																	  str((int(dpc_entry[4:5], 16) ^ 0x8) - 0x8)+" / "+str((int(dpc_entry[5:6], 16) ^ 0x8) - 0x8), 
 																	  str((int(dpc_entry[6:7], 16) ^ 0x8) - 0x8)+" / "+str((int(dpc_entry[7:8], 16) ^ 0x8) - 0x8)))
 			# print("")
 			# print("     ~ DPC Entry {} ~".format(i))
@@ -1185,46 +1233,46 @@ def VALUE_OF_REGISTER(tag, val, val_len):
 		regi_addr = val[2:4]
 		regi_val = val[4:]
 
-		if(val_len == 6):
-			b_regi_val = bin(int(regi_val[6:8], 16))[2::].zfill(8) + bin(int(regi_val[4:6], 16))[2::].zfill(8) + bin(int(regi_val[2:4], 16))[2::].zfill(8) + bin(int(regi_val[0:2], 16))[2::].zfill(8)
-		elif(val_len == 4):
-			b_regi_val = bin(int(regi_val[2:4], 16))[2::].zfill(8) + bin(int(regi_val[0:2], 16))[2::].zfill(8)
-		elif(val_len == 3):
-			b_regi_val = bin(int(regi_val[0:2], 16))[2::].zfill(8)
+		# Register value is little endian of any length; bit fields are taken from it zero-extended to 32 bits
+		regi_bytes = [regi_val[i:i+2] for i in range(0, len(regi_val) - 1, 2)]
+		b_regi_val = "".join(bin(int(b, 16))[2::].zfill(8) for b in reversed(regi_bytes))
+		b32 = b_regi_val.zfill(32)[-32:]
 
 		print("      * Transition ID:", 		NFC_table.tbl_rf_trans_id.get(trans_id, "RFU"), "("+trans_id+")")
 		print("      * CLIF register offset:", 	NFC_table.tbl_register.get(regi_addr, "RFU"), "("+regi_addr+")")
 		print("      * Register Val:", regi_val, "( "+ b_regi_val +" )")
 
 		if(regi_addr == '50'): # 6
-			print("        * GSP_DEFAULT_TX2:", b_regi_val[2:7])
-			print("        * GSP_DEFAULT_TX1:", b_regi_val[7:12])
-			print("        * GSP_CM_TX2:", 		b_regi_val[12:17])
-			print("        * GSP_CM_TX1:", 		b_regi_val[17:22])
-			print("        * GSP_RM_TX2:", 		b_regi_val[22:27])
-			print("        * GSP_RM_TX1:", 		b_regi_val[27:32])
+			print("        * GSP_DEFAULT_TX2:", b32[2:7])
+			print("        * GSP_DEFAULT_TX1:", b32[7:12])
+			print("        * GSP_CM_TX2:", 		b32[12:17])
+			print("        * GSP_CM_TX1:", 		b32[17:22])
+			print("        * GSP_RM_TX2:", 		b32[22:27])
+			print("        * GSP_RM_TX1:", 		b32[27:32])
 
 		elif(regi_addr == '4E' or regi_addr == '4F'): # 6
 			tbl_symbol = {'4E': 'TX1', '4F': 'TX2'}
-			print("        * GSN_DEFAULT_"+tbl_symbol.get(regi_addr)+":", 	b_regi_val[7:12])
-			print("        * GSN_MOD_CM_"+tbl_symbol.get(regi_addr)+":", 	b_regi_val[12:17])
-			print("        * GSN_CW_CM_"+tbl_symbol.get(regi_addr)+":", 	b_regi_val[17:22])
-			print("        * GSN_MOD_RM_"+tbl_symbol.get(regi_addr)+":", 	b_regi_val[22:27])
-			print("        * GSN_CW_RM_"+tbl_symbol.get(regi_addr)+":", 	b_regi_val[27:32])
+			print("        * GSN_DEFAULT_"+tbl_symbol.get(regi_addr)+":", 	b32[7:12])
+			print("        * GSN_MOD_CM_"+tbl_symbol.get(regi_addr)+":", 	b32[12:17])
+			print("        * GSN_CW_CM_"+tbl_symbol.get(regi_addr)+":", 	b32[17:22])
+			print("        * GSN_MOD_RM_"+tbl_symbol.get(regi_addr)+":", 	b32[22:27])
+			print("        * GSN_CW_RM_"+tbl_symbol.get(regi_addr)+":", 	b32[27:32])
 
 		elif(regi_addr == 'AB'): # 6
-			print("        * TX1_SS_TARGET_SCALE:", int(regi_val[0:2], 16), "( "+regi_val[0:2]+" )")
-			print("        * TX2_SS_TARGET_SCALE:", int(regi_val[2:4], 16), "( "+regi_val[2:4]+" )")
+			regi_b0 = regi_bytes[0] if len(regi_bytes) > 0 else '00'
+			regi_b1 = regi_bytes[1] if len(regi_bytes) > 1 else '00'
+			print("        * TX1_SS_TARGET_SCALE:", int(regi_b0, 16), "( "+regi_b0+" )")
+			print("        * TX2_SS_TARGET_SCALE:", int(regi_b1, 16), "( "+regi_b1+" )")
 
 		elif(regi_addr == '32'): # 6
-			print("        * TX_UNDERSHOOT_PATTERN:", 		b_regi_val[0:16])
-			print("        * TX_EXTENDED_TRANSMISSION:", 	b_regi_val[24:26])
-			print("        * TX_UNDERSHOOT_PATTERN_LEN:", 	b_regi_val[27:31])
-			print("        * TX_UNDERSHOOT_PROT_ENABLE:", 	NFC_table.tbl_general_status.get('0'+b_regi_val[31:32]))
+			print("        * TX_UNDERSHOOT_PATTERN:", 		b32[0:16])
+			print("        * TX_EXTENDED_TRANSMISSION:", 	b32[24:26])
+			print("        * TX_UNDERSHOOT_PATTERN_LEN:", 	b32[27:31])
+			print("        * TX_UNDERSHOOT_PROT_ENABLE:", 	NFC_table.tbl_general_status.get('0'+b32[31:32]))
 
 		elif(regi_addr == '40'): # 6
-			print("        * DGRM_RSSI_TARGET:", 				b_regi_val[15:25])
-			print("        * DGRM_SIGNAL_DETECT_TH_OVR_VAL:", 	b_regi_val[25:32])
+			print("        * DGRM_RSSI_TARGET:", 				b32[15:25])
+			print("        * DGRM_SIGNAL_DETECT_TH_OVR_VAL:", 	b32[25:32])
 
 
 	elif(tag == 'A09E'): # RX_CTRL_CFG
@@ -1306,12 +1354,15 @@ def VALUE_OF_REGISTER(tag, val, val_len):
 		cfg_ab = val[0:2]
 		ref_vddpa_ab = val[6:8]
 		cfg_f = val[8:10]
-		ref_vddpa_f = val[6:8]
+		ref_vddpa_f = val[14:16]
 		b_cfg_ab = bin(int(cfg_ab, 16))[2::].zfill(8)
 		b_cfg_f = bin(int(cfg_f, 16))[2::].zfill(8)
 		if(cfg_ab[1:2] == '0' and cfg_f[1:2] == '0'):
 			print("      * DLMA:", "Disabled")
-			print("      * Ref. VDDPA AB:           ", 1.5 + int(ref_vddpa_ab, 16) * 0.05, "V", "      * Ref. VDDPA F:           ", 1.5 + int(ref_vddpa_f, 16) * 0.05, "V", )
+			if(ref_vddpa_f):
+				print("      * Ref. VDDPA AB:           ", 1.5 + int(ref_vddpa_ab, 16) * 0.05, "V", "      * Ref. VDDPA F:           ", 1.5 + int(ref_vddpa_f, 16) * 0.05, "V", )
+			else:
+				print("      * Ref. VDDPA AB:           ", 1.5 + int(ref_vddpa_ab, 16) * 0.05, "V")
 		else:
 			print("      * DLMA:", "Enable")
 			print("      * APC TX AB:               ", "{0:<11}".format(NFC_table.tbl_general_status.get('0'+b_cfg_ab[7:8])), "* APC TX F:               ", "{0:<11}".format(NFC_table.tbl_general_status.get('0'+b_cfg_f[7:8])))
@@ -1376,7 +1427,7 @@ def VALUE_OF_REGISTER(tag, val, val_len):
 		print("    * Val:", val)
 		print("      * Measured LMA phone ON:", int(val[0:2], 16), "mV")
 		print("      * Measured RSSI:", int(val[2:4], 16) + int(val[4:6], 16) * 256)
-		print("      * Ref. field strength:", int(val[6:7], 16), "A/m")
+		print("      * Ref. field strength:", int(val[6:7], 16), "A/m") # NXP UM: byte3 Bit[4:7]
 		print("      * Ref. VDDPA DLMA OFF:", 1.5 + int(val[8:10], 16) * 0.05, "V")
 		print("      * Measured LMA Type A clock-less mode:",int(val[10:12], 16), "mV")
 		print("      * Measured LMA Type B clock-less mode:",int(val[12:14], 16), "mV")

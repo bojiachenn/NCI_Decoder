@@ -1,10 +1,14 @@
 import Nxp_pkg.__table__ as NFC_table
+from range_lookup import lookup
 
 # Table 13. SN2x0 NFCC-NCI additional commands/notifications
 
 PWR_MODE_00 = '0'
 TEST_ID_3F = '32'
 DPC_TYPE = '02'
+# NOTE: nothing in the decoder ever sets AST_LOOP, so it always stays '00' and the
+# READ_TXLDO_CURRENT ('01') / READ_RSSI ('02') branches of READ_OPTION_CMD/RSP (OID 0x32)
+# are currently unreachable. The NXP UM is needed to determine the switch condition.
 AST_LOOP = '00'
 
 # 2F 00
@@ -172,6 +176,9 @@ def APDU_LOGGING_NTF(raw):
         last_r_apdu = raw[p_payload:(p_payload+2*2)]
         print("  * APDU Data:", last_r_apdu, "(Last 2 bytes of the R-APDU)")
         p_payload = p_payload + 2*2
+    else: # unknown Category: show whatever is left
+        print("  * APDU Data:", raw[p_payload:])
+        p_payload = len(raw)
     return p_payload
 
 # 2F 14
@@ -215,7 +222,8 @@ def RF_GET_TRANSITION_RSP(raw):
     p_payload = p_payload + 2*1
     
     val = raw[p_payload:(p_payload+2*int(l, 16))]
-    print("  * RF Transition Val:", val)
+    val_le = ''.join(val[i:i+2] for i in range(len(val)-2, -1, -2)) # Little Endian
+    print("  * RF Transition Val:", "0x"+val_le, "(raw "+val+")")
     p_payload = p_payload + 2*int(l, 16)
     return p_payload
 
@@ -319,7 +327,7 @@ def COLD_RESET_CMD(raw):
     p_payload = 0
 
     rst_pin = raw[p_payload:(p_payload+2*1)]
-    print("  * RESET by pin:", "SE reset "+NFC_table.tbl_general_status_n(rst_pin))
+    print("  * RESET by pin:", "SE reset "+lookup(NFC_table.tbl_general_status_n, rst_pin))
     p_payload = p_payload + 2*1
     return p_payload
 
@@ -442,6 +450,7 @@ def TEST_PRBS_CMD(raw):
     # if(prbs_mode == '00' or prbs_mode == '01'):
     print("  * PRBS series length:", prbs_srs)
     p_payload = p_payload + 2*2
+    return p_payload
     
 # 4F 30
 def TEST_PRBS_RSP(raw):
@@ -469,6 +478,8 @@ def READ_OPTION_CMD(raw):
 	"""""""""""""""
     p_payload = 0
 
+    # AST_LOOP is never set anywhere, so the '01'/'02' branches below are currently
+    # unreachable; the NXP UM is needed to determine the switch condition.
     if(AST_LOOP == '01'):
         print("  << READ_TXLDO_CURRENT_CMD >>  ")
         print("  * Test ID:", "Read TxLdo current", "("+raw[p_payload:(p_payload+2*1)]+")")
@@ -503,12 +514,14 @@ def READ_OPTION_RSP(raw):
 	"""""""""""""""
     p_payload = 0
     
+    # AST_LOOP is never set anywhere, so the '01'/'02' branches below are currently
+    # unreachable; the NXP UM is needed to determine the switch condition.
     if(AST_LOOP == '01'):
         print("  << READ_TXLDO_CURRENT_RSP >>  ")
         print("  * Status:", NFC_table.tbl_status_codes.get(raw[p_payload:(p_payload+2*1)], "RFU"))
         p_payload = p_payload + 2*1
 
-        print("  * TXLDO_CURRENT:", int(raw[p_payload:(p_payload+2*1)]) + int(raw[(p_payload+2*1):(p_payload+2*2)]) * 256, "mA")
+        print("  * TXLDO_CURRENT:", int(raw[p_payload:(p_payload+2*1)], 16) + int(raw[(p_payload+2*1):(p_payload+2*2)], 16) * 256, "mA")
         p_payload = p_payload + 2*2
 
     elif(AST_LOOP == '02'):
@@ -650,7 +663,7 @@ def L1_DEBUG_NTF(raw):
     p_payload = p_payload + 2*2
     print("  * Time:", major_time, "ms", minor_time, "µs")
    
-    val_len = len(raw[p_payload:])
+    val_len = len(raw[p_payload:]) // 2 # remaining bytes
     if(val_len == 3 or val_len == 4): # non-TX event
         rssi = raw[p_payload:(p_payload+2*2)]
         p_payload = p_payload + 2*2
@@ -851,7 +864,7 @@ def L2_DEBUG_NTF(raw):
             elif(trig_type == '04'):
                 rx_len = int(raw[p_payload:(p_payload+2*1)], 16)
                 p_payload = p_payload + 2*1
-                rx_len = rx_len if rx_len < 9 else 9
+                rx_len = min(rx_len, len(raw[p_payload:]) // 2) # up to the end of the Tag's data
                 clt_rx = raw[p_payload:(p_payload+2*rx_len)]
                 p_payload = p_payload + 2*rx_len
                 print("    * CLT RX Data:", clt_rx)
@@ -859,7 +872,7 @@ def L2_DEBUG_NTF(raw):
             elif(trig_type == '05'):
                 tx_len = int(raw[p_payload:(p_payload+2*1)], 16)
                 p_payload = p_payload + 2*1
-                tx_len = tx_len if tx_len < 9 else 9
+                tx_len = min(tx_len, len(raw[p_payload:]) // 2) # up to the end of the Tag's data
                 clt_tx = raw[p_payload:(p_payload+2*tx_len)]
                 p_payload = p_payload + 2*tx_len
                 print("    * CLT TX Data:", clt_tx)
@@ -900,7 +913,7 @@ def L2_DEBUG_NTF(raw):
             elif(trig_type == '0C'):
                 data_len = int(raw[(p_payload+2*1):(p_payload+2*2)] + raw[p_payload:(p_payload+2*1)], 16)
                 p_payload = p_payload + 2*2
-                data_len = data_len if data_len < 8 else 8
+                data_len = min(data_len, len(raw[p_payload:]) // 2) # up to the end of the Tag's data
                 data = raw[p_payload:(p_payload+2*data_len)]
                 p_payload = p_payload + 2*data_len
                 print("    * Data received:", data)
@@ -985,7 +998,7 @@ def RF_SPC_NTF(raw):
     p_payload = p_payload + 2*2
     
 
-    phase = int(raw[(p_payload+2*1):(p_payload+2*2)] + raw[p_payload:(p_payload+2*1)])
+    phase = int(raw[(p_payload+2*1):(p_payload+2*2)] + raw[p_payload:(p_payload+2*1)], 16)
     if phase & 0x8000:
         phase = -((phase ^ 0xFFFF) + 1)
     degrees = phase * 0.25
@@ -1133,7 +1146,7 @@ def OPTIONAL_RSP(raw):
         if(DPC_TYPE == '02' or DPC_TYPE == '01'):
             print("  * Status:", NFC_table.tbl_status_codes.get(raw[p_payload:(p_payload+2*1)], "RFU"))
         elif(DPC_TYPE == '00'):
-            print("  * VDDPA:", 1.5 + int(raw[p_payload:(p_payload+2*1)]) * 0.05, "V")
+            print("  * VDDPA:", 1.5 + int(raw[p_payload:(p_payload+2*1)], 16) * 0.05, "V")
         p_payload = p_payload + 2*1
     
     elif(TEST_ID_3F == "04"):
@@ -1157,7 +1170,7 @@ def OPTIONAL_RSP(raw):
         for i in range(x):
             info = raw[p_payload:(p_payload+2*6)]
             vddpa = int(info[4:6], 16) * 0.05 + 1.5
-            current = int(info[0:2], 16) + int(info[3:4], 16) * 256
+            current = int(info[0:2], 16) + (int(info[2:4], 16) & 0x0F) * 256 # 12-bit current: byte1 high nibble is flags/RFU (NXP UM)
             print("    {0:^5} {1:>6.3f} W  {2:>6.2f} V  {3:>6} mA   {4:>9}".format(i, (vddpa*current)/1000, vddpa, current, info[0:6]))
             # print(raw[p_payload:(p_payload+2*6)])
             p_payload = p_payload + 2*6
