@@ -157,8 +157,8 @@ def LISTEN_MODE_ROUTING_INFO(raw, vendor, model):
 				[Table 57: Value Field for System Code-based Routing]
 			SC Route List:  2n Octets
 			"""""""""""""""
-			n = (x-2)/2
-			for j in range(n):
+			route_num = (x-2)//2
+			for j in range(route_num):
 				print("      * SC Route "+str(i)+": "+val_raw[val_payload:(val_payload+2*2)])
 				val_payload = val_payload + 2*2
 
@@ -168,11 +168,11 @@ def LISTEN_MODE_ROUTING_INFO(raw, vendor, model):
 			Reference data:	n Octet(s)
 			Mask:       	n Octet(s)
 			"""""""""""""""
-			n = (x-2)/2
+			data_len = (x-2)//2
 			print("      * Reference data: "+val_raw[val_payload:(val_payload+2*1)])
-			val_payload = val_payload + 2*n
+			val_payload = val_payload + 2*data_len
 			print("      * Mask: "+val_raw[val_payload:(val_payload+2*1)])
-			val_payload = val_payload + 2*n
+			val_payload = val_payload + 2*data_len
 		# print("")
 	return p_payload
 
@@ -408,14 +408,14 @@ def RF_TECH_SPEC_PARA(rf_tech_mode, para_raw, NFC_table):
 		Local NFCID2 Length: 	1 Octet
 		Local NFCID2:			0 or 8 Octet(s)
 		"""""""""""""""
-		local_nfcid2_len = para_raw[p_payload:(p_payload+2*1)]
+		local_nfcid2_len = para_raw[para_payload:(para_payload+2*1)]
 		l = int(local_nfcid2_len,16)
 		print("  * Local NFCID2 Len:", l)
-		p_payload = p_payload + 2*1
+		para_payload = para_payload + 2*1
 		
-		nfcid_2 = para_raw[p_payload:(p_payload+2*l)]	
+		nfcid_2 = para_raw[para_payload:(para_payload+2*l)]	
 		print("  * Local NFCID2: "+nfcid_2)
-		p_payload = p_payload + 2*l	
+		para_payload = para_payload + 2*l	
 
 	elif(rf_tech_mode_type == "V_PASSIVE_POLL"):
 		"""""""""""""""
@@ -442,14 +442,14 @@ def RF_TECH_SPEC_PARA(rf_tech_mode, para_raw, NFC_table):
 		ATR_RES Response Length: 	1 Octet (n)
 		ATR_RES Response: 			n Octet(s)
 		"""""""""""""""
-		atr_res_rsp_len = para_raw[p_payload:(p_payload+2*1)]
+		atr_res_rsp_len = para_raw[para_payload:(para_payload+2*1)]
 		l = int(atr_res_rsp_len,16)
 		print("  * ATR_RES Rsp Len:", l)
-		p_payload = p_payload + 2*1
+		para_payload = para_payload + 2*1
 		
-		atr_res_rsp = para_raw[p_payload:(p_payload+2*l)]	
+		atr_res_rsp = para_raw[para_payload:(para_payload+2*l)]	
 		print("  * ATR_RES Rsp: "+atr_res_rsp)
-		p_payload = p_payload + 2*l	
+		para_payload = para_payload + 2*l	
 
 	elif(rf_tech_mode_type == "ACTIVE_LISTEN"):
 		"""""""""""""""
@@ -457,14 +457,14 @@ def RF_TECH_SPEC_PARA(rf_tech_mode, para_raw, NFC_table):
 		ATR_REQ Command Length: 	1 Octet (n)
 		ATR_REQ Command: 			n Octet(s)
 		"""""""""""""""
-		atr_req_cmd_len = para_raw[p_payload:(p_payload+2*1)]
+		atr_req_cmd_len = para_raw[para_payload:(para_payload+2*1)]
 		l = int(atr_req_cmd_len,16)
 		print("  * ATR_REQ Cmd Len:", l)
-		p_payload = p_payload + 2*1
+		para_payload = para_payload + 2*1
 		
-		atr_req_cmd = para_raw[p_payload:(p_payload+2*l)]	
+		atr_req_cmd = para_raw[para_payload:(para_payload+2*l)]	
 		print("  * ATR_REQ Cmd: "+atr_req_cmd)
-		p_payload = p_payload + 2*l	
+		para_payload = para_payload + 2*l	
 
 	else:
 		print("  * Proprietary parameters: "+para_raw[para_payload::])
@@ -904,8 +904,8 @@ def RF_NFCEE_ACTION_NTF(raw, vendor="None", model="None"):
 	elif(nfcee_ntf_trig == "03"):
 		print("    * SC Route: "+data_val)
 	elif(nfcee_ntf_trig == "04"):
-		print("    * Reference data: "+data_val[:(n/2)])
-		print("    * Mask: "+data_val[(n/2):])
+		print("    * Reference data: "+data_val[:2*(n//2)])
+		print("    * Mask: "+data_val[2*(n//2):])
 	p_payload = p_payload + 2*n
 	# print("")
 	return p_payload
@@ -1290,7 +1290,7 @@ def RF_SET_FORCED_NFCEE_ROUTING_CMD(raw, vendor="None", model="None"):
 				print('{0:<10}'.format("Apply"))
 			else:
 				print('{0:<10}'.format("Not apply"))
-		val_payload = val_payload + 2*1
+		p_payload = p_payload + 2*1
 
 	else:
 		print("  * Forced NFCEE Routing State: "+"Error"+" ("+forced_nfcee_rout_state+")")
