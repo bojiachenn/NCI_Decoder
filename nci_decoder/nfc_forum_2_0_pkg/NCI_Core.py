@@ -1,5 +1,6 @@
 # import nfc_forum_pkg.__table__ as NFC_table
 import __pkg_import__ as pkg_import
+from range_lookup import lookup
 
 # 20 00
 def CORE_RESET_CMD(raw, vendor="None", model="None"):
@@ -12,7 +13,7 @@ def CORE_RESET_CMD(raw, vendor="None", model="None"):
 	p_payload = 0
 
 	reset_type = raw[p_payload:(p_payload + 2*1)]
-	print("  * Reset Type: "+NFC_table.tbl_cfg_status.get(reset_type, "RFU"), "("+reset_type+")")
+	print("  * Reset Type: "+lookup(NFC_table.tbl_cfg_status, reset_type), "("+reset_type+")")
 	p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
@@ -27,7 +28,7 @@ def CORE_RESET_RSP(raw, vendor="None", model="None"):
 	NFC_table = pkg_import.tbl_import(vendor, model)
 	p_payload = 0
 	status = raw[p_payload:(p_payload+2*1)]
-	print("  * Status: "+NFC_table.tbl_status_codes.get(status, "RFU"), "("+status+")")
+	print("  * Status: "+lookup(NFC_table.tbl_status_codes, status), "("+status+")")
 	p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
@@ -48,15 +49,15 @@ def CORE_RESET_NTF(raw, vendor="None", model="None"):
 	p_payload = 0
 
 	rst_trig = raw[p_payload:(p_payload+2*1)]
-	print("  * Rest Trigger: "+NFC_table.tbl_rst_trig.get(rst_trig, "RFU"), "("+rst_trig+")")
+	print("  * Reset Trigger: "+lookup(NFC_table.tbl_rst_trig, rst_trig), "("+rst_trig+")")
 	p_payload = p_payload + 2*1
 
 	cfg_status = raw[p_payload:(p_payload+2*1)]
-	print("  * Config Status: "+NFC_table.tbl_cfg_status.get(cfg_status, "RFU"), "("+cfg_status+")")
+	print("  * Config Status: "+lookup(NFC_table.tbl_cfg_status, cfg_status), "("+cfg_status+")")
 	p_payload = p_payload + 2*1
 
 	nci_ver = raw[p_payload:(p_payload+2*1)]
-	print("  * NCI Version: "+NFC_table.tbl_nci_ver.get(nci_ver, "RFU"), "("+nci_ver+")")
+	print("  * NCI Version: "+lookup(NFC_table.tbl_nci_ver, nci_ver), "("+nci_ver+")")
 	p_payload = p_payload + 2*1
 
 	mfg_id = raw[p_payload:(p_payload+2*1)]
@@ -69,7 +70,7 @@ def CORE_RESET_NTF(raw, vendor="None", model="None"):
 	mfg_spec_info_len = raw[p_payload:(p_payload+2*1)]
 	n = int(mfg_spec_info_len, 16)
 	p_payload = p_payload + 2*1
-	if(mfg_spec_info_len != 0):
+	if(n != 0):
 		print("  * Manufacturer Specific Info: "+raw[p_payload:(p_payload+2*n)])
 		p_payload = p_payload + 2*n
 	# print("")
@@ -115,7 +116,7 @@ def CORE_INIT_RSP(raw, vendor="None", model="None"):
 	p_payload = 0
 
 	status = raw[p_payload:(p_payload+2*1)]	
-	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU"), "("+status+")")
+	print("  * Status: "+lookup(NFC_table.tbl_status_codes, status), "("+status+")")
 	p_payload = p_payload + 2*1
 
 	nfcc_feature = raw[p_payload:(p_payload+2*4)]
@@ -149,7 +150,7 @@ def CORE_INIT_RSP(raw, vendor="None", model="None"):
 	print()
 	print("    * Octet 1: "+oct_1)
 	for i in range(6,0,-1):
-		print('{0:<40}'.format("     ~ "+NFC_table.tbl_nfcc_feat_oct1.get(i,"RFU")+": "), end="")
+		print('{0:<40}'.format("     ~ "+lookup(NFC_table.tbl_nfcc_feat_oct1, i)+": "), end="")
 		if(oct_1[7-i:8-i] == "1"):
 			print("Support")
 		else:
@@ -158,7 +159,7 @@ def CORE_INIT_RSP(raw, vendor="None", model="None"):
 	print()
 	print("    * Octet 2: "+oct_2)
 	for i in range(3,-1,-1):
-		print('{0:<40}'.format("     ~ "+NFC_table.tbl_nfcc_feat_oct2.get(i,"RFU")+": "), end="")
+		print('{0:<40}'.format("     ~ "+lookup(NFC_table.tbl_nfcc_feat_oct2, i)+": "), end="")
 		if(oct_2[7-i:8-i] == "1"):
 			print("Support")
 		else:
@@ -178,7 +179,7 @@ def CORE_INIT_RSP(raw, vendor="None", model="None"):
 	p_payload = p_payload + 2*1
 
 	max_router_tbl_size = raw[p_payload:(p_payload+2*2)]
-	print("  * Max Routing Table Size:", max_router_tbl_size)
+	print("  * Max Routing Table Size:", int(max_router_tbl_size[2:4]+max_router_tbl_size[0:2], 16), "("+max_router_tbl_size+")")
 	p_payload = p_payload + 2*2
 
 	max_ctl_pkg_size = raw[p_payload:(p_payload+2*1)]
@@ -197,7 +198,7 @@ def CORE_INIT_RSP(raw, vendor="None", model="None"):
 	p_payload = p_payload + 2*1
 	
 	max_nfc_v_size = raw[p_payload:(p_payload+2*2)]
-	print("  * Max NFC-V RF Frame Size:", max_nfc_v_size)
+	print("  * Max NFC-V RF Frame Size:", int(max_nfc_v_size[2:4]+max_nfc_v_size[0:2], 16), "("+max_nfc_v_size+")")
 	p_payload = p_payload + 2*2
 
 	num_of_support_rf_if = raw[p_payload:(p_payload+2*1)]
@@ -212,13 +213,13 @@ def CORE_INIT_RSP(raw, vendor="None", model="None"):
 		print()
 		print("   ~ [RF_IF_"+str(i)+"] ~  ")
 		if_val = rf_if[list_payload:(list_payload+2*1)]
-		print("    * Interface: "+NFC_table.tbl_rf_if.get(if_val,"RFU"), "("+if_val+")")
+		print("    * Interface: "+lookup(NFC_table.tbl_rf_if, if_val), "("+if_val+")")
 		list_payload = list_payload + 2*1
 		x = int(rf_if[list_payload:(list_payload+2*1)], 16)
 		print("    * Number of Extensions:", x)
 		list_payload = list_payload + 2*1
 		for j in range(x):
-			print("    * Extension "+str(j)+": "+NFC_table.tbl_rf_if_exten.get(rf_if[list_payload:(list_payload+2*1)],"RFU"), "("+rf_if[list_payload:(list_payload+2*1)]+")")
+			print("    * Extension "+str(j)+": "+lookup(NFC_table.tbl_rf_if_exten, rf_if[list_payload:(list_payload+2*1)]), "("+rf_if[list_payload:(list_payload+2*1)]+")")
 			list_payload = list_payload + 2*1
 		
 		# if(i < n-1):
@@ -251,7 +252,7 @@ def CORE_SET_CONFIG_CMD(raw, vendor="None", model="None"):
 		print()
 		print("   ~ [Param_"+str(i)+"] ~  ")
 		para_id = raw[p_payload:(p_payload+2*1)]
-		print("    * ID: "+NFC_table.tbl_cfg_para.get(para_id,"RFU"), "("+para_id+")")
+		print("    * ID: "+lookup(NFC_table.tbl_cfg_para, para_id), "("+para_id+")")
 		p_payload = p_payload + 2*1
 		
 		para_len = raw[p_payload:(p_payload+2*1)]
@@ -283,7 +284,7 @@ def CORE_SET_CONFIG_RSP(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
-	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU"), "("+status+")")
+	print("  * Status: "+lookup(NFC_table.tbl_status_codes, status), "("+status+")")
 	p_payload = p_payload + 2*1
 	
 	num_of_parameter=raw[p_payload:(p_payload+2*1)]
@@ -296,7 +297,7 @@ def CORE_SET_CONFIG_RSP(raw, vendor="None", model="None"):
 		for i in range(n):
 			para_id = raw[p_payload:(p_payload+2*1)]
 			print("    * ID "+str(i)+":", end=" ")
-			print(NFC_table.tbl_cfg_para.get(para_id,"RFU"), "("+para_id+")")
+			print(lookup(NFC_table.tbl_cfg_para, para_id), "("+para_id+")")
 			p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
@@ -321,7 +322,7 @@ def CORE_GET_CONFIG_CMD(raw, vendor="None", model="None"):
 	for i in range(n):
 		para_id = raw[p_payload:(p_payload+2*1)]
 		print("    * ID "+str(i)+":", end=" ")
-		print(NFC_table.tbl_cfg_para.get(para_id,"RFU"), "("+para_id+")")
+		print(lookup(NFC_table.tbl_cfg_para, para_id), "("+para_id+")")
 		p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
@@ -342,7 +343,7 @@ def CORE_GET_CONFIG_RSP(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
-	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU"), "("+status+")")
+	print("  * Status: "+lookup(NFC_table.tbl_status_codes, status), "("+status+")")
 	p_payload = p_payload + 2*1
 	
 	num_of_parameter = raw[p_payload:(p_payload+2*1)]
@@ -355,7 +356,7 @@ def CORE_GET_CONFIG_RSP(raw, vendor="None", model="None"):
 		print()
 		print("   ~ [Param_"+str(i)+"] ~  ")
 		para_id = raw[p_payload:(p_payload+2*1)]
-		print("    * ID: "+NFC_table.tbl_cfg_para.get(para_id,"RFU"), "("+para_id+")")
+		print("    * ID: "+lookup(NFC_table.tbl_cfg_para, para_id), "("+para_id+")")
 		p_payload = p_payload + 2*1
 		
 		id_len = raw[p_payload:(p_payload+2*1)]
@@ -389,7 +390,7 @@ def CORE_CONN_CREATE_CMD(raw, vendor="None", model="None"):
 	p_payload = 0
 
 	d_type = raw[p_payload:(p_payload+2*1)]	
-	print("  * Destination Type: "+NFC_table.tbl_dest_type.get(d_type,"RFU")+" ("+d_type+")")
+	print("  * Destination Type: "+lookup(NFC_table.tbl_dest_type, d_type)+" ("+d_type+")")
 	p_payload = p_payload + 2*1
 
 	num_of_parameter = raw[p_payload:(p_payload+2*1)]
@@ -402,7 +403,7 @@ def CORE_CONN_CREATE_CMD(raw, vendor="None", model="None"):
 		print()
 		print("   ~ [Dest-spec Parameter_"+str(i)+"] ~  ")
 		ds_type = raw[p_payload:(p_payload+2*1)]	
-		print("    * Type: "+NFC_table.tbl_d_spec_type.get(ds_type,"RFU"), "("+ds_type+")")
+		print("    * Type: "+lookup(NFC_table.tbl_d_spec_type, ds_type), "("+ds_type+")")
 		p_payload = p_payload + 2*1
 		
 		ds_len = raw[p_payload:(p_payload+2*1)]
@@ -415,33 +416,27 @@ def CORE_CONN_CREATE_CMD(raw, vendor="None", model="None"):
 		# RF Discovery ID(Table 67) + RF Protocol(Table 133)
 		if(ds_type == "00"):
 			type_val_octet0 = ds_val[0:2]
-			print("      * RF Discovery ID:", NFC_table.tbl_rf_dis_id.get(type_val_octet0, type_val_octet0))
+			print("      * RF Discovery ID: "+lookup(NFC_table.tbl_rf_dis_id, type_val_octet0), "("+type_val_octet0+")")
 			
 			type_val_octet1=ds_val[2:4]
-			print("      * RF Protocol: "+NFC_table.tbl_rf_proto.get(type_val_octet1,"RFU"), "("+type_val_octet1+")")			
+			print("      * RF Protocol: "+lookup(NFC_table.tbl_rf_proto, type_val_octet1), "("+type_val_octet1+")")			
 		
 		# NFCEE ID(Table 116) + NFCEE Interface Protocol(Table 136)
 		elif(ds_type == "01"):
 			type_val_octet0 = ds_val[0:2]
-			if(type_val_octet0 == "00"):
-				print("      * NFCEE ID: "+"DH NFCEE ID")
-			elif(type_val_octet0 == "01"):
-				print("      * NFCEE ID: "+"HCI Network NFCEE ID")
-			elif(type_val_octet0 == "FF"):
-				print("      * NFCEE ID: "+"RFU"+" ("+type_val_octet0+")")
-			else:
-				print("      * NFCEE ID: "+type_val_octet0)
-				print("0x02-0x0F: Reserved for further static IDs.")
-				print("0x10-0x7F: NFCEE IDs, for NFCEEs that are outside of the HCI Network. Dynamically assigned by the NFCC.")
-				print("0x80-0xFE: HCI-NFCEE IDs, for HCI-NFCEEs that are inside of the HCI Network. Dynamically assigned by the NFCC.")
+			nfcee_id_text = lookup(NFC_table.tbl_nfcee_id, type_val_octet0)
+			if(nfcee_id_text.startswith("(") and nfcee_id_text.endswith(")")):
+				nfcee_id_text = nfcee_id_text[1:-1]
+			print("      * NFCEE ID: "+nfcee_id_text, "("+type_val_octet0+")")
 			
 			type_val_octet1 = ds_val[2:4]
-			print("      * NFCEE Interface Protocol: "+NFC_table.tbl_nfcee_proto.get(type_val_octet1,"RFU"), "("+type_val_octet1+")")
+			print("      * NFCEE Interface Protocol: "+lookup(NFC_table.tbl_nfcee_proto, type_val_octet1), "("+type_val_octet1+")")
 		
 		else:
-			print("    * Val: "+ds_val)
-			print("0x02-0x9F: RFU")
-			print("0xA0-0xFF: For proprietary use")
+			if(int(ds_type, 16) >= 0xA0):
+				print("      ~ Type "+ds_type+": For proprietary use")
+			else:
+				print("      ~ Type "+ds_type+": RFU")
 		p_payload = p_payload + 2*m
 		
 		# if(i < n-1):
@@ -463,7 +458,7 @@ def CORE_CONN_CREATE_RSP(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
-	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU"), "("+status+")")
+	print("  * Status: "+lookup(NFC_table.tbl_status_codes, status), "("+status+")")
 	p_payload = p_payload + 2*1
 	
 	max_data_size = raw[p_payload:(p_payload+2*1)]	
@@ -478,7 +473,7 @@ def CORE_CONN_CREATE_RSP(raw, vendor="None", model="None"):
 	p_payload = p_payload + 2*1
 
 	conn_id = raw[p_payload:(p_payload+2*1)]
-	print("  * Conn ID:", int(conn_id, 16), "("+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC") + ")")
+	print("  * Conn ID:", CONN_ID_TEXT(conn_id, NFC_table))
 	p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
@@ -494,7 +489,7 @@ def CORE_CONN_CLOSE_CMD(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	conn_id = raw[p_payload:(p_payload+2*1)]
-	print("  * Conn ID:", int(conn_id, 16), "("+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC"))
+	print("  * Conn ID:", CONN_ID_TEXT(conn_id, NFC_table))
 	p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
@@ -510,7 +505,7 @@ def CORE_CONN_CLOSE_RSP(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
-	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU"), "("+status+")")
+	print("  * Status: "+lookup(NFC_table.tbl_status_codes, status), "("+status+")")
 	p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
@@ -538,7 +533,7 @@ def CORE_CONN_CREDITS_NTF(raw, vendor="None", model="None"):
 		print()
 		print("   ~ [Entry_"+str(i)+"] ~  ")
 		conn_id = raw[p_payload:(p_payload+2*1)]
-		print("    * Conn ID:", int(conn_id, 16), "("+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC")+")")
+		print("    * Conn ID:", CONN_ID_TEXT(conn_id, NFC_table))
 		p_payload = p_payload + 2*1
 
 		credits = raw[p_payload:(p_payload+2*1)]	
@@ -561,7 +556,7 @@ def CORE_GENERIC_ERROR_NTF(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
-	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU"), "("+status+")")
+	print("  * Status: "+lookup(NFC_table.tbl_status_codes, status), "("+status+")")
 	p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
@@ -578,11 +573,11 @@ def CORE_INTERFACE_ERROR_NTF(raw, vendor="None", model="None"):
 	p_payload = 0
 	
 	status = raw[p_payload:(p_payload+2*1)]	
-	print("  * Status: "+NFC_table.tbl_status_codes.get(status,"RFU"), "("+status+")")
+	print("  * Status: "+lookup(NFC_table.tbl_status_codes, status), "("+status+")")
 	p_payload = p_payload + 2*1
 
 	conn_id = raw[p_payload:(p_payload+2*1)]	
-	print("  * Conn ID: ", int(conn_id, 16),"("+NFC_table.tbl_conn_id.get(bin(int(conn_id, 16))[2::].zfill(8)[4::],"Dynamically assigned by the NFCC"))
+	print("  * Conn ID:", CONN_ID_TEXT(conn_id, NFC_table))
 	p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
@@ -613,7 +608,7 @@ def CORE_SET_POWER_SUB_STATE_CMD(raw, vendor="None", model="None"):
 	elif(pwr_state == "03"):
 		print("  * Power State:", "Switched On Sub-State 3")
 		print("    * Screen:", "Off")
-		print("    * Device:", "Unlocked")
+		print("    * Device:", "Locked")
 	else:
 		print("  * Power State:", "RFU"+" ("+pwr_state+")")
 	p_payload = p_payload + 2*1
@@ -631,13 +626,43 @@ def CORE_SET_POWER_SUB_STATE_RSP(raw, vendor="None", model="None"):
 	p_payload = 0
 
 	status = raw[p_payload:(p_payload+2*1)]	
-	print("  * Status: "+NFC_table.tbl_status_codes.get(status, "RFU"), "("+status+")")
+	print("  * Status: "+lookup(NFC_table.tbl_status_codes, status), "("+status+")")
 	p_payload = p_payload + 2*1
 	# print("")
 	return p_payload
 
 
+def CONN_ID_TEXT(conn_id, NFC_table):
+	# Conn ID is the low 4 bits of the octet (upper bits are RFU)
+	conn = int(conn_id, 16) & 0x0F
+	return str(conn)+" ("+NFC_table.tbl_conn_id.get(bin(conn)[2::].zfill(4), "Dynamically assigned by the NFCC")+")"
+
+def BIT_RATE_TEXT(val, NFC_table):
+	# Table 132: defined value, 80-FE proprietary, anything else RFU
+	text = lookup(NFC_table.tbl_bit_rates, val, None)
+	if(text is not None):
+		return text
+	try:
+		n = int(val, 16) if len(val) == 2 else -1
+	except ValueError:
+		n = -1
+	if(n >= 0x80 and n <= 0xFE):
+		return "For proprietary use"
+	return "RFU"
+
+# 1-octet bit-field parameters: decoded from the first octet only if Len > 1
+CFG_BITFIELD_1OCT = ('02', '13', '2A', '30', '31', '32', '38', '3C', '50', '5C', '62', '82', '85')
+
 def VALUE_OF_CFG_PARA(id, val, NFC_table):
+	len_warning = None
+	if(id in CFG_BITFIELD_1OCT and len(val) > 2):
+		len_warning = "      * Warning: Len "+str(len(val)//2)+", expected 1 (raw "+val+")"
+		val = val[0:2]
+	VALUE_OF_CFG_PARA_BODY(id, val, NFC_table)
+	if(len_warning is not None):
+		print(len_warning)
+
+def VALUE_OF_CFG_PARA_BODY(id, val, NFC_table):
 	# Common Discovery Parameters
 	if(id == '00'): # TOTAL_DURATION
 		print("    * Val:", int(val[2:4]+val[0:2], 16), "ms", "("+val+")")
@@ -687,7 +712,7 @@ def VALUE_OF_CFG_PARA(id, val, NFC_table):
 		else:
 			print("     ~ Extended SENSB_RES: Not support")
 	elif(id == '18' or id == '21' or id == '3E' or id == '5B' or id == '68'): # PF_BIT_RATE, PI_BIT_RATE, LB_BIT_RATE, LI_A_BIT_RATE, PACM_BIT_RATE
-		print("    * Val:", NFC_table.tbl_bit_rates.get(val, "For proprietary use"), "("+val+")")
+		print("    * Val:", BIT_RATE_TEXT(val, NFC_table), "("+val+")")
 	elif(id == '20'): # PI_B_H_INFO
 		print("    * Val:", val)
 		print("     ~ Higher layer INF field of the ATTRIB Command (as defined in [DIGITAL]).")
@@ -752,7 +777,7 @@ def VALUE_OF_CFG_PARA(id, val, NFC_table):
 		val_b = bin(int(val, 16))[2::].zfill(8)
 		print("    * Val:", val_b, "("+val+")")
 		print("     ~ Frame Waiting time Integer:", int(val_b[0:4], 2), "("+val_b[0:4]+")")
-		print("     ~ b3 of ADC Coding field of SENSB_RES (Byte 12) as defined in [DIGITAL]", "("+val_b[5:6]+")")
+		print("     ~ b3 of ADC Coding field of SENSB_RES (Byte 12) as defined in [DIGITAL]", "("+val_b[4:5]+")")
 		print("     ~ If set to 1b DID MAY be used. Otherwise it SHALL NOT be used.", "("+val_b[7:8]+")")
 	# Listen Mode – T3T Discovery Parameters
 	elif(int(id, 16) >= 64 and int(id, 16) <= 79): # LF_T3T_IDENTIFIERS_1~16 (0x40~0x4F)
@@ -810,8 +835,14 @@ def VALUE_OF_CFG_PARA(id, val, NFC_table):
 		print("    * Val:", val_b, "("+val+")")
 		print("     ~ If set to 1b DID MAY be used. Otherwise it SHALL NOT be used.", "("+val_b[6:7]+")")
 	elif(id == '60'): # LN_WT
-		print("    * Val:", int(val, 16), "ms ("+val+")")
-		print("     ~ Waiting Time defined in [DIGITAL].")
+		# WT is an exponent (0..14), not milliseconds: RWT = (256*16/fc) * 2^WT
+		n = int(val, 16)
+		print("    * Val:", n, "("+val+")")
+		if(n <= 14):
+			ms = (256 * 16) / 13.56e6 * 2 ** n * 1000
+			print("     ~ Waiting Time defined in [DIGITAL]: RWT = 256*16/fc * 2^WT = "+"{:.3f}".format(ms)+" ms")
+		else:
+			print("     ~ Waiting Time defined in [DIGITAL]: RFU (WT > 14)")
 	elif(id == '61'): # LN_ATR_RES_GEN_BYTES
 		print("    * Val:", val)
 		print("     ~ General Bytes in ATR_RES (defined in [DIGITAL]).")

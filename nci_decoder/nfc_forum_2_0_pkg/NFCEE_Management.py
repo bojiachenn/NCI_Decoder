@@ -77,7 +77,7 @@ def NFCEE_DISCOVER_NTF(raw, vendor="None", model="None"):
 		for i in range(n):
 			# print()
 			nfcee_proto = support_proto_val[entry_payload:(entry_payload+2*1)]	
-			print(NFC_table.tbl_nfcee_proto.get(nfcee_proto,"RFU"), "("+nfcee_proto+")", end=", ")
+			print(range_lookup.lookup(NFC_table.tbl_nfcee_proto, nfcee_proto), "("+nfcee_proto+")", end=", ")
 			entry_payload = entry_payload + 2*1	
 		p_payload = p_payload + 2*n	
 	print()
@@ -225,7 +225,7 @@ def NFCEE_STATUS_NTF(raw, vendor="None", model="None"):
 	p_payload = p_payload + 2*1
 
 	nfcee_status = raw[p_payload:(p_payload+2*1)]
-	print("  * NFCEE Status: "+NFC_table.tbl_nfcee_status.get(nfcee_status, "RFU"), "("+nfcee_status+")")
+	print("  * NFCEE Status: "+range_lookup.lookup(NFC_table.tbl_nfcee_status, nfcee_status), "("+nfcee_status+")")
 	p_payload = p_payload + 2*1	
 	# print("")
 	return p_payload
