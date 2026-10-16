@@ -684,7 +684,7 @@ tbl_rf_commu_para_id={
     'name': 'Table 91: TLV Coding for RF Communication Parameter ID:',
     '00':   'RF Technology and Mode (coded as defined in Table 131)',
     '01':   'Transmit Bit Rate (coded as defined in Table 132)',
-    '02':   'Receive Bit Rate (coded as defined in Table 131)',
+    '02':   'Receive Bit Rate (coded as defined in Table 132)',
     '03':   'NFC-B Data Exchange Configuration (coded as defined in Table 92)',
     '80-FF':'Proprietary'
 }
@@ -742,18 +742,6 @@ tbl_tlv_type={
     '05-9F':'RFU',
     'A0-FF':'For proprietary use',
 }
-
-# # Table 119: Value Field for T3T Command Set Interface Supplementary Information
-# tbl_tlv_type={
-#     'name': 'Table 119: Value Field for T3T Command Set Interface Supplementary Information:',
-#     '00':   'Hardware / Registration Identification',
-#     '01':   'ATR Bytes',
-#     '02':   'T3T Command Set Interface Supplementary Information',
-#     '03':   'Host ID in the HCI Network',
-#     '03':   'Support NDEF storage',
-#     '05-9F':'RFU',
-#     'A0-FF':'For proprietary use',
-# }
 
 # Table 117: NFCEE_DISCOVER_NTF NFCEE Status (NOT the same field as tbl_nfcee_status / Table 122 below)
 tbl_nfcee_disc_status={

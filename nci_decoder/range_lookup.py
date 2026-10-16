@@ -21,3 +21,22 @@ def find_range_key(table, value):
         if low <= value <= high:
             return key
     return None
+
+
+def lookup(table, value, default="RFU"):
+    """Table lookup used by every handler: exact key first, then the "XX-YY"
+    range key covering `value` (hex string), else `default`.
+
+    Replaces the plain `table.get(value, "RFU")` pattern, which never matched
+    range keys such as '80-FE' and so showed in-range values as "RFU".
+    """
+    if value in table:
+        return table[value]
+    if isinstance(value, str) and len(value) == 2:
+        try:
+            key = find_range_key(table, int(value, 16))
+        except ValueError:
+            key = None
+        if key is not None:
+            return table[key]
+    return default
