@@ -1,0 +1,82 @@
+[
+ {
+  "vendor": "None",
+  "hex": "61 05 1A 01 03 05 00 FB 01 0A 44 00 04 11 22 33 44 01 60 00 00 00 00 05 03 AA BB CC 01",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 251 (FB)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 10\n  * SENS_RES Response: 4400\n  * NFCID1 Len: 4\n  * NFCID1: 11223344\n  * SEL_RES Rsp Len: 1\n  * SEL_RES Rsp: 60\n  * HRx Len: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 5\n  * ATR_RES Rsp Len: 3\n  * ATR_RES Rsp: AABBCC\n  * Data Exchange LR: 254 Bytes (01)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 11 01 03 05 02 FB 01 02 01 00 02 01 01 04 02 AA BB 00",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: F_PASSIVE_POLL (02)\n  * Max Data Size: 251 (FB)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 2\n  * Bit Rate: 212 kbps\n  * SENSF_RES Rsp Len: 0\n  * SENSF_RES Rsp: \n  * Data Mode: F_PASSIVE_POLL (02)\n  * Tx: 212 Kbit/s (01)\n  * Rx: 212 Kbit/s (01)\n  * Len of Activation Params: 4\n  * ATR_RES Rsp Len: 2\n  * ATR_RES Rsp: AABB\n  * Data Exchange LR: No PSL_REQ and PSL_RES were exchanged (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0E 01 03 05 00 FB 01 00 00 00 00 03 02 AA BB",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 251 (FB)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 3\n  * ATR_RES Rsp Len: 2\n  * ATR_RES Rsp: AABB\n  * Error: Activation Parameters: Payload too short: need 1 byte(s) for Data Exchange LR, 0 left\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 11 01 03 05 00 FB 01 00 00 00 00 06 02 AA BB 30 EE 55",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 251 (FB)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 6\n  * ATR_RES Rsp Len: 2\n  * ATR_RES Rsp: AABB\n  * Data Exchange LR: RFU (30)\n  * Remaining Activation Params: EE55\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0E 01 03 05 80 FB 01 00 80 00 00 03 01 AA 03",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: A_PASSIVE_LISTEN (80)\n  * Max Data Size: 251 (FB)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: A_PASSIVE_LISTEN (80)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 3\n  * ATR_REQ Cmd Len: 1\n  * ATR_REQ Cmd: AA\n  * Data Exchange LR: 128 Bytes (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0D 01 02 04 00 FB 01 00 00 00 00 02 05 AA",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: ISO-DEP (02)\n  * RF Protocol: ISO-DEP (04)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 251 (FB)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 2\n  * RATS Rsp Len: 5 (05)\n  * Error: Activation Parameters: Payload too short: need 5 byte(s) for RATS Rsp, 1 left\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 08 01 04 00 03 44 00 07 00",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: ISO-DEP (04)\n  * Mode: A_PASSIVE_POLL (00)\n  * Len of RF Tech Specific Params: 3\n  * SENS_RES Response: 4400\n  * NFCID1 Len: 7\n  * Error: RF Technology Specific Parameters: Payload too short: need 7 byte(s) for NFCID1, 0 left\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 01 05 00 01 00 01 00",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_rf.json",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 1 (01)\n\n   ~ [Routing Entry_0] ~  \n    * Type: Technology-based routing entry (00)\n    * Len: 1\n    * Val: 00\n      * Route: DH-NFCEE  (00)\n  * Error: Routing Entry Value: Payload too short: need 1 byte(s) for Power State, 0 left\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 07 80 04 04 A0 A1 FF FF",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_rf.json",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: 80  (HCI-NFCEE)\n  * Trigger: TAPDU Pattern-based Route Selection Process (as defined in Table 58) (04)\n  * Supporting Data Len: 4\n  * Supporting Data: \n    * Reference data: A0A1\n    * Mask: FFFF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 05 1A 01 03 05 00 FB 01 0A 44 00 04 11 22 33 44 01 60 00 00 00 00 05 03 AA BB CC 01",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 251 (FB)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 10\n  * SENS_RES Response: 4400\n  * NFCID1 Len: 4\n  * NFCID1: 11223344\n  * SEL_RES Rsp Len: 1\n  * SEL_RES Rsp: 60\n  * HRx Len: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 5\n  * ATR_RES Rsp Len: 3\n  * ATR_RES Rsp: AABBCC\n  * Data Exchange LR: 254 Bytes (01)\n#end\n",
+  "error": null
+ }
+]

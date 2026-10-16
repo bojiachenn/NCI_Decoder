@@ -1,0 +1,82 @@
+[
+ {
+  "vendor": "None",
+  "hex": "20 02 05 01 3C 02 85 21",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_core.json",
+  "output": "  << CORE_SET_CONFIG_CMD >>  \n  * Number of Params: 1\n\n   ~ [Param_0] ~  \n    * ID: LB_FWI_ADC_FO (3C)\n    * Len: 2\n    * Val: 10000101 (85)\n     ~ Frame Waiting time Integer: 8 (1000)\n     ~ b3 of ADC Coding field of SENSB_RES (Byte 12) as defined in [DIGITAL] (0)\n     ~ If set to 1b DID MAY be used. Otherwise it SHALL NOT be used. (1)\n      * Warning: Len 2, expected 1 (raw 8521)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 03 0B 00 02 02 02 03 FF 85 03 01 02 03",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 2\n\n   ~ [Param_0] ~  \n    * ID: CON_DISCOVERY_PARAM (02)\n    * Len: 2\n    * Val: 00000011 (03)\n     ~ Polling Mode: Enabled\n     ~ DH-NFCEE:     Disabled\n      * Warning: Len 2, expected 1 (raw 03FF)\n\n   ~ [Param_1] ~  \n    * ID: NFCC_CONFIG_CONTROL (85)\n    * Len: 3\n    * Val: 00000001 (01)\n     ~ NFCC is allowed to manage RF config.\n      * Warning: Len 3, expected 1 (raw 010203)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 02 0A 02 32 02 60 00 82 03 1F 00 00",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_core.json",
+  "output": "  << CORE_SET_CONFIG_CMD >>  \n  * Number of Params: 2\n\n   ~ [Param_0] ~  \n    * ID: LA_SEL_INFO (32)\n    * Len: 2\n    * Val: 01100000 (60)\n     ~ NFC-DEP Protocol: Supported\n     ~ ISO-DEP Protocol: Supported\n      * Warning: Len 2, expected 1 (raw 6000)\n\n   ~ [Param_1] ~  \n    * ID: NFCDEP_OP (82)\n    * Len: 3\n    * Val: 00011111 (1F)\n     ~ Waiting Time: <= 10\n     ~ All PDUs indicating chaining (MI bit set) SHALL use the maximum number of Transport Data Bytes.\n     ~ Info PDU with no Transport Data Bytes SHALL NOT be sent.\n     ~ NFC-DEP Initiator SHALL use the ATTENTION command only as the error recovery procedure described in [DIGITAL].\n     ~ NFC-DEP Target SHALL NOT send RTOX requests.\n      * Warning: Len 3, expected 1 (raw 1F0000)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 04 04 00 FF 01 F3",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_core.json",
+  "output": "  << CORE_CONN_CREATE_RSP >>  \n  * Status: STATUS_OK (00)\n  * Max Data Packet Payload Size: 255\n  * Initial Number of Credits: 1\n  * Conn ID: 3 (Dynamically assigned by the NFCC)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 04 04 00 FF 01 21",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_core.json",
+  "output": "  << CORE_CONN_CREATE_RSP >>  \n  * Status: STATUS_OK (00)\n  * Max Data Packet Payload Size: 255\n  * Initial Number of Credits: 1\n  * Conn ID: 1 (Static: DH -- HCI Network)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 05 01 F2",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_core.json",
+  "output": "  << CORE_CONN_CLOSE_CMD >>  \n  * Conn ID: 2 (Dynamically assigned by the NFCC)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "60 06 05 02 01 01 A3 02",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_core.json",
+  "output": "  << CORE_CONN_CREDITS_NTF >>  \n  * Number of Entries: 2\n\n   ~ [Entry_0] ~  \n    * Conn ID: 1 (Static: DH -- HCI Network)\n    * Credits: 1\n\n   ~ [Entry_1] ~  \n    * Conn ID: 3 (Dynamically assigned by the NFCC)\n    * Credits: 2\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "60 08 02 00 81",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_core.json",
+  "output": "  << CORE_INTERFACE_ERROR_NTF >>  \n  * Status: STATUS_OK (00)\n  * Conn ID: 1 (Static: DH -- HCI Network)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 05 01 F2",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_core.json",
+  "output": "  << CORE_CONN_CLOSE_CMD >>  \n  * Conn ID: 2 (Dynamically assigned by the NFCC)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "60 08 02 00 81",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_forum20_core.json",
+  "output": "  << CORE_INTERFACE_ERROR_NTF >>  \n  * Status: STATUS_OK (00)\n  * Conn ID: 1 (Static: DH -- HCI Network)\n#end\n",
+  "error": null
+ }
+]

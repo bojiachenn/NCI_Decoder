@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NCI Parsing Tool</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">NCI Parsing Tool</div>
+      <nav class="tabs">
+        <a href="#/decode" data-tab="decode">Decode</a>
+        <a href="#/log" data-tab="log">Log</a>
+        <a href="#/ref" data-tab="ref">Reference</a>
+      </nav>
+      <label class="vendor">Vendor
+        <select id="vendor"></select>
+      </label>
+    </header>
+    <main id="app"></main>
+    <aside id="drawer" class="drawer" hidden>
+      <div class="drawer-head">
+        <span id="drawer-title"></span>
+        <a id="drawer-open" href="#">在 Reference 開啟</a>
+        <button id="drawer-close" title="關閉">✕</button>
+      </div>
+      <div id="drawer-body" class="md"></div>
+    </aside>
+    <script type="module" src="/src/ui/main.js"></script>
+    <script>
+      // Source index.html opened by double-click: modules can't load from file://
+      if (location.protocol === 'file:' && document.querySelector('script[src^="/src/"]')) {
+        document.getElementById('app').innerHTML =
+          '<p style="padding:24px;font:16px sans-serif">這是開發用的原始碼頁面，無法直接開啟。<br>' +
+          '請改為雙擊 <b>web/dist/index.html</b>（打包好的單一檔案）。</p>';
+      }
+    </script>
+  </body>
+</html>

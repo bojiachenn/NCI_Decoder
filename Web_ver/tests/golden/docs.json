@@ -1,0 +1,2234 @@
+[
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 F0 00 00 00 18 5B",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: DL_RESET >>  \n  * HDLL CMD: DL_RESET\n  * CRC: 185B (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 01 F0 10 B2",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: DL_RESET >>  \n  * HDLL CMD: DL_RESET\n  * CRC: 10B2 (CRC-16-CCITT-FALSE)\n\nError: Payload error!!\n  check: 3 Octet(s)\n  Packet Len: 5.0 Octet(s)\n  Frame Len: 1 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 F1 00 00 00 6E EF",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: DL_GET_VERSION >>  \n  * HDLL CMD: DL_GET_VERSION\n  * CRC: 6EEF (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 04 F1 00 00 00 5B E7",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: DL_GET_VERSION >>  \n  * Chunk: 1\n  * HDLL CMD: DL_GET_VERSION\n  * CRC: 5BE7 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 F2 00 00 00 F5 33",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: DL_GET_SESSION_STATE >>  \n  * HDLL CMD: DL_GET_SESSION_STATE\n  * CRC: F533 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 F4 00 00 00 D2 AA",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: DL_GET_DIE_ID >>  \n  * HDLL CMD: DL_GET_DIE_ID\n  * CRC: D2AA (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 E0 00 00 00 03 FC",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: DL_CHECK_INTEGRITY >>  \n  * HDLL CMD: DL_CHECK_INTEGRITY\n  * CRC: 03FC (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 2A C0 00 04 01 20 00 DE AD BE EF 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 66 1C 2E",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: DL_SEC_WRITE >>  \n  * Chunk: 1\n  * HDLL CMD: DL_SEC_WRITE\n  * ADDR: 012000\n  * DATA: DEADBEEF\n  * HASH: 6666666666666666666666666666666666666666666666666666666666666666\n  * CRC: 1C2E (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 0A C0 00 04 01 20 04 CA FE BA BE 8F 67",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: DL_SEC_WRITE >>  \n  * HDLL CMD: DL_SEC_WRITE\n  * ADDR: 012004\n  * DATA: CAFEBABE\n  * CRC: 8F67 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 10 00 12 40 04 01 03 01 02 03 04 33 00 C5 A0 01 00 CD D5",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * CRC: CDD5 (CRC-16-CCITT-FALSE)\n\nError: Payload error!!\n  check: 3 Octet(s)\n  Packet Len: 20.0 Octet(s)\n  Frame Len: 16 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 00 01 00 00 B0 26",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * CRC: B026 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 00 00 00 00 87 16",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * CRC: 8716 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 14 00 00 00 00 00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE FF 64 8A",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * CRC: 648A (CRC-16-CCITT-FALSE)\n\nError: Payload error!!\n  check: 3 Octet(s)\n  Packet Len: 24.0 Octet(s)\n  Frame Len: 20 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 01 00 00 00 F1 A2",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: EDL_INVALID_ADDR >>  \n  * CRC: F1A2 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 02 00 00 00 6A 7E",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: EDL_GENERIC_ERROR >>  \n  * CRC: 6A7E (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 0B 00 00 00 99 09",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: EDL_UNKNOW_CMD >>  \n  * CRC: 9909 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 0C 00 00 00 C8 24",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: EDL_ABORTED_CMD >>  \n  * CRC: C824 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 1E 00 00 00 3E EB",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: EDL_ADDR_RANGE_OFL_ERROR >>  \n  * CRC: 3EEB (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 1F 00 00 00 48 5F",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: EDL_BUFFER_OFL_ERROR >>  \n  * CRC: 485F (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 20 00 00 00 B0 58",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: EDL_MEM_BSY >>  \n  * CRC: B058 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 21 00 00 00 C6 EC",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: EDL_SIGNATURE_ERROR >>  \n  * CRC: C6EC (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 24 00 00 00 7A A9",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: EDL_FIRMWARE_VERSION_ERROR >>  \n  * CRC: 7AA9 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 28 00 00 00 35 9B",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: EDL_PROTOCOL_ERROR >>  \n  * CRC: 359B (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 2D 00 00 00 89 DE",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: PH_STATUS_DL_FIRST_CHUNK >>  \n  * CRC: 89DE (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 2E 00 00 00 12 02",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: PH_STATUS_DL_NEXT_CHUNK >>  \n  * CRC: 1202 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 31 00 00 00 DD 4B",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: PH_STATUS_EDL_CERT_ERROR >>  \n  * CRC: DD4B (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 AA 00 00 00 05 CB",
+  "prev": [],
+  "source": "Docs/nxp/HDLL.md",
+  "output": "  << Nxp HDLL: UNKNOWN (AA) >>  \nError: unknown HDLL op code AA, raw: 0004AA00000005CB\n  * CRC: 05CB (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 00 01 01",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_RESET_CMD >>  \n  * Reset Type: Reset Config (01)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 00 01 00",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_RESET_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "60 00 0A 02 01 20 02 05 01 02 03 0A 00",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_RESET_NTF >>  \n  * Reset Trigger: CORE_RESET_CMD (02)\n  * Config Status: Reset Config (01)\n  * NCI Version: 2.0 (20)\n  * Manufacturer ID: 02\n  * Model ID: 01\n  * Hw Ver nb: 02\n  * ROM Code Ver nb: 03\n  * FLASH Ver: 0A00\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "60 00 06 A0 01 12 34 56 78",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_RESET_NTF >>  \n  * Reset Trigger: An assert has triggered SN2x0 NFCC reset/reboot (A0)\n  * Config Status: Reset Config (01)\n  * dw Assertion Program Counter: 12345678\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 01 02 00 00",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_INIT_CMD >>  \n  * Feature Enable: 0000 -- RFU\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 01 13 00 1F 0E 02 00 0A 00 00 FF 02 FF 00 01 02 02 00 03 01 00",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_INIT_RSP >>  \n  * Status: STATUS_OK (00)\n  * NFCC Features: 1F0E0200\n\n    * Octet 0: 00011111\n     ~ Active Communication Mode:       Support\n     ~ HCI Network Support:             Implements as defined in [ETSI_102622]\n     ~ Discovery Cfg Mode:              RFU\n     ~ Discovery Freq Cfg:              Supported in RF_DISCOVER_CMD\n\n    * Octet 1: 00001110\n     ~ Forced NFCEE routing:            Not support\n     ~ APDU Pattern based routing:      Not support\n     ~ System Code based routing:       Not support\n     ~ AID based routing:               Support\n     ~ Protocol based routing:          Support\n     ~ Technology based routing:        Support\n\n    * Octet 2: 00000010\n     ~ RF Cfg in Switched Off State:    Not support\n     ~ Switched On Sub-Mode States:     Not support\n     ~ Switched Off State:              Support\n     ~ Battery Off State:               Not support\n\n    * Octet 3: 00000000 -- Proprietary\n\n  * Max Logical Connections: 10 (0A)\n  * Max Routing Table Size: 0 (0000)\n  * Max Control Packet Payload Size: 255 (FF)\n  * Max Data Packet Payload Size of the Static HCI Connection: 2 (02)\n  * Number of Credits of the Static HCI Connection: 255 (FF)\n  * Max NFC-V RF Frame Size: 256 (0001)\n  * Number of Supported RF Interfaces: 2\n  * Supported RF Interface: 0200030100\n\n   ~ [RF_IF_0] ~  \n    * Interface: ISO-DEP (02)\n    * Number of Extensions: 0\n\n   ~ [RF_IF_1] ~  \n    * Interface: NFC-DEP (03)\n    * Number of Extensions: 1\n    * Extension 0: Frame Aggregated RF Interface Extension (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 02 14 05 00 02 E8 03 80 01 01 A1 0F 02 01 01 A0 15 01 03 A5 01 00",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_SET_CONFIG_CMD >>  \n  * Number of Params: 5\n\n   ~ [Param_0] ~  \n    * ID: TOTAL_DURATION (00)\n    * Len: 2\n    * Val: 1000 ms (E803)\n\n   ~ [Param_1] ~  \n    * ID: RF_FIELD_INFO (80)\n    * Len: 1\n    * Val: 01\n     ~ RF_FIELD_INFO_NTF: Enabled\n\n   ~ [Param_2] ~  \n    * Register: ULPDET_CFG (A10F)\n    * Len: 2\n    * Val: 0101\n      * ULPDET mode: Enabled \n       ~ NFC_GPIO2_AO is high when wake up from ULPDET mode, Low when enter in Standby mode.\n\n   ~ [Param_3] ~  \n    * Register: DEFAULT_POWER (A015)\n    * Len: 1\n    * Val: Autonomous Mode + ULPDET\n\n   ~ [Param_4] ~  \n    * ID: Reserved (A5)\n    * Len: 1\n    * Val: 00\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 02 02 00 00",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_SET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 02 04 09 02 A0 15",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_SET_CONFIG_RSP >>  \n  * Status: STATUS_INVALID_PARAM (09)\n  * Number of Params: 2\n  * Set Param ID:\n    * ID 0: DEFAULT_POWER (A015)\n    * ID 1: RFU ()\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 03 07 04 02 A0 15 A1 0E 85",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_GET_CONFIG_CMD >>  \n  * Number of Params: 4\n  * Get Param ID:\n    * ID 0: CON_DISCOVERY_PARAM (02)\n    * Register: DEFAULT_POWER (A015)\n    * Register: GUARD_TIMEOUT_Tx2Rx (A10E)\n    * ID 3: NFCC_CONFIG_CONTROL (85)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 03 10 00 03 A0 15 01 02 A0 85 04 78 88 AA 2C 85 01 01",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 3\n\n   ~ [Param_0] ~  \n    * Register: DEFAULT_POWER (A015)\n    * Len: 1\n    * Val: Autonomous Mode\n\n   ~ [Param_1] ~  \n    * Register: RF_MISC_SETTINGS (A085)\n    * Len: 4\n    * Val: 7888AA2C\n      * b_val: 00101100101010101000100001111000\n      * Uncomplia nt 13.5MHz readers:            Enabled \n      * SFGT Early Exchange:                     Enabled \n      * PCD Block nb Check:                      Enabled \n      * Mute To RATS with non ISO-DEP SAK:       Disabled\n      * Multiple Tag during collision:           Disabled\n      * NAK To RATS:                             Disabled\n      * Illegal Uid 0 (Yangchengtong):           Support\n      * Non Compliant Mifare Reader:             Not support\n      * Non Compliant Mifare Reader (Changchun): Not support\n\n   ~ [Param_2] ~  \n    * ID: NFCC_CONFIG_CONTROL (85)\n    * Len: 1\n    * Val: 00000001 (01)\n     ~ NFCC is allowed to manage RF config.\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 04 06 03 01 01 02 C0 00",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_CONN_CREATE_CMD >>  \n  * Destination Type: NFCEE (03)\n  * Number of Destination-specific Params: 1\n\n   ~ [Dest-spec Parameter_0] ~  \n    * Type: NFCEE ID + NFCEE Interface Protocol (01)\n    * Len: 2\n    * Val: C000\n      * NFCEE ID: NFCEE_eSE (C0)\n      * NFCEE Interface Protocol: APDU (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 04 06 02 01 00 02 01 04",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_CONN_CREATE_CMD >>  \n  * Destination Type: Remote NFC Endpoint (02)\n  * Number of Destination-specific Params: 1\n\n   ~ [Dest-spec Parameter_0] ~  \n    * Type: RF Discovery ID + RF Protocol (00)\n    * Len: 2\n    * Val: 0104\n      * RF Discovery ID: Dynamically assigned by the NFCC (01)\n      * RF Protocol: ISO-DEP (04)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 04 04 00 FF 01 03",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_CONN_CREATE_RSP >>  \n  * Status: STATUS_OK (00)\n  * Max Data Packet Payload Size: 255\n  * Initial Number of Credits: 1\n  * Conn ID: 3 (Dynamically assigned by the NFCC)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 04 01 03",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_CONN_CREATE_RSP >>  \n  * Status: STATUS_FAILED (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 05 01 03",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_CONN_CLOSE_CMD >>  \n  * Conn ID: 3 (Dynamically assigned by the NFCC)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 05 01 00",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_CONN_CLOSE_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "60 06 05 02 00 01 03 02",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_CONN_CREDITS_NTF >>  \n  * Number of Entries: 2\n\n   ~ [Entry_0] ~  \n    * Conn ID: 0 (Static: DH -- Remote NFC Endpoint)\n    * Credits: 1\n\n   ~ [Entry_1] ~  \n    * Conn ID: 3 (Dynamically assigned by the NFCC)\n    * Credits: 2\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "60 07 01 0B",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_GENERIC_ERROR_NTF >>  \n  * Status: RFU (0B)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "60 08 02 B0 03",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_INTERFACE_ERROR_NTF >>  \n  * Status: RF_TRANSMISSION_EXCEPTION (B0)\n  * Conn ID: 3 (Dynamically assigned by the NFCC)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 09 01 01",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_SET_POWER_SUB_STATE_CMD >>  \n  * Power State: Switched On Sub-State 1\n    * Screen: Off\n    * Device: Unlocked\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 09 01 00",
+  "prev": [],
+  "source": "Docs/nxp/NCI_Core.md",
+  "output": "  << CORE_SET_POWER_SUB_STATE_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "22 00 00",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_DISCOVER_CMD >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "42 00 02 00 02",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_DISCOVER_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of NFCEEs: 2\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 0C C0 00 01 00 01 00 04 11 22 33 44 01",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: C0 NFCEE_eSE (HCI-NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: APDU (00), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: Hardware / Registration Identification (00)\n    * Len: 4\n    * Val: 11223344\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 0E 10 00 01 03 01 04 06 00 10 00 00 01 01 01",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10 NFCEE_NDEF (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Transparent (03), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: NDEF (04)\n    * Len: 6\n    * Val: 001000000101\n      * NDEF max size: 4096 Bytes (00100000)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):    Not apply \n       ~ Screen On lock (Sub-State 2):     Not apply \n       ~ Screen off unlock (Sub-State 1):  Not apply \n       ~ Battery Off State:                Not apply \n       ~ Switch Off State:                 Not apply \n       ~ Switch On State:                  Apply     \n      * NDEF-NFCEE characteristics: Persistent\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 1B 11 01 01 02 01 02 13 01 02 03 04 05 06 07 08 01 12 FC 02 FE 00 00 00 00 00 01 00",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 11  (NFCEE)\n  * NFCEE Status: Disabled (01)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Type 3 Tag Command Set (02), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: T3T Command Set Interface Supplementary Information (02)\n    * Len: 19\n    * Val: 01020304050607080112FC02FE000000000001\n      * PMm: 0102030405060708\n      * Number of Entries: 1\n       ~ [Entry_0] ~   \n        * System Code: 12FC\n        * Idm: 02FE000000000001\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 0E 80 00 01 80 02 00 03 01 02 03 A5 01 FF 00",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 80 NFCEE_UICC1 (HCI-NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: For proprietary use (80), \n  * Number of NFCEE Info TLVs: 2\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: Hardware / Registration Identification (00)\n    * Len: 3\n    * Val: 010203\n\n   ~ [NFCEE Info TLV_1] ~  \n    * Type: For proprietary use (A5)\n    * Len: 1\n    * Val: FF\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "22 01 02 C0 01",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_MODE_SET_CMD >>  \n  * NFCEE ID: C0 NFCEE_eSE (HCI-NFCEE)\n  * NFCEE Mode: Enable\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "22 01 02 81 02",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_MODE_SET_CMD >>  \n  * NFCEE ID: 81 NFCEE_UICC2 (HCI-NFCEE)\n  * NFCEE Mode: RFU (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "42 01 01 00",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_MODE_SET_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 01 01 00",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_MODE_SET_NTF >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 02 02 C0 02",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: C0 NFCEE_eSE (HCI-NFCEE)\n  * NFCEE Status: NFCEE Initialization sequence completed (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 02 02 C0 94",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: C0 NFCEE_eSE (HCI-NFCEE)\n  * NFCEE Status: NFCC has received an internal eSE temperature error (94)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 02 02 C0 85",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: C0 NFCEE_eSE (HCI-NFCEE)\n  * NFCEE Status: RFU (85)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "22 03 02 C0 03",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_POWER_AND_LINK_CNTRL_CMD >>  \n  * NFCEE ID: C0 NFCEE_eSE (HCI-NFCEE)\n  * NFCEE Power and Link Cfg: NFCEE Power supply and NFCC to NFCEE communication link are always on.\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "22 03 02 C0 05",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_POWER_AND_LINK_CNTRL_CMD >>  \n  * NFCEE ID: C0 NFCEE_eSE (HCI-NFCEE)\n  * NFCEE Power and Link Cfg: RFU (05)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "42 03 01 00",
+  "prev": [],
+  "source": "Docs/nxp/NFCEE_Management.md",
+  "output": "  << NFCEE_POWER_AND_LINK_CNTRL_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 00 01 01",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << CORE_SET_POWER_MODE_CMD >>  \n  * Mode: Standby State enabled\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 00 01 05",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << CORE_SET_POWER_MODE_CMD >>  \n  * Mode: ULPDET enabled with NCI notifications\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 00 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << CORE_SET_POWER_MODE_RSP >>  \n  * Status: STATUS_OK\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 01 01 01",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << SET_NFC_SERVICE_STATUS_CMD >>  \n  * Mode: NFC service ON\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 01 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << SET_NFC_SERVICE_STATUS_RSP >>  \n  * Status: STATUS_OK\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 02 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << NCI_PROPRIETARY_ACT_CMD >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 02 05 00 12 34 56 78",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << NCI_PROPRIETARY_ACT_RSP >>  \n  * Status: STATUS_OK\n  * FW_Build_Nb: 12345678\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 02 05 01 12 34 56 78",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << NCI_PROPRIETARY_ACT_RSP >>  \n  * Status: Forbidden\n  * FW_Build_Nb: 12345678\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 04 0A 60 00 00 64 0B 00 A4 04 00 07",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << APDU_LOGGING_NTF >>  \n  * Logging Opcode: 60\n  * Timestamp: 1.6 ms\n  * Category: C-APDU from eSE\n  * APDU Data: 00A4040007 (First 5 bytes of the C-APDU)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 04 07 60 00 01 00 1B 90 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << APDU_LOGGING_NTF >>  \n  * Logging Opcode: 60\n  * Timestamp: 4.096 ms\n  * Category: R-APDU from eSE\n  * APDU Data: 9000 (Last 2 bytes of the R-APDU)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 14 02 22 10",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << RF_GET_TRANSITION_CMD >>  \n  * RF Transition ID: RF_RM_TX_A106 (22)\n  * CLIF Register Offset: 10\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 14 04 00 02 34 12",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << RF_GET_TRANSITION_RSP >>  \n  * Status: STATUS_OK\n  * RF Transition Len: 2\n  * RF Transition Val: 0x1234 (raw 3412)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 17 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << WTX_NTF >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 1C 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << LOW_POWER_TAG_REMOVAL_CMD >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 1C 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << LOW_POWER_TAG_REMOVAL_RSP >>  \n  * Status: STATUS_OK\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 1C 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << LOW_POWER_TAG_REMOVAL_NTF >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 1E 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << SYSTEM_ESE_POWER_CYCLE_CMD >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 1E 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << SYSTEM_ESE_POWER_CYCLE_RSP >>  \n  * Status: STATUS_OK\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 1F 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << COLD_RESET_CMD >>  \n  * RESET by pin: SE reset Enabled \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 1F 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << COLD_RESET_RSP >>  \n  * Status: STATUS_OK\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 1F 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << COLD_RESET_NTF >>  \n  * Status: successfully done\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 1F 01 01",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << COLD_RESET_NTF >>  \n  * Status: at least one internal verification failed\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 21 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << FLUSH_SRAM_AO_TO_FLASH_CMD >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 21 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << FLUSH_SRAM_AO_TO_FLASH_RSP >>  \n  * Status: STATUS_OK\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 30 06 00 00 00 00 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << TEST_PRBS_CMD >>  \n  * PRBS Mode: Firmware generated PRBS\n  * PRBS Type: PRBS9 when Hardware generated PRBS selected\n  * Technology to stream: Type A\n  * Bitrate: 106 Kbit/s\n  * PRBS series length: 0100\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 30 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << TEST_PRBS_RSP >>  \n  * Status: STATUS_OK\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 32 01 0C",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << READ_OPTION_CMD >>  \n  << RF_TEST_API_CMD >>  \n  * HW Regi: GPADC_SENSOR_RSSI\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 32 03 00 34 12",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << READ_OPTION_RSP >>  \n  << RF_TEST_API_RSP >>  \n  * Status: STATUS_OK\n  * HW Regi Val: 3412\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 33 03 00 10 AA",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << TEST_PRBS_CARD_CMD >>  \n  * PRBS Mode: Start PRBS Card Mode\n  * Test Type: 00010000 (10)\n   ~ Sys clk platform:    Disabled\n   ~ Clk-less platform:   Enabled \n   ~ Technology:          Type A\n   ~ Bit Rate:            106k\n  * Pseudo random pattern: AA\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 33 12 00 20 00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE FF",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << TEST_PRBS_CARD_CMD >>  \n  * PRBS Mode: Start PRBS Card Mode\n  * Test Type: 00100000 (20)\n   ~ Sys clk platform:    Enabled \n   ~ Clk-less platform:   Disabled\n   ~ Technology:          Type A\n   ~ Bit Rate:            106k\n  Fixed Pattern: 0x00 0x11 0x22 0x33 0x44 0x55 0x66 0x77 0x88 0x99 0xAA 0xBB 0xCC 0xDD 0xEE 0xFF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 33 01 01",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << TEST_PRBS_CARD_CMD >>  \n  * PRBS Mode: Stop PRBS Card Mode\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 33 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << TEST_PRBS_CARD_RSP >>  \n  * Status: STATUS_OK\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 35 07 10 00 20 00 01 23 12",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << L1_DEBUG_NTF >>  \n  * Time: 16 ms 32 µs\n  * RSSI: 0123 (MSB)\n  * CLIF State: 12\n    * Tech & Mode: Card Emulation NFC-A\n    * Trigger Type: DATA_RX\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 35 0A 10 00 20 00 01 02 03 04 82 05",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << L1_DEBUG_NTF >>  \n  * Time: 16 ms 32 µs\n  * DLMA: 01020304 (LSB)\n  * CLIF State: 82\n    * Tech & Mode: Reader mode NFC-A\n    * Trigger Type: DATA_RX\n  * Extra Debug data: 05\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 08 17 10 00 20 00 01 23 12",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: L2 EVENT\n  * Time: 16 ms 32 µs\n  * RSSI: 0123 (MSB)\n  * CLIF State: 12\n    * Tech & Mode: Card Emulation NFC-A\n    * Trigger Type: DATA_RX\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 08 27 10 00 20 00 01 23 06",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: FELICA CMD\n  * Time: 16 ms 32 µs\n  * RSSI: 0123 (MSB)\n  * FeliCa CMD: 06\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 07 35 10 00 20 00 12 34",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: FELICA SYSTEM CODE\n  * Time: 16 ms 32 µs\n  * FeliCa CMD: 1234\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 0D 4C 10 00 20 00 01 02 03 04 07 00 00 05",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: FELICA RSP\n  * Time: 16 ms 32 µs\n  * DLMA: 01020304 (LSB)\n  * FeliCa RSP: 07\n  * RSP status flag: 0000\n  * Extra data info: 05\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 06 55 10 00 20 00 01",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: MISC\n  * Time: 16 ms 32 µs\n  * Misc Event trig: GENERIC ERROR\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 09 A8 10 00 20 00 07 26 04 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: CMA\n  * Time: 16 ms 32 µs\n  * Trig type: ATQA_SENT\n  * Extra data info: 260400\n    * Type: REQA (26)\n    * ATQA sent: 0400\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 07 A6 10 00 20 00 03 08",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: CMA\n  * Time: 16 ms 32 µs\n  * Trig type: CLT_CMD\n  * Extra data info: 08\n    * Type: CLT_IDLE (08)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3D 01 31",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << RF_SPC_CMD >>  \n  * SPC Cfg: Start SPC algorithm\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3D 04 30 00 AA BB",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << RF_SPC_CMD >>  \n  * SPC Cfg: Configure NFCC for SPC\n  * Block Nb: 00\n  * Algo settings: AABB\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3D 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << RF_SPC_RSP >>  \n  * Status: STATUS_OK\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 3D 07 00 05 10 34 12 04 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << RF_SPC_NTF >>  \n  * Status: SPC_STATUS_OK (OK, phase offset updated)\n  * IndexStart: 5 (05)\n  * IndexEnd: 16 (10)\n  * RSSI: 4660\n  * Phase: 1.0 °\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 3D 07 00 05 10 34 12 0A 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << RF_SPC_NTF >>  \n  * Status: SPC_STATUS_OK (OK, phase offset updated)\n  * IndexStart: 5 (05)\n  * IndexEnd: 16 (10)\n  * RSSI: 4660\n  * Phase: 2.5 °\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3E 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << TEST_SWP_CMD >>  \n  * Link ID: NFC_SIM_SWIO1 (UICC1)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3E 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << TEST_SWP_RSP >>  \n  * Status: STATUS_OK\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 3E 02 00 01",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << TEST_SWP_NTF >>  \n  * Status: STATUS_OK\n  * Power Mode: SIMVCC = 1.8V\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3F 03 70 00 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << OPTIONAL_CMD >>  \n  << AST_UTILITY_CMD >>  \n  * Param 1: Antenna Self-Test utility APIs\n  * Param 2: READ_VDDPA_CODE_CMD\n  * Input: 00\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3F 03 70 02 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << OPTIONAL_CMD >>  \n  << AST_UTILITY_CMD >>  \n  * Param 1: Antenna Self-Test utility APIs\n  * Param 2: FORCE_DPC_OFF_CMD\n  * Input: 00\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3F 03 04 00 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << OPTIONAL_CMD >>  \n  << DPC_HELPER_ACT_CMD >>  \n  * Test ID: ENABLE DPC HELPER\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3F 03 05 00 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << OPTIONAL_CMD >>  \n  << DPC_HELPER_CMD >>  \n  * Test ID: READ DPC HELPER DATA\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3F 03 32 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << OPTIONAL_CMD >>  \n  << SWITCH_RF_FIELD_CMD >>  \n  * Test ID: Switch RF Field On/Off\n  * Field Type: Field On AST1\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 01 10",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << OPTIONAL_RSP >>  \n  << SWITCH_RF_FIELD_RSP >>  \n  * Status: RFU\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 01 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << OPTIONAL_RSP >>  \n  << SWITCH_RF_FIELD_RSP >>  \n  * Status: STATUS_OK\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 03 04 00 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << OPTIONAL_RSP >>  \n  << SWITCH_RF_FIELD_RSP >>  \n  * Status: STATUS_NOT_INITIALIZED\nError: Payload error!!\n  Packet Len: 6 Octet(s)\n  Payload Len: 3 Octet(s)\n  Check Len: 1.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 0E 00 0F 36 81 0D 00 00 00 37 81 0C 00 00 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << OPTIONAL_RSP >>  \n  << SWITCH_RF_FIELD_RSP >>  \n  * Status: STATUS_OK\nError: Payload error!!\n  Packet Len: 17 Octet(s)\n  Payload Len: 14 Octet(s)\n  Check Len: 1.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 3E 00 0F 36 81 0D 00 00 00 37 81 0C 00 00 00 37 81 0C 00 00 00 37 81 0C 00 00 00 36 81 0D 00 00 00 36 81 0D 00 00 00 36 81 0D 00 00 00 37 81 0C 00 00 00 36 81 0D 00 00 00 37 81 0C 00 00 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << OPTIONAL_RSP >>  \n  << SWITCH_RF_FIELD_RSP >>  \n  * Status: STATUS_OK\nError: Payload error!!\n  Packet Len: 65 Octet(s)\n  Payload Len: 62 Octet(s)\n  Check Len: 1.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 32 02 08 0A",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << READ_OPTION_CMD >>  \n  << RF_TEST_API_CMD >>  \n  * HW Regi: GPADC_SENSOR_TXLDO_CURRENT\nError: Payload error!!\n  Packet Len: 5 Octet(s)\n  Payload Len: 2 Octet(s)\n  Check Len: 1.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 32 02 20 0A",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << READ_OPTION_CMD >>  \n  << RF_TEST_API_CMD >>  \n  * HW Regi: RFU\nError: Payload error!!\n  Packet Len: 5 Octet(s)\n  Payload Len: 2 Octet(s)\n  Check Len: 1.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 32 0B 00 00 00 11 22 33 44 55 66 77 88",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << READ_OPTION_RSP >>  \n  << RF_TEST_API_RSP >>  \n  * Status: STATUS_OK\n  * HW Regi Val: 0000\nError: Payload error!!\n  Packet Len: 14 Octet(s)\n  Payload Len: 11 Octet(s)\n  Check Len: 3.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 25 00",
+  "prev": [],
+  "source": "Docs/nxp/Proprietary.md",
+  "output": "  << ERROR_NOT_FOUND >>  \n",
+  "error": "KeyError: '25'"
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 00 07 02 04 03 02 80 02 80",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_DISCOVER_MAP_CMD >>  \n  * Number of Mapping Configs: 2 (02)\n\n   ~ [Mapping Cfg_0] ~  \n    * RF Protocol: ISO-DEP (04)\n    * Mode: Listen/Polling (03)\n    * RF Interface: ISO-DEP (02)\n\n   ~ [Mapping Cfg_1] ~  \n    * RF Protocol: MIFARE_CLASSIC (80)\n    * Mode: Listen (02)\n    * RF Interface: TAG-CMD (80)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 00 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_DISCOVER_MAP_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 01 12 00 02 00 03 C0 3B 00 12 09 C0 3B A0 00 00 00 03 10 10",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 2 (02)\n\n   ~ [Routing Entry_0] ~  \n    * Type: Technology-based routing entry (00)\n    * Len: 3\n    * Val: C03B00\n      * Route: NFCEE_eSE (HCI-NFCEE) (C0)\n      * Power State: 00111011 (3B)\n       ~ Screen Off lock (Sub-State 3):         Apply\n       ~ Screen On lock (Sub-State 2):          Apply\n       ~ Screen off unlock (Sub-State 1):       Apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                      Apply\n       ~ Switch On State:                       Apply\n      * Technology: NFC_RF_TECHNOLOGY_A (00)\n\n   ~ [Routing Entry_1] ~  \n    * Type: AID-based routing entry (12)\n     ~ Match is allowed when the SELECT AID is longer than the AID in this routing table entry.\n    * Len: 9\n    * Val: C03BA0000000031010\n      * Route: NFCEE_eSE (HCI-NFCEE) (C0)\n      * Power State: 00111011 (3B)\n       ~ Screen Off lock (Sub-State 3):         Apply\n       ~ Screen On lock (Sub-State 2):          Apply\n       ~ Screen off unlock (Sub-State 1):       Apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                      Apply\n       ~ Switch On State:                       Apply\n      * AID: A0000000031010\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 01 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 02 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_GET_LISTEN_MODE_ROUTING_CMD >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 02 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_GET_LISTEN_MODE_ROUTING_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 02 07 00 01 01 03 00 3B 80",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_GET_LISTEN_MODE_ROUTING_NTF >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 1 (01)\n\n   ~ [Routing Entry_0] ~  \n    * Type: Protocol-based routing entry (01)\n    * Len: 3\n    * Val: 003B80\n      * Route: DH-NFCEE  (00)\n      * Power State: 00111011 (3B)\n       ~ Screen Off lock (Sub-State 3):         Apply\n       ~ Screen On lock (Sub-State 2):          Apply\n       ~ Screen off unlock (Sub-State 1):       Apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                      Apply\n       ~ Switch On State:                       Apply\n      * Protocol: MIFARE_CLASSIC (80)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 03 09 04 00 01 01 01 02 01 80 01",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_DISCOVER_CMD >>  \n  * Number of Configs: 4 (04)\n\n   ~ [Config_0] ~  \n    * Mode: A_PASSIVE_POLL (00)\n    * Discovery Freq: 1\n\n   ~ [Config_1] ~  \n    * Mode: B_PASSIVE_POLL (01)\n    * Discovery Freq: 1\n\n   ~ [Config_2] ~  \n    * Mode: F_PASSIVE_POLL (02)\n    * Discovery Freq: 1\n\n   ~ [Config_3] ~  \n    * Mode: A_PASSIVE_LISTEN (80)\n    * Discovery Freq: 1\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 03 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_DISCOVER_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 03 0F 01 80 00 0A 04 00 04 11 22 33 44 01 08 00 02",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: MIFARE_CLASSIC (80)\n  * Mode: A_PASSIVE_POLL (00)\n  * Len of RF Tech Specific Params: 10\n  * SENS_RES Response: 0400\n  * NFCID1 Len: 4\n  * NFCID1: 11223344\n  * SEL_RES Rsp Len: 1\n  * SEL_RES Rsp: 08\n  * HRx Len: 0\n  * NTF Type: More NTF to follow (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 04 03 01 04 02",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_DISCOVER_SELECT_CMD >>  \n  * RF Discovery ID: 01\n  * RF Protocol: ISO-DEP (04)\n  * RF Interface: ISO-DEP (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 04 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_DISCOVER_SELECT_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 05 1B 01 02 04 00 FF FF 0A 04 00 04 11 22 33 44 01 20 00 00 00 00 06 05 05 78 80 70 02",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: ISO-DEP (02)\n  * RF Protocol: ISO-DEP (04)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: Not used (FF)\n  * Len of RF Tech Specific Params: 10\n  * SENS_RES Response: 0400\n  * NFCID1 Len: 4\n  * NFCID1: 11223344\n  * SEL_RES Rsp Len: 1\n  * SEL_RES Rsp: 20\n  * HRx Len: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 6\n  * RATS Rsp Len: 5 (05)\n  * RATS Rsp: 0578807002\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 06 01 03",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_DEACTIVATE_CMD >>  \n  * Deactivation Type: Discovery (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 06 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_DEACTIVATE_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 06 02 03 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_DEACTIVATE_NTF >>  \n  * Deactivation Type: Discovery (03)\n  * Deactivation Reason: DH_Request (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 07 01 01",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_FIELD_INFO_NTF >>  \n  * RF Field Status: Operating field generated by Remote NFC Endpoint.\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 08 04 FF FF 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_T3T_POLLING_CMD >>  \n  * SENSF_REQ_PARAMS: FFFF0100\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 08 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_T3T_POLLING_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 08 15 00 01 12 01 02 03 04 05 06 07 08 00 F1 00 00 00 01 43 00 88 B4",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_T3T_POLLING_NTF >>  \n  * Status: STATUS_OK (00)\n  * Number of Rsp: 1 (01)\n\n   ~ [Rsp_0] ~  \n    * Len: 18 (12)\n    * SENSF_RES: 010203040506070800F100000001430088B4\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 09 0A C0 00 07 A0 00 00 00 03 10 10",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: C0 NFCEE_eSE (HCI-NFCEE)\n  * Trigger: [ISO/IEC_7816-4] SELECT command with an AID (00)\n  * Supporting Data Len: 7\n  * Supporting Data: \n    * AID: A0000000031010\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 0A 06 01 00 03 C0 80 04",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_NFCEE_DISCOVERY_REQ_NTF >>  \n  * Number Of Info Entries: 1\n\n   ~ [Info Entry_0] ~  \n    * Type: Added to list\n    * Len: 3\n    * Val: C08004\n      * NFCEE: C0 NFCEE_eSE (HCI-NFCEE)\n      * Mode: A_PASSIVE_LISTEN (80)\n      * RF Protocol: ISO-DEP (04)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 0B 07 02 00 01 00 03 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_PARAMETER_UPDATE_CMD >>  \n  * Number of Params: 2 (02)\n\n   ~ [RF Communication 0] ~  \n  * Type ID: RF Technology and Mode (coded as defined in Table 131) (00)\n  * Len: 1\n  * Val: 00\n    * Mode: A_PASSIVE_POLL (00)\n\n   ~ [RF Communication 1] ~  \n  * Type ID: NFC-B Data Exchange Configuration (coded as defined in Table 92) (03)\n  * Len: 1\n  * Val: 00\n    * NFC-B Data Exchange Config: 00\n     ~ Minimum TR0:      00\n     ~ Minimum TR1:      00\n     ~ Suppression of EoS: 0\n     ~ Suppression of SoS: 0\n     ~ Minimum TR3:      00\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 0B 03 00 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_PARAMETER_UPDATE_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 1\n  * RF Communication Param ID: \n  * Type ID 0: RF Technology and Mode (coded as defined in Table 131) (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 0C 03 00 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_INTF_EXT_START_CMD >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 6 Octet(s)\n  Payload Len: 3 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 0C 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_INTF_EXT_START_RSP >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 0D 03 00 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_INTF_EXT_STOP_CMD >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 6 Octet(s)\n  Payload Len: 3 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 0D 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_INTF_EXT_STOP_RSP >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 0E 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_EXT_AGG_ABORT_CMD >>  \n[NCI] control message No Support\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 0E 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_EXT_AGG_ABORT_RSP >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 0F 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_NDEF_ABORT_CMD >>  \n[NCI] control message No Support\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 0F 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_NDEF_ABORT_RSP >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 10 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_ISO_DEP_NAK_PRESENCE_CMD >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 10 01 E3",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_ISO_DEP_NAK_PRESENCE_RSP >>  \n  * Status: STATUS_PMU_TXLDO_OVERCURRENT (E3)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 10 01 E3",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_ISO_DEP_NAK_PRESENCE_NTF >>  \n  * Status: STATUS_PMU_TXLDO_OVERCURRENT (E3)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 11 03 01 C0 3B",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_SET_FORCED_NFCEE_ROUTING_CMD >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 6 Octet(s)\n  Payload Len: 3 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 11 01 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_SET_FORCED_NFCEE_ROUTING_RSP >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 18 01 05",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << IOT_RETRY_NTF >>  \n  * WupCounter: 5\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 20 04 02 00 12 FC",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << FIELD_DETECT_NTF >>  \n  * Detection: 00000010 (02)\n   ~ Bit0 = RFU\n   ~ Bit1 = WupA/ReqA detected\n   ~ Bit2 = WupB/ReqB detected\n   ~ Bit3 = PollReq (typeF) detected\n   ~ Bit6 = RFU\n   ~ Bit7 = RX error detected\n  * System Code: 12FC\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 20 04 10 00 12 FC",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << FIELD_DETECT_NTF >>  \n  * Detection: 00010000 (10)\n   ~ Bit0 = RFU\n   ~ Bit1 = WupA/ReqA detected\n   ~ Bit2 = WupB/ReqB detected\n   ~ Bit3 = PollReq (typeF) detected\n   ~ Bit6 = RFU\n   ~ Bit7 = RX error detected\n  * System Code: 12FC\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 21 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << PLL_UNLOCKED_NTF >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 23 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << TxLDO_ERROR_NTF >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 28 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << PLL_LOSTLOCK_NTF >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 29 01 03",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << SETTINGS_CHANGE_NTF >>  \n  * Index: 03\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 2A 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << RF_FREQ_ERROR_NTF >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 2B 00",
+  "prev": [],
+  "source": "Docs/nxp/RF_Management.md",
+  "output": "  << LPDET_ERROR_NTF >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 00 01 01",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_RESET_CMD >>  \n  * Reset Type: Reset Config (01)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 00 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_RESET_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "60 00 09 02 01 20 04 04 AA BB CC DD",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_RESET_NTF >>  \n  * Reset Trigger: CORE_RESET_CMD (02)\n  * Config Status: Reset Config (01)\n  * NCI Version: 2.0 (20)\n  * Manufacturer ID: 04\n  * Manufacturer Specific Info: AABBCCDD\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "60 00 05 01 00 20 00 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_RESET_NTF >>  \n  * Reset Trigger: NFCC was powered on (01)\n  * Config Status: Keep Config (00)\n  * NCI Version: 2.0 (20)\n  * Manufacturer ID: Info is not available.\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 01 02 00 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_INIT_CMD >>  \n  * Feature Enable: 0000 -- RFU\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 01 15 00 11 1E 0E 00 08 00 02 FF FF 01 01 00 03 01 00 02 00 03 01 01",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_INIT_RSP >>  \n  * Status: STATUS_OK (00)\n  * NFCC Features: 111E0E00\n\n    * Octet 0: 00010001\n     ~ Active Communication Mode:       Support\n     ~ HCI Network Support:             Not implement\n     ~ Discovery Cfg Mode:              The DH is the only entity that configs the NFCC.\n     ~ Discovery Freq Cfg:              Supported in RF_DISCOVER_CMD\n\n    * Octet 1: 00011110\n     ~ Forced NFCEE routing:            Not support\n     ~ APDU Pattern based routing:      Not support\n     ~ System Code based routing:       Support\n     ~ AID based routing:               Support\n     ~ Protocol based routing:          Support\n     ~ Technology based routing:        Support\n\n    * Octet 2: 00001110\n     ~ RF Cfg in Switched Off State:    Support\n     ~ Switched On Sub-Mode States:     Support\n     ~ Switched Off State:              Support\n     ~ Battery Off State:               Not support\n\n    * Octet 3: 00000000 -- Proprietary\n\n  * Max Logical Connections: 8 (08)\n  * Max Routing Table Size: 512 (0002)\n  * Max Control Packet Payload Size: 255 (FF)\n  * Max Data Packet Payload Size of the Static HCI Connection: 255 (FF)\n  * Number of Credits of the Static HCI Connection: 1 (01)\n  * Max NFC-V RF Frame Size: 1 (0100)\n  * Number of Supported RF Interfaces: 3\n  * Supported RF Interface: 01000200030101\n\n   ~ [RF_IF_0] ~  \n    * Interface: Frame (01)\n    * Number of Extensions: 0\n\n   ~ [RF_IF_1] ~  \n    * Interface: ISO-DEP (02)\n    * Number of Extensions: 0\n\n   ~ [RF_IF_2] ~  \n    * Interface: NFC-DEP (03)\n    * Number of Extensions: 1\n    * Extension 0: LLCP Symmetry RF Interface Extension (01)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 02 0E 04 00 02 E8 03 02 01 01 32 01 60 80 01 01",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_SET_CONFIG_CMD >>  \n  * Number of Params: 4\n\n   ~ [Param_0] ~  \n    * ID: TOTAL_DURATION (00)\n    * Len: 2\n    * Val: 1000 ms (E803)\n\n   ~ [Param_1] ~  \n    * ID: CON_DISCOVERY_PARAM (02)\n    * Len: 1\n    * Val: 00000001 (01)\n     ~ Polling Mode: Enabled\n     ~ DH-NFCEE:     Enabled\n\n   ~ [Param_2] ~  \n    * ID: LA_SEL_INFO (32)\n    * Len: 1\n    * Val: 01100000 (60)\n     ~ NFC-DEP Protocol: Supported\n     ~ ISO-DEP Protocol: Supported\n\n   ~ [Param_3] ~  \n    * ID: RF_FIELD_INFO (80)\n    * Len: 1\n    * Val: 01\n     ~ RF_FIELD_INFO_NTF: Enabled\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 02 04 09 02 33 50",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_SET_CONFIG_RSP >>  \n  * Status: STATUS_INVALID_PARAM (09)\n  * Number of Params: 2\n  * Set Param ID:\n    * ID 0: LA_NFCID1 (33)\n    * ID 1: LF_PROTOCOL_TYPE (50)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 03 03 02 00 80",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_GET_CONFIG_CMD >>  \n  * Number of Params: 2\n  * Get Param ID:\n    * ID 0: TOTAL_DURATION (00)\n    * ID 1: RF_FIELD_INFO (80)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 03 09 00 02 00 02 F4 01 83 01 11",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 2\n\n   ~ [Param_0] ~  \n    * ID: TOTAL_DURATION (00)\n    * Len: 2\n    * Val: 500 ms (F401)\n\n   ~ [Param_1] ~  \n    * ID: LLCP_VERSION (83)\n    * Len: 1\n    * Val: 1.1 (11)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 04 06 02 01 00 02 01 04",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_CONN_CREATE_CMD >>  \n  * Destination Type: Remote NFC Endpoint (02)\n  * Number of Destination-specific Params: 1\n\n   ~ [Dest-spec Parameter_0] ~  \n    * Type: RF Discovery ID + RF Protocol (00)\n    * Len: 2\n    * Val: 0104\n      * RF Discovery ID: Dynamically assigned by the NFCC (01)\n      * RF Protocol: ISO-DEP (04)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 04 06 03 01 01 02 80 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_CONN_CREATE_CMD >>  \n  * Destination Type: NFCEE (03)\n  * Number of Destination-specific Params: 1\n\n   ~ [Dest-spec Parameter_0] ~  \n    * Type: NFCEE ID + NFCEE Interface Protocol (01)\n    * Len: 2\n    * Val: 8000\n      * NFCEE ID: HCI-NFCEE (80)\n      * NFCEE Interface Protocol: APDU (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 04 04 00 FF FF 02",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_CONN_CREATE_RSP >>  \n  * Status: STATUS_OK (00)\n  * Max Data Packet Payload Size: 255\n  * Initial Number of Credits: Data flow control is not used\n  * Conn ID: 2 (Dynamically assigned by the NFCC)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 05 01 02",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_CONN_CLOSE_CMD >>  \n  * Conn ID: 2 (Dynamically assigned by the NFCC)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 05 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_CONN_CLOSE_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "60 06 05 02 00 01 02 03",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_CONN_CREDITS_NTF >>  \n  * Number of Entries: 2\n\n   ~ [Entry_0] ~  \n    * Conn ID: 0 (Static: DH -- Remote NFC Endpoint)\n    * Credits: 1\n\n   ~ [Entry_1] ~  \n    * Conn ID: 2 (Dynamically assigned by the NFCC)\n    * Credits: 3\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "60 07 01 B2",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_GENERIC_ERROR_NTF >>  \n  * Status: RF_TIMEOUT_EXCEPTION (B2)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "60 08 02 B0 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_INTERFACE_ERROR_NTF >>  \n  * Status: RF_TRANSMISSION_EXCEPTION (B0)\n  * Conn ID: 0 (Static: DH -- Remote NFC Endpoint)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 09 01 03",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_SET_POWER_SUB_STATE_CMD >>  \n  * Power State: Switched On Sub-State 3\n    * Screen: Off\n    * Device: Locked\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 09 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NCI_Core.md",
+  "output": "  << CORE_SET_POWER_SUB_STATE_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "22 00 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_DISCOVER_CMD >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "42 00 02 00 02",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_DISCOVER_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of NFCEEs: 2\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "42 00 02 03 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_DISCOVER_RSP >>  \n  * Status: STATUS_FAILED (03)\n  * Number of NFCEEs: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 0A 86 00 01 00 01 00 02 11 22 01",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 86  (HCI-NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: APDU (00), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: Hardware / Registration Identification (00)\n    * Len: 2\n    * Val: 1122\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 1B 10 00 01 02 01 02 13 01 02 03 04 05 06 07 08 01 12 FC 02 FE 00 01 02 03 04 05 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Type 3 Tag Command Set (02), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: T3T Command Set Interface Supplementary Information (02)\n    * Len: 19\n    * Val: 01020304050607080112FC02FE000102030405\n      * PMm: 0102030405060708\n      * Number of Entries: 1\n       ~ [Entry_0] ~   \n        * System Code: 12FC\n        * Idm: 02FE000102030405\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 0E 10 00 01 03 01 04 06 00 10 00 00 3F 01 01",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Transparent (03), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: NDEF (04)\n    * Len: 6\n    * Val: 001000003F01\n      * NDEF max size: 4096 Bytes (00100000)\n      * Power State: 00111111 (3F)\n       ~ Screen Off lock (Sub-State 3):    Apply     \n       ~ Screen On lock (Sub-State 2):     Apply     \n       ~ Screen off unlock (Sub-State 1):  Apply     \n       ~ Battery Off State:                Apply     \n       ~ Switch Off State:                 Apply     \n       ~ Switch On State:                  Apply     \n      * NDEF-NFCEE characteristics: Persistent\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 07 81 02 00 01 A1 00 05",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 81  (HCI-NFCEE)\n  * NFCEE Status: Unresponsive (02)\n  * Number of Protocol Info Entries: 0\n\n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: For proprietary use (A1)\n    * Len: 0\n    * Val: \n\n  * NFCEE Power Supply: RFU (05)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 06 00 00 01 80 00 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 00 DH-NFCEE \n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: For proprietary use (80), \n  * Number of NFCEE Info TLVs: 0\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "22 01 02 10 01",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_MODE_SET_CMD >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Mode: Enable\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "22 01 02 86 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_MODE_SET_CMD >>  \n  * NFCEE ID: 86  (HCI-NFCEE)\n  * NFCEE Mode: Disable\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "22 01 02 10 05",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_MODE_SET_CMD >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Mode: RFU (05)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "42 01 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_MODE_SET_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 01 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_MODE_SET_NTF >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 02 02 10 02",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: NFCEE Initialization sequence completed (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 02 02 82 81",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: 82  (HCI-NFCEE)\n  * NFCEE Status: Proprietary (81)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "22 03 02 10 03",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_POWER_AND_LINK_CNTRL_CMD >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Power and Link Cfg: NFCEE Power supply and NFCC to NFCEE communication link are always on.\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "22 03 02 10 07",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_POWER_AND_LINK_CNTRL_CMD >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Power and Link Cfg: RFU (07)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "42 03 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/NFCEE_Management.md",
+  "output": "  << NFCEE_POWER_AND_LINK_CNTRL_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 00 07 02 04 01 02 05 03 03",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DISCOVER_MAP_CMD >>  \n  * Number of Mapping Configs: 2 (02)\n\n   ~ [Mapping Cfg_0] ~  \n    * RF Protocol: ISO-DEP (04)\n    * Mode: Polling (01)\n    * RF Interface: ISO-DEP (02)\n\n   ~ [Mapping Cfg_1] ~  \n    * RF Protocol: NFC-DEP (05)\n    * Mode: Listen/Polling (03)\n    * RF Interface: NFC-DEP (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 00 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DISCOVER_MAP_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 01 27 00 05 00 03 00 01 00 01 03 80 3B 04 72 09 80 3B A0 00 00 00 03 10 10 03 06 02 01 40 00 FE 00 04 06 80 01 00 A4 FF FF",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 5 (05)\n\n   ~ [Routing Entry_0] ~  \n    * Type: Technology-based routing entry (00)\n    * Len: 3\n    * Val: 000100\n      * Route: DH-NFCEE  (00)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n      * Technology: NFC_RF_TECHNOLOGY_A (00)\n\n   ~ [Routing Entry_1] ~  \n    * Type: Protocol-based routing entry (01)\n    * Len: 3\n    * Val: 803B04\n      * Route: 80 (HCI-NFCEE) (80)\n      * Power State: 00111011 (3B)\n       ~ Screen Off lock (Sub-State 3):         Apply\n       ~ Screen On lock (Sub-State 2):          Apply\n       ~ Screen off unlock (Sub-State 1):       Apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                      Apply\n       ~ Switch On State:                       Apply\n      * Protocol: ISO-DEP (04)\n\n   ~ [Routing Entry_2] ~  \n    * Type: AID-based routing entry (72)\n     ~ Routing is blocked for the power modes where it is not supported.\n     ~ Match is allowed when the SELECT AID is shorter than the AID in this routing table entry.\n     ~ Match is allowed when the SELECT AID is longer than the AID in this routing table entry.\n    * Len: 9\n    * Val: 803BA0000000031010\n      * Route: 80 (HCI-NFCEE) (80)\n      * Power State: 00111011 (3B)\n       ~ Screen Off lock (Sub-State 3):         Apply\n       ~ Screen On lock (Sub-State 2):          Apply\n       ~ Screen off unlock (Sub-State 1):       Apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                      Apply\n       ~ Switch On State:                       Apply\n      * AID: A0000000031010\n\n   ~ [Routing Entry_3] ~  \n    * Type: System Code-based routing entry (03)\n    * Len: 6\n    * Val: 02014000FE00\n      * Route: 02 (Static IDs) (02)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n      * SC Route 0: 4000\n      * SC Route 1: FE00\n\n   ~ [Routing Entry_4] ~  \n    * Type: APDU Pattern-based routing entry (04)\n    * Len: 6\n    * Val: 800100A4FFFF\n      * Route: 80 (HCI-NFCEE) (80)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n      * Reference data: 00A4\n      * Mask: FFFF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 01 07 00 01 02 03 00 01 A0",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 1 (01)\n\n   ~ [Routing Entry_0] ~  \n    * Type: AID-based routing entry (02)\n    * Len: 3\n    * Val: 0001A0\n      * Route: DH-NFCEE  (00)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n      * AID: A0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 01 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 02 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_GET_LISTEN_MODE_ROUTING_CMD >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 02 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_GET_LISTEN_MODE_ROUTING_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 02 13 01 02 00 03 00 11 02 42 0A 10 3F A0 00 00 01 51 00 00 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_GET_LISTEN_MODE_ROUTING_NTF >>  \n  * More: More Message(s) to follow (01)\n  * Number of Routing Entries: 2 (02)\n\n   ~ [Routing Entry_0] ~  \n    * Type: Technology-based routing entry (00)\n    * Len: 3\n    * Val: 001102\n      * Route: DH-NFCEE  (00)\n      * Power State: 00010001 (11)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):          Apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n      * Technology: NFC_RF_TECHNOLOGY_F (02)\n\n   ~ [Routing Entry_1] ~  \n    * Type: AID-based routing entry (42)\n     ~ Routing is blocked for the power modes where it is not supported.\n    * Len: 10\n    * Val: 103FA000000151000000\n      * Route: 10 (NFCEE) (10)\n      * Power State: 00111111 (3F)\n       ~ Screen Off lock (Sub-State 3):         Apply\n       ~ Screen On lock (Sub-State 2):          Apply\n       ~ Screen off unlock (Sub-State 1):       Apply\n       ~ Battery Off State:                     Apply\n       ~ Switch Off State:                      Apply\n       ~ Switch On State:                       Apply\n      * AID: A000000151000000\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 03 0B 05 00 01 01 01 02 0A 80 01 06 0B",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DISCOVER_CMD >>  \n  * Number of Configs: 5 (05)\n\n   ~ [Config_0] ~  \n    * Mode: A_PASSIVE_POLL (00)\n    * Discovery Freq: 1\n\n   ~ [Config_1] ~  \n    * Mode: B_PASSIVE_POLL (01)\n    * Discovery Freq: 1\n\n   ~ [Config_2] ~  \n    * Mode: F_PASSIVE_POLL (02)\n    * Discovery Freq: 10\n\n   ~ [Config_3] ~  \n    * Mode: A_PASSIVE_LISTEN (80)\n    * Discovery Freq: 1\n\n   ~ [Config_4] ~  \n    * Mode: V_PASSIVE_POLL (06)\n    * Discovery Freq: RFU\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 03 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DISCOVER_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 12 01 04 00 0D 44 00 07 04 11 22 33 44 55 66 01 20 00 02",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: ISO-DEP (04)\n  * Mode: A_PASSIVE_POLL (00)\n  * Len of RF Tech Specific Params: 13\n  * SENS_RES Response: 4400\n  * NFCID1 Len: 7\n  * NFCID1: 04112233445566\n  * SEL_RES Rsp Len: 1\n  * SEL_RES Rsp: 20\n  * HRx Len: 0\n  * NTF Type: More NTF to follow (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 11 02 01 00 0C 0C 00 04 11 22 33 44 01 00 02 11 00 02",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 02\n  * RF Protocol: T1T (01)\n  * Mode: A_PASSIVE_POLL (00)\n  * Len of RF Tech Specific Params: 12\n  * SENS_RES Response: 0C00\n  * NFCID1 Len: 4\n  * NFCID1: 11223344\n  * SEL_RES Rsp Len: 1\n  * SEL_RES Rsp: 00\n  * HRx Len: 2\n  * HRx: 1100\n  * NTF Type: More NTF to follow (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 11 03 04 01 0C 0B 50 11 22 33 44 00 00 00 00 71 81 02",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 03\n  * RF Protocol: ISO-DEP (04)\n  * Mode: B_PASSIVE_POLL (01)\n  * Len of RF Tech Specific Params: 12\n  * SENSB_RES Rsp Len: 11\n  * SENSB_RES Rsp: 5011223344000000007181\n  * NTF Type: More NTF to follow (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 19 04 03 02 14 01 12 01 01 FE 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 02",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 04\n  * RF Protocol: T3T (03)\n  * Mode: F_PASSIVE_POLL (02)\n  * Len of RF Tech Specific Params: 20\n  * Bit Rate: 212 kbps\n  * SENSF_RES Rsp Len: 18\n  * SENSF_RES Rsp: 0101FE0102030405060708090A0B0C0D0E0F\n  * NTF Type: More NTF to follow (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 0F 05 06 06 0A 00 00 E0 04 01 00 00 00 00 01 01",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 05\n  * RF Protocol: T5T (06)\n  * Mode: V_PASSIVE_POLL (06)\n  * Len of RF Tech Specific Params: 10\n  * RES_FLAG: 00\n  * DSFID: 00\n  * UID: E004010000000001\n  * NTF Type: Last NTF (due to NFCC reaching its resource limit) (01)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 0A 06 05 03 05 04 D5 01 AA BB 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 06\n  * RF Protocol: NFC-DEP (05)\n  * Mode: ACTIVE_POLL (03)\n  * Len of RF Tech Specific Params: 5\n  * ATR_RES Rsp Len: 4\n  * ATR_RES Rsp: D501AABB\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 07 07 80 70 02 AA BB 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 07\n  * RF Protocol: For proprietary use (80)\n  * Mode: Reserved for Proprietary Technologies in Poll Mode (70)\n  * Len of RF Tech Specific Params: 2\n  * Proprietary parameters: AABB\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 04 03 01 04 02",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DISCOVER_SELECT_CMD >>  \n  * RF Discovery ID: 01\n  * RF Protocol: ISO-DEP (04)\n  * RF Interface: ISO-DEP (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 04 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DISCOVER_SELECT_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 1D 01 02 04 00 FF 01 0D 44 00 07 04 11 22 33 44 55 66 01 20 00 00 00 00 05 04 78 80 70 02",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: ISO-DEP (02)\n  * RF Protocol: ISO-DEP (04)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 13\n  * SENS_RES Response: 4400\n  * NFCID1 Len: 7\n  * NFCID1: 04112233445566\n  * SEL_RES Rsp Len: 1\n  * SEL_RES Rsp: 20\n  * HRx Len: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 5\n  * RATS Rsp Len: 4 (04)\n  * RATS Rsp: 78807002\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 19 01 02 04 01 FF 01 0C 0B 50 11 22 33 44 00 00 00 00 71 81 01 00 00 02 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: ISO-DEP (02)\n  * RF Protocol: ISO-DEP (04)\n  * Activation Mode: B_PASSIVE_POLL (01)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 12\n  * SENSB_RES Rsp Len: 11\n  * SENSB_RES Rsp: 5011223344000000007181\n  * Data Mode: B_PASSIVE_POLL (01)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 2\n  * ATTRIB Rsp Len: 1 (01)\n  * ATTRIB Rsp: 00\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0C 01 02 04 80 FF 01 00 80 00 00 01 81",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: ISO-DEP (02)\n  * RF Protocol: ISO-DEP (04)\n  * Activation Mode: A_PASSIVE_LISTEN (80)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: A_PASSIVE_LISTEN (80)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 1\n  * RATS Cmd Param: 81\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 16 01 02 04 81 FF 01 01 00 81 00 00 0A 09 1D 11 22 33 44 00 08 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: ISO-DEP (02)\n  * RF Protocol: ISO-DEP (04)\n  * Activation Mode: B_PASSIVE_LISTEN (81)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 1\n  * SENSB_REQ Command: 00\n  * Data Mode: B_PASSIVE_LISTEN (81)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 10\n  * ATTRIB Cmd Len: 9\n  * ATTRIB Cmd: 1D1122334400080100\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 1D 01 03 05 00 FB 01 0D 44 00 07 04 11 22 33 44 55 66 01 20 00 00 00 00 05 04 D5 01 AA BB",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 251 (FB)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 13\n  * SENS_RES Response: 4400\n  * NFCID1 Len: 7\n  * NFCID1: 04112233445566\n  * SEL_RES Rsp Len: 1\n  * SEL_RES Rsp: 20\n  * HRx Len: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 5\n  * ATR_RES Rsp Len: 4\n  * ATR_RES Rsp: D501AABB\n  * Error: Activation Parameters: Payload too short: need 1 byte(s) for Data Exchange LR, 0 left\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 24 01 03 05 02 FB 01 14 01 12 01 01 FE 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 02 01 01 05 04 D5 01 AA BB",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: F_PASSIVE_POLL (02)\n  * Max Data Size: 251 (FB)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 20\n  * Bit Rate: 212 kbps\n  * SENSF_RES Rsp Len: 18\n  * SENSF_RES Rsp: 0101FE0102030405060708090A0B0C0D0E0F\n  * Data Mode: F_PASSIVE_POLL (02)\n  * Tx: 212 Kbit/s (01)\n  * Rx: 212 Kbit/s (01)\n  * Len of Activation Params: 5\n  * ATR_RES Rsp Len: 4\n  * ATR_RES Rsp: D501AABB\n  * Error: Activation Parameters: Payload too short: need 1 byte(s) for Data Exchange LR, 0 left\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 11 01 03 05 80 FB 01 00 80 00 00 06 04 D4 00 11 22 01",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: A_PASSIVE_LISTEN (80)\n  * Max Data Size: 251 (FB)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: A_PASSIVE_LISTEN (80)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 6\n  * ATR_REQ Cmd Len: 4\n  * ATR_REQ Cmd: D4001122\n  * Data Exchange LR: 254 Bytes (01)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 1A 01 03 05 82 FB 01 09 08 02 FE 00 00 00 00 00 00 82 02 02 06 04 D4 00 11 22 03",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: F_PASSIVE_LISTEN (82)\n  * Max Data Size: 251 (FB)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 9\n  * Local NFCID2 Len: 8\n  * Local NFCID2: 02FE000000000000\n  * Data Mode: F_PASSIVE_LISTEN (82)\n  * Tx: 424 Kbit/s (02)\n  * Rx: 424 Kbit/s (02)\n  * Len of Activation Params: 6\n  * ATR_REQ Cmd Len: 4\n  * ATR_REQ Cmd: D4001122\n  * Data Exchange LR: 128 Bytes (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 15 01 03 05 03 FB 01 05 04 D5 01 AA BB 03 02 02 05 04 D5 01 AA BB",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: ACTIVE_POLL (03)\n  * Max Data Size: 251 (FB)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 5\n  * ATR_RES Rsp Len: 4\n  * ATR_RES Rsp: D501AABB\n  * Data Mode: ACTIVE_POLL (03)\n  * Tx: 424 Kbit/s (02)\n  * Rx: 424 Kbit/s (02)\n  * Len of Activation Params: 5\n  * Activation Params: 04D501AABB\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 15 01 03 05 83 FB 01 05 04 D4 00 11 22 83 02 02 05 04 D4 00 11 22",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: ACTIVE_LISTEN (83)\n  * Max Data Size: 251 (FB)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 5\n  * ATR_REQ Cmd Len: 4\n  * ATR_REQ Cmd: D4001122\n  * Data Mode: ACTIVE_LISTEN (83)\n  * Tx: 424 Kbit/s (02)\n  * Rx: 424 Kbit/s (02)\n  * Len of Activation Params: 5\n  * Activation Params: 04D4001122\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 18 01 01 02 00 FF FF 0D 44 00 07 04 11 22 33 44 55 66 01 00 00 00 00 00 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: Frame (01)\n  * RF Protocol: T2T (02)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: Not used (FF)\n  * Len of RF Tech Specific Params: 13\n  * SENS_RES Response: 4400\n  * NFCID1 Len: 7\n  * NFCID1: 04112233445566\n  * SEL_RES Rsp Len: 1\n  * SEL_RES Rsp: 00\n  * HRx Len: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 1F 01 01 03 02 FF FF 14 01 12 01 01 FE 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 02 01 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: Frame (01)\n  * RF Protocol: T3T (03)\n  * Activation Mode: F_PASSIVE_POLL (02)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: Not used (FF)\n  * Len of RF Tech Specific Params: 20\n  * Bit Rate: 212 kbps\n  * SENSF_RES Rsp Len: 18\n  * SENSF_RES Rsp: 0101FE0102030405060708090A0B0C0D0E0F\n  * Data Mode: F_PASSIVE_POLL (02)\n  * Tx: 212 Kbit/s (01)\n  * Rx: 212 Kbit/s (01)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 15 01 01 06 06 FF FF 0A 00 00 E0 04 01 00 00 00 00 01 06 20 20 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: Frame (01)\n  * RF Protocol: T5T (06)\n  * Activation Mode: V_PASSIVE_POLL (06)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: Not used (FF)\n  * Len of RF Tech Specific Params: 10\n  * RES_FLAG: 00\n  * DSFID: 00\n  * UID: E004010000000001\n  * Data Mode: V_PASSIVE_POLL (06)\n  * Tx: 26 Kbit/s (20)\n  * Rx: 26 Kbit/s (20)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 1A 01 06 07 00 FF 01 0D 44 00 07 04 11 22 33 44 55 66 01 00 00 00 00 00 02 AA BB",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NDEF (06)\n  * RF Protocol: NDEF (07)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 13\n  * SENS_RES Response: 4400\n  * NFCID1 Len: 7\n  * NFCID1: 04112233445566\n  * SEL_RES Rsp Len: 1\n  * SEL_RES Rsp: 00\n  * HRx Len: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 2\n  * Activation Params: AABB\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 18 01 01 02 00 FF 0A 0D 44 00 07 04 11 22 33 44 55 66 01 00 00 00 00 00 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: Frame (01)\n  * RF Protocol: T2T (02)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 10\n  * Len of RF Tech Specific Params: 13\n  * SENS_RES Response: 4400\n  * NFCID1 Len: 7\n  * NFCID1: 04112233445566\n  * SEL_RES Rsp Len: 1\n  * SEL_RES Rsp: 00\n  * HRx Len: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 06 01 03",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DEACTIVATE_CMD >>  \n  * Deactivation Type: Discovery (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 06 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DEACTIVATE_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 06 02 01 01",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_DEACTIVATE_NTF >>  \n  * Deactivation Type: Sleep Mode (01)\n  * Deactivation Reason: Endpoint_Request (01)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 07 01 01",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_FIELD_INFO_NTF >>  \n  * RF Field Status: Operating field generated by Remote NFC Endpoint.\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 07 01 02",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_FIELD_INFO_NTF >>  \n  * RF Field Status: RFU (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 08 04 FF FF 01 0F",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_T3T_POLLING_CMD >>  \n  * SENSF_REQ_PARAMS: FFFF010F\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 08 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_T3T_POLLING_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 08 28 00 02 13 01 01 02 03 04 05 06 07 08 C0 C1 C2 C3 C4 C5 C6 C7 12 FC 11 01 11 12 13 14 15 16 17 18 C0 C1 C2 C3 C4 C5 C6 C7",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_T3T_POLLING_NTF >>  \n  * Status: STATUS_OK (00)\n  * Number of Rsp: 2 (02)\n\n   ~ [Rsp_0] ~  \n    * Len: 19 (13)\n    * SENSF_RES: 010102030405060708C0C1C2C3C4C5C6C712FC\n\n   ~ [Rsp_1] ~  \n    * Len: 17 (11)\n    * SENSF_RES: 011112131415161718C0C1C2C3C4C5C6C7\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 0A 80 00 07 A0 00 00 00 03 10 10",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: 80  (HCI-NFCEE)\n  * Trigger: [ISO/IEC_7816-4] SELECT command with an AID (00)\n  * Supporting Data Len: 7\n  * Supporting Data: \n    * AID: A0000000031010\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 04 02 01 01 04",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: 02  (Static IDs)\n  * Trigger: Protocol-based Route Selection Process (ref to Table 133) (01)\n  * Supporting Data Len: 1\n  * Supporting Data: \n    * RF Protocol: ISO-DEP (04)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 04 02 02 01 01",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: 02  (Static IDs)\n  * Trigger: Technology-based Route Selection Process (ref to Table 130) (02)\n  * Supporting Data Len: 1\n  * Supporting Data: \n    * RF Technology: NFC_RF_TECHNOLOGY_B (01)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 05 02 03 02 40 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: 02  (Static IDs)\n  * Trigger: System Code-based Route Selection Process (03)\n  * Supporting Data Len: 2\n  * Supporting Data: \n    * SC Route: 4000\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 07 02 04 04 00 A4 FF FF",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: 02  (Static IDs)\n  * Trigger: TAPDU Pattern-based Route Selection Process (as defined in Table 58) (04)\n  * Supporting Data Len: 4\n  * Supporting Data: \n    * Reference data: 00A4\n    * Mask: FFFF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 04 02 05 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: 02  (Static IDs)\n  * Trigger: Forced NFCEE Routing is used (See Table 130) (05)\n  * Supporting Data Len: 1\n  * Supporting Data: \n    * RF Technology: NFC_RF_TECHNOLOGY_A (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 05 10 10 02 AA BB",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * Trigger: Application specific (10)\n  * Supporting Data Len: 2\n  * Supporting Data: \n    * Data: AABB\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 0A 0F 03 00 03 80 00 04 01 03 10 81 04 80 02 AA BB",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_NFCEE_DISCOVERY_REQ_NTF >>  \n  * Number Of Info Entries: 3\n\n   ~ [Info Entry_0] ~  \n    * Type: Added to list\n    * Len: 3\n    * Val: 800004\n      * NFCEE: 80  (HCI-NFCEE)\n      * Mode: A_PASSIVE_POLL (00)\n      * RF Protocol: ISO-DEP (04)\n\n   ~ [Info Entry_1] ~  \n    * Type: Removed from list\n    * Len: 3\n    * Val: 108104\n      * NFCEE: 10  (NFCEE)\n      * Mode: B_PASSIVE_LISTEN (81)\n      * RF Protocol: ISO-DEP (04)\n\n   ~ [Info Entry_2] ~  \n    * Type: For proprietary use\n    * Len: 2\n    * Val: AABB\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 0B 0D 04 00 01 00 01 01 02 02 01 02 03 01 E5",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_PARAMETER_UPDATE_CMD >>  \n  * Number of Params: 4 (04)\n\n   ~ [RF Communication 0] ~  \n  * Type ID: RF Technology and Mode (coded as defined in Table 131) (00)\n  * Len: 1\n  * Val: 00\n    * Mode: A_PASSIVE_POLL (00)\n\n   ~ [RF Communication 1] ~  \n  * Type ID: Transmit Bit Rate (coded as defined in Table 132) (01)\n  * Len: 1\n  * Val: 02\n    * Tx: 424 Kbit/s (02)\n\n   ~ [RF Communication 2] ~  \n  * Type ID: Receive Bit Rate (coded as defined in Table 132) (02)\n  * Len: 1\n  * Val: 02\n    * Rx: 424 Kbit/s (02)\n\n   ~ [RF Communication 3] ~  \n  * Type ID: NFC-B Data Exchange Configuration (coded as defined in Table 92) (03)\n  * Len: 1\n  * Val: E5\n    * NFC-B Data Exchange Config: E5\n     ~ Minimum TR0:      11\n     ~ Minimum TR1:      10\n     ~ Suppression of EoS: 0\n     ~ Suppression of SoS: 1\n     ~ Minimum TR3:      01\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 0B 04 09 02 01 03",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_PARAMETER_UPDATE_RSP >>  \n  * Status: STATUS_INVALID_PARAM (09)\n  * Number of Params: 2\n  * RF Communication Param ID: \n  * Type ID 0: Transmit Bit Rate (coded as defined in Table 132) (01)\n  * Type ID 1: NFC-B Data Exchange Configuration (coded as defined in Table 92) (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 0C 03 01 01 0A",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_EXT_START_CMD >>  \n  * RF Interface Extension: LLCP Symmetry RF Interface Extension (01)\n  * Start Param Len: 1\n  * Start Param: 0A\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 0C 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_EXT_START_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 0D 02 00 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_EXT_STOP_CMD >>  \n  * RF Interface Extension: Frame Aggregated RF Interface Extension (00)\n  * Stop Param Len: 0\n  * Stop Param: \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 0D 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_INTF_EXT_STOP_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 0E 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_EXT_AGG_ABORT_CMD >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 0E 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_EXT_AGG_ABORT_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 0F 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_NDEF_ABORT_CMD >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 0F 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_NDEF_ABORT_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 10 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_ISO_DEP_NAK_PRESENCE_CMD >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 10 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_ISO_DEP_NAK_PRESENCE_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 10 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_ISO_DEP_NAK_PRESENCE_NTF >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 11 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_SET_FORCED_NFCEE_ROUTING_CMD >>  \n  * Forced NFCEE Routing State: Disabled\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 11 03 01 80 3B",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_SET_FORCED_NFCEE_ROUTING_CMD >>  \n  * Forced NFCEE Routing State: Enabled\n  * Forced NFCEE: 80  (HCI-NFCEE)\n    * Power State: 00111011 (3B)\n     ~ Screen Off lock (Sub-State 3):Apply     \n     ~ Screen On lock (Sub-State 2):Apply     \n     ~ Screen off unlock (Sub-State 1):Apply     \n     ~ Battery Off State:        Not apply \n     ~ Switch Off State:         Apply     \n     ~ Switch On State:          Apply     \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 11 01 02",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_SET_FORCED_NFCEE_ROUTING_CMD >>  \n  * Forced NFCEE Routing State: Error (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 11 01 00",
+  "prev": [],
+  "source": "Docs/nfc_forum_2_0/RF_Management.md",
+  "output": "  << RF_SET_FORCED_NFCEE_ROUTING_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ }
+]

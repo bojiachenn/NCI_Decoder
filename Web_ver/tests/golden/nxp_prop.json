@@ -1,0 +1,634 @@
+[
+ {
+  "vendor": "Nxp",
+  "hex": "2F 00 01 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << CORE_SET_POWER_MODE_CMD >>  \n  * Mode: Standby State disabled\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 00 01 02",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << CORE_SET_POWER_MODE_CMD >>  \n  * Mode: Autonomous Mode enabled\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 00 01 03",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << CORE_SET_POWER_MODE_CMD >>  \n  * Mode: ULPDET State enabled\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 00 01 04",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << CORE_SET_POWER_MODE_CMD >>  \n  * Mode: Autonomous Mode enabled with Poll\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 00 01 06",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << CORE_SET_POWER_MODE_CMD >>  \n  * Mode: RFU\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 01 01 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << SET_NFC_SERVICE_STATUS_CMD >>  \n  * Mode: NFC service OFF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 01 01 02",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << SET_NFC_SERVICE_STATUS_CMD >>  \n  * Mode: RFU\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 02 05 03 AA BB CC DD",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << NCI_PROPRIETARY_ACT_RSP >>  \n  * Status: STATUS_FAILED\n  * FW_Build_Nb: AABBCCDD\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 04 0A 60 00 00 01 2B 80 CA 9F 7F 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << APDU_LOGGING_NTF >>  \n  * Logging Opcode: 60\n  * Timestamp: 0.016 ms\n  * Category: C-APDU from UICCx\n  * APDU Data: 80CA9F7F00 (First 5 bytes of the C-APDU)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 04 07 60 00 19 00 3B 6A 82",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << APDU_LOGGING_NTF >>  \n  * Logging Opcode: 60\n  * Timestamp: 102.4 ms\n  * Category: R-APDU from UICCx\n  * APDU Data: 6A82 (Last 2 bytes of the R-APDU)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 04 05 61 00 00 10 5A",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << APDU_LOGGING_NTF >>  \n  * Logging Opcode: 61 (Should be 0x60)\n  * Timestamp: 0.256 ms\n  * Category: Error 5A\n  * APDU Data: \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 14 02 99 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << RF_GET_TRANSITION_CMD >>  \n  * RF Transition ID: RF_CM_TXRX_F212 (99)\n  * CLIF Register Offset: 00\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 14 06 05 04 01 02 03 04",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << RF_GET_TRANSITION_RSP >>  \n  * Status: Forbidden\n  * RF Transition Len: 4\n  * RF Transition Val: 0x04030201 (raw 01020304)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 1C 01 03",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << LOW_POWER_TAG_REMOVAL_RSP >>  \n  * Status: Forbidden\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 1E 01 09",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << SYSTEM_ESE_POWER_CYCLE_RSP >>  \n  * Status: STATUS_INVALID_PARAM\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 21 01 02",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << FLUSH_SRAM_AO_TO_FLASH_RSP >>  \n  * Status: Forbidden\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 1F 01 01",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << COLD_RESET_CMD >>  \n  * RESET by pin: SE reset Disabled\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 1F 01 02",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << COLD_RESET_NTF >>  \n  * Status: at least one internal verification failed\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 30 06 01 01 01 04 00 10",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_PRBS_CMD >>  \n  * PRBS Mode: Firmware generated PRBS\n  * PRBS Type: PRBS15 when Hardware generated PRBS selected\n  * Technology to stream: Type B\n  * Bitrate: 26 Kbit/s\n  * PRBS series length: 0010\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 30 06 02 05 03 05 FF FF",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_PRBS_CMD >>  \n  * PRBS Mode: RFU\n  * PRBS Type: Ignored when Firmware generated PRBS is selected\n  * Technology to stream: Type V\n  * Bitrate: RFU\n  * PRBS series length: FFFF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 30 01 01",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_PRBS_RSP >>  \n  * Status: RFU\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 32 01 0D",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << READ_OPTION_CMD >>  \n  << RF_TEST_API_CMD >>  \n  * HW Regi: GPADC_SENSOR_VDDPA\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 32 01 08",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << READ_OPTION_CMD >>  \n  << RF_TEST_API_CMD >>  \n  * HW Regi: GPADC_SENSOR_TXLDO_CURRENT\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 32 03 03 AB CD",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << READ_OPTION_RSP >>  \n  << RF_TEST_API_RSP >>  \n  * Status: STATUS_FAILED\n  * HW Regi Val: ABCD\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 33 13 00 30 5A 00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE FF",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_PRBS_CARD_CMD >>  \n  * PRBS Mode: Start PRBS Card Mode\n  * Test Type: 00110000 (30)\n   ~ Sys clk platform:    Enabled \n   ~ Clk-less platform:   Enabled \n   ~ Technology:          Type A\n   ~ Bit Rate:            106k\n  * Pseudo random pattern: 5A\n  Fixed Pattern: 0x00 0x11 0x22 0x33 0x44 0x55 0x66 0x77 0x88 0x99 0xAA 0xBB 0xCC 0xDD 0xEE 0xFF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 33 02 00 0F",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_PRBS_CARD_CMD >>  \n  * PRBS Mode: Start PRBS Card Mode\n  * Test Type: 00001111 (0F)\n   ~ Sys clk platform:    Disabled\n   ~ Clk-less platform:   Disabled\n   ~ Technology:          None\n   ~ Bit Rate:            848k\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 33 01 02",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_PRBS_CARD_CMD >>  \n  * PRBS Mode: RFU\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 33 01 03",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_PRBS_CARD_RSP >>  \n  * Status: STATUS_FAILED\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 35 08 10 00 20 00 01 23 A3 07",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L1_DEBUG_NTF >>  \n  * Time: 16 ms 32 µs\n  * RSSI: 0123 (MSB)\n  * CLIF State: A3\n    * Tech & Mode: Reader mode NFC-F\n    * Trigger Type: RX_READ\n  * Extra Debug data: 07\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 35 09 E8 03 00 00 01 02 03 04 F2",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L1_DEBUG_NTF >>  \n  * Time: 1000 ms 0 µs\n  * DLMA: 01020304 (LSB)\n  * CLIF State: F2\n    * Tech & Mode: Reader mode NFC-V\n    * Trigger Type: DATA_RX\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 35 07 10 00 20 00 01 23 05",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L1_DEBUG_NTF >>  \n  * Time: 16 ms 32 µs\n  * RSSI: 0123 (MSB)\n  * CLIF State: 05\n    * Tech & Mode: Not detected yet\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 35 07 10 00 20 00 01 23 3A",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L1_DEBUG_NTF >>  \n  * Time: 16 ms 32 µs\n  * RSSI: 0123 (MSB)\n  * CLIF State: 3A\n    * Tech & Mode: Card Emulation NFC-F\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 0B 1A 10 00 20 00 01 02 03 04 F6 09",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: L2 EVENT\n  * Time: 16 ms 32 µs\n  * DLMA: 01020304 (LSB)\n  * CLIF State: F6\n    * Tech & Mode: Reader mode NFC-V\n    * Trigger Type: INVENTORY_REQ_1_SLOT\n  * Extra data info: 09\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 09 18 10 00 20 00 01 23 A9 0E",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: L2 EVENT\n  * Time: 16 ms 32 µs\n  * RSSI: 0123 (MSB)\n  * CLIF State: A9\n    * Tech & Mode: Reader mode NFC-F\n    * Trigger Type: RF_OFF\n  * Extra data info: 0E\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 09 28 10 00 20 00 01 23 06 01",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: FELICA CMD\n  * Time: 16 ms 32 µs\n  * RSSI: 0123 (MSB)\n  * FeliCa CMD: 06\n  * Extra data info: 01\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 07 56 10 00 20 00 03 02",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: MISC\n  * Time: 16 ms 32 µs\n  * Misc Event trig: L2 NTF BUFFER OVERFLOW\n  * Extra data info: 02\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 05 B5 10 00 20 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: RFU\n  * Time: 16 ms 32 µs\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 0B AA 10 00 20 00 04 04 E0 80 31 73",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: CMA\n  * Time: 16 ms 32 µs\n  * Trig type: CLT_DATA_RX\n  * Extra data info: 04E0803173\n    * CLT RX Data: E0803173\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 11 AE 10 00 20 00 05 0C 01 02 03 04 05 06 07 08 09 0A 0B 0C",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "Error: Unknown raw data!\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 08 A7 10 00 20 00 06 E0 80",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: CMA\n  * Time: 16 ms 32 µs\n  * Trig type: RATS_RECEIVED\n  * Extra data info: E080\n    * RATS received: E080\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 07 A6 10 00 20 00 08 01",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: CMA\n  * Time: 16 ms 32 µs\n  * Trig type: UID_SENT\n  * Extra data info: 01\n    * Anti-Collision Lv: 01\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 0F AE 10 00 20 00 0A 00 00 00 00 05 78 80 70 02",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: CMA\n  * Time: 16 ms 32 µs\n  * Trig type: ATS_SENT\n  * Extra data info: 000000000578807002\n    * APC: 00000000\n    * ATS sent: 0578807002\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 08 A7 10 00 20 00 0B 50 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: CMA\n  * Time: 16 ms 32 µs\n  * Trig type: HLTA_DETECTED\n  * Extra data info: 5000\n    * HLTA received: 5000\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 0A A9 10 00 20 00 0C 02 00 AA BB",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: CMA\n  * Time: 16 ms 32 µs\n  * Trig type: ERROR\n  * Extra data info: 0200AABB\n    * Data received: AABB\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 07 A6 10 00 20 00 03 09",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: CMA\n  * Time: 16 ms 32 µs\n  * Trig type: CLT_CMD\n  * Extra data info: 09\n    * Type: CLT_HALT (09)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 06 A5 10 00 20 00 0D",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: CMA\n  * Time: 16 ms 32 µs\n  * Trig type: EMD_DETECTED\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 06 A6 10 00 20 00 0D 01",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "Error: Unknown raw data!\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3D 03 30 01 CC",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << RF_SPC_CMD >>  \n  * SPC Cfg: Configure NFCC for SPC\n  * Block Nb: 01\n  * PLL settings: CC\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3D 01 32",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << RF_SPC_CMD >>  \n  * SPC Cfg: RFU\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 3D 07 03 00 7F FF 00 10 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << RF_SPC_NTF >>  \n  * Status: None\n  * IndexStart: 0 (00)\n  * IndexEnd: 127 (7F)\n  * RSSI: 255\n  * Phase: 4.0 °\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 3D 07 04 01 02 00 01 00 80",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << RF_SPC_NTF >>  \n  * Status: SPC_STATUS_OVERCURRENT_DISCARD (OK, phase offset updated)\n  * IndexStart: 1 (01)\n  * IndexEnd: 2 (02)\n  * RSSI: 256\n  * Phase: -8192.0 °\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 3D 07 08 01 02 00 01 FF FF",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << RF_SPC_NTF >>  \n  * Status: SPC_STATUS_RSSITHRESH_DISCARD\n  * IndexStart: 1 (01)\n  * IndexEnd: 2 (02)\n  * RSSI: 256\n  * Phase: -0.25 °\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3E 01 01",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_SWP_CMD >>  \n  * Link ID: Mailbox (eSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3E 01 02",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_SWP_CMD >>  \n  * Link ID: NFC_SIM_SWIO2 (UICC2)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3E 01 05",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_SWP_CMD >>  \n  * Link ID: Forbidden\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3E 01 05",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_SWP_RSP >>  \n  * Status: STATUS_SYNTAX_ERROR\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3E 01 01",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_SWP_RSP >>  \n  * Status: Forbidden\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 3E 02 03 02",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_SWP_NTF >>  \n  * Status: STATUS_FAILED\n  * Power Mode: SIMVCC = 3.3V\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 3E 02 01 03",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_SWP_NTF >>  \n  * Status: Forbidden\n  * Power Mode: SIMVCC undetermined\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 3E 02 00 04",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << TEST_SWP_NTF >>  \n  * Status: STATUS_OK\n  * Power Mode: RFU\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3F 03 70 01 05",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_CMD >>  \n  << AST_UTILITY_CMD >>  \n  * Param 1: Antenna Self-Test utility APIs\n  * Param 2: FORCE_NEW_VDDPA_CMD\n  * Input: 05\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3F 03 70 07 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_CMD >>  \n  << AST_UTILITY_CMD >>  \n  * Param 1: Antenna Self-Test utility APIs\n  * Param 2: RFU\n  * Input: 00\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3F 01 99",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_CMD >>  \nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 3F 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_CMD >>  \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 01 10",
+  "prev": [
+   "2F 3F 03 70 00 00"
+  ],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_RSP >>  \n  << AST_UTILITY_RSP >>  \n  * VDDPA: 2.3 V\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 01 09",
+  "prev": [
+   "2F 3F 03 70 00 00"
+  ],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_RSP >>  \n  << AST_UTILITY_RSP >>  \n  * VDDPA: 1.95 V\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 01 0A",
+  "prev": [
+   "2F 3F 03 70 00 00"
+  ],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_RSP >>  \n  << AST_UTILITY_RSP >>  \n  * VDDPA: 2.0 V\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 01 00",
+  "prev": [
+   "2F 3F 03 70 02 00"
+  ],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_RSP >>  \n  << AST_UTILITY_RSP >>  \n  * Status: STATUS_OK\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 01 03",
+  "prev": [
+   "2F 3F 03 70 01 05"
+  ],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_RSP >>  \n  << AST_UTILITY_RSP >>  \n  * Status: STATUS_FAILED\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 01 03",
+  "prev": [
+   "2F 3F 03 70 07 00"
+  ],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_RSP >>  \n  << AST_UTILITY_RSP >>  \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 03 04 00 00",
+  "prev": [
+   "2F 3F 03 04 00 00"
+  ],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_RSP >>  \n  << DPC_HELPER_ACT_RSP >>  \n  * Test ID: ENABLE DPC HELPER\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 0E 00 0F 36 81 0D 00 00 00 37 81 0C 00 00 00",
+  "prev": [
+   "2F 3F 03 05 00 00"
+  ],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_RSP >>  \n  << DPC_HELPER_RSP >>  \n  * Status: STATUS_OK\n  * DPC Info: 36810D00000037810C000000\n   ~  #  ~  Power  ~  VDDPA  ~  Current  ~  NCI cmd  ~\n      0    0.666 W    2.15 V     310 mA      36810D\n      1    0.653 W    2.10 V     311 mA      37810C\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 3E 00 0F 36 81 0D 00 00 00 37 81 0C 00 00 00 37 81 0C 00 00 00 37 81 0C 00 00 00 36 81 0D 00 00 00 36 81 0D 00 00 00 36 81 0D 00 00 00 37 81 0C 00 00 00 36 81 0D 00 00 00 37 81 0C 00 00 00",
+  "prev": [
+   "2F 3F 03 05 00 00"
+  ],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_RSP >>  \n  << DPC_HELPER_RSP >>  \n  * Status: STATUS_OK\n  * DPC Info: 36810D00000037810C00000037810C00000037810C00000036810D00000036810D00000036810D00000037810C00000036810D00000037810C000000\n   ~  #  ~  Power  ~  VDDPA  ~  Current  ~  NCI cmd  ~\n      0    0.666 W    2.15 V     310 mA      36810D\n      1    0.653 W    2.10 V     311 mA      37810C\n      2    0.653 W    2.10 V     311 mA      37810C\n      3    0.653 W    2.10 V     311 mA      37810C\n      4    0.666 W    2.15 V     310 mA      36810D\n      5    0.666 W    2.15 V     310 mA      36810D\n      6    0.666 W    2.15 V     310 mA      36810D\n      7    0.653 W    2.10 V     311 mA      37810C\n      8    0.666 W    2.15 V     310 mA      36810D\n      9    0.653 W    2.10 V     311 mA      37810C\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 05 00 0F 36 81 0D",
+  "prev": [
+   "2F 3F 03 05 00 00"
+  ],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_RSP >>  \n  << DPC_HELPER_RSP >>  \n  * Status: STATUS_OK\n  * DPC Info: 36810D\n   ~  #  ~  Power  ~  VDDPA  ~  Current  ~  NCI cmd  ~\nError: Payload error!!\n  Packet Len: 8 Octet(s)\n  Payload Len: 5 Octet(s)\n  Check Len: 2.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 01 00",
+  "prev": [
+   "2F 3F 03 32 00 00"
+  ],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_RSP >>  \n  << SWITCH_RF_FIELD_RSP >>  \n  * Status: STATUS_OK\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 01 00",
+  "prev": [
+   "2F 3F 01 99"
+  ],
+  "source": "golden_inputs/nxp_prop.json",
+  "output": "  << OPTIONAL_RSP >>  \nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ }
+]

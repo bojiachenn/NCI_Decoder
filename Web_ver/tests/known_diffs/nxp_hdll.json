@@ -1,0 +1,18 @@
+[
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 00 00 00 00 87 16",
+  "prev": [
+   "00 04 F1 00 00 00 6E EF"
+  ],
+  "reason": "JS-only: bounds-check message — DL_OK after DL_GET_VERSION with a 3-byte payload: Python printed empty fields (read past end); JS reports Payload too short"
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 01 00 79 6B",
+  "prev": [
+   "00 04 F1 00 00 00 6E EF"
+  ],
+  "reason": "JS-only: bounds-check message — DL_OK after DL_GET_VERSION with empty payload: Python printed empty fields (read past end); JS reports Payload too short, and chunk bit now printed"
+ }
+]

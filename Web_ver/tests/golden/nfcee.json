@@ -1,0 +1,530 @@
+[
+ {
+  "vendor": "None",
+  "hex": "62 00 0A 86 00 01 00 01 00 02 11 22 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 86  (HCI-NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: APDU (00), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: Hardware / Registration Identification (00)\n    * Len: 2\n    * Val: 1122\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 1B 10 00 01 02 01 02 13 01 02 03 04 05 06 07 08 01 12 FC 02 FE 00 01 02 03 04 05 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Type 3 Tag Command Set (02), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: T3T Command Set Interface Supplementary Information (02)\n    * Len: 19\n    * Val: 01020304050607080112FC02FE000102030405\n      * PMm: 0102030405060708\n      * Number of Entries: 1\n       ~ [Entry_0] ~   \n        * System Code: 12FC\n        * Idm: 02FE000102030405\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 0E 10 00 01 03 01 04 06 00 10 00 00 3F 01 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Transparent (03), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: NDEF (04)\n    * Len: 6\n    * Val: 001000003F01\n      * NDEF max size: 4096 Bytes (00100000)\n      * Power State: 00111111 (3F)\n       ~ Screen Off lock (Sub-State 3):    Apply     \n       ~ Screen On lock (Sub-State 2):     Apply     \n       ~ Screen off unlock (Sub-State 1):  Apply     \n       ~ Battery Off State:                Apply     \n       ~ Switch Off State:                 Apply     \n       ~ Switch On State:                  Apply     \n      * NDEF-NFCEE characteristics: Persistent\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 07 81 02 00 01 A1 00 05",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 81  (HCI-NFCEE)\n  * NFCEE Status: Unresponsive (02)\n  * Number of Protocol Info Entries: 0\n\n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: For proprietary use (A1)\n    * Len: 0\n    * Val: \n\n  * NFCEE Power Supply: RFU (05)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 06 00 00 01 80 00 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 00 DH-NFCEE \n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: For proprietary use (80), \n  * Number of NFCEE Info TLVs: 0\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "22 00 01 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_CMD >>  \n         (Empty)         \nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 06 01 01 01 01 00 FF",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 01 HCI-NTWK-NFCEE (RFU) \n  * NFCEE Status: Disabled (01)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: RFU (01), \n  * Number of NFCEE Info TLVs: 0\n\n  * NFCEE Power Supply: RFU (FF)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 06 FF 03 01 FF 00 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: FF (RFU) \n  * NFCEE Status: RFU (03)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: RFU (FF), \n  * Number of NFCEE Info TLVs: 0\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 07 05 FE 02 04 7F 00 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 05  (Static IDs)\n  * NFCEE Status: RFU (FE)\n  * Number of Protocol Info Entries: 2\n  * Supported NFCEE Protocols: RFU (04), RFU (7F), \n  * Number of NFCEE Info TLVs: 0\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 0C 20 00 00 01 01 05 3B 8F 80 01 80 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 20  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 0\n\n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: ATR Bytes (01)\n    * Len: 5\n    * Val: 3B8F800180\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 08 82 00 00 01 03 01 C0 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 82  (HCI-NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 0\n\n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: Host ID in the HCI Network (03)\n    * Len: 1\n    * Val: C0\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 07 10 00 00 01 05 00 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 0\n\n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: RFU (05)\n    * Len: 0\n    * Val: \n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 07 10 00 00 01 9F 00 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 0\n\n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: RFU (9F)\n    * Len: 0\n    * Val: \n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 07 10 00 00 01 FF 00 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 0\n\n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: For proprietary use (FF)\n    * Len: 0\n    * Val: \n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 0E 10 00 01 03 01 04 06 FF FF 00 00 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Transparent (03), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: NDEF (04)\n    * Len: 6\n    * Val: FFFF00000000\n      * NDEF max size: 65535 Bytes (FFFF0000)\n      * Power State: 00000000 (00)\n       ~ Screen Off lock (Sub-State 3):    Not apply \n       ~ Screen On lock (Sub-State 2):     Not apply \n       ~ Screen off unlock (Sub-State 1):  Not apply \n       ~ Battery Off State:                Not apply \n       ~ Switch Off State:                 Not apply \n       ~ Switch On State:                  Not apply \n      * NDEF-NFCEE characteristics: Not persistent\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 0E 10 00 01 03 01 04 06 00 01 00 00 15 FE 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Transparent (03), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: NDEF (04)\n    * Len: 6\n    * Val: 0001000015FE\n      * NDEF max size: 256 Bytes (00010000)\n      * Power State: 00010101 (15)\n       ~ Screen Off lock (Sub-State 3):    Not apply \n       ~ Screen On lock (Sub-State 2):     Apply     \n       ~ Screen off unlock (Sub-State 1):  Not apply \n       ~ Battery Off State:                Apply     \n       ~ Switch Off State:                 Not apply \n       ~ Switch On State:                  Apply     \n      * NDEF-NFCEE characteristics: Not persistent\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 0E 10 00 01 03 01 04 06 00 01 00 00 2A 03 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Transparent (03), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: NDEF (04)\n    * Len: 6\n    * Val: 000100002A03\n      * NDEF max size: 256 Bytes (00010000)\n      * Power State: 00101010 (2A)\n       ~ Screen Off lock (Sub-State 3):    Apply     \n       ~ Screen On lock (Sub-State 2):     Not apply \n       ~ Screen off unlock (Sub-State 1):  Apply     \n       ~ Battery Off State:                Not apply \n       ~ Switch Off State:                 Apply     \n       ~ Switch On State:                  Not apply \n      * NDEF-NFCEE characteristics: Persistent\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 0E 10 00 01 03 01 04 06 78 56 34 12 C0 02 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Transparent (03), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: NDEF (04)\n    * Len: 6\n    * Val: 78563412C002\n      * NDEF max size: 305419896 Bytes (78563412)\n      * Power State: 11000000 (C0)\n       ~ Screen Off lock (Sub-State 3):    Not apply \n       ~ Screen On lock (Sub-State 2):     Not apply \n       ~ Screen off unlock (Sub-State 1):  Not apply \n       ~ Battery Off State:                Not apply \n       ~ Switch Off State:                 Not apply \n       ~ Switch On State:                  Not apply \n      * NDEF-NFCEE characteristics: Not persistent\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 0F 10 00 01 03 01 04 07 00 01 00 00 01 01 AA 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Transparent (03), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: NDEF (04)\n    * Len: 7\n    * Val: 000100000101AA\n      * NDEF max size: 256 Bytes (00010000)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):    Not apply \n       ~ Screen On lock (Sub-State 2):     Not apply \n       ~ Screen off unlock (Sub-State 1):  Not apply \n       ~ Battery Off State:                Not apply \n       ~ Switch Off State:                 Not apply \n       ~ Switch On State:                  Apply     \n      * NDEF-NFCEE characteristics: Persistent\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 25 10 00 01 02 01 02 1D 01 02 03 04 05 06 07 08 02 12 FC 02 FE 00 01 02 03 04 05 88 B4 02 FE 0A 0B 0C 0D 0E 0F 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Type 3 Tag Command Set (02), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: T3T Command Set Interface Supplementary Information (02)\n    * Len: 29\n    * Val: 01020304050607080212FC02FE00010203040588B402FE0A0B0C0D0E0F\n      * PMm: 0102030405060708\n      * Number of Entries: 2\n       ~ [Entry_0] ~   \n        * System Code: 12FC\n        * Idm: 02FE000102030405\n       ~ [Entry_1] ~   \n        * System Code: 88B4\n        * Idm: 02FE0A0B0C0D0E0F\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 11 10 00 01 02 01 02 09 01 02 03 04 05 06 07 08 00 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Type 3 Tag Command Set (02), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: T3T Command Set Interface Supplementary Information (02)\n    * Len: 9\n    * Val: 010203040506070800\n      * PMm: 0102030405060708\n      * Number of Entries: 0\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 0D 10 00 01 02 01 02 05 01 02 03 04 05 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Type 3 Tag Command Set (02), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: T3T Command Set Interface Supplementary Information (02)\n    * Len: 5\n    * Val: 0102030405\n      * PMm: 0102030405\n",
+  "error": "ValueError: invalid literal for int() with base 16: ''"
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 0B 10 00 01 03 01 04 03 00 10 00 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Transparent (03), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: NDEF (04)\n    * Len: 3\n    * Val: 001000\n      * NDEF max size: 4096 Bytes (001000)\n",
+  "error": "ValueError: invalid literal for int() with base 16: ''"
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 11 10 00 01 02 01 02 09 01 02 03 04 05 06 07 08 01 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Type 3 Tag Command Set (02), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: T3T Command Set Interface Supplementary Information (02)\n    * Len: 9\n    * Val: 010203040506070801\n      * PMm: 0102030405060708\n      * Number of Entries: 1\n       ~ [Entry_0] ~   \n        * System Code: \n        * Idm: \n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 1A 86 00 03 00 02 80 03 00 02 11 22 01 01 3B 03 01 01 04 06 00 04 00 00 3F 00 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 86  (HCI-NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 3\n  * Supported NFCEE Protocols: APDU (00), Type 3 Tag Command Set (02), For proprietary use (80), \n  * Number of NFCEE Info TLVs: 3\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: Hardware / Registration Identification (00)\n    * Len: 2\n    * Val: 1122\n\n   ~ [NFCEE Info TLV_1] ~  \n    * Type: ATR Bytes (01)\n    * Len: 1\n    * Val: 3B\n\n   ~ [NFCEE Info TLV_2] ~  \n    * Type: Host ID in the HCI Network (03)\n    * Len: 1\n    * Val: 01\n\n  * NFCEE Power Supply: RFU (04)\nError: Payload error!!\n  Packet Len: 29 Octet(s)\n  Payload Len: 26 Octet(s)\n  Check Len: 18.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 08 10 00 00 02 00 05 11 22",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 0\n\n  * Number of NFCEE Info TLVs: 2\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: Hardware / Registration Identification (00)\n    * Len: 5\n    * Val: 1122\n\n   ~ [NFCEE Info TLV_1] ~  \n",
+  "error": "ValueError: invalid literal for int() with base 16: ''"
+ },
+ {
+  "vendor": "None",
+  "hex": "62 00 03 10 00 02",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 2\n  * Supported NFCEE Protocols: RFU (), RFU (), \n",
+  "error": "ValueError: invalid literal for int() with base 16: ''"
+ },
+ {
+  "vendor": "None",
+  "hex": "62 02 02 10 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: Unrecoverable error (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 02 02 10 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: NFCEE Initialization sequence started (01)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 02 02 10 7F",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Status: RFU (7F)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 02 02 02 80",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: 02  (Static IDs)\n  * NFCEE Status: Proprietary (80)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 02 02 FF FF",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: FF (RFU) \n  * NFCEE Status: Proprietary (FF)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "22 01 02 01 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_MODE_SET_CMD >>  \n  * NFCEE ID: 01 HCI-NTWK-NFCEE (RFU) \n  * NFCEE Mode: Enable\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "22 03 02 80 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_POWER_AND_LINK_CNTRL_CMD >>  \n  * NFCEE ID: 80  (HCI-NFCEE)\n  * NFCEE Power and Link Cfg: NFCC decides (default state).\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "22 03 02 80 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_POWER_AND_LINK_CNTRL_CMD >>  \n  * NFCEE ID: 80  (HCI-NFCEE)\n  * NFCEE Power and Link Cfg: NFCEE Power Supply always On.\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "22 03 02 80 02",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_POWER_AND_LINK_CNTRL_CMD >>  \n  * NFCEE ID: 80  (HCI-NFCEE)\n  * NFCEE Power and Link Cfg: NFCC to NFCEE Communication link always active when the NFCEE is powered on.\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "42 03 01 05",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_POWER_AND_LINK_CNTRL_RSP >>  \n  * Status: STATUS_SYNTAX_ERROR (05)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "42 01 01 A0",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_MODE_SET_RSP >>  \n  * Status: DISCOVERY_ALREADY_STARTED (A0)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "62 01 01 03",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_MODE_SET_NTF >>  \n  * Status: STATUS_FAILED (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "42 00 01 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_RSP >>  \n  * Status: STATUS_OK (00)\n",
+  "error": "ValueError: invalid literal for int() with base 16: ''"
+ },
+ {
+  "vendor": "None",
+  "hex": "22 01 03 10 01 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_MODE_SET_CMD >>  \n  * NFCEE ID: 10  (NFCEE)\n  * NFCEE Mode: Enable\nError: Payload error!!\n  Packet Len: 6 Octet(s)\n  Payload Len: 3 Octet(s)\n  Check Len: 2.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 0A 86 00 01 00 01 00 02 11 22 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 86  (HCI-NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: APDU (00), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: Hardware / Registration Identification (00)\n    * Len: 2\n    * Val: 1122\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 0E C0 00 01 03 01 04 06 00 10 00 00 3F 01 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: C0 NFCEE_eSE (HCI-NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Transparent (03), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: NDEF (04)\n    * Len: 6\n    * Val: 001000003F01\n      * NDEF max size: 4096 Bytes (00100000)\n      * Power State: 00111111 (3F)\n       ~ Screen Off lock (Sub-State 3):    Apply     \n       ~ Screen On lock (Sub-State 2):     Apply     \n       ~ Screen off unlock (Sub-State 1):  Apply     \n       ~ Battery Off State:                Apply     \n       ~ Switch Off State:                 Apply     \n       ~ Switch On State:                  Apply     \n      * NDEF-NFCEE characteristics: Persistent\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 0E C1 01 01 03 01 04 06 00 01 00 00 15 00 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: C1 NFCEE_eUICC Profile 1 (SEP/MEP Mode) (HCI-NFCEE)\n  * NFCEE Status: Disabled (01)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Transparent (03), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: NDEF (04)\n    * Len: 6\n    * Val: 000100001500\n      * NDEF max size: 256 Bytes (00010000)\n      * Power State: 00010101 (15)\n       ~ Screen Off lock (Sub-State 3):    Not apply \n       ~ Screen On lock (Sub-State 2):     Apply     \n       ~ Screen off unlock (Sub-State 1):  Not apply \n       ~ Battery Off State:                Apply     \n       ~ Switch Off State:                 Not apply \n       ~ Switch On State:                  Apply     \n      * NDEF-NFCEE characteristics: Not persistent\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 0E C2 02 01 03 01 04 06 00 01 00 00 2A 01 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: C2 NFCEE_eUICC Profile 2 (MEP Mode) (HCI-NFCEE)\n  * NFCEE Status: Unresponsive (02)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Transparent (03), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: NDEF (04)\n    * Len: 6\n    * Val: 000100002A01\n      * NDEF max size: 256 Bytes (00010000)\n      * Power State: 00101010 (2A)\n       ~ Screen Off lock (Sub-State 3):    Apply     \n       ~ Screen On lock (Sub-State 2):     Not apply \n       ~ Screen off unlock (Sub-State 1):  Apply     \n       ~ Battery Off State:                Not apply \n       ~ Switch Off State:                 Apply     \n       ~ Switch On State:                  Not apply \n      * NDEF-NFCEE characteristics: Persistent\n\n  * NFCEE Power Supply: NFCC control power supply for NFCEE_eSE and NFCEE_NDEF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 1B 10 00 01 02 01 02 13 01 02 03 04 05 06 07 08 01 12 FC 02 FE 00 01 02 03 04 05 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10 NFCEE_NDEF (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Type 3 Tag Command Set (02), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: T3T Command Set Interface Supplementary Information (02)\n    * Len: 19\n    * Val: 01020304050607080112FC02FE000102030405\n      * PMm: 0102030405060708\n      * Number of Entries: 1\n       ~ [Entry_0] ~   \n        * System Code: 12FC\n        * Idm: 02FE000102030405\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 06 81 00 01 FE 00 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 81 NFCEE_UICC2 (HCI-NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: For proprietary use (FE), \n  * Number of NFCEE Info TLVs: 0\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 06 81 00 01 04 00 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 81 NFCEE_UICC2 (HCI-NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: RFU (04), \n  * Number of NFCEE Info TLVs: 0\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 08 80 00 00 01 01 01 3B 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 80 NFCEE_UICC1 (HCI-NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 0\n\n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: ATR Bytes (01)\n    * Len: 1\n    * Val: 3B\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 08 80 00 00 01 03 01 C0 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 80 NFCEE_UICC1 (HCI-NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 0\n\n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: Host ID in the HCI Network (03)\n    * Len: 1\n    * Val: C0\n\n  * NFCEE Power Supply: NFCC control power supply for any NFCEE_UICCx\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 07 80 03 00 01 50 00 07",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 80 NFCEE_UICC1 (HCI-NFCEE)\n  * NFCEE Status: RFU (03)\n  * Number of Protocol Info Entries: 0\n\n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: RFU (50)\n    * Len: 0\n    * Val: \n\n  * NFCEE Power Supply: RFU (07)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 00 0B 10 00 01 03 01 04 03 00 10 00 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_NTF >>  \n  * NFCEE ID: 10 NFCEE_NDEF (NFCEE)\n  * NFCEE Status: Enabled (00)\n  * Number of Protocol Info Entries: 1\n  * Supported NFCEE Protocols: Transparent (03), \n  * Number of NFCEE Info TLVs: 1\n  * NFCEE Information:\n\n   ~ [NFCEE Info TLV_0] ~  \n    * Type: NDEF (04)\n    * Len: 3\n    * Val: 001000\n      * NDEF max size: 4096 Bytes (001000)\n",
+  "error": "ValueError: invalid literal for int() with base 16: ''"
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "22 00 01 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_CMD >>  \n         (Empty)         \nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 02 02 C0 80",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: C0 NFCEE_eSE (HCI-NFCEE)\n  * NFCEE Status: eSE has detected a temperature error. NFCC has switched off the eSE and notifies DH that it is unresponsive. (80)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 02 02 80 81",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: 80 NFCEE_UICC1 (HCI-NFCEE)\n  * NFCEE Status: NFCC has detected an unexpected UICC power lost whereas NFC_SIM_SWIOx line was active (81)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 02 02 C0 9B",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: C0 NFCEE_eSE (HCI-NFCEE)\n  * NFCEE Status: NFCC has received a valid deactivation response in an unexpected state (9B)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 02 02 C0 FF",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: C0 NFCEE_eSE (HCI-NFCEE)\n  * NFCEE Status: RFU (FF)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 02 02 C2 03",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_STATUS_NTF >>  \n  * NFCEE ID: C2 NFCEE_eUICC Profile 2 (MEP Mode) (HCI-NFCEE)\n  * NFCEE Status: RFU (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "22 01 02 10 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_MODE_SET_CMD >>  \n  * NFCEE ID: 10 NFCEE_NDEF (NFCEE)\n  * NFCEE Mode: Disable\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "22 01 02 C1 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_MODE_SET_CMD >>  \n  * NFCEE ID: C1 NFCEE_eUICC Profile 1 (SEP/MEP Mode) (HCI-NFCEE)\n  * NFCEE Mode: Enable\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "22 03 02 81 01",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_POWER_AND_LINK_CNTRL_CMD >>  \n  * NFCEE ID: 81 NFCEE_UICC2 (HCI-NFCEE)\n  * NFCEE Power and Link Cfg: NFCEE Power Supply always On.\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "22 03 02 C0 02",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_POWER_AND_LINK_CNTRL_CMD >>  \n  * NFCEE ID: C0 NFCEE_eSE (HCI-NFCEE)\n  * NFCEE Power and Link Cfg: NFCC to NFCEE Communication link always active when the NFCEE is powered on.\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "22 03 02 FF 00",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_POWER_AND_LINK_CNTRL_CMD >>  \n  * NFCEE ID: FF (RFU) \n  * NFCEE Power and Link Cfg: NFCC decides (default state).\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "42 03 01 03",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_POWER_AND_LINK_CNTRL_RSP >>  \n  * Status: STATUS_FAILED (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "62 01 01 E0",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_MODE_SET_NTF >>  \n  * Status: RFU (E0)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "42 00 02 00 03",
+  "prev": [],
+  "source": "golden_inputs/nfcee.json",
+  "output": "  << NFCEE_DISCOVER_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of NFCEEs: 3\n#end\n",
+  "error": null
+ }
+]

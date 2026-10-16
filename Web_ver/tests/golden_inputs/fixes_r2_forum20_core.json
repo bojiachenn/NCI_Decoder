@@ -1,0 +1,12 @@
+[
+ {"vendor":"None","hex":"20 02 05 01 3C 02 85 21","prev":[]},
+ {"vendor":"None","hex":"40 03 0B 00 02 02 02 03 FF 85 03 01 02 03","prev":[]},
+ {"vendor":"None","hex":"20 02 0A 02 32 02 60 00 82 03 1F 00 00","prev":[]},
+ {"vendor":"None","hex":"40 04 04 00 FF 01 F3","prev":[]},
+ {"vendor":"None","hex":"40 04 04 00 FF 01 21","prev":[]},
+ {"vendor":"None","hex":"20 05 01 F2","prev":[]},
+ {"vendor":"None","hex":"60 06 05 02 01 01 A3 02","prev":[]},
+ {"vendor":"None","hex":"60 08 02 00 81","prev":[]},
+ {"vendor":"Nxp","hex":"20 05 01 F2","prev":[]},
+ {"vendor":"Nxp","hex":"60 08 02 00 81","prev":[]}
+]

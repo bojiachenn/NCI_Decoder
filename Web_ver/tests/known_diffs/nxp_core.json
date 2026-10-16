@@ -1,0 +1,5 @@
+[
+ {"vendor":"Nxp","hex":"40 02 04 09 02 A0 15","prev":[],"reason":"JS-only: bounds-check message — CORE_SET_CONFIG_RSP reads NXP A0xx/A1xx extended IDs as 2 octets; this example declares 2 IDs but carries one 2-octet ID -> JS prints 'Payload too short' where Python prints 'ID 1: RFU ()'"},
+ {"vendor":"Nxp","hex":"60 00 08 02 01 20 02 05 01 02 03","prev":[],"reason":"JS-only: bounds-check message — truncated packet: JS reader stops with 'Payload too short' instead of printing an empty FLASH Ver + Payload error"},
+ {"vendor":"Nxp","hex":"20 03 03 02 A1 0F","prev":[],"reason":"JS-only: bounds-check message — truncated packet: JS reader stops with 'Payload too short' instead of printing 'ID 1: RFU ()' + Payload error"}
+]

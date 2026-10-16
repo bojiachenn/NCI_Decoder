@@ -1,0 +1,146 @@
+[
+ {
+  "vendor": "Nxp",
+  "hex": "60 00 0A 02 01 20 02 05 01 02 03 04 05",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_RESET_NTF >>  \n  * Reset Trigger: CORE_RESET_CMD (02)\n  * Config Status: Reset Config (01)\n  * NCI Version: 2.0 (20)\n  * Manufacturer ID: 02\n  * Model ID: 01\n  * Hw Ver nb: 02\n  * ROM Code Ver nb: 03\n  * FLASH Ver: 0405\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "60 00 0C 02 01 20 02 07 01 02 03 04 05 AA BB",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_RESET_NTF >>  \n  * Reset Trigger: CORE_RESET_CMD (02)\n  * Config Status: Reset Config (01)\n  * NCI Version: 2.0 (20)\n  * Manufacturer ID: 02\n  * Model ID: 01\n  * Hw Ver nb: 02\n  * ROM Code Ver nb: 03\n  * FLASH Ver: 0405\n  * Manufacturer Specific Info (extra): AABB\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "60 00 08 02 01 20 02 03 01 02 03",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_RESET_NTF >>  \n  * Reset Trigger: CORE_RESET_CMD (02)\n  * Config Status: Reset Config (01)\n  * NCI Version: 2.0 (20)\n  * Manufacturer ID: 02\n  * Manufacturer Specific Info: 010203\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "60 00 05 02 01 20 02 00",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_RESET_NTF >>  \n  * Reset Trigger: CORE_RESET_CMD (02)\n  * Config Status: Reset Config (01)\n  * NCI Version: 2.0 (20)\n  * Manufacturer ID: 02\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "60 00 06 A0 01 11 22 33 44",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_RESET_NTF >>  \n  * Reset Trigger: An assert has triggered SN2x0 NFCC reset/reboot (A0)\n  * Config Status: Reset Config (01)\n  * dw Assertion Program Counter: 11223344\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 03 07 00 01 A0 09 02 E8 03",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 1\n\n   ~ [Param_0] ~  \n    * Register: TO_BEFORE_STDBY_CFG (A009)\n    * Len: 2\n    * Val: E803\n      * Time: 1.0 s\n       ~ Time-out used to wait after last DH/NFCEE communication before going into standby.\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 02 06 01 A0 09 02 10 27",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_SET_CONFIG_CMD >>  \n  * Number of Params: 1\n\n   ~ [Param_0] ~  \n    * Register: TO_BEFORE_STDBY_CFG (A009)\n    * Len: 2\n    * Val: 1027\n      * Time: 10.0 s\n       ~ Time-out used to wait after last DH/NFCEE communication before going into standby.\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 03 06 00 01 A0 94 01 85",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 1\n\n   ~ [Param_0] ~  \n    * Register: SE_TEMP_ERROR_DELAY_TIME (A094)\n    * Len: 1\n    * Val: 85\n      * Delay after TEMP_ERROR: 5 s\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 03 06 00 01 A0 94 01 05",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 1\n\n   ~ [Param_0] ~  \n    * Register: SE_TEMP_ERROR_DELAY_TIME (A094)\n    * Len: 1\n    * Val: 05\n      * Delay after TEMP_ERROR: 5 (No unit defined)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 03 07 00 01 A0 94 02 0A 80",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 1\n\n   ~ [Param_0] ~  \n    * Register: SE_TEMP_ERROR_DELAY_TIME (A094)\n    * Len: 2\n    * Val: 0A80\n      * Delay after TEMP_ERROR: 10 (No unit defined)\n      * Warning: Len 2, expected 1 (raw 0A80)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 03 07 00 01 A0 94 02 2C 01",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 1\n\n   ~ [Param_0] ~  \n    * Register: SE_TEMP_ERROR_DELAY_TIME (A094)\n    * Len: 2\n    * Val: 2C01\n      * Delay after TEMP_ERROR: 12 (No unit defined)\n      * Warning: Len 2, expected 1 (raw 2C01)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 03 0D 00 01 A0 98 08 10 20 03 1F 0A 11 12 13",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 1\n\n   ~ [Param_0] ~  \n    * Register: MEASURED_LMA_RSSI (A098)\n    * Len: 8\n    * Val: 1020031F0A111213\n      * Measured LMA phone ON: 16 mV\n      * Measured RSSI: 800\n      * Ref. field strength: 1 A/m\n      * Ref. VDDPA DLMA OFF: 2.0 V\n      * Measured LMA Type A clock-less mode: 17 mV\n      * Measured LMA Type B clock-less mode: 18 mV\n      * Measured LMA Type F clock-less mode: 19 mV\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 03 06 00 01 02 02 03 FF",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 1\n\n   ~ [Param_0] ~  \n    * ID: CON_DISCOVERY_PARAM (02)\n    * Len: 2\n    * Val: 00000011 (03)\n     ~ Polling Mode: Enabled\n     ~ DH-NFCEE:     Disabled\n      * Warning: Len 2, expected 1 (raw 03FF)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 03 07 00 01 82 03 1F 00 01",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 1\n\n   ~ [Param_0] ~  \n    * ID: NFCDEP_OP (82)\n    * Len: 3\n    * Val: 00011111 (1F)\n     ~ Waiting Time: <= 10\n     ~ PDUs chaining (MI bit set) with max Transport Data Bytes: Apply\n     ~ PDU with no Transport Data Bytes SHALL NOT be sent: Apply\n     ~ Initiator SHALL use ATTENTION CMD only as error recovery procedure: Apply\n     ~ NFC-DEP Target SHALL NOT send RTOX requests: Apply\n      * Warning: Len 3, expected 1 (raw 1F0001)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 02 05 01 32 02 60 00",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_SET_CONFIG_CMD >>  \n  * Number of Params: 1\n\n   ~ [Param_0] ~  \n    * ID: LA_SEL_INFO (32)\n    * Len: 2\n    * Val: 01100000 (60)\n     ~ NFC-DEP Protocol: Supported\n     ~ ISO-DEP Protocol: Supported\n      * Warning: Len 2, expected 1 (raw 6000)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 03 06 00 01 85 01 01",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "Error: Unknown raw data!\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 04 04 00 FF 01 12",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_CONN_CREATE_RSP >>  \n  * Status: STATUS_OK (00)\n  * Max Data Packet Payload Size: 255\n  * Initial Number of Credits: 1\n  * Conn ID: 2 (Dynamically assigned by the NFCC)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "40 03 06 00 01 A0 94 01 95",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 1\n\n   ~ [Param_0] ~  \n    * Register: SE_TEMP_ERROR_DELAY_TIME (A094)\n    * Len: 1\n    * Val: 95\n      * Delay after TEMP_ERROR: 5 s\n#end\n",
+  "error": null
+ }
+]

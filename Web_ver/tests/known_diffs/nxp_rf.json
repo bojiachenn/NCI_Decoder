@@ -1,0 +1,8 @@
+[
+ {
+  "vendor": "Nxp",
+  "hex": "61 20 02 02 00",
+  "prev": [],
+  "reason": "JS-only: bounds-check message — FIELD_DETECT_NTF: truncated payload now reports 'Payload too short' instead of printing an empty System Code"
+ }
+]

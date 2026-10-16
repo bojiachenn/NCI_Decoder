@@ -1,0 +1,201 @@
+[
+ {
+  "vendor": "Nxp",
+  "hex": "00 10 00 12 40 04 01 03 01 02 03 04 33 00 C5 A0 01 00 CD D5",
+  "prev": [
+   "00 04 F1 00 00 00 6E EF"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * HW version: 12\n  * ROM code: 40\n  * Model ID: 04\n  * FW version: 0103\n  * Internal FW build revision: 01020304\n  * Chip version: 3300\n  * Chip Life Cycle: C5A0\n  * Certificate version: 0100\n  * CRC: CDD5 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 00 00 00 00 87 16",
+  "prev": [
+   "00 04 F1 00 00 00 6E EF"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * HW version: 00\n  * ROM code: 00\n  * Model ID: 00\n  * FW version: \n  * Internal FW build revision: \n  * Chip version: \n  * Chip Life Cycle: \n  * Certificate version: \n  * CRC: 8716 (CRC-16-CCITT-FALSE)\n\nError: Payload error!!\n  check: 15 Octet(s)\n  Packet Len: 8.0 Octet(s)\n  Frame Len: 4 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 00 01 00 00 B0 26",
+  "prev": [
+   "00 04 F2 00 00 00 F5 33"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * Session State: open\n  * CRC: B026 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 00 02 00 00 E9 76",
+  "prev": [
+   "00 04 F2 00 00 00 F5 33"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * Session State: locked\n  * CRC: E976 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 00 05 00 00 6C E6",
+  "prev": [
+   "00 04 F2 00 00 00 F5 33"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * Session State: RFU (05)\n  * CRC: 6CE6 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 00 00 00 00 87 16",
+  "prev": [
+   "00 04 F2 00 00 00 F5 33",
+   "00 04 00 01 00 00 B0 26"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * CRC: 8716 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 14 00 00 00 00 00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE FF 64 8A",
+  "prev": [
+   "00 04 F4 00 00 00 D2 AA"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * DIEID: 00112233445566778899AABBCCDDEEFF\n  * CRC: 648A (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 88 00 03 02 00 00 00 00 A0 01 00 01 00 02 00 01 00 03 00 01 00 04 00 01 00 05 00 01 00 06 00 01 00 07 00 01 00 08 00 01 00 09 00 01 00 0A 00 01 00 0B 00 01 00 0C 00 01 00 0D 00 01 00 0E 00 01 00 0F 00 01 00 10 00 01 00 11 00 01 00 12 00 01 00 13 00 01 00 14 00 01 00 15 00 01 00 16 00 01 00 17 00 01 00 18 00 01 00 19 00 01 00 1A 00 01 00 1B 00 01 00 1C 00 01 00 81 00 03 00 82 00 03 00 83 00 03 00 84 00 03 00 0F 4A",
+  "prev": [
+   "00 04 E0 00 00 00 03 FC"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * CRC check for sections  1 to  8: A0\n  *                         9 to 16: 00\n  *                        17 to 24: 00\n  *                        25 to 32: 00\n  * Flash integrity:\n         Data:  3               Code:  2\n     1   OK (00010001)          KO (00030081)\n     2   KO (00010002)          KO (00030082)\n     3   OK (00010003)\n  * CRC: 0F4A (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 88 00 05 04 00 FF 00 00 F5 01 00 01 00 02 00 01 00 03 00 01 00 04 00 01 00 05 00 01 00 06 00 01 00 07 00 01 00 08 00 01 00 09 00 01 00 0A 00 01 00 0B 00 01 00 0C 00 01 00 0D 00 01 00 0E 00 01 00 0F 00 01 00 10 00 01 00 11 00 01 00 12 00 01 00 13 00 01 00 14 00 01 00 15 00 01 00 16 00 01 00 17 00 01 00 18 00 01 00 19 00 01 00 1A 00 01 00 1B 00 01 00 1C 00 01 00 81 00 03 00 82 00 03 00 83 00 03 00 84 00 03 00 E6 A9",
+  "prev": [
+   "00 04 E0 00 00 00 03 FC"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * CRC check for sections  1 to  8: F5\n  *                         9 to 16: 00\n  *                        17 to 24: 00\n  *                        25 to 32: FF\n  * Flash integrity:\n         Data:  5               Code:  4\n     1   OK (00010001)          OK (00030081)\n     2   OK (00010002)          OK (00030082)\n     3   OK (00010003)          OK (00030083)\n     4   OK (00010004)          OK (00030084)\n     5   KO (00010005)\n  * CRC: E6A9 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 88 00 02 1C 00 0F 00 00 FF 01 00 01 00 02 00 01 00 03 00 01 00 04 00 01 00 05 00 01 00 06 00 01 00 07 00 01 00 08 00 01 00 09 00 01 00 0A 00 01 00 0B 00 01 00 0C 00 01 00 0D 00 01 00 0E 00 01 00 0F 00 01 00 10 00 01 00 11 00 01 00 12 00 01 00 13 00 01 00 14 00 01 00 15 00 01 00 16 00 01 00 17 00 01 00 18 00 01 00 19 00 01 00 1A 00 01 00 1B 00 01 00 1C 00 01 00 81 00 03 00 82 00 03 00 83 00 03 00 84 00 03 00 12 8D",
+  "prev": [
+   "00 04 E0 00 00 00 03 FC"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * CRC check for sections  1 to  8: FF\n  *                         9 to 16: 00\n  *                        17 to 24: 00\n  *                        25 to 32: 0F\n  * Flash integrity:\n         Data:  2               Code: 28\n     1   OK (00010001)          OK (00030081)\n     2   OK (00010002)          OK (00030082)\n     3                          OK (00030083)\n     4                          OK (00030084)\n     5                             ()\n     6                             ()\n     7                             ()\n     8                             ()\n     9                             ()\n    10                             ()\n    11                             ()\n    12                             ()\n    13                             ()\n    14                             ()\n    15                             ()\n    16                             ()\n    17                             ()\n    18                             ()\n    19                             ()\n    20                             ()\n    21                             ()\n    22                             ()\n    23                             ()\n    24                             ()\n    25                             ()\n    26                             ()\n    27                             ()\n    28                             ()\n  * CRC: 128D (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 00 00 00 00 87 16",
+  "prev": [
+   "00 04 E0 00 00 00 03 FC"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * CRC check for sections  1 to  8: \n  *                         9 to 16: \n  *                        17 to 24: \n  *                        25 to 32: \n",
+  "error": "ValueError: invalid literal for int() with base 16: ''"
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 00 00 00 00 87 16",
+  "prev": [
+   "00 04 F0 00 00 00 18 5B"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * CRC: 8716 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 00 00 00 00 87 16",
+  "prev": [
+   "00 0A C0 00 04 01 20 04 00 11 22 33 09 0F"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * CRC: 8716 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 01 00 00 00 F1 A2",
+  "prev": [
+   "00 04 F1 00 00 00 6E EF"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: EDL_INVALID_ADDR >>  \n  * CRC: F1A2 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 08 C0 00 02 01 20 08 00 AA 68 C9",
+  "prev": [],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_SEC_WRITE >>  \n  * HDLL CMD: DL_SEC_WRITE\n  * ADDR: 012008\n  * DATA: 00AA\n  * CRC: 68C9 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 28 C0 00 02 01 20 08 AA BB 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 77 F1 60",
+  "prev": [],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_SEC_WRITE >>  \n  * Chunk: 1\n  * HDLL CMD: DL_SEC_WRITE\n  * ADDR: 012008\n  * DATA: AABB\n  * HASH: 7777777777777777777777777777777777777777777777777777777777777777\n  * CRC: F160 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 F0 00 00 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_RESET >>  \n  * HDLL CMD: DL_RESET\n  * CRC: 0000 (CRC-16-CCITT-FALSE)\n    ! CRC mismatch: calculated 185B\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 00 00 00 00 AB CD",
+  "prev": [],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * CRC: ABCD (CRC-16-CCITT-FALSE)\n    ! CRC mismatch: calculated 8716\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 AA 00 00 00 05 CB",
+  "prev": [],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: UNKNOWN (AA) >>  \nError: unknown HDLL op code AA, raw: 0004AA00000005CB\n  * CRC: 05CB (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 01 31 D9 DF",
+  "prev": [],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: PH_STATUS_EDL_CERT_ERROR >>  \n  * CRC: D9DF (CRC-16-CCITT-FALSE)\n\nError: Payload error!!\n  check: 3 Octet(s)\n  Packet Len: 5.0 Octet(s)\n  Frame Len: 1 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 01 00 79 6B",
+  "prev": [
+   "00 04 F1 00 00 00 6E EF"
+  ],
+  "source": "golden_inputs/nxp_hdll.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * Chunk: 1\n  * HDLL RSP: DL_STATUS_OK\n  * HW version: \n  * ROM code: \n  * Model ID: \n  * FW version: \n  * Internal FW build revision: \n  * Chip version: \n  * Chip Life Cycle: \n  * Certificate version: \n  * CRC: 796B (CRC-16-CCITT-FALSE)\n\nError: Payload error!!\n  check: 15 Octet(s)\n  Packet Len: 5.0 Octet(s)\n  Frame Len: 1 Octet(s)\n#end\n",
+  "error": null
+ }
+]

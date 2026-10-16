@@ -1,0 +1,20 @@
+--------- beginning of main
+08-21 06:14:35.800   628   628 I NfcService: Enabling NFC
+08-21 06:14:35.847   628  4213 I NxpNciX : len =   8 > 0004F10000006EEF
+08-21 06:14:35.850   628  4212 I NxpNciR : len =  10 > 000C010203040506070809A1B2
+08-21 06:14:37.118   628  4213 I NxpNciX : len =   4 > 20000100
+08-21 06:14:37.123   628  4212 I NxpNciR : len =   4 > 40000100
+08-21 06:14:37.125   628  4212 I NxpNciR : len =  13 > 60000A02002004057FC101013F
+08-21 06:14:37.129   628  4213 I NxpNciX : len =   5 > 2001020000
+08-21 06:14:37.131   628  4212 I NxpNciR : len =  29 > 40011A003A3E0600010604FFFF01FF0006000001000200800081008300
+08-21 06:14:37.140   628  4213 I NxpNciX : len =   1 > 20
+08-21 06:14:37.141   628  4213 D NxpNci  : NxpNci status line without direction tag
+08-21 06:14:37.150   628  4213 I NxpNciX : len =   4 > 2F000101
+08-21 06:14:37.151   628  4212 I NxpNciR : len =   4 > 4F000100
+08-21 06:14:37.160   628  4213 I NxpNciX : len =   6 > 2003030101FF
+08-21 06:14:37.161   628  4212 I NxpNciR : len =   5 > 0000020102
+08-21 06:14:37.170   628  4213 I NxpNciX : len =   3 > 2F7F00
+08-21 06:14:37.171   628  4212 I NxpNciR : len =   6 > 400101
+08-21 06:14:37.180   628   628 E NfcService: nfc error: timeout waiting for rsp
+08-21 06:14:37.190   628  4212 I NxpNciR : len =   5 > 6105020002
+	trailing tab-indented line with spaces   

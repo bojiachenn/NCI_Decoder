@@ -1,0 +1,290 @@
+[
+ {
+  "vendor": "Nxp",
+  "hex": "61 18 01 05",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << IOT_RETRY_NTF >>  \n  * WupCounter: 5\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 18 01 FF",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << IOT_RETRY_NTF >>  \n  * WupCounter: 255\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 18 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << IOT_RETRY_NTF >>  \n",
+  "error": "ValueError: invalid literal for int() with base 16: ''"
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 20 04 02 00 12 FC",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << FIELD_DETECT_NTF >>  \n  * Detection: 00000010 (02)\n   ~ Bit0 = RFU\n   ~ Bit1 = WupA/ReqA detected\n   ~ Bit2 = WupB/ReqB detected\n   ~ Bit3 = PollReq (typeF) detected\n   ~ Bit6 = RFU\n   ~ Bit7 = RX error detected\n  * System Code: 12FC\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 20 04 08 00 12 FC",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << FIELD_DETECT_NTF >>  \n  * Detection: 00001000 (08)\n   ~ Bit0 = RFU\n   ~ Bit1 = WupA/ReqA detected\n   ~ Bit2 = WupB/ReqB detected\n   ~ Bit3 = PollReq (typeF) detected\n   ~ Bit6 = RFU\n   ~ Bit7 = RX error detected\n  * POLL_REQ SC0-SC1: 12FC\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 20 04 10 00 12 FC",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << FIELD_DETECT_NTF >>  \n  * Detection: 00010000 (10)\n   ~ Bit0 = RFU\n   ~ Bit1 = WupA/ReqA detected\n   ~ Bit2 = WupB/ReqB detected\n   ~ Bit3 = PollReq (typeF) detected\n   ~ Bit6 = RFU\n   ~ Bit7 = RX error detected\n  * System Code: 12FC\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 20 04 86 00 FF FF",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << FIELD_DETECT_NTF >>  \n  * Detection: 10000110 (86)\n   ~ Bit0 = RFU\n   ~ Bit1 = WupA/ReqA detected\n   ~ Bit2 = WupB/ReqB detected\n   ~ Bit3 = PollReq (typeF) detected\n   ~ Bit6 = RFU\n   ~ Bit7 = RX error detected\n  * System Code: FFFF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 20 02 02 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << FIELD_DETECT_NTF >>  \n  * Detection: 00000010 (02)\n   ~ Bit0 = RFU\n   ~ Bit1 = WupA/ReqA detected\n   ~ Bit2 = WupB/ReqB detected\n   ~ Bit3 = PollReq (typeF) detected\n   ~ Bit6 = RFU\n   ~ Bit7 = RX error detected\n  * System Code: \nError: Payload error!!\n  Packet Len: 5 Octet(s)\n  Payload Len: 2 Octet(s)\n  Check Len: 4.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 21 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << PLL_UNLOCKED_NTF >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 21 01 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << PLL_UNLOCKED_NTF >>  \n         (Empty)         \nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 23 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << TxLDO_ERROR_NTF >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 28 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << PLL_LOSTLOCK_NTF >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 29 01 03",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << SETTINGS_CHANGE_NTF >>  \n  * Index: 03\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 29 01 AB",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << SETTINGS_CHANGE_NTF >>  \n  * Index: AB\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 2A 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_FREQ_ERROR_NTF >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 2B 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << LPDET_ERROR_NTF >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 2B 02 01 02",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << LPDET_ERROR_NTF >>  \n         (Empty)         \nError: Payload error!!\n  Packet Len: 5 Octet(s)\n  Payload Len: 2 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 0C 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_INTF_EXT_START_CMD >>  \n[NCI] control message No Support\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 0C 03 00 01 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_INTF_EXT_START_CMD >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 6 Octet(s)\n  Payload Len: 3 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 0C 01 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_INTF_EXT_START_RSP >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 0D 03 00 01 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_INTF_EXT_STOP_CMD >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 6 Octet(s)\n  Payload Len: 3 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 0D 01 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_INTF_EXT_STOP_RSP >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 0E 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_EXT_AGG_ABORT_CMD >>  \n[NCI] control message No Support\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 0E 01 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_EXT_AGG_ABORT_RSP >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 0F 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_NDEF_ABORT_CMD >>  \n[NCI] control message No Support\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 0F 01 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_NDEF_ABORT_RSP >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 11 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_SET_FORCED_NFCEE_ROUTING_CMD >>  \n[NCI] control message No Support\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "21 11 03 01 C0 3B",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_SET_FORCED_NFCEE_ROUTING_CMD >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 6 Octet(s)\n  Payload Len: 3 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 11 01 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_SET_FORCED_NFCEE_ROUTING_RSP >>  \n[NCI] control message No Support\nError: Payload error!!\n  Packet Len: 4 Octet(s)\n  Payload Len: 1 Octet(s)\n  Check Len: 0.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 10 01 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_ISO_DEP_NAK_PRESENCE_RSP >>  \n  * Status: STATUS_OK (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "41 10 01 E3",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_ISO_DEP_NAK_PRESENCE_RSP >>  \n  * Status: STATUS_PMU_TXLDO_OVERCURRENT (E3)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 10 01 E3",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_ISO_DEP_NAK_PRESENCE_NTF >>  \n  * Status: STATUS_PMU_TXLDO_OVERCURRENT (E3)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 03 06 02 04 03 01 AA 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 02\n  * RF Protocol: ISO-DEP (04)\n  * Mode: ACTIVE_POLL ( Not supported ) (03)\n  * Len of RF Tech Specific Params: 1\n  * ATR_RES Rsp Len: 170\n  * Error: RF Technology Specific Parameters: Payload too short: need 170 byte(s) for ATR_RES Rsp, 0 left\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 03 0A 06 05 03 05 04 D5 01 AA BB 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 06\n  * RF Protocol: NFC-DEP (05)\n  * Mode: ACTIVE_POLL ( Not supported ) (03)\n  * Len of RF Tech Specific Params: 5\n  * ATR_RES Rsp Len: 4\n  * ATR_RES Rsp: D501AABB\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 03 0A 06 05 83 05 04 D4 00 AA BB 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 06\n  * RF Protocol: NFC-DEP (05)\n  * Mode: ACTIVE_LISTEN ( Not supported ) (83)\n  * Len of RF Tech Specific Params: 5\n  * ATR_REQ Cmd Len: 4\n  * ATR_REQ Cmd: D400AABB\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "61 03 06 02 04 71 01 AA 00",
+  "prev": [],
+  "source": "golden_inputs/nxp_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 02\n  * RF Protocol: ISO-DEP (04)\n  * Mode: SILENT_PASSIVE_POLL (71)\n  * Len of RF Tech Specific Params: 1\n  * Proprietary parameters: AA\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ }
+]

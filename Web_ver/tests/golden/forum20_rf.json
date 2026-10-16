@@ -1,0 +1,642 @@
+[
+ {
+  "vendor": "None",
+  "hex": "21 01 27 00 05 00 03 00 01 00 01 03 80 3B 04 72 09 80 3B A0 00 00 00 03 10 10 03 06 02 01 40 00 FE 00 04 06 80 01 00 A4 FF FF",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 5 (05)\n\n   ~ [Routing Entry_0] ~  \n    * Type: Technology-based routing entry (00)\n    * Len: 3\n    * Val: 000100\n      * Route: DH-NFCEE  (00)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n      * Technology: NFC_RF_TECHNOLOGY_A (00)\n\n   ~ [Routing Entry_1] ~  \n    * Type: Protocol-based routing entry (01)\n    * Len: 3\n    * Val: 803B04\n      * Route: 80 (HCI-NFCEE) (80)\n      * Power State: 00111011 (3B)\n       ~ Screen Off lock (Sub-State 3):         Apply\n       ~ Screen On lock (Sub-State 2):          Apply\n       ~ Screen off unlock (Sub-State 1):       Apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                      Apply\n       ~ Switch On State:                       Apply\n      * Protocol: ISO-DEP (04)\n\n   ~ [Routing Entry_2] ~  \n    * Type: AID-based routing entry (72)\n     ~ Routing is blocked for the power modes where it is not supported.\n     ~ Match is allowed when the SELECT AID is shorter than the AID in this routing table entry.\n     ~ Match is allowed when the SELECT AID is longer than the AID in this routing table entry.\n    * Len: 9\n    * Val: 803BA0000000031010\n      * Route: 80 (HCI-NFCEE) (80)\n      * Power State: 00111011 (3B)\n       ~ Screen Off lock (Sub-State 3):         Apply\n       ~ Screen On lock (Sub-State 2):          Apply\n       ~ Screen off unlock (Sub-State 1):       Apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                      Apply\n       ~ Switch On State:                       Apply\n      * AID: A0000000031010\n\n   ~ [Routing Entry_3] ~  \n    * Type: System Code-based routing entry (03)\n    * Len: 6\n    * Val: 02014000FE00\n      * Route: 02 (Static IDs) (02)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n      * SC Route 0: 4000\n      * SC Route 1: FE00\n\n   ~ [Routing Entry_4] ~  \n    * Type: APDU Pattern-based routing entry (04)\n    * Len: 6\n    * Val: 800100A4FFFF\n      * Route: 80 (HCI-NFCEE) (80)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n      * Reference data: 00A4\n      * Mask: FFFF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 01 07 00 01 02 03 00 01 A0",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 1 (01)\n\n   ~ [Routing Entry_0] ~  \n    * Type: AID-based routing entry (02)\n    * Len: 3\n    * Val: 0001A0\n      * Route: DH-NFCEE  (00)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n      * AID: A0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 01 08 00 01 02 04 00 01 A0 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 1 (01)\n\n   ~ [Routing Entry_0] ~  \n    * Type: AID-based routing entry (02)\n    * Len: 4\n    * Val: 0001A000\n      * Route: DH-NFCEE  (00)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n      * AID: A000\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 01 06 00 01 02 02 00 01",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 1 (01)\n\n   ~ [Routing Entry_0] ~  \n    * Type: AID-based routing entry (02)\n    * Len: 2\n    * Val: 0001\n      * Route: DH-NFCEE  (00)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 01 0B 00 01 02 07 00 01 A0 00 00 00 03",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 1 (01)\n\n   ~ [Routing Entry_0] ~  \n    * Type: AID-based routing entry (02)\n    * Len: 7\n    * Val: 0001A000000003\n      * Route: DH-NFCEE  (00)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n      * AID: A000000003\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 01 07 00 01 01 03 81 3F 80",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 1 (01)\n\n   ~ [Routing Entry_0] ~  \n    * Type: Protocol-based routing entry (01)\n    * Len: 3\n    * Val: 813F80\n      * Route: 81 (HCI-NFCEE) (81)\n      * Power State: 00111111 (3F)\n       ~ Screen Off lock (Sub-State 3):         Apply\n       ~ Screen On lock (Sub-State 2):          Apply\n       ~ Screen off unlock (Sub-State 1):       Apply\n       ~ Battery Off State:                     Apply\n       ~ Switch Off State:                      Apply\n       ~ Switch On State:                       Apply\n      * Protocol: For proprietary use (80)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 01 07 00 01 11 03 FF 01 04",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 1 (01)\n\n   ~ [Routing Entry_0] ~  \n    * Type: Protocol-based routing entry (11)\n     ~ Match is allowed when the SELECT AID is longer than the AID in this routing table entry.\n    * Len: 3\n    * Val: FF0104\n      * Route: (RFU)  (FF)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n      * Protocol: ISO-DEP (04)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 01 07 00 01 05 03 01 01 AA",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 1 (01)\n\n   ~ [Routing Entry_0] ~  \n    * Type: RFU (05)\n    * Len: 3\n    * Val: 0101AA\n      * Route: HCI-NTWK-NFCEE (RFU)  (01)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 01 07 00 01 20 03 02 01 03",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 1 (01)\n\n   ~ [Routing Entry_0] ~  \n    * Type: Technology-based routing entry (20)\n     ~ Match is allowed when the SELECT AID is shorter than the AID in this routing table entry.\n    * Len: 3\n    * Val: 020103\n      * Route: 02 (Static IDs) (02)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n      * Technology: NFC_RF_TECHNOLOGY_V (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 01 0C 00 01 04 08 C0 3F 00 A4 04 00 FF FF FF 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "Error: Unknown raw data!\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 01 0A 00 01 03 06 00 01 12 FC 40 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 1 (01)\n\n   ~ [Routing Entry_0] ~  \n    * Type: System Code-based routing entry (03)\n    * Len: 6\n    * Val: 000112FC4000\n      * Route: DH-NFCEE  (00)\n      * Power State: 00000001 (01)\n       ~ Screen Off lock (Sub-State 3):     Not apply\n       ~ Screen On lock (Sub-State 2):      Not apply\n       ~ Screen off unlock (Sub-State 1):   Not apply\n       ~ Battery Off State:                 Not apply\n       ~ Switch Off State:                  Not apply\n       ~ Switch On State:                       Apply\n      * SC Route 0: 12FC\n      * SC Route 1: 4000\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 02 03 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_GET_LISTEN_MODE_ROUTING_NTF >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 0 (00)\nError: Payload error!!\n  Packet Len: 6 Octet(s)\n  Payload Len: 3 Octet(s)\n  Check Len: 2.0 Octet(s)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 01 02 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_SET_LISTEN_MODE_ROUTING_CMD >>  \n  * More: Last Message (00)\n  * Number of Routing Entries: 0 (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 03 09 04 03 01 70 01 F0 01 04 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_CMD >>  \n  * Number of Configs: 4 (04)\n\n   ~ [Config_0] ~  \n    * Mode: ACTIVE_POLL (03)\n    * Discovery Freq: 1\n\n   ~ [Config_1] ~  \n    * Mode: Reserved for Proprietary Technologies in Poll Mode (70)\n    * Discovery Freq: 1\n\n   ~ [Config_2] ~  \n    * Mode: Reserved for Proprietary Technologies in Listen Mode (F0)\n    * Discovery Freq: 1\n\n   ~ [Config_3] ~  \n    * Mode: RFU (04)\n    * Discovery Freq: RFU\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 03 03 01 83 0B",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_CMD >>  \n  * Number of Configs: 1 (01)\n\n   ~ [Config_0] ~  \n    * Mode: ACTIVE_LISTEN (83)\n    * Discovery Freq: RFU\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 05 01 04 80 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: ISO-DEP (04)\n  * Mode: A_PASSIVE_LISTEN (80)\n  * Len of RF Tech Specific Params: 0\n  * There is no RF Technology Specific Parameters\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 07 01 04 80 02 AA BB 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: ISO-DEP (04)\n  * Mode: A_PASSIVE_LISTEN (80)\n  * Len of RF Tech Specific Params: 2\n  * There is no RF Technology Specific Parameters\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 06 01 04 81 01 00 02",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: ISO-DEP (04)\n  * Mode: B_PASSIVE_LISTEN (81)\n  * Len of RF Tech Specific Params: 1\n  * SENSB_REQ Command: 00\n  * NTF Type: More NTF to follow (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 0E 01 03 82 09 08 02 FE 00 00 00 00 00 00 02",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: T3T (03)\n  * Mode: F_PASSIVE_LISTEN (82)\n  * Len of RF Tech Specific Params: 9\n  * Local NFCID2 Len: 8\n  * Local NFCID2: 02FE000000000000\n  * NTF Type: More NTF to follow (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 0A 01 05 83 05 04 D4 00 11 22 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: NFC-DEP (05)\n  * Mode: ACTIVE_LISTEN (83)\n  * Len of RF Tech Specific Params: 5\n  * ATR_REQ Cmd Len: 4\n  * ATR_REQ Cmd: D4001122\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 07 01 03 02 02 03 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: T3T (03)\n  * Mode: F_PASSIVE_POLL (02)\n  * Len of RF Tech Specific Params: 2\n  * Bit Rate: RFU (03)\n  * SENSF_RES Rsp Len: 0\n  * SENSF_RES Rsp: \n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 07 01 03 02 02 02 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: T3T (03)\n  * Mode: F_PASSIVE_POLL (02)\n  * Len of RF Tech Specific Params: 2\n  * Bit Rate: 424 kbps\n  * SENSF_RES Rsp Len: 0\n  * SENSF_RES Rsp: \n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 07 01 03 02 02 07 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: T3T (03)\n  * Mode: F_PASSIVE_POLL (02)\n  * Len of RF Tech Specific Params: 2\n  * Bit Rate: RFU (07)\n  * SENSF_RES Rsp Len: 0\n  * SENSF_RES Rsp: \n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 07 01 81 F0 02 AA BB 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: For proprietary use (81)\n  * Mode: Reserved for Proprietary Technologies in Listen Mode (F0)\n  * Len of RF Tech Specific Params: 2\n  * Proprietary parameters: AABB\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 07 01 01 04 02 AA BB 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: T1T (01)\n  * Mode: RFU (04)\n  * Len of RF Tech Specific Params: 2\n  * Proprietary parameters: AABB\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 05 01 04 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: ISO-DEP (04)\n  * Mode: A_PASSIVE_POLL (00)\n  * Len of RF Tech Specific Params: 0\n  * Error: RF Technology Specific Parameters: Payload too short: need 2 byte(s) for SENS_RES Response, 0 left\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 05 FF 04 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: RFU\n  * RF Protocol: ISO-DEP (04)\n  * Mode: A_PASSIVE_POLL (00)\n  * Len of RF Tech Specific Params: 0\n  * Error: RF Technology Specific Parameters: Payload too short: need 2 byte(s) for SENS_RES Response, 0 left\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 07 00 04 01 02 01 AA 03",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: RFU\n  * RF Protocol: ISO-DEP (04)\n  * Mode: B_PASSIVE_POLL (01)\n  * Len of RF Tech Specific Params: 2\n  * SENSB_RES Rsp Len: 1\n  * SENSB_RES Rsp: AA\n  * NTF Type: RFU (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 03 05 01 04 01 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_NTF >>  \n  * RF Discovery ID: 01\n  * RF Protocol: ISO-DEP (04)\n  * Mode: B_PASSIVE_POLL (01)\n  * Len of RF Tech Specific Params: 0\n  * Error: RF Technology Specific Parameters: Payload too short: need 1 byte(s) for SENSB_RES Rsp Len, 0 left\n  * NTF Type: Last NTF (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 04 03 02 05 03",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_SELECT_CMD >>  \n  * RF Discovery ID: 02\n  * RF Protocol: NFC-DEP (05)\n  * RF Interface: NFC-DEP (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 04 03 01 80 80",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_SELECT_CMD >>  \n  * RF Discovery ID: 01\n  * RF Protocol: For proprietary use (80)\n  * RF Interface: For proprietary use (80)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 18 01 01 02 00 FF 10 0D 44 00 07 04 11 22 33 44 55 66 01 00 00 00 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: Frame (01)\n  * RF Protocol: T2T (02)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 16\n  * Len of RF Tech Specific Params: 13\n  * SENS_RES Response: 4400\n  * NFCID1 Len: 7\n  * NFCID1: 04112233445566\n  * SEL_RES Rsp Len: 1\n  * SEL_RES Rsp: 00\n  * HRx Len: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 18 01 01 02 00 FF 0A 0D 44 00 07 04 11 22 33 44 55 66 01 00 00 00 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: Frame (01)\n  * RF Protocol: T2T (02)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 10\n  * Len of RF Tech Specific Params: 13\n  * SENS_RES Response: 4400\n  * NFCID1 Len: 7\n  * NFCID1: 04112233445566\n  * SEL_RES Rsp Len: 1\n  * SEL_RES Rsp: 00\n  * HRx Len: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 18 01 01 02 00 FF 09 0D 44 00 07 04 11 22 33 44 55 66 01 00 00 00 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: Frame (01)\n  * RF Protocol: T2T (02)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 9\n  * Len of RF Tech Specific Params: 13\n  * SENS_RES Response: 4400\n  * NFCID1 Len: 7\n  * NFCID1: 04112233445566\n  * SEL_RES Rsp Len: 1\n  * SEL_RES Rsp: 00\n  * HRx Len: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0B 01 02 04 00 FF 01 00 00 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: ISO-DEP (02)\n  * RF Protocol: ISO-DEP (04)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0B 01 02 04 01 FF 01 00 01 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: ISO-DEP (02)\n  * RF Protocol: ISO-DEP (04)\n  * Activation Mode: B_PASSIVE_POLL (01)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: B_PASSIVE_POLL (01)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0B 01 02 04 80 FF 01 00 80 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: ISO-DEP (02)\n  * RF Protocol: ISO-DEP (04)\n  * Activation Mode: A_PASSIVE_LISTEN (80)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: A_PASSIVE_LISTEN (80)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0B 01 02 04 81 FF 01 00 81 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: ISO-DEP (02)\n  * RF Protocol: ISO-DEP (04)\n  * Activation Mode: B_PASSIVE_LISTEN (81)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: B_PASSIVE_LISTEN (81)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0B 01 03 05 00 FF 01 00 00 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0B 01 03 05 82 FF 01 00 82 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: F_PASSIVE_LISTEN (82)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: F_PASSIVE_LISTEN (82)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0E 01 02 04 06 FF 01 00 06 00 00 03 AA BB CC",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: ISO-DEP (02)\n  * RF Protocol: ISO-DEP (04)\n  * Activation Mode: V_PASSIVE_POLL (06)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: V_PASSIVE_POLL (06)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 3\n  * Activation Params: AABBCC\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0E 01 02 04 82 FF 01 00 82 00 00 03 AA BB CC",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: ISO-DEP (02)\n  * RF Protocol: ISO-DEP (04)\n  * Activation Mode: F_PASSIVE_LISTEN (82)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: F_PASSIVE_LISTEN (82)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 3\n  * Activation Params: AABBCC\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0E 01 03 05 01 FF 01 00 01 00 00 03 AA BB CC",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: B_PASSIVE_POLL (01)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: B_PASSIVE_POLL (01)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 3\n  * Activation Params: AABBCC\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0E 01 00 04 80 FF 01 00 80 00 00 03 AA BB CC",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFCEE Direct (00)\n  * RF Protocol: ISO-DEP (04)\n  * Activation Mode: A_PASSIVE_LISTEN (80)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: A_PASSIVE_LISTEN (80)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 3\n  * Activation Params: AABBCC\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0E 01 80 80 70 FF 01 00 70 80 80 03 AA BB CC",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: For proprietary use (80)\n  * RF Protocol: For proprietary use (80)\n  * Activation Mode: Reserved for Proprietary Technologies in Poll Mode (70)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: Reserved for Proprietary Technologies in Poll Mode (70)\n  * Tx: For proprietary use (80)\n  * Rx: For proprietary use (80)\n  * Len of Activation Params: 3\n  * Activation Params: AABBCC\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0C 01 02 04 80 FF 01 01 00 80 00 00 01 81",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "Error: Unknown raw data!\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0D 01 01 80 F0 FF 01 02 AA BB F0 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: Frame (01)\n  * RF Protocol: For proprietary use (80)\n  * Activation Mode: Reserved for Proprietary Technologies in Listen Mode (F0)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 2\n  * Proprietary parameters: AABB\n  * Data Mode: Reserved for Proprietary Technologies in Listen Mode (F0)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0B 01 01 02 03 FF 01 00 03 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: Frame (01)\n  * RF Protocol: T2T (02)\n  * Activation Mode: ACTIVE_POLL (03)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: ACTIVE_POLL (03)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0B 01 03 05 83 FF 01 00 83 00 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: NFC-DEP (03)\n  * RF Protocol: NFC-DEP (05)\n  * Activation Mode: ACTIVE_LISTEN (83)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: ACTIVE_LISTEN (83)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 05 0C 01 02 04 00 FF 01 00 00 00 00 01 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_ACTIVATED_NTF >>  \n  * RF Discovery ID: 01\n  * RF Interface: ISO-DEP (02)\n  * RF Protocol: ISO-DEP (04)\n  * Activation Mode: A_PASSIVE_POLL (00)\n  * Max Data Size: 255 (FF)\n  * Number of Credits: 1\n  * Len of RF Tech Specific Params: 0\n  * Data Mode: A_PASSIVE_POLL (00)\n  * Tx: 106 Kbit/s (00)\n  * Rx: 106 Kbit/s (00)\n  * Len of Activation Params: 1\n  * RATS Rsp Len: 0 (00)\n  * RATS Rsp: \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 06 02 03 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DEACTIVATE_NTF >>  \n  * Deactivation Type: Discovery (03)\n  * Deactivation Reason: DH_Request (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 06 01 07",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DEACTIVATE_CMD >>  \n  * Deactivation Type: RFU (07)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 07 01 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_FIELD_INFO_NTF >>  \n  * RF Field Status: No Operating field generated by Remote NFC Endpoint.\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 07 01 02",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_FIELD_INFO_NTF >>  \n  * RF Field Status: RFU (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 08 02 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_T3T_POLLING_NTF >>  \n  * Status: STATUS_OK (00)\n  * Number of Rsp: 0 (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 08 02 01 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_T3T_POLLING_NTF >>  \n  * Status: STATUS_REJECTED (01)\n  * Number of Rsp: 0 (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 07 02 04 04 00 A4 FF FF",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: 02  (Static IDs)\n  * Trigger: TAPDU Pattern-based Route Selection Process (as defined in Table 58) (04)\n  * Supporting Data Len: 4\n  * Supporting Data: \n    * Reference data: 00A4\n    * Mask: FFFF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 07 81 04 04 00 A4 FF FF",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: 81  (HCI-NFCEE)\n  * Trigger: TAPDU Pattern-based Route Selection Process (as defined in Table 58) (04)\n  * Supporting Data Len: 4\n  * Supporting Data: \n    * Reference data: 00A4\n    * Mask: FFFF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 05 02 06 02 AA BB",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: 02  (Static IDs)\n  * Trigger: RFU (06)\n  * Supporting Data Len: 2\n  * Supporting Data: \n    * Data: AABB\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 05 FF 80 02 AA BB",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: FF (RFU) \n  * Trigger: RFU (80)\n  * Supporting Data Len: 2\n  * Supporting Data: \n    * Data: AABB\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 04 00 01 01 80",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: 00 DH-NFCEE \n  * Trigger: Protocol-based Route Selection Process (ref to Table 133) (01)\n  * Supporting Data Len: 1\n  * Supporting Data: \n    * RF Protocol: For proprietary use (80)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 04 C0 02 01 05",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: C0  (HCI-NFCEE)\n  * Trigger: Technology-based Route Selection Process (ref to Table 130) (02)\n  * Supporting Data Len: 1\n  * Supporting Data: \n    * RF Technology: RFU (05)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 03 01 03 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: 01 HCI-NTWK-NFCEE (RFU) \n  * Trigger: System Code-based Route Selection Process (03)\n  * Supporting Data Len: 0\n  * Supporting Data: \n    * SC Route: \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 09 05 02 01 02 04 05",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_NFCEE_ACTION_NTF >>  \n  * NFCEE ID: 02  (Static IDs)\n  * Trigger: Protocol-based Route Selection Process (ref to Table 133) (01)\n  * Supporting Data Len: 2\n  * Supporting Data: \n    * RF Protocol: RFU (0405)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 0A 0D 02 80 02 AA BB 01 05 FF 03 02 05 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "Error: Unknown raw data!\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 0A 07 01 00 03 C0 70 80",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "Error: Unknown raw data!\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "61 0A 07 01 00 03 02 F0 06",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "Error: Unknown raw data!\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 0B 05 01 80 02 AA BB",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_PARAMETER_UPDATE_CMD >>  \n  * Number of Params: 1 (01)\n\n   ~ [RF Communication 0] ~  \n  * Type ID: Proprietary (80)\n  * Len: 2\n  * Val: AABB\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 0B 07 02 00 01 03 01 01 05",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_PARAMETER_UPDATE_CMD >>  \n  * Number of Params: 2 (02)\n\n   ~ [RF Communication 0] ~  \n  * Type ID: RF Technology and Mode (coded as defined in Table 131) (00)\n  * Len: 1\n  * Val: 03\n    * Mode: ACTIVE_POLL (03)\n\n   ~ [RF Communication 1] ~  \n  * Type ID: Transmit Bit Rate (coded as defined in Table 132) (01)\n  * Len: 1\n  * Val: 05\n    * Tx: 3390 Kbit/s (05)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 0B 04 01 03 01 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_PARAMETER_UPDATE_CMD >>  \n  * Number of Params: 1 (01)\n\n   ~ [RF Communication 0] ~  \n  * Type ID: NFC-B Data Exchange Configuration (coded as defined in Table 92) (03)\n  * Len: 1\n  * Val: 00\n    * NFC-B Data Exchange Config: 00\n     ~ Minimum TR0:      00\n     ~ Minimum TR1:      00\n     ~ Suppression of EoS: 0\n     ~ Suppression of SoS: 0\n     ~ Minimum TR3:      00\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 0B 04 00 02 80 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_PARAMETER_UPDATE_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 2\n  * RF Communication Param ID: \n  * Type ID 0: Proprietary (80)\n  * Type ID 1: RF Technology and Mode (coded as defined in Table 131) (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 0B 03 01 02 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_PARAMETER_UPDATE_CMD >>  \n  * Number of Params: 1 (01)\n\n   ~ [RF Communication 0] ~  \n  * Type ID: Receive Bit Rate (coded as defined in Table 132) (02)\n  * Len: 0\n  * Val: \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 0C 02 05 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_EXT_START_CMD >>  \n  * RF Interface Extension: RFU (05)\n  * Start Param Len: 0\n  * Start Param: \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 0D 03 01 01 FF",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_INTF_EXT_STOP_CMD >>  \n  * RF Interface Extension: LLCP Symmetry RF Interface Extension (01)\n  * Stop Param Len: 1\n  * Stop Param: FF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 11 03 01 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_SET_FORCED_NFCEE_ROUTING_CMD >>  \n  * Forced NFCEE Routing State: Enabled\n  * Forced NFCEE: 00 DH-NFCEE \n    * Power State: 00000000 (00)\n     ~ Screen Off lock (Sub-State 3):Not apply \n     ~ Screen On lock (Sub-State 2):Not apply \n     ~ Screen off unlock (Sub-State 1):Not apply \n     ~ Battery Off State:        Not apply \n     ~ Switch Off State:         Not apply \n     ~ Switch On State:          Not apply \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 11 03 01 10 01",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_SET_FORCED_NFCEE_ROUTING_CMD >>  \n  * Forced NFCEE Routing State: Enabled\n  * Forced NFCEE: 10  (NFCEE)\n    * Power State: 00000001 (01)\n     ~ Screen Off lock (Sub-State 3):Not apply \n     ~ Screen On lock (Sub-State 2):Not apply \n     ~ Screen off unlock (Sub-State 1):Not apply \n     ~ Battery Off State:        Not apply \n     ~ Switch Off State:         Not apply \n     ~ Switch On State:          Apply     \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 11 03 01 FF 3F",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_SET_FORCED_NFCEE_ROUTING_CMD >>  \n  * Forced NFCEE Routing State: Enabled\n  * Forced NFCEE: FF (RFU) \n    * Power State: 00111111 (3F)\n     ~ Screen Off lock (Sub-State 3):Apply     \n     ~ Screen On lock (Sub-State 2):Apply     \n     ~ Screen off unlock (Sub-State 1):Apply     \n     ~ Battery Off State:        Apply     \n     ~ Switch Off State:         Apply     \n     ~ Switch On State:          Apply     \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 00 07 02 80 01 80 02 02 02 02",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "Error: Unknown raw data!\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "21 00 01 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_MAP_CMD >>  \n  * Number of Mapping Configs: 0 (00)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "41 00 01 03",
+  "prev": [],
+  "source": "golden_inputs/forum20_rf.json",
+  "output": "  << RF_DISCOVER_MAP_RSP >>  \n  * Status: STATUS_FAILED (03)\n#end\n",
+  "error": null
+ }
+]

@@ -1,0 +1,138 @@
+[
+ {
+  "vendor": "Nxp",
+  "hex": "6F 1C 00",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << LOW_POWER_TAG_REMOVAL_NTF >>  \n         (Empty)         \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 1F 01 00",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << COLD_RESET_CMD >>  \n  * RESET by pin: SE reset Enabled \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 1F 01 05",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << COLD_RESET_CMD >>  \n  * RESET by pin: SE reset RFU\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "2F 30 06 00 00 00 00 01 00",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << TEST_PRBS_CMD >>  \n  * PRBS Mode: Firmware generated PRBS\n  * PRBS Type: PRBS9 when Hardware generated PRBS selected\n  * Technology to stream: Type A\n  * Bitrate: 106 Kbit/s\n  * PRBS series length: 0100\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 12 AF 10 00 20 00 04 0B 01 02 03 04 05 06 07 08 09 0A 0B",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: CMA\n  * Time: 16 ms 32 µs\n  * Trig type: CLT_DATA_RX\n  * Extra data info: 0B0102030405060708090A0B\n    * CLT RX Data: 0102030405060708090A0B\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 12 AF 10 00 20 00 0C 0A 00 01 02 03 04 05 06 07 08 09 0A",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: CMA\n  * Time: 16 ms 32 µs\n  * Trig type: ERROR\n  * Extra data info: 0A000102030405060708090A\n    * Data received: 0102030405060708090A\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 36 09 A8 10 00 20 00 04 05 AA BB",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << L2_DEBUG_NTF >>  \n  * Tag: CMA\n  * Time: 16 ms 32 µs\n  * Trig type: CLT_DATA_RX\n  * Extra data info: 05AABB\n    * CLT RX Data: AABB\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "6F 04 07 60 00 00 10 5A 11 22",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << APDU_LOGGING_NTF >>  \n  * Logging Opcode: 60\n  * Timestamp: 0.256 ms\n  * Category: Error 5A\n  * APDU Data: 1122\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 14 06 00 04 01 02 03 04",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << RF_GET_TRANSITION_RSP >>  \n  * Status: STATUS_OK\n  * RF Transition Len: 4\n  * RF Transition Val: 0x04030201 (raw 01020304)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 14 04 00 02 34 12",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << RF_GET_TRANSITION_RSP >>  \n  * Status: STATUS_OK\n  * RF Transition Len: 2\n  * RF Transition Val: 0x1234 (raw 3412)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F 3F 0E 00 0F 2C 01 0D 00 00 00 F4 01 0C 00 00 00",
+  "prev": [
+   "2F 3F 03 05 00 00"
+  ],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << OPTIONAL_RSP >>  \n  << DPC_HELPER_RSP >>  \n  * Status: STATUS_OK\n  * DPC Info: 2C010D000000F4010C000000\n   ~  #  ~  Power  ~  VDDPA  ~  Current  ~  NCI cmd  ~\n      0    0.645 W    2.15 V     300 mA      2C010D\n      1    1.050 W    2.10 V     500 mA      F4010C\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 00 03 00 00 DE 46",
+  "prev": [
+   "00 04 F2 00 00 00 F5 33"
+  ],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * Session State: RFU (03)\n  * CRC: DE46 (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 88 00 01 03 00 00 00 00 80 11 22 33 44 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 AA BB CC DD 01 02 03 04 05 06 07 08 00 00 00 00 55 BF",
+  "prev": [
+   "00 04 E0 00 00 00 03 FC"
+  ],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << Nxp HDLL: DL_OK >>  \n  * HDLL RSP: DL_STATUS_OK\n  * CRC check for sections  1 to  8: 80\n  *                         9 to 16: 00\n  *                        17 to 24: 00\n  *                        25 to 32: 00\n  * Flash integrity:\n         Data:  1               Code:  3\n     1   OK (44332211)          KO (DDCCBBAA)\n     2                          KO (04030201)\n     3                          KO (08070605)\n  * CRC: 55BF (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "00 04 77 00 00 00 94 4E",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << Nxp HDLL: UNKNOWN (77) >>  \nError: unknown HDLL op code 77, raw: 000477000000944E\n  * CRC: 944E (CRC-16-CCITT-FALSE)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "20 04 F0 00 00 00 12 34",
+  "prev": [],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << Nxp HDLL: DL_RESET >>  \n  * Chunk: 1\n  * HDLL CMD: DL_RESET\n  * CRC: 1234 (CRC-16-CCITT-FALSE)\n    ! CRC mismatch: calculated 2D53\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "Nxp",
+  "hex": "4F3F3E000F36810D00000037810C00000037810C00000037810C00000036810D00000036810D00000036810D00000037810C00000036810D00000037810C000000",
+  "prev": [
+   "2F 3F 03 05 00 00"
+  ],
+  "source": "golden_inputs/fixes_r2_nxp_prop.json",
+  "output": "  << OPTIONAL_RSP >>  \n  << DPC_HELPER_RSP >>  \n  * Status: STATUS_OK\n  * DPC Info: 36810D00000037810C00000037810C00000037810C00000036810D00000036810D00000036810D00000037810C00000036810D00000037810C000000\n   ~  #  ~  Power  ~  VDDPA  ~  Current  ~  NCI cmd  ~\n      0    0.666 W    2.15 V     310 mA      36810D\n      1    0.653 W    2.10 V     311 mA      37810C\n      2    0.653 W    2.10 V     311 mA      37810C\n      3    0.653 W    2.10 V     311 mA      37810C\n      4    0.666 W    2.15 V     310 mA      36810D\n      5    0.666 W    2.15 V     310 mA      36810D\n      6    0.666 W    2.15 V     310 mA      36810D\n      7    0.653 W    2.10 V     311 mA      37810C\n      8    0.666 W    2.15 V     310 mA      36810D\n      9    0.653 W    2.10 V     311 mA      37810C\n#end\n",
+  "error": null
+ }
+]

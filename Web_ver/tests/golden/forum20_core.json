@@ -1,0 +1,274 @@
+[
+ {
+  "vendor": "None",
+  "hex": "40 03 B7 00 31 00 02 E8 03 02 01 03 03 01 02 08 01 01 11 01 00 19 01 05 09 01 01 14 01 02 1A 01 01 2F 01 01 10 01 00 12 01 00 13 01 10 18 01 01 21 01 02 3E 01 00 5B 01 03 68 01 07 20 02 AA BB 28 01 00 29 03 46 66 6D 2A 01 30 62 01 30 30 01 04 31 01 0C 32 01 60 33 04 01 02 03 04 38 01 01 39 04 11 22 33 44 3A 04 00 00 00 00 3B 01 00 3C 01 75 40 12 02 FE 01 FE 00 00 00 00 00 00 FF FF FF FF FF FF FF FF 52 01 10 53 02 03 80 55 01 01 50 01 02 58 01 70 59 02 80 00 5A 01 00 5C 01 02 60 01 0E 61 03 46 66 6D 80 01 01 81 01 00 82 01 1F 83 01 11 85 01 01 A0 01 55",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 49\n\n   ~ [Param_0] ~  \n    * ID: TOTAL_DURATION (00)\n    * Len: 2\n    * Val: 1000 ms (E803)\n\n   ~ [Param_1] ~  \n    * ID: CON_DISCOVERY_PARAM (02)\n    * Len: 1\n    * Val: 00000011 (03)\n     ~ Polling Mode: Enabled\n     ~ DH-NFCEE:     Disabled\n\n   ~ [Param_2] ~  \n    * ID: POWER_STATE (03)\n    * Len: 1\n    * Val: 02\n     ~ Current CORE_GET_CONFIG_CMD apply for Switched Off State\n\n   ~ [Param_3] ~  \n    * ID: PA_BAIL_OUT (08)\n    * Len: 1\n    * Val: 01\n     ~ Bail out when NFC-A Technology has been detected: Apply\n\n   ~ [Param_4] ~  \n    * ID: PB_BAIL_OUT (11)\n    * Len: 1\n    * Val: 00\n     ~ Bail out when NFC-B Technology has been detected: Not apply\n\n   ~ [Param_5] ~  \n    * ID: PF_BAIL_OUT (19)\n    * Len: 1\n    * Val: 05\n     ~ Bail out when NFC-F Technology has been detected: RFU\n\n   ~ [Param_6] ~  \n    * ID: PA_DEVICES_LIMIT (09)\n    * Len: 1\n    * Val: 01\n     ~ As defined in [ACTIVITY] for the Collision Resolution Activity.\n\n   ~ [Param_7] ~  \n    * ID: PB_DEVICES_LIMIT (14)\n    * Len: 1\n    * Val: 02\n     ~ As defined in [ACTIVITY] for the Collision Resolution Activity.\n\n   ~ [Param_8] ~  \n    * ID: PF_DEVICES_LIMIT (1A)\n    * Len: 1\n    * Val: 01\n     ~ As defined in [ACTIVITY] for the Collision Resolution Activity.\n\n   ~ [Param_9] ~  \n    * ID: PV_DEVICES_LIMIT (2F)\n    * Len: 1\n    * Val: 01\n     ~ As defined in [ACTIVITY] for the Collision Resolution Activity.\n\n   ~ [Param_10] ~  \n    * ID: PB_AFI (10)\n    * Len: 1\n    * Val:  00\n     ~ Application family identifier (as defined in [DIGITAL]).\n\n   ~ [Param_11] ~  \n    * ID: PB_ATTRIB_PARAM1 (12)\n    * Len: 1\n    * Val: 00\n     ~ The values and coding of this parameter SHALL be as defined in [DIGITAL] for Param 1 of the ATTRIB command.\n\n   ~ [Param_12] ~  \n    * ID: PB_SENSB_REQ_PARAM (13)\n    * Len: 1\n    * Val: 00010000 (10)\n     ~ Extended SENSB_RES: Support\n\n   ~ [Param_13] ~  \n    * ID: PF_BIT_RATE (18)\n    * Len: 1\n    * Val: 212 Kbit/s (01)\n\n   ~ [Param_14] ~  \n    * ID: PI_BIT_RATE (21)\n    * Len: 1\n    * Val: 424 Kbit/s (02)\n\n   ~ [Param_15] ~  \n    * ID: LB_BIT_RATE (3E)\n    * Len: 1\n    * Val: 106 Kbit/s (00)\n\n   ~ [Param_16] ~  \n    * ID: LI_A_BIT_RATE (5B)\n    * Len: 1\n    * Val: 848 Kbit/s (03)\n\n   ~ [Param_17] ~  \n    * ID: PACM_BIT_RATE (68)\n    * Len: 1\n    * Val: RFU (07)\n\n   ~ [Param_18] ~  \n    * ID: PI_B_H_INFO (20)\n    * Len: 2\n    * Val: AABB\n     ~ Higher layer INF field of the ATTRIB Command (as defined in [DIGITAL]).\n\n   ~ [Param_19] ~  \n    * ID: PN_NFC_DEP_PSL (28)\n    * Len: 1\n    * Val: 00\n     ~ Bit Rates and Length Reduction: Highest available\n\n   ~ [Param_20] ~  \n    * ID: PN_ATR_REQ_GEN_BYTES (29)\n    * Len: 3\n    * Val: 46666D\n     ~ General Bytes for ATR_REQ.\n\n   ~ [Param_21] ~  \n    * ID: PN_ATR_REQ_CONFIG (2A)\n    * Len: 1\n    * Val: 00110000 (30)\n     ~ NOTE: Needs to be always set to 0x30 for LLCP\n     ~ Value for LR: 11\n\n   ~ [Param_22] ~  \n    * ID: LN_ATR_RES_CONFIG (62)\n    * Len: 1\n    * Val: 00110000 (30)\n     ~ NOTE: Needs to be always set to 0x30 for LLCP\n     ~ Value for LR: 11\n\n   ~ [Param_23] ~  \n    * ID: LA_BIT_FRAME_SDD (30)\n    * Len: 1\n    * Val: 00000100 (04)\n     ~ Bit Frame SDD value to be sent in Byte 1 of SENS_RES. This is a 5-bit value.\n\n   ~ [Param_24] ~  \n    * ID: LA_PLATFORM_CONFIG (31)\n    * Len: 1\n    * Val: 00001100 (0C)\n     ~ Platform Configuration value to be sent in Byte 2 of SENS_RES. This is a 4-bit value.\n\n   ~ [Param_25] ~  \n    * ID: LA_SEL_INFO (32)\n    * Len: 1\n    * Val: 01100000 (60)\n     ~ NFC-DEP Protocol: Supported\n     ~ ISO-DEP Protocol: Supported\n\n   ~ [Param_26] ~  \n    * ID: LA_NFCID1 (33)\n    * Len: 4\n    * Val: 01020304\n     ~ NFCID1 as defined in [DIGITAL].\n\n   ~ [Param_27] ~  \n    * ID: LB_SENSB_INFO (38)\n    * Len: 1\n    * Val: 00000001 (01)\n     ~ ISO-DEP Protocol: Supported\n\n   ~ [Param_28] ~  \n    * ID: LB_NFCID0 (39)\n    * Len: 4\n    * Val: 11223344\n     ~ NFCID0 as defined in [DIGITAL].\n\n   ~ [Param_29] ~  \n    * ID: LB_APPLICATION_DATA (3A)\n    * Len: 4\n    * Val: 00000000\n     ~ Application Data (Bytes 6-9) of SENSB_RES (as defined in [DIGITAL]).\n\n   ~ [Param_30] ~  \n    * ID: LB_SFGI (3B)\n    * Len: 1\n    * Val: 00\n     ~ Start-Up Frame Guard Time, as defined in [DIGITAL].\n\n   ~ [Param_31] ~  \n    * ID: LB_FWI_ADC_FO (3C)\n    * Len: 1\n    * Val: 01110101 (75)\n     ~ Frame Waiting time Integer: 7 (0111)\n     ~ b3 of ADC Coding field of SENSB_RES (Byte 12) as defined in [DIGITAL] (0)\n     ~ If set to 1b DID MAY be used. Otherwise it SHALL NOT be used. (1)\n\n   ~ [Param_32] ~  \n    * ID: LF_T3T_IDENTIFIERS_1 (40)\n    * Len: 18\n    * Val: 02FE01FE000000000000FFFFFFFFFFFFFFFF\n     ~ System Code of T3T Emulation: 02FE\n     ~ NFCID2 for the T3T Platform: 01FE000000000000\n     ~ PAD0, PAD1, MRTI_check, MRTI_update and PAD2 of SENSF_RES: FFFFFFFFFFFFFFFF\n\n   ~ [Param_33] ~  \n    * ID: LF_T3T_MAX (52)\n    * Len: 1\n    * Val: 16\n\n   ~ [Param_34] ~  \n    * ID: LF_T3T_FLAGS (53)\n    * Len: 2\n    * Val: 00000011 10000000 (0380)\n     ~ LF_T3T_IDENTIFIERS_1:   Enabled\n     ~ LF_T3T_IDENTIFIERS_2:   Enabled\n     ~ LF_T3T_IDENTIFIERS_3:   Disabled\n     ~ LF_T3T_IDENTIFIERS_4:   Disabled\n     ~ LF_T3T_IDENTIFIERS_5:   Disabled\n     ~ LF_T3T_IDENTIFIERS_6:   Disabled\n     ~ LF_T3T_IDENTIFIERS_7:   Disabled\n     ~ LF_T3T_IDENTIFIERS_8:   Disabled\n     ~ LF_T3T_IDENTIFIERS_9:   Disabled\n     ~ LF_T3T_IDENTIFIERS_10:  Disabled\n     ~ LF_T3T_IDENTIFIERS_11:  Disabled\n     ~ LF_T3T_IDENTIFIERS_12:  Disabled\n     ~ LF_T3T_IDENTIFIERS_13:  Disabled\n     ~ LF_T3T_IDENTIFIERS_14:  Disabled\n     ~ LF_T3T_IDENTIFIERS_15:  Disabled\n     ~ LF_T3T_IDENTIFIERS_16:  Enabled\n\n   ~ [Param_35] ~  \n    * ID: LF_T3T_RD_ALLOWED (55)\n    * Len: 1\n    * Val: 01\n     ~ The NFCC MAY include RD bytes in its SENSF_RES if it receives a SENSF_REQ with RC set to 0x02.\n\n   ~ [Param_36] ~  \n    * ID: LF_PROTOCOL_TYPE (50)\n    * Len: 1\n    * Val: 00000010 (02)\n     ~ NFC-DEP Protocol: Supported\n\n   ~ [Param_37] ~  \n    * ID: LI_A_RATS_TB1 (58)\n    * Len: 1\n    * Val: 70\n     ~ RATS Response Interface Byte TB(1) (defined in [DIGITAL]).\n\n   ~ [Param_38] ~  \n    * ID: LI_A_HIST_BY (59)\n    * Len: 2\n    * Val: 8000\n     ~ Historical Bytes (only applicable for Type 4A Tag) (defined in [DIGITAL]).\n\n   ~ [Param_39] ~  \n    * ID: LI_B_H_INFO_RESP (5A)\n    * Len: 1\n    * Val: 00\n     ~ Higher Layer – Response field of the ATTRIB response (defined in [DIGITAL]).\n\n   ~ [Param_40] ~  \n    * ID: LI_A_RATS_TC1 (5C)\n    * Len: 1\n    * Val: 00000010 (02)\n     ~ If set to 1b DID MAY be used. Otherwise it SHALL NOT be used. (1)\n\n   ~ [Param_41] ~  \n    * ID: LN_WT (60)\n    * Len: 1\n    * Val: 14 (0E)\n     ~ Waiting Time defined in [DIGITAL]: RWT = 256*16/fc * 2^WT = 4949.031 ms\n\n   ~ [Param_42] ~  \n    * ID: LN_ATR_RES_GEN_BYTES (61)\n    * Len: 3\n    * Val: 46666D\n     ~ General Bytes in ATR_RES (defined in [DIGITAL]).\n\n   ~ [Param_43] ~  \n    * ID: RF_FIELD_INFO (80)\n    * Len: 1\n    * Val: 01\n     ~ RF_FIELD_INFO_NTF: Enabled\n\n   ~ [Param_44] ~  \n    * ID: RF_NFCEE_ACTION (81)\n    * Len: 1\n    * Val: 00\n     ~ RF_NFCEE_ACTION_NTF: Disabled\n\n   ~ [Param_45] ~  \n    * ID: NFCDEP_OP (82)\n    * Len: 1\n    * Val: 00011111 (1F)\n     ~ Waiting Time: <= 10\n     ~ All PDUs indicating chaining (MI bit set) SHALL use the maximum number of Transport Data Bytes.\n     ~ Info PDU with no Transport Data Bytes SHALL NOT be sent.\n     ~ NFC-DEP Initiator SHALL use the ATTENTION command only as the error recovery procedure described in [DIGITAL].\n     ~ NFC-DEP Target SHALL NOT send RTOX requests.\n\n   ~ [Param_46] ~  \n    * ID: LLCP_VERSION (83)\n    * Len: 1\n    * Val: 1.1 (11)\n\n   ~ [Param_47] ~  \n    * ID: NFCC_CONFIG_CONTROL (85)\n    * Len: 1\n    * Val: 00000001 (01)\n     ~ NFCC is allowed to manage RF config.\n\n   ~ [Param_48] ~  \n    * ID: Reserved (A0)\n    * Len: 1\n    * Val: 55\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 03 32 00 10 03 01 01 08 01 00 11 01 02 28 01 01 28 01 05 52 01 11 55 01 00 55 01 07 80 01 00 80 01 05 81 01 01 81 01 03 82 01 00 85 01 00 13 01 00 32 01 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 16\n\n   ~ [Param_0] ~  \n    * ID: POWER_STATE (03)\n    * Len: 1\n    * Val: 01\n     ~ RFU\n\n   ~ [Param_1] ~  \n    * ID: PA_BAIL_OUT (08)\n    * Len: 1\n    * Val: 00\n     ~ Bail out when NFC-A Technology has been detected: Not apply\n\n   ~ [Param_2] ~  \n    * ID: PB_BAIL_OUT (11)\n    * Len: 1\n    * Val: 02\n     ~ Bail out when NFC-B Technology has been detected: RFU\n\n   ~ [Param_3] ~  \n    * ID: PN_NFC_DEP_PSL (28)\n    * Len: 1\n    * Val: 01\n     ~ Bit Rates and Length Reduction: Maintain\n\n   ~ [Param_4] ~  \n    * ID: PN_NFC_DEP_PSL (28)\n    * Len: 1\n    * Val: 05\n     ~ Bit Rates and Length Reduction: RFU\n\n   ~ [Param_5] ~  \n    * ID: LF_T3T_MAX (52)\n    * Len: 1\n    * Val: RFU (11)\n\n   ~ [Param_6] ~  \n    * ID: LF_T3T_RD_ALLOWED (55)\n    * Len: 1\n    * Val: 00\n     ~ The NFCC SHALL NOT include RD bytes in its SENSF_RES if it receives a SENSF_REQ with RC set to 0x02.\n\n   ~ [Param_7] ~  \n    * ID: LF_T3T_RD_ALLOWED (55)\n    * Len: 1\n    * Val: RFU (07)\n\n   ~ [Param_8] ~  \n    * ID: RF_FIELD_INFO (80)\n    * Len: 1\n    * Val: 00\n     ~ RF_FIELD_INFO_NTF: Disabled\n\n   ~ [Param_9] ~  \n    * ID: RF_FIELD_INFO (80)\n    * Len: 1\n    * Val: RFU (05)\n\n   ~ [Param_10] ~  \n    * ID: RF_NFCEE_ACTION (81)\n    * Len: 1\n    * Val: 01\n     ~ RF_NFCEE_ACTION_NTF: Enabled\n\n   ~ [Param_11] ~  \n    * ID: RF_NFCEE_ACTION (81)\n    * Len: 1\n    * Val: RFU (03)\n\n   ~ [Param_12] ~  \n    * ID: NFCDEP_OP (82)\n    * Len: 1\n    * Val: 00000000 (00)\n     ~ Waiting Time: <= WT_(NFCDEP,MAX)\n\n   ~ [Param_13] ~  \n    * ID: NFCC_CONFIG_CONTROL (85)\n    * Len: 1\n    * Val: 00000000 (00)\n     ~ NFCC is not allowed to manage RF config.\n\n   ~ [Param_14] ~  \n    * ID: PB_SENSB_REQ_PARAM (13)\n    * Len: 1\n    * Val: 00000000 (00)\n     ~ Extended SENSB_RES: Not support\n\n   ~ [Param_15] ~  \n    * ID: LA_SEL_INFO (32)\n    * Len: 1\n    * Val: 00000000 (00)\n     ~ NFC-DEP Protocol: Not supported\n     ~ ISO-DEP Protocol: Not supported\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 03 1A 00 08 18 01 85 21 01 FF 3E 01 20 3C 01 08 3C 01 00 38 01 00 50 01 00 5C 01 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 8\n\n   ~ [Param_0] ~  \n    * ID: PF_BIT_RATE (18)\n    * Len: 1\n    * Val: For proprietary use (85)\n\n   ~ [Param_1] ~  \n    * ID: PI_BIT_RATE (21)\n    * Len: 1\n    * Val: RFU (FF)\n\n   ~ [Param_2] ~  \n    * ID: LB_BIT_RATE (3E)\n    * Len: 1\n    * Val: 26 Kbit/s (20)\n\n   ~ [Param_3] ~  \n    * ID: LB_FWI_ADC_FO (3C)\n    * Len: 1\n    * Val: 00001000 (08)\n     ~ Frame Waiting time Integer: 0 (0000)\n     ~ b3 of ADC Coding field of SENSB_RES (Byte 12) as defined in [DIGITAL] (1)\n     ~ If set to 1b DID MAY be used. Otherwise it SHALL NOT be used. (0)\n\n   ~ [Param_4] ~  \n    * ID: LB_FWI_ADC_FO (3C)\n    * Len: 1\n    * Val: 00000000 (00)\n     ~ Frame Waiting time Integer: 0 (0000)\n     ~ b3 of ADC Coding field of SENSB_RES (Byte 12) as defined in [DIGITAL] (0)\n     ~ If set to 1b DID MAY be used. Otherwise it SHALL NOT be used. (0)\n\n   ~ [Param_5] ~  \n    * ID: LB_SENSB_INFO (38)\n    * Len: 1\n    * Val: 00000000 (00)\n     ~ ISO-DEP Protocol: Not supported\n\n   ~ [Param_6] ~  \n    * ID: LF_PROTOCOL_TYPE (50)\n    * Len: 1\n    * Val: 00000000 (00)\n     ~ NFC-DEP Protocol: Not supported\n\n   ~ [Param_7] ~  \n    * ID: LI_A_RATS_TC1 (5C)\n    * Len: 1\n    * Val: 00000000 (00)\n     ~ If set to 1b DID MAY be used. Otherwise it SHALL NOT be used. (0)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 03 08 00 02 60 01 04 60 01 0F",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 2\n\n   ~ [Param_0] ~  \n    * ID: LN_WT (60)\n    * Len: 1\n    * Val: 4 (04)\n     ~ Waiting Time defined in [DIGITAL]: RWT = 256*16/fc * 2^WT = 4.833 ms\n\n   ~ [Param_1] ~  \n    * ID: LN_WT (60)\n    * Len: 1\n    * Val: 15 (0F)\n     ~ Waiting Time defined in [DIGITAL]: RFU (WT > 14)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 03 0E 00 04 84 01 00 9F 01 01 FE 01 02 05 01 03",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 4\n\n   ~ [Param_0] ~  \n    * ID: RFU (84)\n    * Len: 1\n    * Val: 00\n\n   ~ [Param_1] ~  \n    * ID: RFU (9F)\n    * Len: 1\n    * Val: 01\n\n   ~ [Param_2] ~  \n    * ID: Reserved (FE)\n    * Len: 1\n    * Val: 02\n\n   ~ [Param_3] ~  \n    * ID: RFU (05)\n    * Len: 1\n    * Val: 03\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 03 0B 00 03 00 00 02 00 4F 03 12 34 56",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 3\n\n   ~ [Param_0] ~  \n    * ID: TOTAL_DURATION (00)\n    * Len: 0\n\n   ~ [Param_1] ~  \n    * ID: CON_DISCOVERY_PARAM (02)\n    * Len: 0\n\n   ~ [Param_2] ~  \n    * ID: LF_T3T_IDENTIFIERS_16 (4F)\n    * Len: 3\n    * Val: 123456\n     ~ System Code of T3T Emulation: 1234\n     ~ NFCID2 for the T3T Platform: 56\n     ~ PAD0, PAD1, MRTI_check, MRTI_update and PAD2 of SENSF_RES: \n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 03 02 05 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_GET_CONFIG_RSP >>  \n  * Status: STATUS_SYNTAX_ERROR (05)\n  * Number of Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 02 0B 03 A0 02 11 22 4F 01 AB 2A 01 10",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_SET_CONFIG_CMD >>  \n  * Number of Params: 3\n\n   ~ [Param_0] ~  \n    * ID: Reserved (A0)\n    * Len: 2\n    * Val: 1122\n\n   ~ [Param_1] ~  \n    * ID: LF_T3T_IDENTIFIERS_16 (4F)\n    * Len: 1\n    * Val: AB\n     ~ System Code of T3T Emulation: AB\n     ~ NFCID2 for the T3T Platform: \n     ~ PAD0, PAD1, MRTI_check, MRTI_update and PAD2 of SENSF_RES: \n\n   ~ [Param_2] ~  \n    * ID: PN_ATR_REQ_CONFIG (2A)\n    * Len: 1\n    * Val: 00010000 (10)\n     ~ NOTE: Needs to be always set to 0x30 for LLCP\n     ~ Value for LR: 01\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 02 02 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_SET_CONFIG_RSP >>  \n  * Status: STATUS_OK (00)\n  * Number of Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 02 04 09 02 A5 FF",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_SET_CONFIG_RSP >>  \n  * Status: STATUS_INVALID_PARAM (09)\n  * Number of Params: 2\n  * Set Param ID:\n    * ID 0: Reserved (A5)\n    * ID 1: RFU (FF)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 03 01 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_GET_CONFIG_CMD >>  \n  * Number of Params: 0\n  * Get Param ID:\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 03 04 03 04 A0 85",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_GET_CONFIG_CMD >>  \n  * Number of Params: 3\n  * Get Param ID:\n    * ID 0: RFU (04)\n    * ID 1: Reserved (A0)\n    * ID 2: NFCC_CONFIG_CONTROL (85)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "60 00 05 00 01 10 37 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_RESET_NTF >>  \n  * Reset Trigger: Unrecoverable error occurred in the NFCC (00)\n  * Config Status: Reset Config (01)\n  * NCI Version: 1.0 (10)\n  * Manufacturer ID: 37\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "60 00 06 02 00 11 00 01 FF",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_RESET_NTF >>  \n  * Reset Trigger: CORE_RESET_CMD (02)\n  * Config Status: Keep Config (00)\n  * NCI Version: 1.1 (11)\n  * Manufacturer ID: Info is not available.\n  * Manufacturer Specific Info: FF\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 00 01 05",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_RESET_CMD >>  \n  * Reset Type: RFU (05)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 01 18 00 FF FF FF FF 0F 20 00 1F FE 05 FC 00 03 02 01 00 80 03 01 01 02 00 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_INIT_RSP >>  \n  * Status: STATUS_OK (00)\n  * NFCC Features: FFFFFFFF\n\n    * Octet 0: 11111111\n     ~ Active Communication Mode:       Support\n     ~ HCI Network Support:             Implements as defined in [ETSI_102622]\n     ~ Discovery Cfg Mode:              RFU\n     ~ Discovery Freq Cfg:              Supported in RF_DISCOVER_CMD\n\n    * Octet 1: 11111111\n     ~ Forced NFCEE routing:            Support\n     ~ APDU Pattern based routing:      Support\n     ~ System Code based routing:       Support\n     ~ AID based routing:               Support\n     ~ Protocol based routing:          Support\n     ~ Technology based routing:        Support\n\n    * Octet 2: 11111111\n     ~ RF Cfg in Switched Off State:    Support\n     ~ Switched On Sub-Mode States:     Support\n     ~ Switched Off State:              Support\n     ~ Battery Off State:               Support\n\n    * Octet 3: 11111111 -- Proprietary\n\n  * Max Logical Connections: RFU (0F)\n  * Max Routing Table Size: 32 (2000)\n  * Max Control Packet Payload Size: Invalid size (1F)\n  * Max Data Packet Payload Size of the Static HCI Connection: 254 (FE)\n  * Number of Credits of the Static HCI Connection: 5 (05)\n  * Max NFC-V RF Frame Size: 252 (FC00)\n  * Number of Supported RF Interfaces: 3\n  * Supported RF Interface: 02010080030101020000\n\n   ~ [RF_IF_0] ~  \n    * Interface: ISO-DEP (02)\n    * Number of Extensions: 1\n    * Extension 0: Frame Aggregated RF Interface Extension (00)\n\n   ~ [RF_IF_1] ~  \n    * Interface: For proprietary use (80)\n    * Number of Extensions: 3\n    * Extension 0: LLCP Symmetry RF Interface Extension (01)\n    * Extension 1: LLCP Symmetry RF Interface Extension (01)\n    * Extension 2: RFU (02)\n\n   ~ [RF_IF_2] ~  \n    * Interface: NFCEE Direct (00)\n    * Number of Extensions: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 01 12 03 00 00 00 00 0E 00 00 20 00 00 00 00 01 01 02 01 02",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_INIT_RSP >>  \n  * Status: STATUS_FAILED (03)\n  * NFCC Features: 00000000\n\n    * Octet 0: 00000000\n     ~ Active Communication Mode:       Not support\n     ~ HCI Network Support:             Not implement\n     ~ Discovery Cfg Mode:              The DH is the only entity that configs the NFCC.\n     ~ Discovery Freq Cfg:              Ignored in RF_DISCOVER_CMD\n\n    * Octet 1: 00000000\n     ~ Forced NFCEE routing:            Not support\n     ~ APDU Pattern based routing:      Not support\n     ~ System Code based routing:       Not support\n     ~ AID based routing:               Not support\n     ~ Protocol based routing:          Not support\n     ~ Technology based routing:        Not support\n\n    * Octet 2: 00000000\n     ~ RF Cfg in Switched Off State:    Not support\n     ~ Switched On Sub-Mode States:     Not support\n     ~ Switched Off State:              Not support\n     ~ Battery Off State:               Not support\n\n    * Octet 3: 00000000 -- Proprietary\n\n  * Max Logical Connections: 14 (0E)\n  * Max Routing Table Size: 0 (0000)\n  * Max Control Packet Payload Size: 32 (20)\n  * Max Data Packet Payload Size of the Static HCI Connection: 0 (00)\n  * Number of Credits of the Static HCI Connection: 0 (00)\n  * Max NFC-V RF Frame Size: 0 (0000)\n  * Number of Supported RF Interfaces: 1\n  * Supported RF Interface: 01020102\n\n   ~ [RF_IF_0] ~  \n    * Interface: Frame (01)\n    * Number of Extensions: 2\n    * Extension 0: LLCP Symmetry RF Interface Extension (01)\n    * Extension 1: RFU (02)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 04 02 01 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_CONN_CREATE_CMD >>  \n  * Destination Type: NFCC Loopback (01)\n  * Number of Destination-specific Params: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 04 0E 03 03 01 02 00 01 01 02 FF 05 01 02 10 03",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_CONN_CREATE_CMD >>  \n  * Destination Type: NFCEE (03)\n  * Number of Destination-specific Params: 3\n\n   ~ [Dest-spec Parameter_0] ~  \n    * Type: NFCEE ID + NFCEE Interface Protocol (01)\n    * Len: 2\n    * Val: 0001\n      * NFCEE ID: DH-NFCEE (00)\n      * NFCEE Interface Protocol: RFU (01)\n\n   ~ [Dest-spec Parameter_1] ~  \n    * Type: NFCEE ID + NFCEE Interface Protocol (01)\n    * Len: 2\n    * Val: FF05\n      * NFCEE ID: RFU (FF)\n      * NFCEE Interface Protocol: RFU (05)\n\n   ~ [Dest-spec Parameter_2] ~  \n    * Type: NFCEE ID + NFCEE Interface Protocol (01)\n    * Len: 2\n    * Val: 1003\n      * NFCEE ID: NFCEE (10)\n      * NFCEE Interface Protocol: Transparent (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 04 0E 02 03 00 02 00 01 00 02 FF 02 00 02 7F 80",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_CONN_CREATE_CMD >>  \n  * Destination Type: Remote NFC Endpoint (02)\n  * Number of Destination-specific Params: 3\n\n   ~ [Dest-spec Parameter_0] ~  \n    * Type: RF Discovery ID + RF Protocol (00)\n    * Len: 2\n    * Val: 0001\n      * RF Discovery ID: RFU (00)\n      * RF Protocol: T1T (01)\n\n   ~ [Dest-spec Parameter_1] ~  \n    * Type: RF Discovery ID + RF Protocol (00)\n    * Len: 2\n    * Val: FF02\n      * RF Discovery ID: RFU (FF)\n      * RF Protocol: T2T (02)\n\n   ~ [Dest-spec Parameter_2] ~  \n    * Type: RF Discovery ID + RF Protocol (00)\n    * Len: 2\n    * Val: 7F80\n      * RF Discovery ID: Dynamically assigned by the NFCC (7F)\n      * RF Protocol: For proprietary use (80)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 04 07 00 02 05 01 AA A0 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_CONN_CREATE_CMD >>  \n  * Destination Type: RFU (00)\n  * Number of Destination-specific Params: 2\n\n   ~ [Dest-spec Parameter_0] ~  \n    * Type: RFU (05)\n    * Len: 1\n    * Val: AA\n      ~ Type 05: RFU\n\n   ~ [Dest-spec Parameter_1] ~  \n    * Type: RFU (A0)\n    * Len: 0\n    * Val: \n      ~ Type A0: For proprietary use\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 04 04 00 20 05 01",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_CONN_CREATE_RSP >>  \n  * Status: STATUS_OK (00)\n  * Max Data Packet Payload Size: 32\n  * Initial Number of Credits: 5\n  * Conn ID: 1 (Static: DH -- HCI Network)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 04 04 03 FF 00 0F",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_CONN_CREATE_RSP >>  \n  * Status: STATUS_FAILED (03)\n  * Max Data Packet Payload Size: 255\n  * Initial Number of Credits: 0\n  * Conn ID: 15 (Dynamically assigned by the NFCC)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 05 01 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_CONN_CLOSE_CMD >>  \n  * Conn ID: 0 (Static: DH -- Remote NFC Endpoint)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 05 01 11",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_CONN_CLOSE_CMD >>  \n  * Conn ID: 1 (Static: DH -- HCI Network)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "60 06 01 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_CONN_CREDITS_NTF >>  \n  * Number of Entries: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "60 06 05 02 01 FF 0E 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_CONN_CREDITS_NTF >>  \n  * Number of Entries: 2\n\n   ~ [Entry_0] ~  \n    * Conn ID: 1 (Static: DH -- HCI Network)\n    * Credits: 255\n\n   ~ [Entry_1] ~  \n    * Conn ID: 14 (Dynamically assigned by the NFCC)\n    * Credits: 0\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "60 08 02 09 01",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_INTERFACE_ERROR_NTF >>  \n  * Status: STATUS_INVALID_PARAM (09)\n  * Conn ID: 1 (Static: DH -- HCI Network)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 09 01 00",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_SET_POWER_SUB_STATE_CMD >>  \n  * Power State: Switched On State\n    * Screen: On\n    * Device: Unlocked\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 09 01 01",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_SET_POWER_SUB_STATE_CMD >>  \n  * Power State: Switched On Sub-State 1\n    * Screen: Off\n    * Device: Unlocked\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 09 01 02",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_SET_POWER_SUB_STATE_CMD >>  \n  * Power State: Switched On Sub-State 2\n    * Screen: On\n    * Device: Locked\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "20 09 01 04",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_SET_POWER_SUB_STATE_CMD >>  \n  * Power State: RFU (04)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "40 09 01 03",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_SET_POWER_SUB_STATE_RSP >>  \n  * Status: STATUS_FAILED (03)\n#end\n",
+  "error": null
+ },
+ {
+  "vendor": "None",
+  "hex": "60 07 01 E0",
+  "prev": [],
+  "source": "golden_inputs/forum20_core.json",
+  "output": "  << CORE_GENERIC_ERROR_NTF >>  \n  * Status: RFU (E0)\n#end\n",
+  "error": null
+ }
+]
