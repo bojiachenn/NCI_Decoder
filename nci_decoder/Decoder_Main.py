@@ -3,6 +3,15 @@ import importlib
 import vendor_registry
 
 
+def reset_state(vendor):
+	# Restore the vendor package's cross-packet state (if it keeps any) so that
+	# decoding one log file doesn't affect the next one.
+	pkg = importlib.import_module(vendor_registry.resolve(vendor).ctrl_module)
+	reset = getattr(pkg, "reset_state", None)
+	if callable(reset):
+		reset()
+
+
 def NFC_NCI_DECODER(len, string, vendor, model, mode):
 	pkg = importlib.import_module(vendor_registry.resolve(vendor).ctrl_module)
 

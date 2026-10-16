@@ -71,3 +71,25 @@ def test_unknown_raw_data_fallback():
     # framing check.
     out = decode("FFFFFFFF", vendor="None")
     assert "Unknown raw data" in out
+
+
+# --- reset_state ------------------------------------------------------
+
+def test_reset_state_nxp_restores_import_time_globals():
+    import importlib
+    from nci_decoder import Decoder_Main
+    ctrl = importlib.import_module("Nxp_pkg.__ctrl__")
+    prop = importlib.import_module("Nxp_pkg.Proprietary")
+    core = importlib.import_module("Nxp_pkg.NCI_Core")
+    ctrl.HDLL_CMD = "F1"
+    prop.PWR_MODE_00, prop.TEST_ID_3F, prop.DPC_TYPE, prop.AST_LOOP = "1", "99", "FF", "01"
+    core.RSTN_CFG, core.ULPDET_CFG = "1", "FF"
+    Decoder_Main.reset_state("Nxp")
+    assert ctrl.HDLL_CMD == "00"
+    assert (prop.PWR_MODE_00, prop.TEST_ID_3F, prop.DPC_TYPE, prop.AST_LOOP) == ("0", "32", "02", "00")
+    assert (core.RSTN_CFG, core.ULPDET_CFG) == ("0", "00")
+
+
+def test_reset_state_vendor_without_reset_hook_is_noop():
+    from nci_decoder import Decoder_Main
+    Decoder_Main.reset_state("None")   # nfc_forum_2_0_pkg has no reset_state()

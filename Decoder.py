@@ -128,12 +128,14 @@ def mode_1():
                 filter_key = input().strip() or defult_filter_key
             else:
                 print("\033[32m"+filter_key+"\033[0m")
-            filter_key_list = filter_key.split()
+            filter_key_list = filter_key.split() or [defult_filter_key]
             print("")
 
             for file_path in file_paths:
                 with open(file_path, mode='r', encoding='utf8', errors='ignore') as file: # 
                     lines = file.readlines()
+
+                Decoder_Main.reset_state(config.get("vendor", "None"))    # 每個檔案從初始解碼狀態開始，不沿用前一個檔案的狀態
 
                 print(f"searching \033[32m{decode_key}\033[0m in file: \033[33m{file_path}\033[0m...")
                            
@@ -144,7 +146,7 @@ def mode_1():
                 output_path = os.path.join(output_folder, file_name+'_d.txt')    # 加入路徑
 
                 original_stdout = sys.stdout
-                sys.stdout = open(output_path, 'w')    # Redirect standard output to a text file
+                sys.stdout = open(output_path, 'w', encoding='utf-8')    # Redirect standard output to a text file
 
                 print("File Path: "+file_path)
                 print("Searching Keyword: "+decode_key)
@@ -160,7 +162,7 @@ def mode_1():
 
                     if cand is None:
                         if((filter_key_list[0] == "remain_all") or (any(key.lower() in line.lower() for key in filter_key_list))):
-                            line = line.rstrip().encode("utf8").decode("cp950", "ignore") #
+                            line = line.rstrip()
                             print(line)
                         continue
 
@@ -251,6 +253,9 @@ def mode_2():
             print("")
 
 def main():
+    # exe / pipe 下 console 可能是 cp950，banner 的 kaomoji、框線字元會 UnicodeEncodeError
+    if hasattr(sys.stdout, "reconfigure") and (sys.stdout.encoding or "").lower().replace("-", "") != "utf8":
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     status = load_config("config.json")
     clear_terminal()
     while True:
